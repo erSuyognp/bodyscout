@@ -118,7 +118,9 @@ class ChainModel(SelfModel):
         self.trials = []
         for p0, types in inits:
             res = lambda p, ty=types: ((self._fk(p, Q, ty) - X) * sw).ravel()  # noqa: E731
-            r = least_squares(res, p0, method="lm" if 3 * len(Q) >= len(p0) else "trf", max_nfev=400)
+            # trf, not lm: scipy's MINPACK lm gives different answers for identical inputs depending on
+            # where its work buffers land in memory, which breaks run to run reproducibility
+            r = least_squares(res, p0, method="trf", max_nfev=400)
             cost = float(np.sqrt(np.mean(r.fun ** 2) * 3))
             self.trials.append((cost, "".join(types)))
             if best is None or cost < best[0]:

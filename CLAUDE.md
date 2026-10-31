@@ -33,3 +33,4 @@ If you add a feature that needs ground truth, it belongs in experiments/ or the 
 - Keep comparisons fair: same robots (arm seeds), same motion budget, same scorer, same targets.
 - Report honest numbers. If a baseline wins somewhere, keep it in the slides and explain why.
 - Run `python -m pytest -q` (tests/) and `python demo.py` before saying something works.
+- Runs are deterministic: same seeds give identical output; check with two demo runs and diff before claiming a change is neutral.
