@@ -50,6 +50,25 @@ def test_chain_fits_slide_joints_when_structure_known():
     assert m.tokens() == spec.tokens()
 
 
+def _fit_known_structure(spec, n_motions=40):
+    r = BlackBoxRobot(spec, seed=1)
+    rng = np.random.default_rng(0)
+    Q = rng.uniform(-2, 2, (n_motions, r.n_channels))
+    X = np.array([r.move(q) for q in Q])
+    return ChainModel(r.n_channels, restarts=1).fit(Q, X, patterns=[spec.tokens()]).describe()
+
+
+def test_identifiability_flags_scara_height_but_not_arm_links():
+    from bodyscout.world import random_body
+    scara = _fit_known_structure(random_body(1, "scara"))  # links: horizontal, horizontal, vertical, tip
+    assert scara["identifiable"][2] is False, scara        # height of the vertical link is invisible
+    arm = random_arm(2)                                    # hz hy hy hy hy
+    d = _fit_known_structure(arm)
+    # link 0 (yaw to shoulder) trades off against the unknown base height; every later link is pinned
+    assert d["identifiable"] == [False] + [True] * (arm.n - 1), d
+    assert np.allclose(d["links_m"][1:], arm.links[1:], atol=0.005), (d["links_m"], arm.links)
+
+
 def test_channel_agent_tells_slide_from_hinge():
     from bodyscout.agents import ChannelAgent, Explorer
     from bodyscout.world import random_body

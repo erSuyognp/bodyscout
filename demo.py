@@ -62,7 +62,9 @@ def on_tick(bb, rob, t, events):
             say(rob.motions, f"hypothesizer: maybe the body is {' '.join(p['pattern'])} (from {p['source']})")
         elif art.kind == "champion":
             d = p["describe"]
-            extra = f" structure {' '.join(d['structure'])}, links {d['links_m']} m" if "structure" in d else ""
+            links = ", ".join(f"{v}" if ok else "not identifiable"
+                              for v, ok in zip(d.get("links_m", []), d.get("identifiable", [])))
+            extra = f" structure {' '.join(d['structure'])}, links [{links}] m" if "structure" in d else ""
             say(rob.motions, f"validator crowned {p['family']} model, holdout {p['holdout_mm']:.1f} mm{extra}")
         elif art.kind == "verdict" and not p["crowned"] and not p["replayed"]:
             say(rob.motions, f"validator rejected {p['family']}: failed the replay gate")

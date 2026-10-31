@@ -53,6 +53,11 @@ class ChainModel(SelfModel):
     command unit. The structure (which joints hinge or slide) comes from hypotheses or random restarts."""
 
     family = "chain"
+    NULL_RTOL = 1e-6      # singular values below this fraction of the largest span the null space
+    SAME_TIPS = 1e-6      # metres; the shortest equivalent body must reproduce every training tip
+    NULL_SHARE = 0.25     # a link is suspect when this much of its length direction lies in it
+    PROBE_DL = 0.05       # metres of length change used to probe each link
+    TIP_TOL = 5e-4        # metres; a length change that moves no training tip this far is invisible
 
     def __init__(self, n: int, restarts: int = 6, seed: int = 0, any_types: bool = False):
         self.n = n
@@ -60,7 +65,9 @@ class ChainModel(SelfModel):
         self.rng = np.random.default_rng(seed)
         self.any_types = any_types  # random restarts may guess slides too (body type unknown)
         self.params = None
+        self.report_params = None  # same tips as params, shortest links; for describe() only
         self.types = ["h"] * n
+        self.identifiable = None
 
     def _unpack(self, p):
         offs = p[: 3 * self.n].reshape(self.n, 3)
@@ -126,7 +133,72 @@ class ChainModel(SelfModel):
             if best is None or cost < best[0]:
                 best = (cost, r.x, types)
         self.train_rmse, self.params, self.types = best[0], best[1], list(best[2])
+        # predict and warm start from the raw fit; report links from its shortest equivalent body,
+        # so reporting never changes what the swarm does
+        self.report_params = self._shortest_equivalent(self.params, Q, self._jacobian(self.params, Q))
+        J = self._jacobian(self.report_params, Q)
+        self.identifiable = self._identifiability(Q, J, self._null_basis(J))
         return self
+
+    def _jacobian(self, p, Q):
+        """Data Jacobian of the training tips, by central differences."""
+        h = 1e-6
+        J = np.empty((3 * len(Q), p.size))
+        for k in range(p.size):
+            d = np.zeros_like(p)
+            d[k] = h
+            J[:, k] = (self._fk(p + d, Q, self.types) - self._fk(p - d, Q, self.types)).ravel() / (2 * h)
+        return J
+
+    def _null_basis(self, J):
+        """Columns spanning the directions the data cannot see (singular value < NULL_RTOL * max)."""
+        _, s, vt = np.linalg.svd(J, full_matrices=True)
+        s_all = np.zeros(J.shape[1])
+        s_all[: len(s)] = s
+        return vt[s_all < self.NULL_RTOL * s.max()].T
+
+    def _shortest_equivalent(self, p, Q, J):
+        """Same tips, shortest links. Height between parallel hinges (SCARA, the base under a yaw
+        joint) can sit in any link, so raw fits wander to metre long links. Those trades are exact
+        linear moves of the offsets, so slide the offsets and tip along the null space to the
+        minimum norm point, keep the axes, and accept only if every training tip stays put. Used
+        for reporting only."""
+        off = np.r_[0: 3 * self.n, 6 * self.n: 6 * self.n + 3]
+        # null space of the offset columns alone: an SVD of the full Jacobian mixes these trades
+        # with axis rescalings, and dropping the axis part of such a mix is no longer invisible
+        null_off = self._null_basis(J[:, off])
+        if null_off.shape[1] == 0:
+            return p
+        cand = p.copy()
+        cand[off] = p[off] - null_off @ (null_off.T @ p[off])  # minimum norm point on that subspace
+        if np.abs(self._fk(cand, Q, self.types) - self._fk(p, Q, self.types)).max() > self.SAME_TIPS:
+            return p  # the null space here was not exact; keep the fit as it is
+        return cand
+
+    def _identifiability(self, Q, J, null):
+        """Per reported link: can the training motions pin its length? A link is not identifiable
+        when a real share of its length direction lies in the near null space of the data Jacobian
+        and pushing its length PROBE_DL along it moves no training tip by TIP_TOL. Examples: the
+        height of a SCARA's vertical link, or an arm's first link, which trades off against the
+        unknown base height."""
+        p = self.report_params
+        offs, _, tip = self._unpack(p)
+        links = [(slice(3 * i, 3 * i + 3), offs[i]) for i in range(1, self.n)]
+        links.append((slice(6 * self.n, 6 * self.n + 3), tip))
+        out = []
+        for idx, v in links:
+            grow = np.zeros(p.size)
+            grow[idx] = v / (np.linalg.norm(v) + 1e-12)  # gradient of this link's length
+            move = null @ (null.T @ grow)                 # the part of "grow it" the data cannot see
+            if np.linalg.norm(move) < self.NULL_SHARE:  # length is pinned to first order
+                out.append(True)
+                continue
+            step = move * (self.PROBE_DL / (move @ grow))  # length changes by about PROBE_DL
+            # first order tip change, not a re-run of _fk: weakly seen directions that share the null
+            # space curve away and would make an invisible length look visible
+            shift = np.linalg.norm((J @ step).reshape(-1, 3), axis=1).max()
+            out.append(bool(shift >= self.TIP_TOL))
+        return out
 
     @property
     def warm_state(self):
@@ -144,12 +216,13 @@ class ChainModel(SelfModel):
         return [t + a for t, a in zip(self.types, self.axes_letters())]
 
     def link_lengths(self):
-        offs, _, tip = self._unpack(self.params)
+        offs, _, tip = self._unpack(self.report_params)
         return [float(np.linalg.norm(o)) for o in offs[1:]] + [float(np.linalg.norm(tip))]
 
     def describe(self):
         return {"family": self.family, "axes": self.axes_letters(), "types": list(self.types),
-                "structure": self.tokens(), "links_m": [round(v, 3) for v in self.link_lengths()]}
+                "structure": self.tokens(), "links_m": [round(v, 3) for v in self.link_lengths()],
+                "identifiable": list(self.identifiable or [])}
 
 
 class GMMModel(SelfModel):
