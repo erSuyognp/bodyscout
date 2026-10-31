@@ -1,0 +1,362 @@
+[
+ {
+  "arm": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.8843919627148132
+ },
+ {
+  "arm": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 3.2978557719080754
+ },
+ {
+  "arm": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.4684332392186692
+ },
+ {
+  "arm": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.226540346648559
+ },
+ {
+  "arm": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.6759538370766567
+ },
+ {
+  "arm": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.8445394942335221
+ },
+ {
+  "arm": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.5918004924148529
+ },
+ {
+  "arm": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.6274204677123484
+ },
+ {
+  "arm": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.6942369841956391
+ },
+ {
+  "arm": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.973896264850755
+ },
+ {
+  "arm": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 267.49847137299815
+ },
+ {
+  "arm": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 282.7177498746504
+ },
+ {
+  "arm": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 260.45051368214456
+ },
+ {
+  "arm": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 190.61290778821763
+ },
+ {
+  "arm": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 432.23670343814905
+ },
+ {
+  "arm": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 387.34664337109115
+ },
+ {
+  "arm": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 321.89143700673367
+ },
+ {
+  "arm": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 230.68420233824816
+ },
+ {
+  "arm": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 330.6839680516628
+ },
+ {
+  "arm": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 261.74757009243933
+ },
+ {
+  "arm": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.333784032512861
+ },
+ {
+  "arm": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.6543827533769027
+ },
+ {
+  "arm": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 4.849954061975114
+ },
+ {
+  "arm": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 5.635903652849714
+ },
+ {
+  "arm": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 5.849572109148642
+ },
+ {
+  "arm": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.7921184151727505
+ },
+ {
+  "arm": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 4.171597563308779
+ },
+ {
+  "arm": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 3.764819288895896
+ },
+ {
+  "arm": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.140991390092001
+ },
+ {
+  "arm": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.463786708050827
+ },
+ {
+  "arm": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 410.4588754214851
+ },
+ {
+  "arm": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 281.4334250784413
+ },
+ {
+  "arm": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 283.0458504906536
+ },
+ {
+  "arm": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 359.43554154978085
+ },
+ {
+  "arm": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 264.45563122364865
+ },
+ {
+  "arm": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 440.13277059340356
+ },
+ {
+  "arm": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 230.7776978016726
+ },
+ {
+  "arm": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 225.58317295119855
+ },
+ {
+  "arm": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 209.03090838303456
+ },
+ {
+  "arm": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 397.8729970138242
+ },
+ {
+  "arm": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.699729254372687
+ },
+ {
+  "arm": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 3.2243487773115684
+ },
+ {
+  "arm": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.8281019008696673
+ },
+ {
+  "arm": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 3.428174006407284
+ },
+ {
+  "arm": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.949364908801008
+ },
+ {
+  "arm": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.5128265974342097
+ },
+ {
+  "arm": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.0276976185651718
+ },
+ {
+  "arm": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 3.0229629389037314
+ },
+ {
+  "arm": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.8960903514067062
+ },
+ {
+  "arm": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 3.278357520417416
+ },
+ {
+  "arm": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 360.63755016699616
+ },
+ {
+  "arm": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 458.8149542467517
+ },
+ {
+  "arm": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 480.68684409382337
+ },
+ {
+  "arm": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 426.9982250594167
+ },
+ {
+  "arm": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 559.9199411698032
+ },
+ {
+  "arm": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 459.90938680377036
+ },
+ {
+  "arm": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 404.6432630253047
+ },
+ {
+  "arm": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 461.56131968084827
+ },
+ {
+  "arm": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 193.40386481947914
+ },
+ {
+  "arm": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 202.73852664594222
+ }
+]

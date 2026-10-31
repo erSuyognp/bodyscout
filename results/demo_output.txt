@@ -1,0 +1,37 @@
+
+Unknown robot with 5 unlabeled channels. The swarm sees nothing else.
+
+[motion   4] hypothesizer: maybe axes are zyyyy (from prior)
+[motion   4] hypothesizer: maybe axes are zyyyx (from prior)
+[motion   4] hypothesizer: maybe axes are zyyyz (from prior)
+[motion   4] hypothesizer: maybe axes are zyyxy (from prior)
+[motion  16] validator crowned chain model, holdout 12.3 mm axes zyyyy, links [0.124, 0.079, 0.13, 0.132, 0.096] m
+[motion  20] validator crowned chain model, holdout 6.0 mm axes zyyyy, links [0.165, 0.13, 0.148, 0.184, 0.145] m
+[motion  38] validator crowned chain model, holdout 6.2 mm axes zyyyy, links [0.157, 0.082, 0.129, 0.137, 0.092] m
+[motion  47] validator crowned chain model, holdout 5.6 mm axes zyyyy, links [0.139, 0.086, 0.127, 0.135, 0.125] m
+[motion  51] !! HIDDEN DAMAGE: link 3 replaced with one 60% longer (the swarm is not told)
+[motion  61] monitor: surprise 81 mm > 22 mm, my body changed. New epoch, relearning.
+[motion  65] hypothesizer: maybe axes are zyyyy (from prior)
+[motion  65] hypothesizer: maybe axes are zyyyx (from prior)
+[motion  65] hypothesizer: maybe axes are zyyyz (from prior)
+[motion  65] hypothesizer: maybe axes are zyyxy (from prior)
+[motion  77] validator crowned chain model, holdout 5.6 mm axes zyyyy, links [0.213, 0.105, 0.146, 0.232, 0.215] m
+[motion  95] validator crowned chain model, holdout 6.8 mm axes zyyyy, links [0.129, 0.086, 0.125, 0.213, 0.092] m
+
+Reach error on unseen targets (median, mm):
+     8 motions     nan  (paused: no trusted model yet)
+    16 motions    10.7  #####
+    24 motions     5.6  ##
+    32 motions     5.6  ##
+    40 motions     2.8  #
+    48 motions     2.2  #
+    56 motions    79.1  ##############################
+    64 motions     nan  (paused: no trusted model yet)
+    72 motions     nan  (paused: no trusted model yet)
+    80 motions     5.2  ##
+    88 motions     5.2  ##
+    96 motions     3.4  #
+   104 motions     3.4  #
+
+Provenance DAG written to runs/demo_blackboard.jsonl
+video written to results/demo.mp4

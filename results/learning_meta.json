@@ -1,0 +1,218 @@
+[
+ {
+  "arm": 1,
+  "condition": "swarm",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "y",
+    "x",
+    "z"
+   ],
+   "links_m": [
+    0.088,
+    0.197,
+    0.141,
+    0.096
+   ]
+  }
+ },
+ {
+  "arm": 1,
+  "condition": "single",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "y",
+    "x",
+    "z"
+   ],
+   "links_m": [
+    0.094,
+    0.237,
+    0.401,
+    0.154
+   ]
+  }
+ },
+ {
+  "arm": 1,
+  "condition": "mlp",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "mlp"
+  }
+ },
+ {
+  "arm": 2,
+  "condition": "swarm",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "y",
+    "y",
+    "y",
+    "y"
+   ],
+   "links_m": [
+    0.117,
+    0.156,
+    0.163,
+    0.095,
+    0.096
+   ]
+  }
+ },
+ {
+  "arm": 2,
+  "condition": "single",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "y",
+    "y",
+    "y",
+    "y"
+   ],
+   "links_m": [
+    0.3,
+    0.428,
+    0.534,
+    0.222,
+    0.091
+   ]
+  }
+ },
+ {
+  "arm": 2,
+  "condition": "mlp",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "mlp"
+  }
+ },
+ {
+  "arm": 3,
+  "condition": "swarm",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "y",
+    "y",
+    "y",
+    "y"
+   ],
+   "links_m": [
+    0.139,
+    0.086,
+    0.127,
+    0.135,
+    0.125
+   ]
+  }
+ },
+ {
+  "arm": 3,
+  "condition": "single",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "y",
+    "y",
+    "y",
+    "y"
+   ],
+   "links_m": [
+    0.583,
+    0.259,
+    0.107,
+    0.279,
+    0.679
+   ]
+  }
+ },
+ {
+  "arm": 3,
+  "condition": "mlp",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "mlp"
+  }
+ },
+ {
+  "arm": 4,
+  "condition": "swarm",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "z",
+    "z",
+    "y",
+    "z"
+   ],
+   "links_m": [
+    0.341,
+    0.182,
+    0.349,
+    0.58,
+    0.819
+   ]
+  }
+ },
+ {
+  "arm": 4,
+  "condition": "single",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "z",
+    "z",
+    "y",
+    "z"
+   ],
+   "links_m": [
+    0.27,
+    1.471,
+    2.687,
+    2.527,
+    0.295
+   ]
+  }
+ },
+ {
+  "arm": 4,
+  "condition": "mlp",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "mlp"
+  }
+ }
+]
