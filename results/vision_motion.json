@@ -1,0 +1,36 @@
+{
+ "2 cameras": {
+  "arm": {
+   "n": 200,
+   "accepted": 149,
+   "rejected": 42,
+   "missing": 9,
+   "median_mm": 24.698838843950348,
+   "p90_mm": 87.7435108627914
+  },
+  "gantry": {
+   "n": 200,
+   "accepted": 164,
+   "rejected": 36,
+   "missing": 0,
+   "median_mm": 12.269435826251616,
+   "p90_mm": 68.39060817970308
+  },
+  "scara": {
+   "n": 200,
+   "accepted": 173,
+   "rejected": 27,
+   "missing": 0,
+   "median_mm": 12.594172865679198,
+   "p90_mm": 30.266386844219955
+  },
+  "telescope": {
+   "n": 200,
+   "accepted": 157,
+   "rejected": 41,
+   "missing": 2,
+   "median_mm": 46.609052535857856,
+   "p90_mm": 88.58055315204929
+  }
+ }
+}

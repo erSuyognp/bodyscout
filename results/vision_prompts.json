@@ -1,0 +1,42 @@
+{
+ "tip": {
+  "scara": {
+   "n": 200,
+   "accepted": 139,
+   "rejected": 61,
+   "missing": 0,
+   "median_mm": 201.27516459122737,
+   "p90_mm": 302.795013960869
+  }
+ },
+ "effector": {
+  "scara": {
+   "n": 200,
+   "accepted": 124,
+   "rejected": 76,
+   "missing": 0,
+   "median_mm": 224.27039172142634,
+   "p90_mm": 303.12852363306604
+  }
+ },
+ "chain": {
+  "scara": {
+   "n": 200,
+   "accepted": 122,
+   "rejected": 78,
+   "missing": 0,
+   "median_mm": 224.81883516567177,
+   "p90_mm": 312.2682130418166
+  }
+ },
+ "structure": {
+  "scara": {
+   "n": 200,
+   "accepted": 139,
+   "rejected": 61,
+   "missing": 0,
+   "median_mm": 61.25519763222594,
+   "p90_mm": 299.0510625123172
+  }
+ }
+}

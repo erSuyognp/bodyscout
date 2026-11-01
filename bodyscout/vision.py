@@ -323,6 +323,34 @@ GEMINI_PROMPT_MULTI = ("Point to up to 3 places that could be this robot's end e
 GEMINI_PROMPT_ZOOM = ("This is a close-up crop of a robot. Point to the tip of the robot: the free end of its last "
                       "link. Answer only with JSON: [{\"point\": [y, x], \"label\": \"tip\"}] where y and x are "
                       "normalized to 0-1000 within this crop.")
+GEMINI_PROMPT_EFFECTOR = ("Point to this robot's end effector: the very end of the arm, where a gripper or tool "
+                          "would be mounted. It is the free end of the chain of links that starts at the base on "
+                          "the floor, not a joint in the middle. Answer only with JSON: [{\"point\": [y, x], "
+                          "\"label\": \"end effector\"}] where y and x are normalized to 0-1000.")
+GEMINI_PROMPT_CHAIN = ("Follow this robot's links from its base on the floor, joint by joint, to the free end of the "
+                       "chain. Point to that free end: the end of the last link, the point farthest from the base "
+                       "along the links (not the highest point and not a joint). Answer only with JSON: "
+                       "[{\"point\": [y, x], \"label\": \"free end\"}] where y and x are normalized to 0-1000.")
+
+
+def structure_prompt(tokens) -> str:
+    """A pointing question that uses what the swarm has learned about the body: structure tokens such as
+    ["hz", "hz", "sz", "hz"] (h = rotates, s = slides; axis x, y or z, z = vertical) become a description of
+    the chain from the base, and Gemini is asked for the end of the last link. No geometry (lengths, poses)."""
+    def say(t):
+        kind, ax = t[0], t[1]
+        if ax not in "xyz":
+            return "a joint whose motion could not be seen yet"
+        if kind == "h":
+            return "a joint that rotates about the vertical axis" if ax == "z" else "a joint that rotates about a horizontal axis"
+        return "a joint that slides vertically (up and down)" if ax == "z" else "a joint that slides horizontally"
+    steps = "; ".join(f"{i + 1}) {say(t)}" for i, t in enumerate(tokens))
+    return (f"Starting from its base on the floor, this robot has {len(tokens)} joints in a chain: {steps}. "
+            f"Each joint is followed by a link. Point to the free end of the link after joint {len(tokens)}, the "
+            "very end of the chain where a tool would be mounted. Answer only with JSON: [{\"point\": [y, x], "
+            "\"label\": \"end\"}] where y and x are normalized to 0-1000.")
+
+
 ZOOM = 4  # the crop is (width / ZOOM) x (height / ZOOM) pixels, enlarged ZOOM times before asking
 
 
@@ -517,6 +545,54 @@ class CameraBlackboard(Blackboard):
         return super().post(kind, author, payload, parents)
 
 
+# ---- feedback: what the swarm has learned steers what the camera looks for -------------------------
+class GazeAgent:
+    """Closes the loop between learning and seeing. Watches the board for the body's structure (channel agents'
+    findings, or the crowned chain model's structure), and when it knows more than the camera does, tells the
+    camera what kind of body it is looking at (CameraRobot.look_for: a structure-informed Gemini question), posts
+    a `gaze` artifact citing the findings or champion it used, and opens a new epoch so that readings taken while
+    the camera may have been looking at the wrong part stop counting (the same mechanism as the Monitor's "my
+    body changed"). It changes the camera's question at most `max_switches` times per run.
+
+    Agent rules: it reads only the board; its only robot access is the camera control look_for (no move, no
+    hidden state)."""
+
+    name = "gaze"
+
+    def __init__(self, camera, max_switches: int = 2, min_findings_frac: float = 0.75):
+        self.camera, self.max_switches, self.min_frac = camera, max_switches, min_findings_frac
+        self.switches, self.current = 0, None
+
+    def _structure(self, bb):
+        champs = [a for a in bb.of("champion") if a.payload.get("family") == "chain"]
+        if champs and "structure" in (champs[-1].payload.get("describe") or {}):
+            return list(champs[-1].payload["describe"]["structure"]), [champs[-1].id], "champion"
+        findings = {a.payload["channel"]: a for a in bb.of("finding")}
+        n = self.camera.n_channels
+        if len(findings) >= max(2, int(self.min_frac * n)):
+            toks = []
+            for ch in range(n):
+                f = findings.get(ch)
+                toks.append(f.payload["type"] + f.payload["axis"] if f and f.payload["type"] in "hs" else "h?")
+            return toks, [a.id for a in findings.values()], "findings"
+        return None, [], None
+
+    def step(self, bb, t):
+        if self.switches >= self.max_switches:
+            return False
+        toks, parents, source = self._structure(bb)
+        if not toks or toks == self.current:
+            return False
+        tag = self.camera.look_for(toks)
+        self.current = toks
+        self.switches += 1
+        bb.post("gaze", self.name, {"structure": toks, "source": source, "prompt_tag": tag,
+                                    "switch": self.switches}, parents)
+        bb.new_epoch()  # earlier readings may have tracked the wrong part: relearn from what the camera sees now
+        bb.need("data", self.name, 100.0, why="camera now looks for the end of the learned chain")
+        return True
+
+
 # ---- the camera robot -------------------------------------------------------------------------
 class CameraRobot:
     """Same interface as BlackBoxRobot (move, n_channels, limits), but the tip comes from two cameras.
@@ -577,6 +653,17 @@ class CameraRobot:
             self._tip = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_SITE, "tip")
         self.data.qpos[:] = self.robot._data.qpos
         mujoco.mj_forward(self.model, self.data)
+
+    def look_for(self, tokens) -> str:
+        """Camera control (no hidden information flows back): ask Gemini about a body with this structure from
+        now on (see structure_prompt). Returns the prompt's cache tag."""
+        import hashlib
+        prompt = structure_prompt(tokens)
+        tag = "struct-" + hashlib.sha1(prompt.encode()).hexdigest()[:8]
+        base = self.pointer._root() if hasattr(self.pointer, "_root") else self.pointer
+        self.pointer = base.with_prompt(prompt, tag)
+        self.hint = list(tokens)
+        return tag
 
     def true_tip(self, q=None) -> np.ndarray:
         """Scoring only, never for agents. With q: the hidden robot's noise free tip for command q (what

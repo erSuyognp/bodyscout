@@ -165,3 +165,43 @@ def test_refine_triangulate_n_and_pipelines():
     assert out["same2"]                          # two views: identical to triangulate()
     assert out["kept"] == [0, 1, 3] and out["err_mm"] < 1.0   # the confused third view is outvoted
     assert out["pipelines"] == {"refine": True, "multi": True}
+
+
+@pytest.mark.skipif(not _has_nvidia_gpu(), reason="no NVIDIA GPU present")
+def test_gaze_agent_feedback_loop():
+    code = (
+        "import json\n"
+        "from bodyscout import vision\n"
+        "from bodyscout.blackboard import Blackboard\n"
+        "p = vision.structure_prompt(['hz', 'sz', 'h?'])\n"
+        "class Cam:\n"
+        "    n_channels = 3\n"
+        "    def __init__(self):\n"
+        "        self.asked = []\n"
+        "    def look_for(self, toks):\n"
+        "        self.asked.append(list(toks)); return 'tag'\n"
+        "cam = Cam(); g = vision.GazeAgent(cam, max_switches=2)\n"
+        "bb = Blackboard()\n"
+        "before = g.step(bb, 0)\n"
+        "f0 = bb.post('finding', 'channel-0', {'channel': 0, 'type': 'h', 'axis': 'z'})\n"
+        "f1 = bb.post('finding', 'channel-1', {'channel': 1, 'type': 's', 'axis': 'z'})\n"
+        "f2 = bb.post('finding', 'channel-2', {'channel': 2, 'type': '?', 'axis': '?'})\n"
+        "first = g.step(bb, 1)\n"
+        "gaze = bb.of('gaze', epoch=-1)[0]\n"
+        "bb.post('finding', 'channel-0', {'channel': 0, 'type': 'h', 'axis': 'z'})\n"
+        "bb.post('finding', 'channel-1', {'channel': 1, 'type': 's', 'axis': 'z'})\n"
+        "bb.post('finding', 'channel-2', {'channel': 2, 'type': 'h', 'axis': 'y'})\n"
+        "second = g.step(bb, 2)\n"
+        "bb.post('finding', 'channel-2', {'channel': 2, 'type': 'h', 'axis': 'x'})\n"
+        "third = g.step(bb, 3)\n"
+        "print(json.dumps({'prompt_ok': 'slides vertically' in p and 'could not be seen' in p and 'after joint 3' in p,\n"
+        "    'before': before, 'first': first, 'asked': cam.asked, 'parents': sorted(gaze.parents),\n"
+        "    'finding_ids': sorted([f0.id, f1.id, f2.id]), 'epoch': bb.epoch, 'second': second, 'third': third}))\n")
+    r = _python(code, {"MUJOCO_GL": "egl", "PYOPENGL_PLATFORM": "egl"})
+    assert r.returncode == 0, r.stderr
+    out = json.loads(r.stdout.strip().splitlines()[-1])
+    assert out["prompt_ok"]
+    assert out["before"] is False and out["first"] is True           # nothing to say until channels report
+    assert out["asked"][0] == ["hz", "sz", "h?"]                     # unseen channel stays unknown, not guessed
+    assert out["parents"] == out["finding_ids"]                      # the gaze artifact cites the findings
+    assert out["second"] is True and out["third"] is False and out["epoch"] == 2   # at most 2 switches

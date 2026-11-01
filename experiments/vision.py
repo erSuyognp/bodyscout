@@ -30,10 +30,11 @@ from bodyscout.planning import reach_errors  # noqa: E402
 from bodyscout.swarm import make_swarm  # noqa: E402
 from bodyscout.world import FAMILIES, BlackBoxRobot, random_body, reachable_targets  # noqa: E402
 
-CONDS = ("marker", "color", "gemini", "gemini_plus_drop", "gemini_plus")
+CONDS = ("marker", "color", "gemini", "gemini_plus_drop", "gemini_plus", "gemini_gaze")
 NAMES = {"marker": "marker (no camera)", "color": "two cameras, red marker", "gemini": "two cameras, no marker (Gemini)",
          "gemini_plus_drop": "4 cameras, no marker, improved, drop 1 view",
-         "gemini_plus": "4 cameras, no marker, improved, all views agree"}
+         "gemini_plus": "4 cameras, no marker, improved, all views agree",
+         "gemini_gaze": "no marker, improved + gaze feedback loop"}
 PLUS = {"pipeline": "refine", "cameras": 4, "width": 1280, "height": 960}  # the improved detector (V5)
 R = "results"
 
@@ -54,6 +55,8 @@ def narrate(a) -> str | None:
         return f"{a.author}: camera reading rejected (views disagree or tip hidden)"
     if a.kind == "anomaly":
         return "monitor: my body changed!"
+    if a.kind == "gaze":
+        return f"gaze: camera now looks for the end of a {' '.join(p['structure'])} body ({p['source']}); relearning"
     return None
 
 
@@ -74,7 +77,8 @@ def job(args):
                                        max_calls_per_min=50)  # 8 parallel runs x 50 = the 400/min spend rule
         kw = {} if cond == "gemini" else {"pipeline": plus["pipeline"], "width": plus["width"], "height": plus["height"],
                                           "cameras": vision.CAMERAS4 if plus["cameras"] == 4 else vision.CAMERAS,
-                                          "drop_views": cond == "gemini_plus_drop"}
+                                          "drop_views": cond == "gemini_plus_drop" or
+                                                        (cond == "gemini_gaze" and plus.get("gaze_drop", False))}
         sensor = vision.CameraRobot(robot, detector="gemini", markerless=True, cache=cache, pointer=pointer, **kw)
     frames = []
     if record and cond != "marker":
@@ -93,6 +97,8 @@ def job(args):
             return x
         sensor.move = recorded_move
     agents = make_swarm(sensor, seed, use_llm=False, channels=True)
+    if cond == "gemini_gaze":  # the feedback loop: the swarm's structure steers what the camera looks for
+        agents.append(vision.GazeAgent(sensor))
     bb, rng = vision.CameraBlackboard(), np.random.default_rng(seed)
     captions, seen = [], 0
     for t in range(max_ticks):
@@ -116,7 +122,8 @@ def job(args):
            "observations": len(bb.of("observation", epoch=-1)), "bad_observations": len(bb.of("bad_observation", epoch=-1)),
            "alarms": len(bb.of("anomaly", epoch=-1)), "gemini_calls": pointer.calls if pointer else 0,
            "gemini_errors": pointer.errors if pointer else 0, "seconds": round(time.time() - t0, 1),
-           "setup": None if cond in ("marker", "color", "gemini") else {**plus, "drop_views": cond == "gemini_plus_drop"}}
+           "setup": None if cond in ("marker", "color", "gemini") else {**plus, "drop_views": cond == "gemini_plus_drop"},
+           "gaze": [a.payload for a in bb.of("gaze", epoch=-1)]}
     if cond != "marker":
         sensor.close()
     return row, {"cond": cond, "frames": frames, "captions": captions} if record else None
@@ -125,7 +132,7 @@ def job(args):
 # ---- figure, summary, video --------------------------------------------------------------------
 INK, QUIET, GRID, SURF = "#0b0b0b", "#52514e", "#e4e3df", "#fcfcfb"
 COL = {"marker": "#2a78d6", "color": "#eb6834", "gemini": "#1baf7a", "gemini_plus_drop": "#eda100",
-       "gemini_plus": "#e87ba4"}  # validated (dataviz), fixed order
+       "gemini_plus": "#e87ba4", "gemini_gaze": "#008300"}  # validated (dataviz), fixed order
 
 
 def make_figure(rows):
@@ -312,13 +319,14 @@ if __name__ == "__main__":
     ap.add_argument("--plus-pipeline", default=PLUS["pipeline"], choices=["point", "refine", "zoom", "multi"])
     ap.add_argument("--plus-cameras", type=int, default=PLUS["cameras"], choices=[2, 4])
     ap.add_argument("--plus-res", default=f"{PLUS['width']}x{PLUS['height']}")
+    ap.add_argument("--gaze-drop", action="store_true", help="gaze condition: drop one disagreeing view (default strict)")
     ap.add_argument("--out", default=R)
     ap.add_argument("--video-seconds", type=int, default=20)
     ap.add_argument("--plot", action="store_true", help="figure, summary and videos from saved results, no runs")
     a = ap.parse_args()
     R = a.out
     w, h = (int(x) for x in a.plus_res.split("x"))
-    plus = {"pipeline": a.plus_pipeline, "cameras": a.plus_cameras, "width": w, "height": h}
+    plus = {"pipeline": a.plus_pipeline, "cameras": a.plus_cameras, "width": w, "height": h, "gaze_drop": a.gaze_drop}
     t0 = time.time()
     path_json = f"{R}/vision_swarm.json"
     saved = json.load(open(path_json)) if os.path.exists(path_json) else {"rows": []}
@@ -343,16 +351,17 @@ if __name__ == "__main__":
     old = re.split(r"\n## Swarm learns from cameras .*", old, maxsplit=1, flags=re.S)[0].rstrip() + "\n\n"
     open(path, "w").write(old + "\n".join(summary_section(rows, a.budget, a.seeds)))
     recs = {}
-    for c in ("color", "gemini", "gemini_plus_drop", "gemini_plus"):
+    for c in ("color", "gemini", "gemini_plus_drop", "gemini_plus", "gemini_gaze"):
         f = f"runs/vision/video_{c}.json"
         if os.path.exists(f):
             recs[c] = json.load(open(f))
     titles = {"color": "two cameras, red marker", "gemini": "no marker: Gemini points once, 2 cameras",
               "gemini_plus_drop": "no marker: improved Gemini, 4 cameras, drop 1 view",
-              "gemini_plus": "no marker: improved Gemini, 4 cameras, all views agree"}
+              "gemini_plus": "no marker: improved Gemini, 4 cameras, all views agree",
+              "gemini_gaze": "no marker: improved Gemini + gaze feedback loop"}
     for c, rec in recs.items():
         name = {"color": "vision_demo_marker", "gemini": "vision_demo_gemini", "gemini_plus_drop": "vision_demo_gemini_plus_drop",
-                "gemini_plus": "vision_demo_gemini_plus"}[c]
+                "gemini_plus": "vision_demo_gemini_plus", "gemini_gaze": "vision_demo_gaze"}[c]
         make_video(rec, f"{R}/{name}.mp4", titles[c], seconds=a.video_seconds)
     make_compare_video(recs, f"{R}/vision_compare.mp4", seconds=a.video_seconds)
     print("\n".join(summary_section(rows, a.budget, a.seeds)))

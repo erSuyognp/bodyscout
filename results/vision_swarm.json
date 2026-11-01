@@ -3,7 +3,7 @@
   "seeds": 2,
   "budget": 64,
   "max_ticks": 400,
-  "procs": 12,
+  "procs": 8,
   "video_family": "scara",
   "families": [
    "arm",
@@ -12,12 +12,12 @@
    "telescope"
   ],
   "conds": [
-   "color",
-   "gemini"
+   "gemini_gaze"
   ],
   "plus_pipeline": "refine",
   "plus_cameras": 4,
   "plus_res": "1280x960",
+  "gaze_drop": false,
   "out": "results",
   "video_seconds": 20,
   "plot": false
@@ -26,7 +26,8 @@
   "pipeline": "refine",
   "cameras": 4,
   "width": 1280,
-  "height": 960
+  "height": 960,
+  "gaze_drop": false
  },
  "rows": [
   {
@@ -1255,6 +1256,386 @@
    "gemini_errors": 0,
    "seconds": 355.3,
    "setup": null
+  },
+  {
+   "family": "arm",
+   "seed": 1,
+   "condition": "gemini_gaze",
+   "motions": 65,
+   "ticks": 10,
+   "structure_truth": [
+    "hz",
+    "hy",
+    "hx",
+    "hz"
+   ],
+   "structure_found": [
+    "hz",
+    "hy",
+    "hx",
+    "hz"
+   ],
+   "structure_correct": true,
+   "reach_mm": 6.510981232377719,
+   "champion_family": "chain",
+   "observations": 53,
+   "bad_observations": 12,
+   "alarms": 0,
+   "gemini_calls": 148,
+   "gemini_errors": 0,
+   "seconds": 343.2,
+   "setup": {
+    "pipeline": "refine",
+    "cameras": 4,
+    "width": 1280,
+    "height": 960,
+    "gaze_drop": false,
+    "drop_views": false
+   },
+   "gaze": [
+    {
+     "structure": [
+      "hz",
+      "hy",
+      "hx",
+      "hz"
+     ],
+     "source": "champion",
+     "prompt_tag": "struct-68a358db",
+     "switch": 1
+    }
+   ]
+  },
+  {
+   "family": "arm",
+   "seed": 2,
+   "condition": "gemini_gaze",
+   "motions": 64,
+   "ticks": 8,
+   "structure_truth": [
+    "hz",
+    "hy",
+    "hy",
+    "hy",
+    "hy"
+   ],
+   "structure_found": null,
+   "structure_correct": false,
+   "reach_mm": null,
+   "champion_family": null,
+   "observations": 52,
+   "bad_observations": 12,
+   "alarms": 0,
+   "gemini_calls": 176,
+   "gemini_errors": 0,
+   "seconds": 346.2,
+   "setup": {
+    "pipeline": "refine",
+    "cameras": 4,
+    "width": 1280,
+    "height": 960,
+    "gaze_drop": false,
+    "drop_views": false
+   },
+   "gaze": [
+    {
+     "structure": [
+      "hz",
+      "hy",
+      "h?",
+      "hy",
+      "h?"
+     ],
+     "source": "findings",
+     "prompt_tag": "struct-1b7eedd5",
+     "switch": 1
+    },
+    {
+     "structure": [
+      "hz",
+      "hy",
+      "h?",
+      "hy",
+      "hy"
+     ],
+     "source": "findings",
+     "prompt_tag": "struct-a573ca52",
+     "switch": 2
+    }
+   ]
+  },
+  {
+   "family": "gantry",
+   "seed": 1,
+   "condition": "gemini_gaze",
+   "motions": 64,
+   "ticks": 10,
+   "structure_truth": [
+    "sx",
+    "sy",
+    "sz",
+    "hz"
+   ],
+   "structure_found": null,
+   "structure_correct": false,
+   "reach_mm": null,
+   "champion_family": null,
+   "observations": 43,
+   "bad_observations": 21,
+   "alarms": 0,
+   "gemini_calls": 144,
+   "gemini_errors": 0,
+   "seconds": 346.4,
+   "setup": {
+    "pipeline": "refine",
+    "cameras": 4,
+    "width": 1280,
+    "height": 960,
+    "gaze_drop": false,
+    "drop_views": false
+   },
+   "gaze": [
+    {
+     "structure": [
+      "hy",
+      "hx",
+      "hy",
+      "hz"
+     ],
+     "source": "champion",
+     "prompt_tag": "struct-58e0b034",
+     "switch": 1
+    },
+    {
+     "structure": [
+      "sx",
+      "hz",
+      "hx",
+      "hz"
+     ],
+     "source": "champion",
+     "prompt_tag": "struct-dcab0a48",
+     "switch": 2
+    }
+   ]
+  },
+  {
+   "family": "gantry",
+   "seed": 2,
+   "condition": "gemini_gaze",
+   "motions": 64,
+   "ticks": 8,
+   "structure_truth": [
+    "sx",
+    "sy",
+    "sz",
+    "hz"
+   ],
+   "structure_found": null,
+   "structure_correct": false,
+   "reach_mm": null,
+   "champion_family": null,
+   "observations": 49,
+   "bad_observations": 15,
+   "alarms": 0,
+   "gemini_calls": 172,
+   "gemini_errors": 0,
+   "seconds": 412.4,
+   "setup": {
+    "pipeline": "refine",
+    "cameras": 4,
+    "width": 1280,
+    "height": 960,
+    "gaze_drop": false,
+    "drop_views": false
+   },
+   "gaze": [
+    {
+     "structure": [
+      "hy",
+      "hx",
+      "hx",
+      "hz"
+     ],
+     "source": "champion",
+     "prompt_tag": "struct-58e0b034",
+     "switch": 1
+    }
+   ]
+  },
+  {
+   "family": "scara",
+   "seed": 1,
+   "condition": "gemini_gaze",
+   "motions": 64,
+   "ticks": 12,
+   "structure_truth": [
+    "hz",
+    "hz",
+    "sz",
+    "hz"
+   ],
+   "structure_found": null,
+   "structure_correct": false,
+   "reach_mm": null,
+   "champion_family": null,
+   "observations": 5,
+   "bad_observations": 59,
+   "alarms": 0,
+   "gemini_calls": 24,
+   "gemini_errors": 0,
+   "seconds": 66.1,
+   "setup": {
+    "pipeline": "refine",
+    "cameras": 4,
+    "width": 1280,
+    "height": 960,
+    "gaze_drop": false,
+    "drop_views": false
+   },
+   "gaze": []
+  },
+  {
+   "family": "scara",
+   "seed": 2,
+   "condition": "gemini_gaze",
+   "motions": 68,
+   "ticks": 10,
+   "structure_truth": [
+    "hz",
+    "hz",
+    "sz",
+    "hz"
+   ],
+   "structure_found": null,
+   "structure_correct": false,
+   "reach_mm": null,
+   "champion_family": null,
+   "observations": 6,
+   "bad_observations": 62,
+   "alarms": 0,
+   "gemini_calls": 32,
+   "gemini_errors": 0,
+   "seconds": 118.5,
+   "setup": {
+    "pipeline": "refine",
+    "cameras": 4,
+    "width": 1280,
+    "height": 960,
+    "gaze_drop": false,
+    "drop_views": false
+   },
+   "gaze": []
+  },
+  {
+   "family": "telescope",
+   "seed": 1,
+   "condition": "gemini_gaze",
+   "motions": 64,
+   "ticks": 8,
+   "structure_truth": [
+    "hz",
+    "hy",
+    "sz",
+    "hy"
+   ],
+   "structure_found": null,
+   "structure_correct": false,
+   "reach_mm": null,
+   "champion_family": null,
+   "observations": 54,
+   "bad_observations": 10,
+   "alarms": 0,
+   "gemini_calls": 192,
+   "gemini_errors": 0,
+   "seconds": 381.6,
+   "setup": {
+    "pipeline": "refine",
+    "cameras": 4,
+    "width": 1280,
+    "height": 960,
+    "gaze_drop": false,
+    "drop_views": false
+   },
+   "gaze": [
+    {
+     "structure": [
+      "hz",
+      "h?",
+      "sz",
+      "hy"
+     ],
+     "source": "findings",
+     "prompt_tag": "struct-0f26fe53",
+     "switch": 1
+    },
+    {
+     "structure": [
+      "hz",
+      "hy",
+      "sz",
+      "hy"
+     ],
+     "source": "champion",
+     "prompt_tag": "struct-88c2602a",
+     "switch": 2
+    }
+   ]
+  },
+  {
+   "family": "telescope",
+   "seed": 2,
+   "condition": "gemini_gaze",
+   "motions": 64,
+   "ticks": 8,
+   "structure_truth": [
+    "hz",
+    "hy",
+    "sz",
+    "hy"
+   ],
+   "structure_found": null,
+   "structure_correct": false,
+   "reach_mm": null,
+   "champion_family": null,
+   "observations": 50,
+   "bad_observations": 14,
+   "alarms": 0,
+   "gemini_calls": 168,
+   "gemini_errors": 0,
+   "seconds": 363.9,
+   "setup": {
+    "pipeline": "refine",
+    "cameras": 4,
+    "width": 1280,
+    "height": 960,
+    "gaze_drop": false,
+    "drop_views": false
+   },
+   "gaze": [
+    {
+     "structure": [
+      "hz",
+      "h?",
+      "sz",
+      "hy"
+     ],
+     "source": "findings",
+     "prompt_tag": "struct-0f26fe53",
+     "switch": 1
+    },
+    {
+     "structure": [
+      "hz",
+      "hy",
+      "sz",
+      "hy"
+     ],
+     "source": "champion",
+     "prompt_tag": "struct-88c2602a",
+     "switch": 2
+    }
+   ]
   }
  ]
 }
