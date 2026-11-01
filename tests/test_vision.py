@@ -77,3 +77,42 @@ def test_camera_robot_triangulates_tip():
     assert out["n"] == 4 and out["limits"] == [-2.0, 2.0] and out["motions"] == 12
     assert out["nan"] <= 3 and out["median_mm"] < 8 and out["max_mm"] < 25, out
     assert "NVIDIA" in out["gl"].upper()
+
+
+@pytest.mark.skipif(not _has_nvidia_gpu(), reason="no NVIDIA GPU present")
+def test_markerless_and_gemini_fallback_rules():
+    code = (
+        "import json, numpy as np\n"
+        "from bodyscout import vision\n"
+        "from bodyscout.world import BlackBoxRobot, random_body\n"
+        "class Broken:\n"
+        "    cache_name = 'broken'\n"
+        "    def __call__(self, img):\n"
+        "        raise RuntimeError('no network in tests')\n"
+        "cache = vision.VisionCache('runs/vision_test', save_images=False)\n"
+        "robot = BlackBoxRobot(random_body(2, 'scara'), seed=2)\n"
+        "robot.move(np.array([0.5, -0.4, 0.3, 0.2]))\n"
+        "plain = vision.CameraRobot(robot, detector='gemini', markerless=True, cache=cache, pointer=Broken())\n"
+        "views = plain.render_views()\n"
+        "red = [vision.detect_red(img)['found'] for _, img, _ in views]\n"
+        "x_plain = plain.observe()\n"
+        "marked = vision.CameraRobot(robot, detector='gemini', markerless=False, cache=cache, pointer=Broken())\n"
+        "x_marked = marked.observe()\n"
+        "by = [d['by'] for d in marked.last['detections'].values()]\n"
+        "p = vision.GeminiPointer.parse('```json\\n[{\"point\": [360, 492], \"label\": \"tip\"}]\\n```', 640, 480)\n"
+        "print(json.dumps({'red_in_markerless': red, 'plain_nan': bool(np.isnan(x_plain).all()),\n"
+        "    'marked_ok': bool(np.isfinite(x_marked).all()), 'by': by, 'uv': p['uv']}))\n")
+    r = _python(code, {"MUJOCO_GL": "egl", "PYOPENGL_PLATFORM": "egl"})
+    assert r.returncode == 0, r.stderr
+    out = json.loads(r.stdout.strip().splitlines()[-1])
+    assert out["red_in_markerless"] == [False, False]      # no marker to find
+    assert out["plain_nan"]                                # markerless: no fallback, no fake point
+    assert out["marked_ok"] and out["by"] == ["color (fallback)"] * 2
+    assert out["uv"] == pytest.approx([492 / 1000 * 640, 360 / 1000 * 480])
+
+
+def test_markerless_needs_gemini():
+    r = _python("from bodyscout import vision\nfrom bodyscout.world import BlackBoxRobot, random_body\n"
+                "vision.CameraRobot(BlackBoxRobot(random_body(1, 'arm')), detector='color', markerless=True)",
+                {"MUJOCO_GL": "egl", "PYOPENGL_PLATFORM": "egl"})
+    assert r.returncode != 0 and ("use detector='gemini'" in r.stderr or "EGL" in r.stderr or "egl" in r.stderr)

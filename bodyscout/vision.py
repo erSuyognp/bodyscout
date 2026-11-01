@@ -49,17 +49,25 @@ def _xyaxes(pos, target, up=(0.0, 0.0, 1.0)) -> str:
     return " ".join(f"{v:.6f}" for v in (*x, *y))
 
 
-def scene_xml(spec: ArmSpec, cameras: dict = CAMERAS) -> str:
-    """The robot's MJCF wrapped with fixed cameras (world.build_mjcf is not changed)."""
+TIP_RGBA, LINK_RGBA = 'rgba="0.9 0.3 0.2 1"', 'rgba="0.3 0.5 0.8 1"'  # as drawn by world.build_mjcf
+
+
+def scene_xml(spec: ArmSpec, cameras: dict = CAMERAS, markerless: bool = False) -> str:
+    """The robot's MJCF wrapped with fixed cameras (world.build_mjcf is not changed). markerless=True paints
+    the tip sphere in the link colour, so there is no marker to find."""
     xml = build_mjcf(spec)
+    if markerless:
+        assert TIP_RGBA in xml, "tip colour changed in world.build_mjcf"
+        xml = xml.replace(TIP_RGBA, LINK_RGBA)
     cams = "".join(f'<camera name="{name}" mode="fixed" pos="{" ".join(f"{p:.4f}" for p in c["pos"])}" '
                    f'xyaxes="{_xyaxes(c["pos"], TARGET)}" fovy="{c["fovy"]}"/>' for name, c in cameras.items())
     return xml.replace("<worldbody>", f"<worldbody>{cams}", 1)
 
 
-def make_model(spec: ArmSpec, width: int = WIDTH, height: int = HEIGHT, cameras: dict = CAMERAS) -> mujoco.MjModel:
+def make_model(spec: ArmSpec, width: int = WIDTH, height: int = HEIGHT, cameras: dict = CAMERAS,
+               markerless: bool = False) -> mujoco.MjModel:
     """Compile the robot plus cameras and size the offscreen framebuffer for width x height renders."""
-    model = mujoco.MjModel.from_xml_string(scene_xml(spec, cameras))
+    model = mujoco.MjModel.from_xml_string(scene_xml(spec, cameras, markerless))
     model.vis.global_.offwidth = max(int(model.vis.global_.offwidth), width)
     model.vis.global_.offheight = max(int(model.vis.global_.offheight), height)
     return model
@@ -184,6 +192,113 @@ def detect_red(img: np.ndarray, min_pixels: int = 6) -> dict:
 DETECTORS = {"color": detect_red}
 
 
+# ---- detector 2: Gemini Robotics ER points at the end of the last link ----------------------------
+GEMINI_PROMPT = ("Point to the tip of the robot: the free end of its last link, the end farthest along the chain "
+                 "from the base on the floor. Answer only with JSON: [{\"point\": [y, x], \"label\": \"tip\"}] "
+                 "where y and x are normalized to 0-1000.")
+
+
+def find_robotics_er_model(client) -> str:
+    """The exact Gemini Robotics ER model id this key can use (prefers the non streaming preview)."""
+    names = [m.name for m in client.models.list() if "robotics-er" in m.name.lower()]
+    if not names:
+        raise RuntimeError("no Gemini Robotics ER model visible to this GEMINI_API_KEY")
+    plain = [n for n in names if "streaming" not in n]
+    return sorted(plain or names)[-1]
+
+
+class CallCapReached(RuntimeError):
+    pass
+
+
+class GeminiPointer:
+    """Asks Gemini Robotics ER to point at the robot's tip in one image; returns normalized [y, x] (0-1000) as
+    pixel coordinates. Retries once on an error; raises CallCapReached once `max_calls` real calls are spent
+    (cached answers are free). Thread safe, so many images can be asked in parallel."""
+
+    name = "gemini"
+
+    def __init__(self, model: str | None = None, max_calls: int = 2000, temperature: float = 0.0,
+                 retry_wait_s: float = 3.0):
+        import threading
+
+        from google import genai
+
+        from .env import load_env
+
+        load_env()
+        key = os.environ.get("GEMINI_API_KEY")
+        if not key:
+            raise RuntimeError("GEMINI_API_KEY is not set (put it in .env)")
+        self.client = genai.Client(api_key=key)
+        self.model = model or find_robotics_er_model(self.client)
+        self.max_calls, self.temperature, self.retry_wait_s = max_calls, temperature, retry_wait_s
+        self.calls, self.errors = 0, 0
+        self._lock = threading.Lock()
+
+    @property
+    def cache_name(self) -> str:
+        return f"gemini-{self.model.split('/')[-1]}"
+
+    def _ask(self, png: bytes) -> str:
+        from google.genai import types
+        r = self.client.models.generate_content(
+            model=self.model, contents=[types.Part.from_bytes(data=png, mime_type="image/png"), GEMINI_PROMPT],
+            config=types.GenerateContentConfig(temperature=self.temperature))
+        return r.text or ""
+
+    @staticmethod
+    def parse(text: str, width: int, height: int) -> dict:
+        import re
+        m = re.search(r"\[.*\]", text, re.S)
+        try:
+            pts = json.loads(m.group(0)) if m else []
+            y, x = pts[0]["point"]
+            return {"found": True, "uv": [float(x) / 1000 * width, float(y) / 1000 * height], "raw": text.strip()}
+        except (ValueError, KeyError, IndexError, TypeError):
+            return {"found": False, "uv": None, "raw": text.strip()}
+
+    def __call__(self, img: np.ndarray) -> dict:
+        import io
+        import time
+
+        from PIL import Image
+        with self._lock:
+            if self.calls >= self.max_calls:
+                raise CallCapReached(f"Gemini call cap of {self.max_calls} reached")
+            self.calls += 1
+        buf = io.BytesIO()
+        Image.fromarray(img).save(buf, format="PNG")
+        for attempt in (0, 1):  # retry once
+            try:
+                det = self.parse(self._ask(buf.getvalue()), img.shape[1], img.shape[0])
+                return {**det, "model": self.model}
+            except Exception as e:  # noqa: BLE001 (network, quota, server errors)
+                with self._lock:
+                    self.errors += 1
+                if attempt == 0:
+                    time.sleep(self.retry_wait_s)
+                else:
+                    raise RuntimeError(f"Gemini failed twice: {type(e).__name__}: {e}") from e
+
+
+def detect_many(images: list, fn, cache: "VisionCache", cache_name: str, workers: int = 16) -> list:
+    """Detect in many images at once (threads), reading and writing the cache by image hash.
+    Failures (errors, call cap) come back as {found: False, error: ...} and are not cached."""
+    from concurrent.futures import ThreadPoolExecutor
+
+    keys = [cache.put_image(img) for img in images]
+
+    def one(i):
+        try:
+            return cache.detection(keys[i], cache_name, fn, images[i])
+        except Exception as e:  # noqa: BLE001
+            return {"found": False, "uv": None, "error": f"{type(e).__name__}: {e}"}
+
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        return list(ex.map(one, range(len(images))))
+
+
 # ---- cache ------------------------------------------------------------------------------------
 class VisionCache:
     """Every image as runs/vision/images/<hash>.png and every detection as runs/vision/detections/
@@ -224,13 +339,24 @@ class CameraRobot:
     move(q) moves the hidden robot (one motion of budget), renders the front and side views of the pose it
     actually reached (backlash and sag included), detects the tip in each image and triangulates. If either
     view cannot see the tip, the result is NaN (no fake value). The robot's own marker reading is discarded.
-    `last` holds the latest detections, triangulation residual and image keys for inspection.
+
+    detector: "color" (detector 1, needs the red marker) or "gemini" (detector 2, Gemini Robotics ER).
+    markerless=True paints the tip like the links. With "gemini", a failed detection falls back to detector 1
+    only in marker mode; markerless has nothing to fall back on. `last` holds the latest detections,
+    triangulation residual and image keys.
     """
 
-    def __init__(self, robot: BlackBoxRobot, detector: str = "color", width: int = WIDTH, height: int = HEIGHT,
-                 cameras: dict = CAMERAS, cache: VisionCache | None = None):
-        self.robot, self.detector, self.width, self.height = robot, detector, width, height
-        self.cameras, self.cache = cameras, cache or VisionCache()
+    def __init__(self, robot: BlackBoxRobot, detector: str = "color", markerless: bool = False,
+                 width: int = WIDTH, height: int = HEIGHT, cameras: dict = CAMERAS,
+                 cache: VisionCache | None = None, pointer: GeminiPointer | None = None):
+        if detector not in ("color", "gemini"):
+            raise ValueError(detector)
+        if markerless and detector == "color":
+            raise ValueError("markerless mode has no red marker: use detector='gemini'")
+        self.robot, self.detector, self.markerless = robot, detector, markerless
+        self.width, self.height, self.cameras = width, height, cameras
+        self.cache = cache or VisionCache()
+        self.pointer = pointer if pointer is not None or detector != "gemini" else GeminiPointer()
         self._spec, self._renderer = None, None
         self.last: dict = {}
 
@@ -240,7 +366,7 @@ class CameraRobot:
             if self._renderer is not None:
                 self._renderer.close()
             self._spec = self.robot._spec
-            self.model = make_model(self._spec, self.width, self.height, self.cameras)
+            self.model = make_model(self._spec, self.width, self.height, self.cameras, self.markerless)
             self.data = mujoco.MjData(self.model)
             self._renderer = mujoco.Renderer(self.model, height=self.height, width=self.width)
             self._renderer.update_scene(self.data, camera=next(iter(self.cameras)))
@@ -255,24 +381,42 @@ class CameraRobot:
         """The rendered tip position. Scoring only, never for agents."""
         return self.data.site_xpos[self._tip].copy()
 
-    def observe(self) -> np.ndarray:
-        """Render both views of the current pose, detect, triangulate."""
+    def render_views(self) -> list:
+        """[(camera name, image, camera matrices)] of the current pose."""
         self._sync()
-        cams, dets, keys = [], [], []
+        out = []
         for name in self.cameras:
             self._renderer.update_scene(self.data, camera=name)
-            img = self._renderer.render()
-            k = self.cache.put_image(img)
-            keys.append(k)
-            dets.append(self.cache.detection(k, self.detector, DETECTORS[self.detector], img))
-            cams.append(camera_matrices(self.model, self.data, name, self.width, self.height))
-        self.last = {"detections": dict(zip(self.cameras, dets)), "images": dict(zip(self.cameras, keys))}
+            out.append((name, self._renderer.render().copy(),
+                        camera_matrices(self.model, self.data, name, self.width, self.height)))
+        return out
+
+    def _detect(self, img: np.ndarray) -> dict:
+        if self.detector == "color":
+            return {**self.cache.detection(self.cache.put_image(img), "color", detect_red, img), "by": "color"}
+        k = self.cache.put_image(img)
+        try:
+            det = {**self.cache.detection(k, self.pointer.cache_name, self.pointer, img), "by": "gemini"}
+        except Exception as e:  # noqa: BLE001 (two failed calls or the call cap)
+            det = {"found": False, "uv": None, "error": f"{type(e).__name__}: {e}", "by": "gemini"}
+        if not det["found"] and not self.markerless:  # fall back to detector 1 only when the marker is there
+            det = {**self.cache.detection(k, "color", detect_red, img), "by": "color (fallback)"}
+        return det
+
+    def locate(self, views: list, dets: list) -> np.ndarray:
+        """Triangulate from per view detections (or NaN if a view saw nothing); fills `last`."""
+        self.last = {"detections": {n: d for (n, _, _), d in zip(views, dets)},
+                     "images": {n: self.cache.key(img) for n, img, _ in views}, "residual_m": None}
         if not all(d["found"] for d in dets):
-            self.last["residual_m"] = None
             return np.full(3, np.nan)
-        X, res = triangulate(cams, [d["uv"] for d in dets])
+        X, res = triangulate([c for _, _, c in views], [d["uv"] for d in dets])
         self.last["residual_m"] = res
         return X
+
+    def observe(self) -> np.ndarray:
+        """Render both views of the current pose, detect, triangulate."""
+        views = self.render_views()
+        return self.locate(views, [self._detect(img) for _, img, _ in views])
 
     # ---- public interface, identical to BlackBoxRobot
     @property
