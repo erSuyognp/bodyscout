@@ -116,3 +116,52 @@ def test_markerless_needs_gemini():
                 "vision.CameraRobot(BlackBoxRobot(random_body(1, 'arm')), detector='color', markerless=True)",
                 {"MUJOCO_GL": "egl", "PYOPENGL_PLATFORM": "egl"})
     assert r.returncode != 0 and ("use detector='gemini'" in r.stderr or "EGL" in r.stderr or "egl" in r.stderr)
+
+
+@pytest.mark.skipif(not _has_nvidia_gpu(), reason="no NVIDIA GPU present")
+def test_refine_triangulate_n_and_pipelines():
+    code = (
+        "import json, numpy as np\n"
+        "from bodyscout import vision\n"
+        "from bodyscout.world import BlackBoxRobot, random_body\n"
+        # synthetic image: a blue horizontal link ending in a round cap centred at (300.5, 200.5), radius 4
+        "img = np.zeros((480, 640, 3), np.uint8)\n"
+        "yy, xx = np.mgrid[0:480, 0:640]\n"
+        "link = (np.abs(yy + 0.5 - 200.5) <= 3) & (xx + 0.5 >= 250) & (xx + 0.5 <= 300.5)\n"
+        "cap = (xx + 0.5 - 300.5) ** 2 + (yy + 0.5 - 200.5) ** 2 <= 16\n"
+        "img[link | cap] = (76, 128, 204)\n"
+        "near = vision.refine_tip(img, [302.0, 202.0])\n"
+        "far = vision.refine_tip(img, [262.0, 200.0])\n"
+        # N view triangulation: 2 views equal triangulate(); a third, confused view is dropped
+        "robot = BlackBoxRobot(random_body(1, 'gantry'), seed=1)\n"
+        "robot.move(np.array([0.3, -0.2, 0.4, 0.5]))\n"
+        "cam = vision.CameraRobot(robot, detector='gemini', markerless=True, pointer=False,\n"
+        "                         cameras=vision.CAMERAS4, cache=vision.VisionCache('runs/vision_test', save_images=False))\n"
+        "views = cam.render_views(); t = cam.true_tip()\n"
+        "mats = [c for _, _, c in views]\n"
+        "uvs = [vision.project(m, t)[0] for m in mats]\n"
+        "X2, g2 = vision.triangulate(mats[:2], uvs[:2]); Xn, gn, k = vision.triangulate_n(mats[:2], uvs[:2])\n"
+        "bad = list(uvs); bad[2] = bad[2] + np.array([60.0, -40.0])\n"
+        "Xb, gb, kb = vision.triangulate_n(mats, bad)\n"
+        "class Fake:\n"
+        "    cache_name = 'fake'\n"
+        "    def with_prompt(self, p, tag):\n"
+        "        return self\n"
+        "    def __call__(self, im):\n"
+        "        return {'found': True, 'uv': [320.0, 240.0], 'candidates': [[320.0, 240.0], [100.0, 100.0]]}\n"
+        "out = {}\n"
+        "for pipe in ('refine', 'multi'):\n"
+        "    c = vision.CameraRobot(robot, detector='gemini', markerless=True, pointer=Fake(), pipeline=pipe,\n"
+        "                           cache=vision.VisionCache('runs/vision_test', save_images=False), max_gap_mm=None)\n"
+        "    x = c.observe(); out[pipe] = bool(np.isfinite(x).all()); c.close()\n"
+        "cam.close()\n"
+        "print(json.dumps({'near': near, 'far_refined': far['refined'], 'same2': bool(np.allclose(X2, Xn) and abs(g2 - gn) < 1e-9),\n"
+        "    'kept': kb, 'err_mm': float(np.linalg.norm(Xb - t) * 1000), 'pipelines': out}))\n")
+    r = _python(code, {"MUJOCO_GL": "egl", "PYOPENGL_PLATFORM": "egl"})
+    assert r.returncode == 0, r.stderr
+    out = json.loads(r.stdout.strip().splitlines()[-1])
+    assert out["near"]["refined"] and out["near"]["uv"] == pytest.approx([300.5, 200.5], abs=1.0), out["near"]
+    assert not out["far_refined"]               # a 38 px jump is larger than the cap: keep the input point
+    assert out["same2"]                          # two views: identical to triangulate()
+    assert out["kept"] == [0, 1, 3] and out["err_mm"] < 1.0   # the confused third view is outvoted
+    assert out["pipelines"] == {"refine": True, "multi": True}

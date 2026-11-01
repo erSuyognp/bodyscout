@@ -37,6 +37,10 @@ CAMERAS = {
     "front": {"pos": (2.0, 0.0, 0.85), "fovy": 50.0},   # looks along -x
     "side": {"pos": (0.0, -2.0, 0.85), "fovy": 50.0},   # looks along +y
 }
+# four views: the two above plus one from behind on the other side and one from high up
+CAMERAS4 = {**CAMERAS,
+            "back": {"pos": (-1.414, 1.414, 0.85), "fovy": 50.0},
+            "high": {"pos": (1.1, 1.1, 1.9), "fovy": 50.0}}
 
 
 # ---- scene ----------------------------------------------------------------------------------
@@ -172,6 +176,119 @@ def triangulate(cams: list, uvs: list) -> tuple[np.ndarray, float]:
     return (p1 + p2) / 2, float(np.linalg.norm(p1 - p2))
 
 
+def triangulate_n(cams: list, uvs: list, gap_m: float = 0.02) -> tuple[np.ndarray, float, list]:
+    """Least squares point closest to N pixel rays. The residual ("gap") is twice the largest distance from
+    the point to a ray, which for two views equals the distance between the rays (as in triangulate()).
+    With more than two views, the view whose ray is farthest away is dropped while the gap exceeds gap_m
+    (one confused view gets outvoted). Returns (point, gap in m over the views kept, indices kept)."""
+    keep = list(range(len(cams)))
+    while True:
+        cs = np.array([cams[i]["c"] for i in keep])
+        ds = np.array([pixel_ray(cams[i], uvs[i]) for i in keep])
+        A = sum(np.eye(3) - np.outer(d, d) for d in ds)
+        b = sum((np.eye(3) - np.outer(d, d)) @ c for c, d in zip(cs, ds))
+        X = np.linalg.solve(A, b)
+        dist = [float(np.linalg.norm((np.eye(3) - np.outer(d, d)) @ (X - c))) for c, d in zip(cs, ds)]
+        worst = int(np.argmax(dist))
+        if len(keep) <= 2 or 2 * dist[worst] <= gap_m:
+            return X, 2 * float(max(dist)), keep
+        keep.pop(worst)
+
+
+# ---- image-only refinement: snap a rough point to the end cap of the link it sits on --------------
+ROBOT_RGB_RULE = "B > 50 and B > R + 25 and B > G + 5 (the links are blue; floor, shadow and sky are grey or black)"
+
+
+def refine_tip(img: np.ndarray, uv, radius: float | None = None) -> dict:
+    """Move a rough tip point onto the end of the link it lies on, using the image only (no robot geometry).
+
+    Robot pixels near uv are segmented by colour; the local link direction comes from their principal axis;
+    the end cap is the extreme of the component along that axis on uv's side; the tip centre sits one
+    half-width (the cap's radius, measured in the image) inside that extreme. Falls back to uv when there is
+    no robot blob nearby or the blob has no clear direction (link pointing at the camera).
+
+    The snap may move the point at most one cap diameter (2 x the measured half width, at least 6 px at
+    640 wide): a refinement that helps moves the point a pixel or two, while larger jumps had landed on another
+    link or the wrong end (diagnosed on 1200 views of arms, gantries and telescopes)."""
+    from scipy import ndimage
+
+    h, w = img.shape[:2]
+    R = radius or 30.0 * w / 640
+    u0, v0 = float(uv[0]), float(uv[1])
+    x0, x1 = int(max(0, u0 - R)), int(min(w, u0 + R + 1))
+    y0, y1 = int(max(0, v0 - R)), int(min(h, v0 + R + 1))
+    if x1 - x0 < 3 or y1 - y0 < 3:
+        return {"uv": [u0, v0], "refined": False, "why": "outside image"}
+    win = img[y0:y1, x0:x1].astype(np.int32)
+    r, g, b = win[..., 0], win[..., 1], win[..., 2]
+    mask = (b > 50) & (b > r + 25) & (b > g + 5)
+    lab, n = ndimage.label(mask)
+    if n == 0:
+        return {"uv": [u0, v0], "refined": False, "why": "no robot pixels nearby"}
+    vs, us = np.nonzero(lab)
+    du = us + x0 + 0.5 - u0
+    dv = vs + y0 + 0.5 - v0
+    d2 = du ** 2 + dv ** 2
+    if d2.min() > (12.0 * w / 640) ** 2:
+        return {"uv": [u0, v0], "refined": False, "why": "nearest robot pixel too far"}
+    comp = lab[vs[np.argmin(d2)], us[np.argmin(d2)]]
+    sel = lab[vs, us] == comp
+    P = np.stack([us[sel] + x0 + 0.5, vs[sel] + y0 + 0.5], axis=1)
+    near = P[np.linalg.norm(P - [u0, v0], axis=1) <= 18.0 * w / 640]
+    if len(near) < 8:
+        return {"uv": [u0, v0], "refined": False, "why": "too few pixels"}
+    mu = near.mean(0)
+    evals, evecs = np.linalg.eigh(np.cov((near - mu).T))
+    if evals[1] < 2.5 * max(evals[0], 1e-9):
+        return {"uv": [u0, v0], "refined": False, "why": "no clear link direction"}
+    d = evecs[:, 1]
+    proj = (P - mu) @ d
+    side = np.sign(([u0, v0] - mu) @ d) or 1.0
+    ext = proj.max() if side > 0 else proj.min()
+    cap = P[np.abs(proj - ext) <= 6.0 * w / 640]
+    perp = (cap - mu) @ np.array([-d[1], d[0]])
+    half = max(1.0, (perp.max() - perp.min()) / 2)
+    lateral = (perp.max() + perp.min()) / 2
+    tip = mu + d * (ext - side * half) + np.array([-d[1], d[0]]) * lateral
+    shift = float(np.linalg.norm(tip - [u0, v0]))
+    if shift > max(2 * half, 6.0 * w / 640):
+        return {"uv": [u0, v0], "refined": False, "why": f"snap of {shift:.1f} px is larger than the cap",
+                "half_width_px": float(half)}
+    return {"uv": [float(tip[0]), float(tip[1])], "refined": True, "half_width_px": float(half), "shift_px": shift}
+
+
+def chain_end(img: np.ndarray, base_uv) -> dict:
+    """Where the robot's chain ends in the image, from the image alone: segment robot pixels, start at the robot
+    pixel nearest the mount point (the projection of the world origin, i.e. camera calibration, not robot
+    geometry), and walk through connected robot pixels; the pixel farthest along that walk is the chain's end,
+    refined to its end cap. Breaks down when links overlap in the image or the walk is cut by an occlusion."""
+    from collections import deque
+    h, w = img.shape[:2]
+    rgb = img.astype(np.int32)
+    r, g, b = rgb[..., 0], rgb[..., 1], rgb[..., 2]
+    mask = (b > 50) & (b > r + 25) & (b > g + 5)
+    vs, us = np.nonzero(mask)
+    if len(vs) < 20 or base_uv is None or not np.all(np.isfinite(base_uv)):
+        return {"found": False, "uv": None}
+    k = int(np.argmin((us + 0.5 - base_uv[0]) ** 2 + (vs + 0.5 - base_uv[1]) ** 2))
+    dist = np.full(mask.shape, -1, np.int32)
+    q = deque([(vs[k], us[k])])
+    dist[vs[k], us[k]] = 0
+    far = (vs[k], us[k])
+    while q:
+        y, x = q.popleft()
+        for dy in (-1, 0, 1):
+            for dx in (-1, 0, 1):
+                yy, xx = y + dy, x + dx
+                if 0 <= yy < h and 0 <= xx < w and mask[yy, xx] and dist[yy, xx] < 0:
+                    dist[yy, xx] = dist[y, x] + 1
+                    q.append((yy, xx))
+                    if dist[yy, xx] > dist[far]:
+                        far = (yy, xx)
+    end = [far[1] + 0.5, far[0] + 0.5]
+    return {"found": True, "uv": refine_tip(img, end)["uv"], "walk_px": int(dist[far])}
+
+
 # ---- detector 1: the red tip sphere -----------------------------------------------------------
 def detect_red(img: np.ndarray, min_pixels: int = 6) -> dict:
     """Colour segmentation of the red tip sphere with a sub-pixel centroid.
@@ -199,6 +316,28 @@ GEMINI_PROMPT = ("Point to the tip of the robot: the free end of its last link, 
                  "where y and x are normalized to 0-1000.")
 
 
+GEMINI_PROMPT_MULTI = ("Point to up to 3 places that could be this robot's end effector: the free end of its last "
+                       "link, where a gripper or tool would attach. Order them from most to least likely. Answer "
+                       "only with JSON: [{\"point\": [y, x], \"label\": \"candidate 1\"}, ...] where y and x "
+                       "are normalized to 0-1000.")
+GEMINI_PROMPT_ZOOM = ("This is a close-up crop of a robot. Point to the tip of the robot: the free end of its last "
+                      "link. Answer only with JSON: [{\"point\": [y, x], \"label\": \"tip\"}] where y and x are "
+                      "normalized to 0-1000 within this crop.")
+ZOOM = 4  # the crop is (width / ZOOM) x (height / ZOOM) pixels, enlarged ZOOM times before asking
+
+
+def zoom_crop(img: np.ndarray, uv) -> tuple[np.ndarray, tuple[int, int]]:
+    """A (h/ZOOM, w/ZOOM) crop centred on uv (clamped inside the image), enlarged ZOOM times; returns the
+    enlarged crop and the crop's top left pixel."""
+    from PIL import Image
+    h, w = img.shape[:2]
+    cw, ch = w // ZOOM, h // ZOOM
+    x0 = int(np.clip(round(uv[0] - cw / 2), 0, w - cw))
+    y0 = int(np.clip(round(uv[1] - ch / 2), 0, h - ch))
+    crop = Image.fromarray(img[y0:y0 + ch, x0:x0 + cw]).resize((w, h), Image.LANCZOS)
+    return np.asarray(crop), (x0, y0)
+
+
 def find_robotics_er_model(client) -> str:
     """The exact Gemini Robotics ER model id this key can use (prefers the non streaming preview)."""
     names = [m.name for m in client.models.list() if "robotics-er" in m.name.lower()]
@@ -220,7 +359,8 @@ class GeminiPointer:
     name = "gemini"
 
     def __init__(self, model: str | None = None, max_calls: int = 2000, temperature: float = 0.0,
-                 retry_wait_s: float = 3.0):
+                 retry_wait_s: float = 3.0, prompt: str = GEMINI_PROMPT, tag: str = "",
+                 max_calls_per_min: float | None = None):
         import threading
 
         from google import genai
@@ -236,17 +376,42 @@ class GeminiPointer:
         self.client = genai.Client(api_key=key)
         self.model = model or find_robotics_er_model(self.client)
         self.max_calls, self.temperature, self.retry_wait_s = max_calls, temperature, retry_wait_s
+        self.prompt, self.tag, self.max_calls_per_min = prompt, tag, max_calls_per_min
         self.calls, self.errors = 0, 0
         self._lock = threading.Lock()
+        self._next_slot = 0.0
 
     @property
     def cache_name(self) -> str:
-        return f"gemini-{self.model.split('/')[-1]}"
+        return f"gemini-{self.model.split('/')[-1]}{('-' + self.tag) if self.tag else ''}"
+
+    def with_prompt(self, prompt: str, tag: str) -> "GeminiPointer":
+        """A pointer sharing this one's client, call budget and pacing, but asking another question."""
+        import copy
+        other = copy.copy(self)
+        other.prompt, other.tag = prompt, tag
+        other._parent = self
+        return other
+
+    def _root(self) -> "GeminiPointer":
+        return getattr(self, "_parent", self)
+
+    def _pace(self):
+        """Spread calls out to stay under max_calls_per_min (the event's spend rule)."""
+        import time
+        root = self._root()
+        if not root.max_calls_per_min:
+            return
+        with root._lock:
+            now = time.time()
+            slot = max(now, root._next_slot)
+            root._next_slot = slot + 60.0 / root.max_calls_per_min
+        time.sleep(max(0.0, slot - now))
 
     def _ask(self, png: bytes) -> str:
         from google.genai import types
         r = self.client.models.generate_content(
-            model=self.model, contents=[types.Part.from_bytes(data=png, mime_type="image/png"), GEMINI_PROMPT],
+            model=self.model, contents=[types.Part.from_bytes(data=png, mime_type="image/png"), self.prompt],
             config=types.GenerateContentConfig(temperature=self.temperature))
         return r.text or ""
 
@@ -256,20 +421,25 @@ class GeminiPointer:
         m = re.search(r"\[.*\]", text, re.S)
         try:
             pts = json.loads(m.group(0)) if m else []
-            y, x = pts[0]["point"]
-            return {"found": True, "uv": [float(x) / 1000 * width, float(y) / 1000 * height], "raw": text.strip()}
+            cands = [[float(p["point"][1]) / 1000 * width, float(p["point"][0]) / 1000 * height]
+                     for p in pts if isinstance(p, dict) and len(p.get("point", [])) == 2]
+            if not cands:
+                raise ValueError("no point")
+            return {"found": True, "uv": cands[0], "candidates": cands[:3], "raw": text.strip()}
         except (ValueError, KeyError, IndexError, TypeError):
-            return {"found": False, "uv": None, "raw": text.strip()}
+            return {"found": False, "uv": None, "candidates": [], "raw": text.strip()}
 
     def __call__(self, img: np.ndarray) -> dict:
         import io
         import time
 
         from PIL import Image
-        with self._lock:
-            if self.calls >= self.max_calls:
-                raise CallCapReached(f"Gemini call cap of {self.max_calls} reached")
-            self.calls += 1
+        root = self._root()
+        with root._lock:
+            if root.calls >= root.max_calls:
+                raise CallCapReached(f"Gemini call cap of {root.max_calls} reached")
+            root.calls += 1
+        self._pace()
         buf = io.BytesIO()
         Image.fromarray(img).save(buf, format="PNG")
         for attempt in (0, 1):  # retry once
@@ -277,8 +447,8 @@ class GeminiPointer:
                 det = self.parse(self._ask(buf.getvalue()), img.shape[1], img.shape[0])
                 return {**det, "model": self.model}
             except Exception as e:  # noqa: BLE001 (network, quota, server errors)
-                with self._lock:
-                    self.errors += 1
+                with root._lock:
+                    root.errors += 1
                 if attempt == 0:
                     time.sleep(self.retry_wait_s)
                 else:
@@ -358,6 +528,11 @@ class CameraRobot:
     detector: "color" (detector 1, needs the red marker) or "gemini" (detector 2, Gemini Robotics ER).
     max_gap_mm: when the two views' rays miss each other by more than this, the views disagree about where the
     tip is; the reading is a bad observation and comes back as NaN (so it is never mistaken for a body change).
+    With more than two cameras, a disagreeing view is dropped first (triangulate_n); drop_views=False instead
+    rejects the reading unless every view agrees (stricter, fewer wrong readings get through).
+    pipeline (gemini only): "point" asks once per view; "refine" snaps that point to the link's end cap in the
+    image; "zoom" asks again on a 4x close-up around the first point, then refines; "multi" asks for up to 3
+    candidates per view, refines each, and keeps the combination whose rays agree best.
     markerless=True paints the tip like the links. With "gemini", a failed detection falls back to detector 1
     only in marker mode; markerless has nothing to fall back on. `last` holds the latest detections,
     triangulation residual and image keys.
@@ -366,11 +541,14 @@ class CameraRobot:
     def __init__(self, robot: BlackBoxRobot, detector: str = "color", markerless: bool = False,
                  width: int = WIDTH, height: int = HEIGHT, cameras: dict = CAMERAS,
                  cache: VisionCache | None = None, pointer: GeminiPointer | None = None,
-                 max_gap_mm: float | None = 20.0):
+                 max_gap_mm: float | None = 20.0, pipeline: str = "point", drop_views: bool = True):
         if detector not in ("color", "gemini"):
             raise ValueError(detector)
         if markerless and detector == "color":
             raise ValueError("markerless mode has no red marker: use detector='gemini'")
+        if pipeline not in ("point", "refine", "zoom", "multi"):
+            raise ValueError(pipeline)
+        self.pipeline, self.drop_views = pipeline, drop_views
         self.robot, self.detector, self.markerless, self.max_gap_mm = robot, detector, markerless, max_gap_mm
         self.width, self.height, self.cameras = width, height, cameras
         self.cache = cache or VisionCache()
@@ -421,23 +599,61 @@ class CameraRobot:
         if self.detector == "color":
             return {**self.cache.detection(self.cache.put_image(img), "color", detect_red, img), "by": "color"}
         k = self.cache.put_image(img)
-        try:
-            det = {**self.cache.detection(k, self.pointer.cache_name, self.pointer, img), "by": "gemini"}
-        except Exception as e:  # noqa: BLE001 (two failed calls or the call cap)
-            det = {"found": False, "uv": None, "error": f"{type(e).__name__}: {e}", "by": "gemini"}
+        if self.pipeline == "multi":
+            mp = self.pointer.with_prompt(GEMINI_PROMPT_MULTI, "multi")
+            try:
+                det = {**self.cache.detection(k, mp.cache_name, mp, img), "by": "gemini multi"}
+            except Exception as e:  # noqa: BLE001
+                det = {"found": False, "uv": None, "error": f"{type(e).__name__}: {e}", "by": "gemini multi"}
+            if det["found"]:
+                cands = det.get("candidates") or [det["uv"]]
+                det["candidates"] = [refine_tip(img, c)["uv"] for c in cands]
+                det["uv"] = det["candidates"][0]
+        else:
+            try:
+                det = {**self.cache.detection(k, self.pointer.cache_name, self.pointer, img), "by": "gemini"}
+            except Exception as e:  # noqa: BLE001 (two failed calls or the call cap)
+                det = {"found": False, "uv": None, "error": f"{type(e).__name__}: {e}", "by": "gemini"}
+            if det["found"] and self.pipeline == "zoom":
+                zp = self.pointer.with_prompt(GEMINI_PROMPT_ZOOM, "zoom")
+                crop, (x0, y0) = zoom_crop(img, det["uv"])
+                try:
+                    zd = self.cache.detection(self.cache.put_image(crop), zp.cache_name, zp, crop)
+                except Exception:  # noqa: BLE001 (keep the first point)
+                    zd = {"found": False}
+                if zd.get("found"):
+                    det = {**det, "coarse": det["uv"], "uv": [x0 + zd["uv"][0] / ZOOM, y0 + zd["uv"][1] / ZOOM]}
+            if det["found"] and self.pipeline in ("refine", "zoom"):
+                det = {**det, "unrefined": det["uv"], "uv": refine_tip(img, det["uv"])["uv"]}
         if not det["found"] and not self.markerless:  # fall back to detector 1 only when the marker is there
             det = {**self.cache.detection(k, "color", detect_red, img), "by": "color (fallback)"}
         return det
 
     def locate(self, views: list, dets: list) -> np.ndarray:
-        """Triangulate from per view detections (or NaN if a view saw nothing); fills `last`."""
+        """Triangulate from per view detections (or NaN if fewer than two views saw the tip, or the views
+        disagree); fills `last`. With candidate lists ("multi"), the combination whose rays agree best wins."""
+        import itertools
         self.last = {"detections": {n: d for (n, _, _), d in zip(views, dets)},
                      "images": {n: self.cache.key(img) for n, img, _ in views}, "residual_m": None}
-        if not all(d["found"] for d in dets):
-            self.last["bad"] = "tip not found in " + ", ".join(n for (n, _, _), d in zip(views, dets) if not d["found"])
+        seen = [i for i, d in enumerate(dets) if d["found"]]
+        if len(seen) < 2 or (len(views) == 2 and len(seen) < 2):
+            missing = [n for (n, _, _), d in zip(views, dets) if not d["found"]]
+            self.last["bad"] = "tip not found in " + ", ".join(missing)
             return np.full(3, np.nan)
-        X, res = triangulate([c for _, _, c in views], [d["uv"] for d in dets])
+        cams = [views[i][2] for i in seen]
+        cand = [dets[i].get("candidates") or [dets[i]["uv"]] for i in seen]
+        gap_m = (self.max_gap_mm or 1e9) / 1000 if self.drop_views else 1e9  # 1e9: never drop a view
+        best = None
+        for combo in itertools.product(*cand):
+            X, res, keep = triangulate_n(cams, list(combo), gap_m)
+            score = res + 0.002 * (len(seen) - len(keep))
+            if best is None or score < best[0]:
+                best = (score, X, res, combo, keep)
+        _, X, res, combo, keep = best
+        for j, i in enumerate(seen):  # the point actually used per view (for drawing)
+            dets[i]["used_uv"] = list(combo[j]) if j in keep else None
         self.last["residual_m"] = res
+        self.last["views_used"] = [views[seen[j]][0] for j in keep]
         if self.max_gap_mm is not None and res * 1000 > self.max_gap_mm:
             self.last["bad"] = f"views disagree: rays {res * 1000:.0f} mm apart"
             return np.full(3, np.nan)
