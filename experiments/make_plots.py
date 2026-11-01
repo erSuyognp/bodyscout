@@ -46,21 +46,29 @@ FAULT_ORDER = ["none", "wrong_finding", "bad_llm", "modeler_crash", "noisy_chann
 # Why a baseline ties or beats the swarm, by experiment. Written after reading the frozen numbers;
 # printed only for experiments that have a row in the failures or ties tables.
 WHY = {
-    "bodies": "On clean bodies the swarm spends 32 of its 64 motions on single channel sweeps (home and bent pose "
-              "for every channel) where single_probe and the pipeline spend 16, so it fits on fewer mixed motions. "
-              "Its extra probes buy robustness to a bad finding (see the fault table), not accuracy on a clean body.",
-    "faults": "Under no fault, bad_llm (where single_probe has no slot for the bad source) and the clean seeds of "
-              "each fault, the same extra probe motions cost the swarm a few tenths of a millimetre. noisy_channel "
-              "corrupts every sweep of one channel, the review's third pose included, so replication cannot outvote "
-              "it; a single agent that never trusts a sweep is not misled by it.",
-    "noise": "Camera noise hits every sweep the same way, so more sweeps per channel do not help, and the swarm has "
-             "fewer mixed motions to average the noise down; at high noise the monitor can also raise false alarms.",
+    "bodies": "Every structure is found by swarm, single_probe and pipeline alike (100% on both seed sets), so the "
+              "difference is reach error, and the intervals overlap except single_probe on gantry. The swarm spends "
+              "32 to 40 of its 64 motions on single channel sweeps (home and bent pose for every channel, plus review "
+              "rechecks) where single_probe and the pipeline spend 16, so it fits on fewer mixed motions. Those extra "
+              "sweeps buy robustness to one bad finding (fault table), not accuracy on a clean body.",
+    "faults": "Under no fault and bad_llm the swarm pays the same extra sweeps as on clean bodies (single_probe has no "
+              "slot for the bad source, so bad_llm cannot touch it). noisy_channel is the one fault the swarm does "
+              "not handle: single_probe and the pipeline end closer (3.0 to 3.7 mm vs 5.1 to 5.5 mm). Likely cause, "
+              "not separately tested: the camera noise corrupts every sweep of that channel from any pose, so the "
+              "swarm's second and third sweeps put 8 to 12 noisy observations into its training data where the "
+              "baselines usually put 4, and replication cannot outvote a sensor that is wrong every time.",
+    "noise": "At 1 to 5 mm of camera noise the baselines that probe channels end slightly closer, the same extra sweep "
+             "cost as on clean bodies (intervals overlap at every pooled level). At 10 mm the swarm ends closest of "
+             "the four (9.1 mm vs 31 to 50 mm) but still gets 7 of 20 structures wrong.",
     "learning": "On known arms (no structure to discover) the single agent fits every motion with one chain model "
-                "from the first batch; the swarm holds a quarter of its motions out for validation and crowns a model "
-                "only when both validators agree, so early on it has no model or a model fit on fewer motions.",
-    "damage": "The single agents refit on every motion and so drift toward the damaged body without noticing it; "
-              "the swarm waits for two surprises, starts a new epoch and re-probes every channel, which costs motions "
-              "after the damage. A payload barely changes the tip, so it stays under the monitor's threshold.",
+                "from the first batch; the swarm holds every fourth motion out for validation and crowns a model only "
+                "when both validators agree, so early on it has no model or a model fit on fewer motions.",
+    "damage": "After an alarm the swarm starts a new epoch and sweeps every channel again from two poses (median 68 "
+              "probe motions per damage run vs 32 for the pipeline), so at motion 128 it has no trusted model in 10 "
+              "to 13 of 20 runs for the kinds it detects, and its recovered error medians cover only the runs that "
+              "re-crowned a model. Payload changes the tip too little to trip the monitor (swarm 1 of 20, pipeline 0 "
+              "of 20); single_probe never looks for damage and simply keeps fitting, which on such a small change "
+              "costs it nothing.",
     "menagerie": "",
     "knockout": "",
 }
@@ -171,6 +179,10 @@ def compare(where, setting, vals, right=None, pooled=True):
             failures.append((where, setting, f"{SHORT[c]} beats the swarm", f"{cell(vals[c])} vs swarm {cell(vals['swarm'])}; {sep}"))
         elif pooled and b[1] <= sw[2]:
             ties.append((where, setting, f"{SHORT[c]} ties the swarm", f"{cell(vals[c])} vs swarm {cell(vals['swarm'])}"))
+    gone = int(np.sum(~np.isfinite(np.asarray(vals["swarm"], float))))
+    if gone and np.isfinite(sw[0]):  # medians leave these runs out, so they must be called out here
+        failures.append((where, setting, "swarm ends with no trusted model in some runs",
+                         f"{gone}/{len(vals['swarm'])} runs; the swarm median covers only the rest"))
     if right and "swarm" in right and right["swarm"][0] < right["swarm"][1]:
         k, n = right["swarm"]
         failures.append((where, setting, "swarm structure wrong", f"{n - k}/{n} runs"))
