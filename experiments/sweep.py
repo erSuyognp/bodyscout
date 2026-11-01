@@ -12,8 +12,8 @@ is retried on the next start.
   python experiments/sweep.py --only bodies damage --procs 32
 
 Jobs (LLM hypothesizers off everywhere, so the sweep needs no API key and stays deterministic):
-  bodies         swarm vs single, unknown body, 4 families x 10 seeds
-  damage         swarm vs single, unknown body, 6 damage kinds x 4 families x 5 robots
+  bodies         swarm vs single vs single_probe, unknown body, 4 families x 10 seeds
+  damage         swarm vs single vs single_probe, unknown body, 6 damage kinds x 4 families x 5 robots
   learning       swarm, single, mlp on 10 arms, structure known
   extrapolation  swarm, unknown body, 4 families x 5 robots; refusal rate + naive miss
   menagerie      swarm vs single on the real arms, channels ordered and shuffled
@@ -59,11 +59,11 @@ def build_jobs(only, menagerie):
     jobs = []
     if "bodies" in only:
         jobs += [("bodies", {"family": f, "seed": s, "condition": c})
-                 for f in FAMILIES for s in range(1, BODIES["seeds"] + 1) for c in ("swarm", "single")]
+                 for f in FAMILIES for s in range(1, BODIES["seeds"] + 1) for c in ("swarm", "single", "single_probe")]
     if "damage" in only:
         jobs += [("damage", {"family": f, "seed": s, "damage": k, "condition": c})
                  for f in FAMILIES for s in range(1, DAMAGE["robots"] + 1) for k in DAMAGES
-                 for c in ("swarm", "single")]
+                 for c in ("swarm", "single", "single_probe")]
     if "learning" in only:
         jobs += [("learning", {"arm": s, "condition": c})
                  for s in range(1, LEARNING["arms"] + 1) for c in ("swarm", "single", "mlp")]
