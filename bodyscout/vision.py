@@ -552,15 +552,16 @@ class GazeAgent:
     camera what kind of body it is looking at (CameraRobot.look_for: a structure-informed Gemini question), posts
     a `gaze` artifact citing the findings or champion it used, and opens a new epoch so that readings taken while
     the camera may have been looking at the wrong part stop counting (the same mechanism as the Monitor's "my
-    body changed"). It changes the camera's question at most `max_switches` times per run.
+    body changed"). It changes the camera's question at most `max_switches` times per run. reset=False keeps
+    everything learned so far and only changes how future readings are taken.
 
     Agent rules: it reads only the board; its only robot access is the camera control look_for (no move, no
     hidden state)."""
 
     name = "gaze"
 
-    def __init__(self, camera, max_switches: int = 2, min_findings_frac: float = 0.75):
-        self.camera, self.max_switches, self.min_frac = camera, max_switches, min_findings_frac
+    def __init__(self, camera, max_switches: int = 2, min_findings_frac: float = 0.75, reset: bool = True):
+        self.camera, self.max_switches, self.min_frac, self.reset = camera, max_switches, min_findings_frac, reset
         self.switches, self.current = 0, None
 
     def _structure(self, bb):
@@ -588,8 +589,9 @@ class GazeAgent:
         self.switches += 1
         bb.post("gaze", self.name, {"structure": toks, "source": source, "prompt_tag": tag,
                                     "switch": self.switches}, parents)
-        bb.new_epoch()  # earlier readings may have tracked the wrong part: relearn from what the camera sees now
-        bb.need("data", self.name, 100.0, why="camera now looks for the end of the learned chain")
+        if self.reset:
+            bb.new_epoch()  # earlier readings may have tracked the wrong part: relearn from what the camera sees now
+            bb.need("data", self.name, 100.0, why="camera now looks for the end of the learned chain")
         return True
 
 
