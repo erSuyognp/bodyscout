@@ -30,6 +30,8 @@ If you add a feature that needs ground truth, it belongs in experiments/ or the 
 - Structure tokens: "hz" = hinge about z, "sx" = slide along x. `run(..., unknown_body=True)` turns on channel agents.
 - `bodyscout/planning.py`   IK on the champion, extrapolation guard, true reach scorer
 - `bodyscout/swarm.py`      run(robot, condition) for swarm / single / mlp, learning curve output
+- `bodyscout/export.py`     crowned ChainModel to robot.urdf, robot.xml (MJCF), body.json, report.html
+- `bodyscout/cli.py`        `python -m bodyscout learn --robot path.py:Class --budget N` runs the swarm, then exports
 - `experiments/`            learning_curve.py, damage.py, extrapolation.py, bodies.py, knockout.py, make_plots.py
                             (scripts that use a Pool keep their work under `if __name__ == "__main__":`, Windows needs it)
 - `demo.py`                 narrated live run + optional video
