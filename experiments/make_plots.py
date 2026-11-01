@@ -222,7 +222,7 @@ def wrap_title(ax, text, size=10.5):
 # ---- header ---------------------------------------------------------------------------
 head = git("rev-parse", "--short", "HEAD")
 dirty = " plus uncommitted changes" if git("status", "--porcelain", "--", "experiments", "bodyscout") else ""
-sweep_path = os.path.join(SIDE, "sweep.jsonl")
+sweep_path = f"{SIDE}/sweep.jsonl"
 sweep_note = ""
 if os.path.exists(sweep_path):
     blob = open(sweep_path, "rb").read()
@@ -231,7 +231,7 @@ if os.path.exists(sweep_path):
                   f"{hashlib.sha256(blob).hexdigest()[:12]}.")
 summary = ["# BodyScout results summary", "",
            f"Generated {date.today().isoformat()} by `experiments/make_plots.py {R}` at commit {head}{dirty}.{sweep_note} "
-           f"This file and `{os.path.join(R, 'summary.md')}` are the same file; the slides quote only numbers in it.", "",
+           f"This file and `{R}/summary.md` are the same file; the slides quote only numbers in it.", "",
            f"Cells: median [bootstrap 95% CI of the median, {BOOT} resamples] n = runs. Rates: k/n (percent). Reach "
            "error is the median miss on held-out reachable targets, in mm, scored on the true body.", "",
            "**Read this first.** The swarm v2 fixes (two channel agents per channel probing from different poses, a "
@@ -242,7 +242,7 @@ summary = ["# BodyScout results summary", "",
            "swarm_version 2 in their meta come from the swarm before the fixes.", ""]
 
 # jobs that raised during the sweep: listed with their error, and whether a later run completed them
-err_path = os.path.join(SIDE, "sweep_errors.jsonl")
+err_path = f"{SIDE}/sweep_errors.jsonl"
 if os.path.exists(err_path) and os.path.exists(sweep_path):
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     import sweep as sweep_jobs  # noqa: E402  (the job list, so stale keys from older sweeps are left out)
