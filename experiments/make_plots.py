@@ -19,6 +19,7 @@ import os
 import re
 import shutil
 import subprocess
+import time
 import sys
 from collections import defaultdict
 from datetime import date
@@ -106,7 +107,14 @@ def style(ax):
 
 def save(fig, name):
     for out in OUTS:
-        fig.savefig(f"{out}/{name}", facecolor="white")
+        for attempt in range(5):  # Windows: a file just written can be briefly locked by a scanner
+            try:
+                fig.savefig(f"{out}/{name}", facecolor="white")
+                break
+            except OSError:
+                if attempt == 4:
+                    raise
+                time.sleep(1.0)
     plt.close(fig)
 
 
