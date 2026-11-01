@@ -31,8 +31,9 @@ def collect(fam, n_poses, n_bodies, cache):
     out = []
     for seed in range(1, n_bodies + 1):
         robot = BlackBoxRobot(random_body(seed, fam), seed=seed)
-        marker = vision.CameraRobot(robot, detector="color", cache=cache)
-        plain = vision.CameraRobot(robot, detector="gemini", markerless=True, cache=cache, pointer=False)
+        marker = vision.CameraRobot(robot, detector="color", cache=cache, max_gap_mm=None)
+        plain = vision.CameraRobot(robot, detector="gemini", markerless=True, cache=cache, pointer=False,
+                                    max_gap_mm=None)
         rng = np.random.default_rng(1000 + seed)
         for _ in range(n_poses // n_bodies):
             robot.move(rng.uniform(*robot.limits, robot.n_channels))

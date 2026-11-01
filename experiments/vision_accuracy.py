@@ -27,7 +27,7 @@ def run_family(fam, n_poses, n_bodies, cache):
     per_body = n_poses // n_bodies
     for seed in range(1, n_bodies + 1):
         robot = BlackBoxRobot(random_body(seed, fam), seed=seed)
-        cam = vision.CameraRobot(robot, cache=cache)
+        cam = vision.CameraRobot(robot, cache=cache, max_gap_mm=None)
         rng = np.random.default_rng(1000 + seed)
         for _ in range(per_body):
             q = rng.uniform(*cam.limits, cam.n_channels)

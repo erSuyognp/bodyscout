@@ -341,6 +341,8 @@ class CameraRobot:
     view cannot see the tip, the result is NaN (no fake value). The robot's own marker reading is discarded.
 
     detector: "color" (detector 1, needs the red marker) or "gemini" (detector 2, Gemini Robotics ER).
+    max_gap_mm: when the two views' rays miss each other by more than this, the views disagree about where the
+    tip is; the reading is a bad observation and comes back as NaN (so it is never mistaken for a body change).
     markerless=True paints the tip like the links. With "gemini", a failed detection falls back to detector 1
     only in marker mode; markerless has nothing to fall back on. `last` holds the latest detections,
     triangulation residual and image keys.
@@ -348,12 +350,13 @@ class CameraRobot:
 
     def __init__(self, robot: BlackBoxRobot, detector: str = "color", markerless: bool = False,
                  width: int = WIDTH, height: int = HEIGHT, cameras: dict = CAMERAS,
-                 cache: VisionCache | None = None, pointer: GeminiPointer | None = None):
+                 cache: VisionCache | None = None, pointer: GeminiPointer | None = None,
+                 max_gap_mm: float | None = 20.0):
         if detector not in ("color", "gemini"):
             raise ValueError(detector)
         if markerless and detector == "color":
             raise ValueError("markerless mode has no red marker: use detector='gemini'")
-        self.robot, self.detector, self.markerless = robot, detector, markerless
+        self.robot, self.detector, self.markerless, self.max_gap_mm = robot, detector, markerless, max_gap_mm
         self.width, self.height, self.cameras = width, height, cameras
         self.cache = cache or VisionCache()
         self.pointer = pointer if pointer is not None or detector != "gemini" else GeminiPointer()
@@ -408,15 +411,25 @@ class CameraRobot:
         self.last = {"detections": {n: d for (n, _, _), d in zip(views, dets)},
                      "images": {n: self.cache.key(img) for n, img, _ in views}, "residual_m": None}
         if not all(d["found"] for d in dets):
+            self.last["bad"] = "tip not found in " + ", ".join(n for (n, _, _), d in zip(views, dets) if not d["found"])
             return np.full(3, np.nan)
         X, res = triangulate([c for _, _, c in views], [d["uv"] for d in dets])
         self.last["residual_m"] = res
+        if self.max_gap_mm is not None and res * 1000 > self.max_gap_mm:
+            self.last["bad"] = f"views disagree: rays {res * 1000:.0f} mm apart"
+            return np.full(3, np.nan)
         return X
 
     def observe(self) -> np.ndarray:
         """Render both views of the current pose, detect, triangulate."""
         views = self.render_views()
-        return self.locate(views, [self._detect(img) for _, img, _ in views])
+        if self.detector == "gemini":  # both views at once: half the wait
+            from concurrent.futures import ThreadPoolExecutor
+            with ThreadPoolExecutor(max_workers=len(views)) as ex:
+                dets = list(ex.map(self._detect, [img for _, img, _ in views]))
+        else:
+            dets = [self._detect(img) for _, img, _ in views]
+        return self.locate(views, dets)
 
     # ---- public interface, identical to BlackBoxRobot
     @property

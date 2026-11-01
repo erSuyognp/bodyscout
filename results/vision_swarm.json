@@ -1,0 +1,702 @@
+{
+ "args": {
+  "seeds": 2,
+  "budget": 64,
+  "max_ticks": 400,
+  "procs": 12,
+  "video_family": "scara",
+  "families": [
+   "arm",
+   "gantry",
+   "scara",
+   "telescope"
+  ],
+  "conds": [
+   "marker",
+   "color",
+   "gemini"
+  ],
+  "out": "results",
+  "video_seconds": 20
+ },
+ "rows": [
+  {
+   "family": "arm",
+   "seed": 1,
+   "condition": "marker",
+   "motions": 70,
+   "ticks": 12,
+   "structure_truth": [
+    "hz",
+    "hy",
+    "hx",
+    "hz"
+   ],
+   "structure_found": [
+    "hz",
+    "hy",
+    "hx",
+    "hz"
+   ],
+   "structure_correct": true,
+   "reach_mm": 1.0343406604872385,
+   "champion_family": "chain",
+   "observations": 70,
+   "bad_observations": 0,
+   "alarms": 0,
+   "gemini_calls": 0,
+   "gemini_errors": 0,
+   "seconds": 11.1
+  },
+  {
+   "family": "arm",
+   "seed": 1,
+   "condition": "color",
+   "motions": 70,
+   "ticks": 12,
+   "structure_truth": [
+    "hz",
+    "hy",
+    "hx",
+    "hz"
+   ],
+   "structure_found": [
+    "hz",
+    "hy",
+    "hx",
+    "hz"
+   ],
+   "structure_correct": true,
+   "reach_mm": 3.56925250601882,
+   "champion_family": "chain",
+   "observations": 66,
+   "bad_observations": 4,
+   "alarms": 0,
+   "gemini_calls": 0,
+   "gemini_errors": 0,
+   "seconds": 12.0
+  },
+  {
+   "family": "arm",
+   "seed": 1,
+   "condition": "gemini",
+   "motions": 70,
+   "ticks": 12,
+   "structure_truth": [
+    "hz",
+    "hy",
+    "hx",
+    "hz"
+   ],
+   "structure_found": [
+    "hz",
+    "hy",
+    "hx",
+    "hz"
+   ],
+   "structure_correct": true,
+   "reach_mm": 18.21891508334582,
+   "champion_family": "chain",
+   "observations": 60,
+   "bad_observations": 10,
+   "alarms": 0,
+   "gemini_calls": 140,
+   "gemini_errors": 0,
+   "seconds": 358.2
+  },
+  {
+   "family": "arm",
+   "seed": 2,
+   "condition": "marker",
+   "motions": 70,
+   "ticks": 10,
+   "structure_truth": [
+    "hz",
+    "hy",
+    "hy",
+    "hy",
+    "hy"
+   ],
+   "structure_found": [
+    "hz",
+    "hy",
+    "hy",
+    "hy",
+    "hy"
+   ],
+   "structure_correct": true,
+   "reach_mm": 2.29467516774036,
+   "champion_family": "chain",
+   "observations": 70,
+   "bad_observations": 0,
+   "alarms": 0,
+   "gemini_calls": 0,
+   "gemini_errors": 0,
+   "seconds": 14.7
+  },
+  {
+   "family": "arm",
+   "seed": 2,
+   "condition": "color",
+   "motions": 64,
+   "ticks": 28,
+   "structure_truth": [
+    "hz",
+    "hy",
+    "hy",
+    "hy",
+    "hy"
+   ],
+   "structure_found": [
+    "hz",
+    "hy",
+    "hy",
+    "hy",
+    "hy"
+   ],
+   "structure_correct": true,
+   "reach_mm": 3.708146660985132,
+   "champion_family": "chain",
+   "observations": 43,
+   "bad_observations": 21,
+   "alarms": 0,
+   "gemini_calls": 0,
+   "gemini_errors": 0,
+   "seconds": 20.6
+  },
+  {
+   "family": "arm",
+   "seed": 2,
+   "condition": "gemini",
+   "motions": 70,
+   "ticks": 10,
+   "structure_truth": [
+    "hz",
+    "hy",
+    "hy",
+    "hy",
+    "hy"
+   ],
+   "structure_found": [
+    "hz",
+    "hy",
+    "hy",
+    "hy",
+    "hy"
+   ],
+   "structure_correct": true,
+   "reach_mm": 72.82369263503206,
+   "champion_family": "chain",
+   "observations": 46,
+   "bad_observations": 24,
+   "alarms": 0,
+   "gemini_calls": 140,
+   "gemini_errors": 0,
+   "seconds": 415.8
+  },
+  {
+   "family": "gantry",
+   "seed": 1,
+   "condition": "marker",
+   "motions": 64,
+   "ticks": 64,
+   "structure_truth": [
+    "sx",
+    "sy",
+    "sz",
+    "hz"
+   ],
+   "structure_found": [
+    "sx",
+    "sy",
+    "sz",
+    "hz"
+   ],
+   "structure_correct": true,
+   "reach_mm": 0.9481512293453253,
+   "champion_family": "chain",
+   "observations": 64,
+   "bad_observations": 0,
+   "alarms": 0,
+   "gemini_calls": 0,
+   "gemini_errors": 0,
+   "seconds": 55.0
+  },
+  {
+   "family": "gantry",
+   "seed": 1,
+   "condition": "color",
+   "motions": 64,
+   "ticks": 112,
+   "structure_truth": [
+    "sx",
+    "sy",
+    "sz",
+    "hz"
+   ],
+   "structure_found": [
+    "sx",
+    "sy",
+    "sz",
+    "hz"
+   ],
+   "structure_correct": true,
+   "reach_mm": 2.8834390153606675,
+   "champion_family": "chain",
+   "observations": 64,
+   "bad_observations": 0,
+   "alarms": 0,
+   "gemini_calls": 0,
+   "gemini_errors": 0,
+   "seconds": 64.5
+  },
+  {
+   "family": "gantry",
+   "seed": 1,
+   "condition": "gemini",
+   "motions": 70,
+   "ticks": 12,
+   "structure_truth": [
+    "sx",
+    "sy",
+    "sz",
+    "hz"
+   ],
+   "structure_found": [
+    "sx",
+    "sy",
+    "sz",
+    "hz"
+   ],
+   "structure_correct": true,
+   "reach_mm": 9.01832874449764,
+   "champion_family": "chain",
+   "observations": 64,
+   "bad_observations": 6,
+   "alarms": 0,
+   "gemini_calls": 140,
+   "gemini_errors": 0,
+   "seconds": 344.2
+  },
+  {
+   "family": "gantry",
+   "seed": 2,
+   "condition": "marker",
+   "motions": 64,
+   "ticks": 16,
+   "structure_truth": [
+    "sx",
+    "sy",
+    "sz",
+    "hz"
+   ],
+   "structure_found": [
+    "sx",
+    "sy",
+    "sz",
+    "hz"
+   ],
+   "structure_correct": true,
+   "reach_mm": 1.1676488807331218,
+   "champion_family": "chain",
+   "observations": 64,
+   "bad_observations": 0,
+   "alarms": 0,
+   "gemini_calls": 0,
+   "gemini_errors": 0,
+   "seconds": 30.2
+  },
+  {
+   "family": "gantry",
+   "seed": 2,
+   "condition": "color",
+   "motions": 64,
+   "ticks": 112,
+   "structure_truth": [
+    "sx",
+    "sy",
+    "sz",
+    "hz"
+   ],
+   "structure_found": [
+    "sx",
+    "sy",
+    "sz",
+    "hz"
+   ],
+   "structure_correct": true,
+   "reach_mm": 3.1753404362448183,
+   "champion_family": "chain",
+   "observations": 64,
+   "bad_observations": 0,
+   "alarms": 0,
+   "gemini_calls": 0,
+   "gemini_errors": 0,
+   "seconds": 67.1
+  },
+  {
+   "family": "gantry",
+   "seed": 2,
+   "condition": "gemini",
+   "motions": 66,
+   "ticks": 11,
+   "structure_truth": [
+    "sx",
+    "sy",
+    "sz",
+    "hz"
+   ],
+   "structure_found": [
+    "sx",
+    "sy",
+    "sz",
+    "hz"
+   ],
+   "structure_correct": true,
+   "reach_mm": 5.724827973691499,
+   "champion_family": "chain",
+   "observations": 64,
+   "bad_observations": 2,
+   "alarms": 0,
+   "gemini_calls": 132,
+   "gemini_errors": 0,
+   "seconds": 311.1
+  },
+  {
+   "family": "scara",
+   "seed": 1,
+   "condition": "marker",
+   "motions": 64,
+   "ticks": 40,
+   "structure_truth": [
+    "hz",
+    "hz",
+    "sz",
+    "hz"
+   ],
+   "structure_found": [
+    "hz",
+    "hz",
+    "sz",
+    "hz"
+   ],
+   "structure_correct": true,
+   "reach_mm": 1.0212001697916457,
+   "champion_family": "chain",
+   "observations": 64,
+   "bad_observations": 0,
+   "alarms": 0,
+   "gemini_calls": 0,
+   "gemini_errors": 0,
+   "seconds": 30.9
+  },
+  {
+   "family": "scara",
+   "seed": 1,
+   "condition": "color",
+   "motions": 64,
+   "ticks": 88,
+   "structure_truth": [
+    "hz",
+    "hz",
+    "sz",
+    "hz"
+   ],
+   "structure_found": [
+    "hz",
+    "hz",
+    "sz",
+    "hz"
+   ],
+   "structure_correct": true,
+   "reach_mm": 3.6384176294376536,
+   "champion_family": "chain",
+   "observations": 59,
+   "bad_observations": 5,
+   "alarms": 0,
+   "gemini_calls": 0,
+   "gemini_errors": 0,
+   "seconds": 40.1
+  },
+  {
+   "family": "scara",
+   "seed": 1,
+   "condition": "gemini",
+   "motions": 70,
+   "ticks": 12,
+   "structure_truth": [
+    "hz",
+    "hz",
+    "sz",
+    "hz"
+   ],
+   "structure_found": [
+    "hz",
+    "hz",
+    "sz",
+    "hz"
+   ],
+   "structure_correct": true,
+   "reach_mm": 78.8153563820271,
+   "champion_family": "chain",
+   "observations": 45,
+   "bad_observations": 25,
+   "alarms": 0,
+   "gemini_calls": 92,
+   "gemini_errors": 0,
+   "seconds": 434.4
+  },
+  {
+   "family": "scara",
+   "seed": 2,
+   "condition": "marker",
+   "motions": 64,
+   "ticks": 64,
+   "structure_truth": [
+    "hz",
+    "hz",
+    "sz",
+    "hz"
+   ],
+   "structure_found": [
+    "hz",
+    "hz",
+    "sz",
+    "hz"
+   ],
+   "structure_correct": true,
+   "reach_mm": 1.646019336249687,
+   "champion_family": "chain",
+   "observations": 64,
+   "bad_observations": 0,
+   "alarms": 0,
+   "gemini_calls": 0,
+   "gemini_errors": 0,
+   "seconds": 41.0
+  },
+  {
+   "family": "scara",
+   "seed": 2,
+   "condition": "color",
+   "motions": 64,
+   "ticks": 28,
+   "structure_truth": [
+    "hz",
+    "hz",
+    "sz",
+    "hz"
+   ],
+   "structure_found": [
+    "hz",
+    "hz",
+    "sz",
+    "hz"
+   ],
+   "structure_correct": true,
+   "reach_mm": 3.3891348465558373,
+   "champion_family": "chain",
+   "observations": 62,
+   "bad_observations": 2,
+   "alarms": 0,
+   "gemini_calls": 0,
+   "gemini_errors": 0,
+   "seconds": 30.1
+  },
+  {
+   "family": "scara",
+   "seed": 2,
+   "condition": "gemini",
+   "motions": 66,
+   "ticks": 11,
+   "structure_truth": [
+    "hz",
+    "hz",
+    "sz",
+    "hz"
+   ],
+   "structure_found": [
+    "hz",
+    "hz",
+    "sx",
+    "hz"
+   ],
+   "structure_correct": false,
+   "reach_mm": 75.19855943459203,
+   "champion_family": "chain",
+   "observations": 53,
+   "bad_observations": 13,
+   "alarms": 0,
+   "gemini_calls": 132,
+   "gemini_errors": 0,
+   "seconds": 472.5
+  },
+  {
+   "family": "telescope",
+   "seed": 1,
+   "condition": "marker",
+   "motions": 64,
+   "ticks": 52,
+   "structure_truth": [
+    "hz",
+    "hy",
+    "sz",
+    "hy"
+   ],
+   "structure_found": [
+    "hz",
+    "hy",
+    "sz",
+    "hy"
+   ],
+   "structure_correct": true,
+   "reach_mm": 0.36575703321668523,
+   "champion_family": "chain",
+   "observations": 64,
+   "bad_observations": 0,
+   "alarms": 0,
+   "gemini_calls": 0,
+   "gemini_errors": 0,
+   "seconds": 25.1
+  },
+  {
+   "family": "telescope",
+   "seed": 1,
+   "condition": "color",
+   "motions": 64,
+   "ticks": 40,
+   "structure_truth": [
+    "hz",
+    "hy",
+    "sz",
+    "hy"
+   ],
+   "structure_found": [
+    "hz",
+    "hy",
+    "sz",
+    "hy"
+   ],
+   "structure_correct": true,
+   "reach_mm": 3.0429475622512556,
+   "champion_family": "chain",
+   "observations": 55,
+   "bad_observations": 9,
+   "alarms": 0,
+   "gemini_calls": 0,
+   "gemini_errors": 0,
+   "seconds": 21.1
+  },
+  {
+   "family": "telescope",
+   "seed": 1,
+   "condition": "gemini",
+   "motions": 70,
+   "ticks": 12,
+   "structure_truth": [
+    "hz",
+    "hy",
+    "sz",
+    "hy"
+   ],
+   "structure_found": [
+    "hz",
+    "hy",
+    "sz",
+    "hy"
+   ],
+   "structure_correct": true,
+   "reach_mm": 13.113092205359273,
+   "champion_family": "chain",
+   "observations": 54,
+   "bad_observations": 16,
+   "alarms": 0,
+   "gemini_calls": 140,
+   "gemini_errors": 0,
+   "seconds": 454.8
+  },
+  {
+   "family": "telescope",
+   "seed": 2,
+   "condition": "marker",
+   "motions": 66,
+   "ticks": 11,
+   "structure_truth": [
+    "hz",
+    "hy",
+    "sz",
+    "hy"
+   ],
+   "structure_found": [
+    "hz",
+    "hy",
+    "sz",
+    "hy"
+   ],
+   "structure_correct": true,
+   "reach_mm": 1.588393021341362,
+   "champion_family": "chain",
+   "observations": 66,
+   "bad_observations": 0,
+   "alarms": 0,
+   "gemini_calls": 0,
+   "gemini_errors": 0,
+   "seconds": 19.1
+  },
+  {
+   "family": "telescope",
+   "seed": 2,
+   "condition": "color",
+   "motions": 64,
+   "ticks": 16,
+   "structure_truth": [
+    "hz",
+    "hy",
+    "sz",
+    "hy"
+   ],
+   "structure_found": [
+    "hz",
+    "hy",
+    "sz",
+    "hy"
+   ],
+   "structure_correct": true,
+   "reach_mm": 3.5202242182403856,
+   "champion_family": "chain",
+   "observations": 58,
+   "bad_observations": 6,
+   "alarms": 0,
+   "gemini_calls": 0,
+   "gemini_errors": 0,
+   "seconds": 22.1
+  },
+  {
+   "family": "telescope",
+   "seed": 2,
+   "condition": "gemini",
+   "motions": 66,
+   "ticks": 11,
+   "structure_truth": [
+    "hz",
+    "hy",
+    "sz",
+    "hy"
+   ],
+   "structure_found": [
+    "hz",
+    "hy",
+    "sz",
+    "hy"
+   ],
+   "structure_correct": true,
+   "reach_mm": 6.874575583135847,
+   "champion_family": "chain",
+   "observations": 44,
+   "bad_observations": 22,
+   "alarms": 0,
+   "gemini_calls": 132,
+   "gemini_errors": 0,
+   "seconds": 475.1
+  }
+ ]
+}
