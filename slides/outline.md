@@ -25,6 +25,7 @@ Figure: none. Show the black box: a row of unlabeled channel sliders and a dot t
 - Channel agents sweep one channel at a time, two agents per channel from different poses; a channel is settled only when they agree, otherwise every type is proposed. The swarm spends 36 [32 to 40] of its 64 motions on these sweeps (n = 60). (§10)
 - Independent hypothesizers turn findings into structures; modelers fit them; two validators crown a structure by held-out error.
 - Reveal: the full structure is right on **20/20** robots on the independent seeds and 40/40 on the original seeds (n = 60). A single agent searching blind gets 5/20 and 6/40. (§1)
+- But single_probe and the pipeline, which probe channels the same way, also get 20/20 on the independent seeds (n = 20 each; §1 row "all", `fig_bodies.png`). So the reveal shows that probing works; whether the swarm is needed is the question slide 5 tests.
 - Unknown body score: reach error **1.5 [1.4 to 1.9] mm** after 64 motions, n = 20 (independent); 1.6 [1.3 to 2.0] mm, n = 40 (original). (§1)
 - Every final champion (no fault, n = 40) descends from 7 (6 to 8) distinct agent types; in 39 of 40, two or more sources had proposed structures that disagreed. (§11)
 
@@ -34,13 +35,14 @@ Figure: `results/fig_bodies.png`
 
 ## Slide 3. Secret damage
 
-**Claim: break the robot mid run and the swarm notices, pauses and relearns, and the task survives.**
+**Claim: break the robot mid run and the swarm notices, pauses and relearns, and the task survives where a single agent's fails.**
 
 - Alarm: the swarm noticed the damage in **97/120** runs (81%); 20/20 for locked joint, long link, reversed motor and tool, 16/20 for bent axis, 1/20 for payload. (§3)
 - It takes a median 26 to 32 motions after the damage for those five kinds (n = 16 to 20 detected runs per kind). (§3)
 - Pause: between the alarm and the next crowned model the planner refuses to move.
 - Cube pick and place, damage (long link) at motion 48, n = 20 arms: swarm **20/20 before and 20/20 after** (2.9 [2.3 to 3.7] then 4.7 [2.4 to 6.5] mm, a replan requested in all 20); single agent 20/20 before, **4/20 after** (149.1 [54.9 to 376.0] mm). (§4)
 - Caveat on the slide: 64 motions after the damage the swarm has a trusted model in only **59/120** runs (pipeline 112/120, single agents 120/120). (§3)
+- The pipeline (same parts, fixed order) detects **95/120** (swarm 97/120) and has a trusted model at motion 128 in **112/120** vs the swarm's 59/120. So damage handling comes from the monitor and validator parts, not from the collective; the win on this slide is over the single agent, in the cube task. (§3)
 
 Figure: `results/fig_damage.png`
 
@@ -63,8 +65,12 @@ Figures: `results/fig_noise.png`, `results/fig_extrapolation.png` (and `fig_bodi
 
 ## Slide 5. Is the swarm necessary?
 
-**Claim: on a clean body, no; when one part lies or breaks, yes. Same 64 motion budget, same robots, same scorer.**
+**Claim: only the collective stays under 10 mm on all four faults: swarm 4/4, single_probe 3/4, pipeline 1/4, single 0/4 (independent seeds).**
 
+Same 64 motion budget, same robots, same scorer; a fault counts when the median reach error at 64 motions is under 10 mm, and a run that ends with no model counts as a miss (`fig_faults.png`, from §5 independent seeds).
+
+- single_probe has no LLM stage, so bad_llm cannot affect it; its 3/4 includes that fault. Of the three faults that can reach it, it stays under 10 mm on modeler_crash (3.2 mm) and noisy_channel (3.7 mm) and fails on wrong_finding (43.8 mm). (§5)
+- Under noisy_channel the swarm is under 10 mm (5.1 mm) but single_probe and the pipeline end closer (3.7 mm); see slide 6. (§5)
 - Clean body (independent seeds, n = 20): single_probe 1.3 [1.0 to 1.7] mm and the pipeline 1.7 [1.0 to 2.0] mm **tie** the swarm's 1.5 [1.4 to 1.9] mm. (§5, §1, Ties)
 - One channel agent reports a wrong joint type: swarm **1.5 [1.4 to 2.0] mm, 20/20** structures; single_probe 43.8 mm (1/20); pipeline 41.4 mm (3/20). (§5)
 - A confident wrong hypothesis source: swarm **1.6 [1.3 to 1.9] mm, 20/20**; pipeline 27.4 mm, 0/20, because its LLM stage has the final say. (§5)
