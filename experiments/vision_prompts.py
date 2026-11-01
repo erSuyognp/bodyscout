@@ -84,7 +84,11 @@ def write_summary(path="results/summary_vision.md"):
           "counting. It made learning WORSE: each switch restarts learning and the 64 motion budget ran out before a "
           "new model (telescopes: no model, against 5.1 and 10.7 mm without it); on gantries it sometimes steered "
           "by a wrong structure; on SCARA it never fired because too many readings were rejected for the channel "
-          "agents to finish. The loop needs a design that keeps data across a switch, or a larger budget.", ""]
+          "agents to finish. A second design keeps everything learned and switches the camera's question once "
+          "(condition \"improved + gaze, keep data, 1 switch\"): it fixes that failure and matches or beats the same "
+          "camera setup without the loop (median reach error, keep-data loop vs no loop: arm 5.3 vs 5.3 mm, telescope "
+          "5.4 vs 7.9 mm, gantry 22.3 vs 27.7 mm with the structure still wrong; SCARA still no model). A modest "
+          "gain on 2 seeds, and the second design was chosen after seeing the first fail.", ""]
     txt = open(path).read()
     txt = re.sub(r"\n## Telling the camera what it is looking at: SCARA \(V6\).*?(?=\n## |\Z)", "", txt, flags=re.S)
     parts = re.split(r"(\n## Swarm learns from cameras)", txt, maxsplit=1)

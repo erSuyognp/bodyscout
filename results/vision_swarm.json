@@ -12,7 +12,7 @@
    "telescope"
   ],
   "conds": [
-   "gemini_gaze"
+   "gemini_gaze_keep"
   ],
   "plus_pipeline": "refine",
   "plus_cameras": 4,
@@ -1634,6 +1634,357 @@
      "source": "champion",
      "prompt_tag": "struct-88c2602a",
      "switch": 2
+    }
+   ]
+  },
+  {
+   "family": "arm",
+   "seed": 1,
+   "condition": "gemini_gaze_keep",
+   "motions": 66,
+   "ticks": 12,
+   "structure_truth": [
+    "hz",
+    "hy",
+    "hx",
+    "hz"
+   ],
+   "structure_found": [
+    "hz",
+    "hy",
+    "hx",
+    "hz"
+   ],
+   "structure_correct": true,
+   "reach_mm": 5.308950251128717,
+   "champion_family": "chain",
+   "observations": 50,
+   "bad_observations": 16,
+   "alarms": 0,
+   "gemini_calls": 152,
+   "gemini_errors": 0,
+   "seconds": 385.2,
+   "setup": {
+    "pipeline": "refine",
+    "cameras": 4,
+    "width": 1280,
+    "height": 960,
+    "gaze_drop": false,
+    "drop_views": false
+   },
+   "gaze": [
+    {
+     "structure": [
+      "hz",
+      "hy",
+      "hx",
+      "hz"
+     ],
+     "source": "champion",
+     "prompt_tag": "struct-68a358db",
+     "switch": 1
+    }
+   ]
+  },
+  {
+   "family": "arm",
+   "seed": 2,
+   "condition": "gemini_gaze_keep",
+   "motions": 69,
+   "ticks": 10,
+   "structure_truth": [
+    "hz",
+    "hy",
+    "hy",
+    "hy",
+    "hy"
+   ],
+   "structure_found": [
+    "hz",
+    "hy",
+    "hy",
+    "hy",
+    "hy"
+   ],
+   "structure_correct": true,
+   "reach_mm": 5.272899209248328,
+   "champion_family": "chain",
+   "observations": 33,
+   "bad_observations": 36,
+   "alarms": 0,
+   "gemini_calls": 180,
+   "gemini_errors": 0,
+   "seconds": 534.7,
+   "setup": {
+    "pipeline": "refine",
+    "cameras": 4,
+    "width": 1280,
+    "height": 960,
+    "gaze_drop": false,
+    "drop_views": false
+   },
+   "gaze": [
+    {
+     "structure": [
+      "hz",
+      "hy",
+      "h?",
+      "hy",
+      "h?"
+     ],
+     "source": "findings",
+     "prompt_tag": "struct-1b7eedd5",
+     "switch": 1
+    }
+   ]
+  },
+  {
+   "family": "gantry",
+   "seed": 1,
+   "condition": "gemini_gaze_keep",
+   "motions": 66,
+   "ticks": 12,
+   "structure_truth": [
+    "sx",
+    "sy",
+    "sz",
+    "hz"
+   ],
+   "structure_found": null,
+   "structure_correct": false,
+   "reach_mm": 27.568717489145314,
+   "champion_family": "mlp",
+   "observations": 46,
+   "bad_observations": 20,
+   "alarms": 0,
+   "gemini_calls": 152,
+   "gemini_errors": 0,
+   "seconds": 432.8,
+   "setup": {
+    "pipeline": "refine",
+    "cameras": 4,
+    "width": 1280,
+    "height": 960,
+    "gaze_drop": false,
+    "drop_views": false
+   },
+   "gaze": [
+    {
+     "structure": [
+      "hy",
+      "hx",
+      "hy",
+      "hz"
+     ],
+     "source": "champion",
+     "prompt_tag": "struct-58e0b034",
+     "switch": 1
+    }
+   ]
+  },
+  {
+   "family": "gantry",
+   "seed": 2,
+   "condition": "gemini_gaze_keep",
+   "motions": 70,
+   "ticks": 10,
+   "structure_truth": [
+    "sx",
+    "sy",
+    "sz",
+    "hz"
+   ],
+   "structure_found": null,
+   "structure_correct": false,
+   "reach_mm": 17.043842089865326,
+   "champion_family": "gmm",
+   "observations": 52,
+   "bad_observations": 18,
+   "alarms": 0,
+   "gemini_calls": 136,
+   "gemini_errors": 0,
+   "seconds": 352.5,
+   "setup": {
+    "pipeline": "refine",
+    "cameras": 4,
+    "width": 1280,
+    "height": 960,
+    "gaze_drop": false,
+    "drop_views": false
+   },
+   "gaze": [
+    {
+     "structure": [
+      "hy",
+      "hx",
+      "hx",
+      "hz"
+     ],
+     "source": "champion",
+     "prompt_tag": "struct-58e0b034",
+     "switch": 1
+    }
+   ]
+  },
+  {
+   "family": "scara",
+   "seed": 1,
+   "condition": "gemini_gaze_keep",
+   "motions": 64,
+   "ticks": 12,
+   "structure_truth": [
+    "hz",
+    "hz",
+    "sz",
+    "hz"
+   ],
+   "structure_found": null,
+   "structure_correct": false,
+   "reach_mm": null,
+   "champion_family": null,
+   "observations": 5,
+   "bad_observations": 59,
+   "alarms": 0,
+   "gemini_calls": 0,
+   "gemini_errors": 0,
+   "seconds": 5.9,
+   "setup": {
+    "pipeline": "refine",
+    "cameras": 4,
+    "width": 1280,
+    "height": 960,
+    "gaze_drop": false,
+    "drop_views": false
+   },
+   "gaze": []
+  },
+  {
+   "family": "scara",
+   "seed": 2,
+   "condition": "gemini_gaze_keep",
+   "motions": 68,
+   "ticks": 10,
+   "structure_truth": [
+    "hz",
+    "hz",
+    "sz",
+    "hz"
+   ],
+   "structure_found": null,
+   "structure_correct": false,
+   "reach_mm": null,
+   "champion_family": null,
+   "observations": 6,
+   "bad_observations": 62,
+   "alarms": 0,
+   "gemini_calls": 0,
+   "gemini_errors": 0,
+   "seconds": 6.3,
+   "setup": {
+    "pipeline": "refine",
+    "cameras": 4,
+    "width": 1280,
+    "height": 960,
+    "gaze_drop": false,
+    "drop_views": false
+   },
+   "gaze": []
+  },
+  {
+   "family": "telescope",
+   "seed": 1,
+   "condition": "gemini_gaze_keep",
+   "motions": 64,
+   "ticks": 52,
+   "structure_truth": [
+    "hz",
+    "hy",
+    "sz",
+    "hy"
+   ],
+   "structure_found": [
+    "hz",
+    "hy",
+    "sz",
+    "hy"
+   ],
+   "structure_correct": true,
+   "reach_mm": 5.591559329911412,
+   "champion_family": "chain",
+   "observations": 43,
+   "bad_observations": 21,
+   "alarms": 0,
+   "gemini_calls": 164,
+   "gemini_errors": 0,
+   "seconds": 511.5,
+   "setup": {
+    "pipeline": "refine",
+    "cameras": 4,
+    "width": 1280,
+    "height": 960,
+    "gaze_drop": false,
+    "drop_views": false
+   },
+   "gaze": [
+    {
+     "structure": [
+      "hz",
+      "h?",
+      "sz",
+      "hy"
+     ],
+     "source": "findings",
+     "prompt_tag": "struct-0f26fe53",
+     "switch": 1
+    }
+   ]
+  },
+  {
+   "family": "telescope",
+   "seed": 2,
+   "condition": "gemini_gaze_keep",
+   "motions": 70,
+   "ticks": 10,
+   "structure_truth": [
+    "hz",
+    "hy",
+    "sz",
+    "hy"
+   ],
+   "structure_found": [
+    "hz",
+    "hy",
+    "sz",
+    "hy"
+   ],
+   "structure_correct": true,
+   "reach_mm": 5.134311666211231,
+   "champion_family": "chain",
+   "observations": 36,
+   "bad_observations": 34,
+   "alarms": 0,
+   "gemini_calls": 180,
+   "gemini_errors": 0,
+   "seconds": 560.9,
+   "setup": {
+    "pipeline": "refine",
+    "cameras": 4,
+    "width": 1280,
+    "height": 960,
+    "gaze_drop": false,
+    "drop_views": false
+   },
+   "gaze": [
+    {
+     "structure": [
+      "hz",
+      "h?",
+      "sz",
+      "hy"
+     ],
+     "source": "findings",
+     "prompt_tag": "struct-0f26fe53",
+     "switch": 1
     }
    ]
   }
