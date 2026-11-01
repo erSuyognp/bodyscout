@@ -1,0 +1,1010 @@
+[
+ {
+  "family": "arm",
+  "seed": 1,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.069,
+   0.194,
+   0.123,
+   0.116
+  ],
+  "identifiable": [
+   false,
+   true,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.069,
+   0.193,
+   0.12,
+   0.117
+  ],
+  "identifiable": [
+   false,
+   true,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.066,
+   0.149,
+   0.166,
+   0.094,
+   0.077
+  ],
+  "identifiable": [
+   false,
+   true,
+   true,
+   true,
+   true
+  ]
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "sx",
+   "sx",
+   "hy",
+   "sz"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.054,
+   0.054,
+   0.054,
+   0.033,
+   0.033
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.05,
+   0.05,
+   0.05,
+   0.097
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.05,
+   0.05,
+   0.05,
+   0.097
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.055,
+   0.055,
+   0.055,
+   0.086
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "hz"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.093,
+   0.093,
+   0.037,
+   0.056
+  ],
+  "identifiable": [
+   false,
+   false,
+   true,
+   true
+  ]
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.172,
+   0.055,
+   0.055,
+   0.07
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   true
+  ]
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.172,
+   0.117,
+   0.032,
+   0.06
+  ],
+  "identifiable": [
+   true,
+   false,
+   true,
+   true
+  ]
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.154,
+   0.065,
+   0.065,
+   0.058
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   true
+  ]
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.153,
+   0.065,
+   0.065,
+   0.058
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.077,
+   0.117,
+   0.117,
+   0.094
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ]
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.079,
+   0.288,
+   0.059,
+   0.088
+  ],
+  "identifiable": [
+   false,
+   true,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.072,
+   0.138,
+   0.138,
+   0.076
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ]
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.072,
+   0.138,
+   0.138,
+   0.076
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ]
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "condition": "swarm+claude",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.069,
+   0.194,
+   0.12,
+   0.117
+  ],
+  "identifiable": [
+   false,
+   true,
+   false,
+   false
+  ],
+  "claude_answered": true,
+  "claude_patterns": [
+   [
+    "hz",
+    "hy",
+    "hx",
+    "hx"
+   ],
+   [
+    "hz",
+    "hy",
+    "hx",
+    "hz"
+   ],
+   [
+    "hz",
+    "hy",
+    "hx",
+    "hy"
+   ],
+   [
+    "hy",
+    "hy",
+    "hx",
+    "hx"
+   ]
+  ],
+  "claude_why": "Channel 1 is a large y-axis arc and channel 2 a mid-arm x-axis arc, channel 0 is a z-axis yaw with a tiny offset, and channel 3 is a small-radius wrist rotation whose fitted axis is x.",
+  "claude_top1": false,
+  "claude_in_top": true,
+  "claude_types_top1": true
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "condition": "swarm+claude",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.066,
+   0.149,
+   0.165,
+   0.095,
+   0.077
+  ],
+  "identifiable": [
+   false,
+   true,
+   true,
+   true,
+   true
+  ],
+  "claude_answered": true,
+  "claude_patterns": [
+   [
+    "hz",
+    "hy",
+    "hy",
+    "hy",
+    "hy"
+   ],
+   [
+    "hz",
+    "hy",
+    "hy",
+    "hy",
+    "hx"
+   ],
+   [
+    "hz",
+    "hy",
+    "hy",
+    "hy",
+    "hz"
+   ],
+   [
+    "hz",
+    "hy",
+    "hy",
+    "hx",
+    "hy"
+   ]
+  ],
+  "claude_why": "Channel 0 is a near-axis yaw about z with small tip motion, and channels 1-4 are arcs about y with decreasing radii, forming a planar chain in xz above a shoulder at about 125 mm.",
+  "claude_top1": true,
+  "claude_in_top": true,
+  "claude_types_top1": true
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "condition": "swarm+claude",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.05,
+   0.05,
+   0.05,
+   0.097
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "claude_answered": true,
+  "claude_patterns": [
+   [
+    "sx",
+    "sy",
+    "sz",
+    "hz"
+   ],
+   [
+    "sx",
+    "sy",
+    "sz",
+    "hy"
+   ],
+   [
+    "sx",
+    "sy",
+    "sz",
+    "hx"
+   ],
+   [
+    "sx",
+    "sy",
+    "sy",
+    "hz"
+   ]
+  ],
+  "claude_why": "Channels 0-2 are straight lines along x, y, z (slides) and channel 3 is an arc with a z-axis normal (rotation about z), so sx, sy, sz, hz is most likely.",
+  "claude_top1": true,
+  "claude_in_top": true,
+  "claude_types_top1": true
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "condition": "swarm+claude",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.055,
+   0.055,
+   0.055,
+   0.086
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "claude_answered": true,
+  "claude_patterns": [
+   [
+    "sx",
+    "sy",
+    "sz",
+    "hz"
+   ],
+   [
+    "sy",
+    "sx",
+    "sz",
+    "hz"
+   ],
+   [
+    "sz",
+    "sx",
+    "sy",
+    "hz"
+   ],
+   [
+    "sx",
+    "sz",
+    "sy",
+    "hz"
+   ]
+  ],
+  "claude_why": "Channels 0-2 are straight lines along base x, y and z, and channel 3 is an arc about z with its center about 60 mm from the tip; the combined test poses fit translations in base axes plus a final z rotation of the offset tip.",
+  "claude_top1": true,
+  "claude_in_top": true,
+  "claude_types_top1": true
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "condition": "swarm+claude",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.171,
+   0.055,
+   0.055,
+   0.071
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   true
+  ],
+  "claude_answered": true,
+  "claude_patterns": [
+   [
+    "hz",
+    "hz",
+    "sz",
+    "hz"
+   ],
+   [
+    "hz",
+    "hz",
+    "hz",
+    "sz"
+   ],
+   [
+    "hz",
+    "sz",
+    "hz",
+    "hz"
+   ],
+   [
+    "sz",
+    "hz",
+    "hz",
+    "hz"
+   ]
+  ],
+  "claude_why": "Three parallel z-axis rotations with decreasing arc radii (base ~330, elbow ~163, wrist ~69 mm) plus one z-direction slide, like a SCARA arm, with the slide's position in the chain ambiguous.",
+  "claude_top1": true,
+  "claude_in_top": true,
+  "claude_types_top1": true
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "condition": "swarm+claude",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.153,
+   0.066,
+   0.066,
+   0.058
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "claude_answered": true,
+  "claude_patterns": [
+   [
+    "hz",
+    "hz",
+    "sz",
+    "hz"
+   ],
+   [
+    "hz",
+    "hz",
+    "sz",
+    "hy"
+   ],
+   [
+    "hz",
+    "hz",
+    "sz",
+    "hx"
+   ],
+   [
+    "hz",
+    "hy",
+    "sz",
+    "hz"
+   ]
+  ],
+  "claude_why": "All four sweeps show z-axis arcs for channels 0, 1 and 3 (radii ~320, ~170, ~50 mm, consistent with a chain of offset z rotations) and a straight z line for channel 2, which gives a SCARA-style hz-hz-sz-hz.",
+  "claude_top1": true,
+  "claude_in_top": true,
+  "claude_types_top1": true
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "condition": "swarm+claude",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.077,
+   0.118,
+   0.118,
+   0.094
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "claude_answered": true,
+  "claude_patterns": [
+   [
+    "hz",
+    "hy",
+    "sz",
+    "hy"
+   ],
+   [
+    "hz",
+    "hy",
+    "hy",
+    "sz"
+   ],
+   [
+    "hz",
+    "sz",
+    "hy",
+    "hy"
+   ],
+   [
+    "sz",
+    "hz",
+    "hy",
+    "hy"
+   ]
+  ],
+  "claude_why": "Channel 0 is a z rotation near the axis, channel 1 a large-radius y rotation at the base, channel 2 a z slide, and channel 3 a small-radius y wrist rotation, so the likely chain is hz, hy, sz, hy.",
+  "claude_top1": true,
+  "claude_in_top": true,
+  "claude_types_top1": true
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "condition": "swarm+claude",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.072,
+   0.138,
+   0.138,
+   0.076
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "claude_answered": true,
+  "claude_patterns": [
+   [
+    "hz",
+    "hy",
+    "sz",
+    "hy"
+   ],
+   [
+    "hz",
+    "hy",
+    "hy",
+    "sz"
+   ],
+   [
+    "sz",
+    "hz",
+    "hy",
+    "hy"
+   ],
+   [
+    "hy",
+    "hz",
+    "sz",
+    "hy"
+   ]
+  ],
+  "claude_why": "Channels 0 and 2 give a z rotation and a z slide, channels 1 and 3 give y rotations (a large-radius arc and a small wrist-like one), and the base-frame axes at q=0 fit the order hz, hy, sz, hy best.",
+  "claude_top1": true,
+  "claude_in_top": true,
+  "claude_types_top1": true
+ }
+]
