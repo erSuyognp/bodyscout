@@ -53,8 +53,16 @@
    "hy",
    "hy"
   ],
-  "found": null,
-  "champion": "mlp",
+  "found": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hx",
+   "hy",
+   "hy"
+  ],
+  "champion": "chain",
   "observable": [
    true,
    false,
@@ -64,12 +72,12 @@
    true,
    true
   ],
-  "joints_right": 0,
-  "observable_right": 0,
+  "joints_right": 7,
+  "observable_right": 6,
   "n": 7,
   "n_observable": 6,
-  "structure_correct": false,
-  "final_reach_mm": 187.06316790518056
+  "structure_correct": true,
+  "final_reach_mm": 2.4074594979141057
  },
  {
   "arm": "panda",
@@ -205,8 +213,16 @@
    "hx",
    "hz"
   ],
-  "found": null,
-  "champion": "mlp",
+  "found": [
+   "hy",
+   "hy",
+   "hz",
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "champion": "chain",
   "observable": [
    true,
    true,
@@ -216,12 +232,12 @@
    true,
    true
   ],
-  "joints_right": 0,
-  "observable_right": 0,
+  "joints_right": 7,
+  "observable_right": 6,
   "n": 7,
   "n_observable": 6,
-  "structure_correct": false,
-  "final_reach_mm": 128.08843233328022
+  "structure_correct": true,
+  "final_reach_mm": 1.7930149265167055
  },
  {
   "arm": "panda",
@@ -353,8 +369,15 @@
    "hz",
    "hy"
   ],
-  "found": null,
-  "champion": "mlp",
+  "found": [
+   "hy",
+   "hy",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "champion": "chain",
   "observable": [
    true,
    false,
@@ -363,12 +386,12 @@
    true,
    true
   ],
-  "joints_right": 0,
-  "observable_right": 0,
+  "joints_right": 6,
+  "observable_right": 5,
   "n": 6,
   "n_observable": 5,
-  "structure_correct": false,
-  "final_reach_mm": 189.50624946251932
+  "structure_correct": true,
+  "final_reach_mm": 2.1246623891437815
  },
  {
   "arm": "ur5e",
@@ -494,8 +517,15 @@
    "hz",
    "hz"
   ],
-  "found": null,
-  "champion": "mlp",
+  "found": [
+   "hy",
+   "hy",
+   "hy",
+   "hy",
+   "hz",
+   "hz"
+  ],
+  "champion": "chain",
   "observable": [
    true,
    false,
@@ -504,12 +534,12 @@
    true,
    true
   ],
-  "joints_right": 0,
-  "observable_right": 0,
+  "joints_right": 6,
+  "observable_right": 5,
   "n": 6,
   "n_observable": 5,
-  "structure_correct": false,
-  "final_reach_mm": 186.62932857339365
+  "structure_correct": true,
+  "final_reach_mm": 1.6513482716080794
  },
  {
   "arm": "ur5e",
