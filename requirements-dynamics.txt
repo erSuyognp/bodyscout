@@ -1,0 +1,7 @@
+# Optional dynamics stack (bodyscout/dynamics). Install on top of requirements.txt:
+#   pip install -r requirements.txt -r requirements-dynamics.txt
+# CPU jax by default (laptops, CI).
+jax
+mujoco-mjx
+# Brev / NVIDIA GPU: replace the `jax` line above with
+# jax[cuda12]
