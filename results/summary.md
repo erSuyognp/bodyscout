@@ -131,7 +131,7 @@ Active perception, no Gemini: nudge each channel in turn; the robot pixels that 
 
 What this shows: generic rewordings do not help. Telling Gemini the body's structure cuts the median from about 200 mm to 61 mm (2 cameras), and to 7 mm when all 4 views must agree, but a minority of readings are wrong in the same way in every view, so no geometric check removes them and the 90th percentile stays near 300 mm. Walking the robot's pixels to the chain's end finds the tip more often (median 14.7 mm) but has its own tail. Active perception (what moves when every joint moves) gives the best SCARA tail by far (median 12.6, 90th percentile 30 mm, against about 300 mm for every Gemini question) but is worse than Gemini on arms and telescopes; it costs extra motions per reading. SCARA is therefore much better located than before but not at marker level, and no single detector is best for every body.
 
-Feedback loop at swarm level (condition "improved + gaze feedback loop" below): a GazeAgent turns the swarm's discovered structure into the camera's question and opens a new epoch so earlier readings stop counting. It made learning WORSE: each switch restarts learning and the 64 motion budget ran out before a new model (telescopes: no model, against 5.1 and 10.7 mm without it); on gantries it sometimes steered by a wrong structure; on SCARA it never fired because too many readings were rejected for the channel agents to finish. The loop needs a design that keeps data across a switch, or a larger budget.
+Feedback loop at swarm level (condition "improved + gaze feedback loop" below): a GazeAgent turns the swarm's discovered structure into the camera's question and opens a new epoch so earlier readings stop counting. It made learning WORSE: each switch restarts learning and the 64 motion budget ran out before a new model (telescopes: no model, against 5.1 and 10.7 mm without it); on gantries it sometimes steered by a wrong structure; on SCARA it never fired because too many readings were rejected for the channel agents to finish. A second design keeps everything learned and switches the camera's question once (condition "improved + gaze, keep data, 1 switch"): it fixes that failure and matches or beats the same camera setup without the loop (median reach error, keep-data loop vs no loop: arm 5.3 vs 5.3 mm, telescope 5.4 vs 7.9 mm, gantry 22.3 vs 27.7 mm with the structure still wrong; SCARA still no model). A modest gain on 2 seeds, and the second design was chosen after seeing the first fail.
 
 ## Swarm learns from cameras (V3)
 
@@ -145,24 +145,28 @@ Unknown body mode, 2 seeds per family, budget 64 motions, same swarm and scorer 
 | arm | 4 cameras, no marker, improved, drop 1 view | 2/2 | 59.3 | 2 of 134 | 0 |
 | arm | 4 cameras, no marker, improved, all views agree | 2/2 | 5.3 | 44 of 139 | 0 |
 | arm | no marker, improved + gaze feedback loop | 1/2 | 6.5 | 24 of 129 | 0 |
+| arm | no marker, improved + gaze, keep data, 1 switch | 2/2 | 5.3 | 52 of 135 | 0 |
 | gantry | marker (no camera) | 2/2 | 1.1 | 0 of 128 | 0 |
 | gantry | two cameras, red marker | 2/2 | 3.3 | 0 of 128 | 0 |
 | gantry | two cameras, no marker (Gemini) | 2/2 | 7.6 | 7 of 136 | 0 |
 | gantry | 4 cameras, no marker, improved, drop 1 view | 2/2 | 4.5 | 0 of 128 | 0 |
 | gantry | 4 cameras, no marker, improved, all views agree | 0/2 | 27.7 | 28 of 136 | 0 |
 | gantry | no marker, improved + gaze feedback loop | 0/2 | n/a | 36 of 128 | 0 |
+| gantry | no marker, improved + gaze, keep data, 1 switch | 0/2 | 22.3 | 38 of 136 | 0 |
 | scara | marker (no camera) | 2/2 | 1.3 | 0 of 128 | 0 |
 | scara | two cameras, red marker | 2/2 | 3.3 | 7 of 128 | 0 |
 | scara | two cameras, no marker (Gemini) | 0/2 | 101.1 | 45 of 136 | 0 |
 | scara | 4 cameras, no marker, improved, drop 1 view | 0/2 | 100.5 | 6 of 136 | 0 |
 | scara | 4 cameras, no marker, improved, all views agree | 0/2 | n/a | 121 of 132 | 0 |
 | scara | no marker, improved + gaze feedback loop | 0/2 | n/a | 121 of 132 | 0 |
+| scara | no marker, improved + gaze, keep data, 1 switch | 0/2 | n/a | 121 of 132 | 0 |
 | telescope | marker (no camera) | 2/2 | 1.0 | 0 of 130 | 0 |
 | telescope | two cameras, red marker | 2/2 | 3.2 | 19 of 130 | 0 |
 | telescope | two cameras, no marker (Gemini) | 2/2 | 9.3 | 36 of 136 | 0 |
 | telescope | 4 cameras, no marker, improved, drop 1 view | 2/2 | 13.5 | 5 of 136 | 0 |
 | telescope | 4 cameras, no marker, improved, all views agree | 2/2 | 7.9 | 51 of 130 | 0 |
 | telescope | no marker, improved + gaze feedback loop | 0/2 | n/a | 24 of 128 | 0 |
+| telescope | no marker, improved + gaze, keep data, 1 switch | 2/2 | 5.4 | 55 of 134 | 0 |
 
 ### Where camera input makes things worse
 
@@ -173,6 +177,7 @@ Unknown body mode, 2 seeds per family, budget 64 motions, same swarm and scorer 
 - arm, 4 cameras, no marker, improved, all views agree: median reach error 5.3 mm vs 1.7 mm with the marker
 - arm, no marker, improved + gaze feedback loop: structure found 1/2 vs 2/2 with the marker
 - arm, no marker, improved + gaze feedback loop: median reach error 6.5 mm vs 1.7 mm with the marker
+- arm, no marker, improved + gaze, keep data, 1 switch: median reach error 5.3 mm vs 1.7 mm with the marker
 - gantry, two cameras, red marker: median reach error 3.3 mm vs 1.1 mm with the marker
 - gantry, two cameras, no marker (Gemini): median reach error 7.6 mm vs 1.1 mm with the marker
 - gantry, 4 cameras, no marker, improved, drop 1 view: median reach error 4.5 mm vs 1.1 mm with the marker
@@ -180,6 +185,8 @@ Unknown body mode, 2 seeds per family, budget 64 motions, same swarm and scorer 
 - gantry, 4 cameras, no marker, improved, all views agree: median reach error 27.7 mm vs 1.1 mm with the marker
 - gantry, no marker, improved + gaze feedback loop: structure found 0/2 vs 2/2 with the marker
 - gantry, no marker, improved + gaze feedback loop: no model by the end of the budget (marker: 1.1 mm)
+- gantry, no marker, improved + gaze, keep data, 1 switch: structure found 0/2 vs 2/2 with the marker
+- gantry, no marker, improved + gaze, keep data, 1 switch: median reach error 22.3 mm vs 1.1 mm with the marker
 - scara, two cameras, red marker: median reach error 3.3 mm vs 1.3 mm with the marker
 - scara, two cameras, no marker (Gemini): structure found 0/2 vs 2/2 with the marker
 - scara, two cameras, no marker (Gemini): median reach error 101.1 mm vs 1.3 mm with the marker
@@ -189,11 +196,14 @@ Unknown body mode, 2 seeds per family, budget 64 motions, same swarm and scorer 
 - scara, 4 cameras, no marker, improved, all views agree: no model by the end of the budget (marker: 1.3 mm)
 - scara, no marker, improved + gaze feedback loop: structure found 0/2 vs 2/2 with the marker
 - scara, no marker, improved + gaze feedback loop: no model by the end of the budget (marker: 1.3 mm)
+- scara, no marker, improved + gaze, keep data, 1 switch: structure found 0/2 vs 2/2 with the marker
+- scara, no marker, improved + gaze, keep data, 1 switch: no model by the end of the budget (marker: 1.3 mm)
 - telescope, two cameras, red marker: median reach error 3.2 mm vs 1.0 mm with the marker
 - telescope, two cameras, no marker (Gemini): median reach error 9.3 mm vs 1.0 mm with the marker
 - telescope, 4 cameras, no marker, improved, drop 1 view: median reach error 13.5 mm vs 1.0 mm with the marker
 - telescope, 4 cameras, no marker, improved, all views agree: median reach error 7.9 mm vs 1.0 mm with the marker
 - telescope, no marker, improved + gaze feedback loop: structure found 0/2 vs 2/2 with the marker
 - telescope, no marker, improved + gaze feedback loop: no model by the end of the budget (marker: 1.0 mm)
+- telescope, no marker, improved + gaze, keep data, 1 switch: median reach error 5.4 mm vs 1.0 mm with the marker
 
 Notes: a camera reading that is rejected still costs its motion. A rejected reading resets the stock Monitor's strike count (its NaN surprise is never above threshold), which can delay a real alarm by one sentinel. LLM hypothesizers are off in every condition so the only model in the loop is the detector.

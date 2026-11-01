@@ -153,7 +153,7 @@ def make_figure(rows):
     ax.tick_params(colors=QUIET, labelsize=9)
     ax.grid(True, axis="y", color=GRID, lw=0.8)
     ax.set_axisbelow(True)
-    width = 0.16
+    width = 0.125
     fams = [f for f in FAMILIES if any(r["family"] == f for r in rows)]
     conds = [c for c in CONDS if any(r["condition"] == c for r in rows)]
     for j, cond in enumerate(conds):
