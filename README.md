@@ -19,6 +19,39 @@ python demo.py --video demo.mp4            # backup video (needs ffmpeg)
 python demo.py --family scara              # unknown body mode: channel agents find the structure
 ```
 
+## Export the learned body
+
+`bodyscout learn` runs the swarm, then writes the crowned chain model. From this repo:
+
+```bash
+python -m bodyscout learn --robot path.py:Class --budget N
+```
+
+`path.py:Class` is a class constructed with no arguments. It needs `move`, `n_channels`,
+`limits`, a `motions` counter, and `true_tip`. `BlackBoxRobot` has all of those. The harness
+scores the learning curve with `true_tip`. Agents read only `move`, `n_channels`, and `limits`.
+A small hinge arm is included:
+
+```bash
+python -m bodyscout learn --robot examples/arm.py:Arm --budget 64 --out export
+```
+
+`--out` defaults to `export/`. Add `--unknown` when the body might include sliding joints
+(gantry, SCARA, telescope). Add `--llm` to let hypothesizers call a model when a key is set
+in `.env`. With `--llm` off, the same seed and the same robot repeat.
+
+| File | What it is |
+| --- | --- |
+| `robot.urdf` | One link and one joint per channel, revolute or prismatic, axis and origin from the fit, then a fixed tip frame. A revolute position is the channel command in radians. A prismatic position is in metres: `metres_per_command` times the command. |
+| `robot.xml` | The same tree as MJCF. Each joint's scale is a custom numeric `{joint}_metres_per_command`. |
+| `body.json` | Chain order, the channel that drives each joint, axes, origins, the scale, and which lengths are identifiable. |
+| `report.html` | The same facts in millimetres. |
+
+Masses are placeholders (0.1 kg). A length the training motions could not pin is marked
+`non-identifiable length` in the URDF, the MJCF, and the report. Loading `robot.xml` and
+driving the joints with that scale reproduces `ChainModel.predict` to within 1 mm. The
+geometry is the parameter vector `predict` evaluates.
+
 ## Experiments (run from the repo root)
 
 ```bash
@@ -102,6 +135,16 @@ python -m http.server 8000                # from the repo root, then open http:/
 ```
 
 Another run: `/dashboard/?bb=../runs/other.jsonl&summary=../runs/other_summary.json`.
+
+A pick-and-place trial puts the swarm and the task planner on one blackboard. The arm is damaged after the first reach. The log shows the plan, the monitor alarm, the re-plan, the next champion, grasp and ungrasp, and whether the cube was placed.
+
+```bash
+python experiments/task.py --demo --damage long_link
+python -m http.server 8000
+```
+
+Open `http://localhost:8000/dashboard/?bb=../runs/task_blackboard.jsonl&summary=../runs/task_summary.json`.
+Needs are dashed arrows labelled with pressure. The crowned champion, the red damage line, the re-plan and the recovery plan, and a placed or missed marker are on the timeline.
 
 ### Cloud Run
 
