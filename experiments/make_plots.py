@@ -301,6 +301,9 @@ if os.path.exists(f"{R}/bodies.csv"):
                     f"Told nothing about the body. Structure right = every joint's type and axis; reach error at {final} motions.", ""]
         summary += table(["body"] + [f"{SHORT[c]} structure right" for c in conds] + [f"{SHORT[c]} reach mm" for c in conds], body)
         summary.append("")
+    body = [[f] + [cell(final_values(rows, c, final, family=f)) for c in conds] for f in fams]
+    summary += ["All seeds pooled, as drawn in fig_bodies (reach error at "
+                f"{final} motions, mm):", ""] + table(["body"] + [SHORT[c] for c in conds], body) + [""]
     fig, ax = plt.subplots(figsize=(7.6, 4.6), dpi=160)
     style(ax)
     ax.grid(True, axis="x", color=GRID, lw=0.8)
@@ -400,17 +403,21 @@ if os.path.exists(f"{R}/damage.csv"):
     for c in watchers:
         head_ += [f"{SHORT[c]} detected", f"{SHORT[c]} latency, motions"]
     summary += table(head_ + [f"{SHORT[c]} recovered error mm" for c in conds], body)
+    finals = {c: final_values(rows, c, final) for c in conds}
+    have = {c: (int(np.isfinite(finals[c]).sum()), len(finals[c])) for c in conds}
     summary += ["", "All kinds: " + "; ".join(f"{SHORT[c]} detected {rate(*det_tot[c])}" for c in watchers) + ".",
-                "Gaps in the swarm curve are deliberate: between the alarm and the next crowned model the planner "
+                f"Runs with a trusted model at motion {final}: " + "; ".join(f"{SHORT[c]} {rate(*have[c])}" for c in conds)
+                + ". Recovered error and the curves in fig_damage are medians over the runs that have a model at that "
+                "point, so read them together with this count. Between the alarm and the next crowned model the planner "
                 "has no trusted model and refuses to move.", ""]
     axes[0].set_ylabel("reach error, mm (log)", color=QUIET, fontsize=9)
     h, l = axes[0].get_legend_handles_labels()
     fig.legend(h, l, frameon=False, fontsize=8.5, loc="lower center", ncol=len(conds))
-    sw = [e["swarm"] for e in ends.values()]
-    best = [k.replace("_", " ") for k, e in ends.items() if all(e["swarm"] <= e[c] for c in conds)]
-    fig.suptitle(f"The swarm notices the damage in {det_tot['swarm'][0]} of {det_tot['swarm'][1]} runs and ends "
-                 f"{min(sw):.1f} to {max(sw):.1f} mm off (median per kind);\nit ends closest of all four on "
-                 f"{len(best)} of {len(kinds)} kinds" + (f" ({', '.join(best)})" if best else ""),
+    fig.suptitle(f"The swarm notices the damage in {det_tot['swarm'][0]} of {det_tot['swarm'][1]} runs (pipeline "
+                 f"{det_tot['pipeline'][0]} of {det_tot['pipeline'][1]}), but re-learning from scratch is slow: at motion "
+                 f"{final} it has a trusted model in only {have['swarm'][0]} of {have['swarm'][1]} runs\n(pipeline "
+                 f"{have['pipeline'][0]}, single_probe {have['single_probe'][0]}, single {have['single'][0]} of "
+                 f"{have['single'][1]}). Curves: median over runs that have a model at that point.",
                  x=0.01, ha="left", fontsize=10.5, color=INK)
     fig.tight_layout(rect=(0, 0.07, 1, 0.88))
     save(fig, "fig_damage.png")
