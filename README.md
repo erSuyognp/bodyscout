@@ -29,6 +29,64 @@ python experiments/bodies.py --seeds 3          # unknown body types: swarm vs b
 python experiments/make_plots.py                # results/fig_*.png + results/summary.md
 ```
 
+## Full sweep on a cloud VM
+
+`experiments/sweep.py` runs every experiment at full scale (418 jobs: bodies 4 families x 10 seeds,
+damage 6 kinds x 4 families x 5 robots, learning curve on 10 arms, extrapolation on 4 x 5 robots,
+4 Menagerie arms x 3 seeds) in one pool across all cores. It is too big for a laptop, so run it on a
+32 to 64 vCPU machine. Each finished job is one line in `results/sweep.jsonl`. If the run dies,
+start the same command again: finished jobs are skipped. The log prints an ETA after every job.
+LLM hypothesizers stay off, so you need no API key on the VM.
+
+### Brev (primary)
+
+Create a CPU instance with 32 to 64 vCPUs and Ubuntu in the Brev console (no GPU needed), then:
+
+```bash
+brev shell bodyscout-sweep          # or SSH in with the command the console shows
+```
+
+On the instance:
+
+```bash
+sudo apt-get update && sudo apt-get install -y git tmux python3-venv
+git clone https://github.com/erSuyognp/bodyscout.git && cd bodyscout
+python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
+git clone --depth 1 --filter=blob:none --sparse https://github.com/google-deepmind/mujoco_menagerie.git third_party/mujoco_menagerie
+git -C third_party/mujoco_menagerie sparse-checkout set franka_emika_panda universal_robots_ur5e kinova_gen3 trossen_vx300s
+python experiments/sweep.py --dry-run          # job count, nothing runs
+tmux new -s sweep "source .venv/bin/activate && python experiments/sweep.py 2>&1 | tee -a results/sweep.log"
+```
+
+Detach with `Ctrl-b d`, come back with `tmux attach -t sweep`, and check progress with
+`tail -f results/sweep.log`. After a disconnect or reboot, run the same `tmux new ...` line again.
+Copy the results to your laptop (run this on the laptop; `brev ls` shows the instance name):
+
+```bash
+scp bodyscout-sweep:bodyscout/results/sweep.jsonl results/
+```
+
+Stop the instance in the Brev console when you are done.
+
+### Google Cloud (backup)
+
+```bash
+gcloud compute instances create bodyscout-sweep --zone=us-central1-a --machine-type=c2d-standard-32 \
+  --image-family=ubuntu-2404-lts-amd64 --image-project=ubuntu-os-cloud --boot-disk-size=30GB
+gcloud compute ssh bodyscout-sweep --zone=us-central1-a
+```
+
+On the VM, run the same commands as the Brev block above (from `sudo apt-get` to `tmux new`).
+Then, on the laptop:
+
+```bash
+gcloud compute scp bodyscout-sweep:~/bodyscout/results/sweep.jsonl results/ --zone=us-central1-a
+gcloud compute instances delete bodyscout-sweep --zone=us-central1-a   # stops the billing
+```
+
+If `c2d-standard-32` is out of quota in that zone, `n2-standard-32` or another zone works too.
+Spot VMs (`--provisioning-model=SPOT`) are cheaper and safe here, because the sweep resumes.
+
 ## Agents
 
 | Agent | Job |
