@@ -90,6 +90,7 @@ import copy
 import functools
 import json
 import pathlib
+import re
 
 import pytest
 
@@ -189,3 +190,44 @@ def test_structure_survives_losing_every_hypothesizer_a_validator_and_an_explore
     assert out["champion"]["describe"]["structure"] == out["truth"]  # the chain modeler assembled findings
     assert all(c.payload["votes"] == 1 for c in bb.of("champion", epoch=-1))
     assert {a.author for a in bb.of("observation", epoch=-1)} <= {"explorer-1", "monitor"}
+
+
+# ---- LLM hypothesizer (offline: the API call is faked) ---------------------
+def _fake_claude_run(monkeypatch, family, ask):
+    from bodyscout.agents import LLMHypothesizer
+    from bodyscout.swarm import run
+    from bodyscout.world import random_body
+
+    calls = []  # (motions spent when called, prompt)
+    robot = BlackBoxRobot(random_body(1, family), seed=1)
+    monkeypatch.setattr(LLMHypothesizer, "_ask", lambda self, p: calls.append((robot.motions, p)) or ask(p))
+    monkeypatch.setattr("bodyscout.swarm.llm_providers", lambda: ["claude"])
+    out = run(robot, "swarm", budget=32, eval_at=(32,), n_targets=4, seed=1, use_llm=True,
+              unknown_body=family != "arm")
+    return out, calls
+
+
+def test_claude_called_once_findings_are_in_and_why_is_posted(monkeypatch):
+    def answer(prompt):
+        n = int(re.search(r"has (\d+) unlabeled", prompt).group(1))
+        return json.dumps({"patterns": [["hz"] * n], "why": "channel 2 moves the tip in a line"})
+    out, calls = _fake_claude_run(monkeypatch, "scara", answer)
+    bb = out["blackboard"]
+    n = len({a.payload["channel"] for a in bb.of("finding")})
+    assert len(calls) == 1, "one call per epoch, the answer is cached"
+    assert calls[0][1].count("channel ") >= n and "spread_mm=" in calls[0][1], "findings go in the prompt"
+    first = min(a.id for a in bb.of("hypothesis") if a.payload["source"] == "claude")
+    assert max(a.id for a in bb.of("finding")) < first, "called only after every channel reported"
+    hs = [a for a in bb.of("hypothesis") if a.payload["source"] == "claude"]
+    assert hs and hs[0].payload["why"] == "channel 2 moves the tip in a line"
+    assert {a.id for a in bb.of("finding")} <= set(hs[0].parents), "provenance cites the findings"
+
+
+def test_claude_called_at_8_motions_on_a_known_arm_and_failures_are_quiet(monkeypatch):
+    def boom(prompt):
+        raise TimeoutError
+    out, calls = _fake_claude_run(monkeypatch, "arm", boom)
+    n_rows = calls[0][1].count("q=") if calls else 0
+    assert len(calls) == 1 and 8 <= n_rows < 12, "called at the first chance after 8 train motions"
+    assert not [a for a in out["blackboard"].of("hypothesis") if a.payload["source"] == "claude"]
+    assert out["champion"] is not None, "the swarm carried on without Claude"

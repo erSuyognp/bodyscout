@@ -211,14 +211,14 @@ class HypothesizerBase(Agent):
                                                                       "describes": describes}).id
         return self.source_ids[bb.epoch]
 
-    def _post(self, bb, patterns, parents):
+    def _post(self, bb, patterns, parents, **extra):
         seen, n_posted = set(), 0
         for p in patterns:
             p = [_tok(c) for c in p]
             if len(p) != self.n or tuple(p) in seen:
                 continue
             seen.add(tuple(p))
-            bb.post("hypothesis", self.name, {"pattern": p, "source": self.source, "rank": n_posted},
+            bb.post("hypothesis", self.name, {"pattern": p, "source": self.source, "rank": n_posted, **extra},
                     parents)
             n_posted += 1
             if n_posted == self.top:
@@ -276,35 +276,46 @@ class LibraryHypothesizer(HypothesizerBase):
 
 
 class LLMHypothesizer(HypothesizerBase):
-    """Asks one LLM provider to read raw motions and propose structures. Calls once per epoch when
-    there is data, and again (at most 3 calls per epoch) when a `hypotheses` need is open and a
-    dozen new motions have arrived. Never raises: a failed call just proposes nothing."""
+    """Asks one LLM provider to propose structures from the channel agents' findings plus raw motions.
+    Calls once per epoch, as soon as every channel has a finding, or once the epoch has 8 train
+    motions and no channel is still being probed. The answer (or the failure) is cached for the
+    epoch. Never raises: a failed call just proposes nothing, and the other hypothesizers carry on."""
 
-    MIN_DATA, NEW_DATA, MAX_CALLS = 12, 12, 3
+    MIN_DATA, MAX_ROWS, TIMEOUT_S = 8, 24, 20.0
 
     def __init__(self, n, provider, top=4):
         self.source = provider
         super().__init__(n, top)
-        self.calls = {}                 # epoch -> list of training set sizes at each call
+        self.answers = {}               # epoch -> (patterns, why), or None when the call failed
         self.last_why = ""
 
-    def _prompt(self, Q, X):
+    def _prompt(self, findings, Q, X):
+        facts = "\n".join(
+            f"channel {ch}: type={f['type']} axis={f['axis']} curvature={f.get('curvature', float('nan')):.3f} "
+            f"spread_mm={f['spread_mm']:.1f}" for ch, f in sorted(findings.items())) or "none yet"
         rows = "\n".join(f"q={np.round(q, 2).tolist()} -> tip_mm={np.round(x * 1000).astype(int).tolist()}"
-                         for q, x in zip(Q, X))
+                         for q, x in zip(Q, X)) or "none yet"
         return (f"A jointed robot of unknown type has {self.n} unlabeled channels and we observe its "
                 f"fingertip in mm (z up, base at origin). Each channel either rotates (h) or slides (s) "
                 f"about or along x, y or z in the base pose frame. Propose the {self.top} most likely "
-                f"structures, one token per channel such as hz or sx. Reason about which channels move "
-                f"the tip in arcs versus straight lines.\n{rows}\n"
+                f"structures, one token per channel such as hz or sx.\n"
+                f"Per channel findings from sweeping one channel at a time (type h = arc, s = straight "
+                f"line, ? = tip barely moved; axis = arc normal or line direction; curvature = second over "
+                f"first singular value of the tip path, near 0 for a line; spread_mm = size of the path):\n"
+                f"{facts}\nRaw motions:\n{rows}\n"
                 'Answer ONLY with JSON like {"patterns": [["hz","hy","sz"]], "why": "one sentence"}')
 
     def _ask(self, prompt):
         if self.source == "claude":
             import anthropic
-            msg = anthropic.Anthropic().messages.create(
-                model=os.environ.get("BODYSCOUT_MODEL", "claude-sonnet-5-5"), max_tokens=600,
+            client = anthropic.Anthropic(timeout=self.TIMEOUT_S, max_retries=0)
+            msg = client.messages.create(
+                model=os.environ.get("BODYSCOUT_MODEL") or "claude-sonnet-5-5", max_tokens=4000,
+                output_config={"effort": "low"},  # keeps the answer inside the 20 second timeout
                 messages=[{"role": "user", "content": prompt}])
-            return msg.content[0].text
+            if msg.stop_reason == "refusal":
+                raise RuntimeError("refusal")
+            return next(b.text for b in msg.content if b.type == "text")
         if self.source == "gemini":
             import urllib.request
             key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
@@ -313,26 +324,38 @@ class LLMHypothesizer(HypothesizerBase):
                 f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
                 data=json.dumps({"contents": [{"parts": [{"text": prompt}]}]}).encode(),
                 headers={"Content-Type": "application/json", "x-goog-api-key": key})
-            with urllib.request.urlopen(req, timeout=60) as r:
+            with urllib.request.urlopen(req, timeout=self.TIMEOUT_S) as r:
                 return json.load(r)["candidates"][0]["content"]["parts"][0]["text"]
         raise ValueError(self.source)
 
+    def _ready(self, bb, findings, n_train):
+        """Every channel has a finding, or 8 train motions with no channel sweep waiting: either no
+        channel agents exist (a known arm), or someone needs hypotheses (channel agents lost)."""
+        if len(findings) == self.n:
+            return True
+        if n_train < self.MIN_DATA or any(nd.open and nd.kind.startswith("probe:") for nd in bb.needs):
+            return False
+        return bb.has_need("hypotheses") or not any("probe" in a.payload for a in bb.of("observation"))
+
     def step(self, bb, t):
+        if bb.epoch in self.answers:
+            return False
+        arts = {a.payload["channel"]: a for a in bb.of("finding")}
         Q, X, ids = _data(bb, "train")
-        calls = self.calls.setdefault(bb.epoch, [])
-        if len(Q) < self.MIN_DATA or len(calls) >= self.MAX_CALLS:
+        if not self._ready(bb, arts, len(Q)):
             return False
-        if calls and not (bb.has_need("hypotheses") and len(Q) >= calls[-1] + self.NEW_DATA):
-            return False
-        calls.append(len(Q))
         try:
-            text = self._ask(self._prompt(Q[:24], X[:24]))
+            text = self._ask(self._prompt({ch: a.payload for ch, a in arts.items()},
+                                          Q[: self.MAX_ROWS], X[: self.MAX_ROWS]))
             js = json.loads(re.search(r"\{.*\}", text, re.S).group(0))
-            self.last_why = js.get("why", "")
-            return self._post(bb, js["patterns"], ids[:24])
+            self.answers[bb.epoch] = (js["patterns"], str(js.get("why", "")))
         except Exception as e:  # never let an LLM take the swarm down
+            self.answers[bb.epoch] = None
             self.last_why = f"{self.source} unavailable: {type(e).__name__}"
             return False
+        pats, self.last_why = self.answers[bb.epoch]
+        parents = [a.id for a in arts.values()] + ids[: self.MAX_ROWS]
+        return self._post(bb, pats, parents, why=self.last_why)
 
 
 # ---------------------------------------------------------------------------

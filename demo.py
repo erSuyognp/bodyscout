@@ -62,7 +62,8 @@ def on_tick(bb, rob, t, events):
             say(rob.motions, f"{art.author}: my channel {kind}"
                              + (f" about/along {p['axis']}" if p["type"] != "?" else ""))
         elif art.kind == "hypothesis":
-            say(rob.motions, f"{art.author}: maybe the body is {' '.join(p['pattern'])}")
+            why = f" (because {p['why']})" if p.get("why") and p["rank"] == 0 else ""
+            say(rob.motions, f"{art.author}: maybe the body is {' '.join(p['pattern'])}{why}")
         elif art.kind == "champion":
             d = p["describe"]
             links = ", ".join(f"{v}" if ok else "not identifiable"
