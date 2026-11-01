@@ -1,5 +1,6 @@
 """GPU rendering smoke test. Rendering runs in a subprocess with MUJOCO_GL=egl, because mujoco picks its GL
-backend once at import and other test modules import mujoco first. Skipped only when no NVIDIA GPU is present."""
+backend once at import and other test modules import mujoco first. Skipped unless on Linux with an NVIDIA GPU
+(mujoco supports EGL only on Linux)."""
 import json
 import os
 import shutil
@@ -18,6 +19,10 @@ def _has_nvidia_gpu() -> bool:
     return out.returncode == 0 and "GPU" in out.stdout
 
 
+needs_egl_gpu = pytest.mark.skipif(not (sys.platform.startswith("linux") and _has_nvidia_gpu()),
+                                   reason="EGL GPU rendering needs Linux with an NVIDIA GPU")
+
+
 def _python(code: str, env_update: dict, drop=()) -> subprocess.CompletedProcess:
     env = {k: v for k, v in os.environ.items() if k not in drop}
     env.update(env_update)
@@ -33,7 +38,7 @@ def test_import_refuses_without_egl():
     assert r.returncode != 0 and "osmesa" in r.stderr
 
 
-@pytest.mark.skipif(not _has_nvidia_gpu(), reason="no NVIDIA GPU present")
+@needs_egl_gpu
 def test_render_on_nvidia_gpu():
     code = (
         "import json\n"
@@ -51,7 +56,7 @@ def test_render_on_nvidia_gpu():
     assert "NVIDIA" in out["gl_vendor"].upper(), out
 
 
-@pytest.mark.skipif(not _has_nvidia_gpu(), reason="no NVIDIA GPU present")
+@needs_egl_gpu
 def test_camera_robot_triangulates_tip():
     code = (
         "import json, numpy as np\n"
@@ -79,7 +84,7 @@ def test_camera_robot_triangulates_tip():
     assert "NVIDIA" in out["gl"].upper()
 
 
-@pytest.mark.skipif(not _has_nvidia_gpu(), reason="no NVIDIA GPU present")
+@needs_egl_gpu
 def test_markerless_and_gemini_fallback_rules():
     code = (
         "import json, numpy as np\n"
@@ -118,7 +123,7 @@ def test_markerless_needs_gemini():
     assert r.returncode != 0 and ("use detector='gemini'" in r.stderr or "EGL" in r.stderr or "egl" in r.stderr)
 
 
-@pytest.mark.skipif(not _has_nvidia_gpu(), reason="no NVIDIA GPU present")
+@needs_egl_gpu
 def test_refine_triangulate_n_and_pipelines():
     code = (
         "import json, numpy as np\n"
@@ -167,7 +172,7 @@ def test_refine_triangulate_n_and_pipelines():
     assert out["pipelines"] == {"refine": True, "multi": True}
 
 
-@pytest.mark.skipif(not _has_nvidia_gpu(), reason="no NVIDIA GPU present")
+@needs_egl_gpu
 def test_gaze_agent_feedback_loop():
     code = (
         "import json\n"
