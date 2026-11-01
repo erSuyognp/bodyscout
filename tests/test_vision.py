@@ -49,3 +49,31 @@ def test_render_on_nvidia_gpu():
     assert out["std"] > 5, "blank image"
     assert "NVIDIA" in out["gl_renderer"].upper(), out
     assert "NVIDIA" in out["gl_vendor"].upper(), out
+
+
+@pytest.mark.skipif(not _has_nvidia_gpu(), reason="no NVIDIA GPU present")
+def test_camera_robot_triangulates_tip():
+    code = (
+        "import json, numpy as np\n"
+        "from bodyscout import vision\n"
+        "from bodyscout.world import BlackBoxRobot, random_body\n"
+        "robot = BlackBoxRobot(random_body(2, 'scara'), seed=2)\n"
+        "cam = vision.CameraRobot(robot, cache=vision.VisionCache('runs/vision_test', save_images=False))\n"
+        "rng = np.random.default_rng(3)\n"
+        "errs, nan = [], 0\n"
+        "for _ in range(12):\n"
+        "    x = cam.move(rng.uniform(*cam.limits, cam.n_channels))\n"
+        "    if np.isnan(x).any():\n"
+        "        nan += 1\n"
+        "    else:\n"
+        "        errs.append(float(np.linalg.norm(x - cam.true_tip())) * 1000)\n"
+        "out = {'n': cam.n_channels, 'limits': list(cam.limits), 'motions': robot.motions, 'nan': nan,\n"
+        "       'median_mm': float(np.median(errs)), 'max_mm': float(np.max(errs)), 'gl': cam.gl['gl_renderer']}\n"
+        "cam.close()\n"
+        "print(json.dumps(out))\n")
+    r = _python(code, {"MUJOCO_GL": "egl", "PYOPENGL_PLATFORM": "egl"})
+    assert r.returncode == 0, r.stderr
+    out = json.loads(r.stdout.strip().splitlines()[-1])
+    assert out["n"] == 4 and out["limits"] == [-2.0, 2.0] and out["motions"] == 12
+    assert out["nan"] <= 3 and out["median_mm"] < 8 and out["max_mm"] < 25, out
+    assert "NVIDIA" in out["gl"].upper()
