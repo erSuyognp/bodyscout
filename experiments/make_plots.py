@@ -27,6 +27,18 @@ NAME = {"swarm": "BodyScout swarm", "pipeline": "Fixed pipeline (same parts)", "
 INK, QUIET, GRID, SURF = "#0b0b0b", "#52514e", "#e4e3df", "#fcfcfb"
 MISS_MM = 10.0     # a swarm median reach error above this counts as a miss in the failures table
 BOOT = 2000
+FRESH = 101        # seeds from here on were added after the swarm v2 fixes: the independent check
+
+
+def seed_groups(meta):
+    """(label, keep(seed)) for the preview seeds and, when present, the held out seeds."""
+    seeds = {int(m["seed"]) for m in meta if "seed" in m}
+    out = []
+    if any(s < FRESH for s in seeds):
+        out.append(("preview seeds 1 to 10", lambda s: int(s) < FRESH))
+    if any(s >= FRESH for s in seeds):
+        out.append((f"held out seeds {FRESH} and up, the independent check", lambda s: int(s) >= FRESH))
+    return out or [("all seeds", lambda s: True)]
 
 
 def style(ax):
@@ -117,7 +129,13 @@ def final_values(rows, cond, final, **match):
 
 
 summary = ["# BodyScout results summary", "",
-           f"Cells are median reach error in mm [bootstrap 95% CI of the median, {BOOT} resamples] over runs.", ""]
+           f"Cells are median reach error in mm [bootstrap 95% CI of the median, {BOOT} resamples] over runs.", "",
+           "**Read this first.** The swarm v2 fixes (two channel agents per channel probing from different poses, a "
+           "review agent that rechecks doubtful channels from a third pose, a second chain modeler) were designed "
+           "after we saw the fault preview on seeds 1 and 2 of the gantry and SCARA families, where one wrong channel "
+           f"finding or one crashed chain modeler sank the swarm. Seeds {FRESH} and up were added after those fixes "
+           "and are the independent check: tables split by seed show them separately. Swarm rows without "
+           "swarm_version 2 in their meta come from the swarm before the fixes.", ""]
 
 # ---- learning curve -------------------------------------------------------------
 if os.path.exists(f"{R}/learning.csv"):
@@ -271,26 +289,31 @@ if os.path.exists(f"{R}/bodies.csv"):
     style(ax)
     ax.grid(True, axis="x", color=GRID, lw=0.8)
     ax.grid(False, axis="y")
-    summary += [f"## Unknown body types (median reach error at {final} motions [95% CI], mm; structure found)", "",
-                "| body | " + " | ".join(NAME[c] for c in conds) + " | "
-                + " | ".join(f"{c} structure right" for c in conds) + " |",
-                "| --- | " + " | ".join("---" for _ in conds + conds) + " |"]
+    for label, keep in seed_groups(meta):
+        g_rows = [r for r in rows if keep(r["seed"])]
+        g_meta = [m for m in meta if keep(m["seed"])]
+        summary += [f"## Unknown body types, {label} (median reach error at {final} motions [95% CI], mm; "
+                    "structure found)", "",
+                    "| body | " + " | ".join(NAME[c] for c in conds) + " | "
+                    + " | ".join(f"{c} structure right" for c in conds) + " |",
+                    "| --- | " + " | ".join("---" for _ in conds + conds) + " |"]
+        for f in fams:
+            vals = {c: final_values(g_rows, c, final, family=f) for c in conds}
+            ms = {c: [m for m in g_meta if m["family"] == f and m["condition"] == c] for c in conds}
+            right = {c: (sum(m["structure_correct"] for m in ms[c]), len(ms[c])) for c in conds}
+            summary.append(f"| {f} | " + " | ".join(cell(vals[c]) for c in conds) + " | "
+                           + " | ".join(f"{right[c][0]}/{right[c][1]}" for c in conds) + " |")
+            compare(f"bodies, {label.split(',')[0]}", f, vals, right)
+        summary.append("")
     offs = dict(zip(conds, np.linspace(0.27, -0.27, len(conds))))
     lab = {"swarm": "Swarm with channel agents", "single": "Single agent, blind structure search",
            "single_probe": "Single agent that probes channels", "pipeline": "Fixed pipeline, same parts"}
     for yi, f in enumerate(fams):
-        vals, right = {}, {}
         for c in conds:
             v = final_values(rows, c, final, family=f)
-            vals[c] = v
             med = np.nanmedian(v) if np.isfinite(v).any() else np.nan
             ax.scatter(v, [yi + offs[c]] * len(v), s=14, color=COL[c], alpha=0.35)
             ax.scatter([med], [yi + offs[c]], s=60, color=COL[c], label=lab.get(c, NAME[c]) if yi == 0 else None, zorder=3)
-            ms = [m for m in meta if m["family"] == f and m["condition"] == c]
-            right[c] = (sum(m["structure_correct"] for m in ms), len(ms))
-        summary.append(f"| {f} | " + " | ".join(cell(vals[c]) for c in conds) + " | "
-                       + " | ".join(f"{right[c][0]}/{right[c][1]}" for c in conds) + " |")
-        compare("bodies", f, vals, right)
     ax.set_yticks(range(len(fams)), [f.capitalize() for f in fams], color=INK, fontsize=9.5)
     ax.set_xscale("log")
     ax.set_xlabel(f"reach error after {final} motions, mm (log); big dots = median, small = each robot",
@@ -303,13 +326,18 @@ if os.path.exists(f"{R}/bodies.csv"):
     ax.legend(frameon=False, fontsize=8.5, loc="upper center", bbox_to_anchor=(0.5, -0.2), ncol=2)
     fig.tight_layout()
     fig.savefig(f"{R}/fig_bodies.png")
-    summary.append("")
 
 
-def robustness_table(name, title, setting_key, label, settings_order=None):
-    """Faults and noise: one row per setting, pooled over families; failures also scanned per family."""
+def robustness_table(name, title, setting_key, label, settings_order=None, group=None):
+    """Faults and noise: one row per setting, pooled over families; failures also scanned per family.
+    group: (label, keep(seed)) from seed_groups, to report preview and held out seeds apart."""
     rows = load(f"{R}/{name}.csv")
     meta = json.load(open(f"{R}/{name}_meta.json"))
+    if group is not None:
+        rows = [r for r in rows if group[1](r["seed"])]
+        meta = [m for m in meta if group[1](m["seed"])]
+        title += f", {group[0]}"
+    where = name if group is None else f"{name}, {group[0].split(',')[0]}"
     conds = present(rows)
     final = max(r["motions"] for r in rows)
     settings = settings_order or sorted({str(r[setting_key]) for r in rows})
@@ -332,7 +360,7 @@ def robustness_table(name, title, setting_key, label, settings_order=None):
                 out.append(f"| {s} | " + " | ".join(cell(vals[c]) + (" (fault never fired)" if c in no_slot else "")
                                                     for c in conds) + " | "
                            + " | ".join(f"{right[c][0]}/{right[c][1]}" for c in conds) + " |")
-            compare(name, f"{s}" + (f", {fam}" if fam else ""), vals, right)
+            compare(where, f"{s}" + (f", {fam}" if fam else ""), vals, right)
     if setting_key == "noise_mm":
         out += ["", "False alarms (monitor declared damage on an undamaged body), runs with any / runs:", "",
                 "| noise mm | " + " | ".join(c for c in conds if c in ("swarm", "pipeline")) + " |",
@@ -350,13 +378,15 @@ def robustness_table(name, title, setting_key, label, settings_order=None):
 
 
 if os.path.exists(f"{R}/faults.csv"):
-    summary += robustness_table(
-        "faults", "## Injected faults, unknown body ({n} robots, median reach error at {final} motions [95% CI], mm)",
-        "fault", "fault", ["none", "wrong_finding", "bad_llm", "modeler_crash", "noisy_channel"])
+    for grp in seed_groups(json.load(open(f"{R}/faults_meta.json"))):
+        summary += robustness_table(
+            "faults", "## Injected faults, unknown body ({n} robots, median reach error at {final} motions [95% CI], mm)",
+            "fault", "fault", ["none", "wrong_finding", "bad_llm", "modeler_crash", "noisy_channel"], group=grp)
     summary += ["wrong_finding flips one channel's reported joint type; bad_llm posts 3 confident wrong structures "
                 "every epoch in an LLM's slot (the pipeline's LLM stage has the final say, so it adopts them); "
-                "modeler_crash stops the chain modeler at motion 24; noisy_channel adds 20 mm noise to one channel's "
-                "sweep. 'Fault never fired' means the condition has no slot for it (a single agent has no findings "
+                "modeler_crash stops one chain modeler at motion 24; noisy_channel adds 20 mm noise to every sweep of "
+                "one channel. Faults hit one agent instance; the swarm's replicas and second chain modeler are not "
+                "faulted. 'Fault never fired' means the condition has no slot for it (a single agent has no findings "
                 "and no hypothesis source), so it ran unchanged.", ""]
 
 if os.path.exists(f"{R}/noise.csv"):
@@ -370,15 +400,19 @@ for name in ("bodies", "damage", "faults", "noise", "learning"):
     if os.path.exists(f"{R}/{name}_meta.json"):
         for m in json.load(open(f"{R}/{name}_meta.json")):
             if "agent_cpu_s" in m:
-                costs.append((name, m["condition"], m.get("motions_used"), m["agent_cpu_s"]))
+                costs.append((name, m["condition"], m.get("motions_used"), m["agent_cpu_s"], m.get("probe_motions")))
 if costs:
-    summary += ["## Cost per run (median [95% CI]): motions spent and agent CPU seconds (scoring excluded)", "",
-                "| experiment | condition | runs | motions used | agent CPU s |", "| --- | --- | --- | --- | --- |"]
+    summary += ["## Cost per run (median [95% CI]): motions spent, of them single channel sweeps, and agent CPU "
+                "seconds (scoring excluded)", "",
+                "| experiment | condition | runs | motions used | probe motions | agent CPU s |",
+                "| --- | --- | --- | --- | --- | --- |"]
     for name in dict.fromkeys(c[0] for c in costs):
         for cond in [c for c in COL if any(x[0] == name and x[1] == c for x in costs)]:
             xs = [x for x in costs if x[0] == name and x[1] == cond]
             mot = [x[2] for x in xs if x[2] is not None]
-            summary.append(f"| {name} | {cond} | {len(xs)} | {cell(mot) if mot else 'n/a'} | {cell([x[3] for x in xs])} |")
+            probe = [x[4] for x in xs if x[4] is not None]
+            summary.append(f"| {name} | {cond} | {len(xs)} | {cell(mot) if mot else 'n/a'} | "
+                           f"{cell(probe) if probe else 'n/a'} | {cell([x[3] for x in xs])} |")
     summary.append("")
 
 # ---- failures -------------------------------------------------------------------

@@ -35,6 +35,7 @@ def job_of(path):
     stem = re.sub(r"\.jsonl(\.gz)?$", "", os.path.basename(path))
     parts = stem.split("__")
     params = dict(p.split("-", 1) for p in parts[1:] if "-" in p)
+    params.pop("swarm", None)  # the swarm job version, not a job setting
     return parts[0], params
 
 

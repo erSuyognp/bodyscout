@@ -22,7 +22,12 @@ Jobs (LLM hypothesizers off everywhere, so the sweep needs no API key and stays 
   menagerie      swarm vs single on the real arms, channels ordered and shuffled
                  (needs third_party/mujoco_menagerie, see bodyscout/menagerie.py; or --no-menagerie)
 
-Every run-based job records motions_used and agent_cpu_s (process CPU seconds in agent steps, scoring
+Seeds 101 and up (FRESH_SEEDS, in bodies and faults) were added after the replicated findings, review
+agent and second chain modeler were designed against the 1 to 10 preview: they are the independent check.
+Swarm job keys carry |swarm=v<SWARM_VERSION>; bumping it reruns every swarm job (old lines stay in the
+file but no job matches them, so export ignores them).
+
+Every run-based job records motions_used, probe_motions and agent_cpu_s (process CPU seconds in agent steps, scoring
 excluded). Swarm and pipeline runs of damage, faults and noise also save their blackboard to
 results/blackboards/<key>.jsonl.gz for experiments/provenance_stats.py (--no-blackboards to skip).
 """
@@ -59,6 +64,8 @@ DAMAGE = dict(robots=5, at=64, budget=128)  # damage after the channel agents ha
 LEARNING = dict(arms=10, budget=64, checkpoints=(8, 12, 16, 24, 32, 48, 64, 96, 128))
 EXTRAP = dict(robots=5, budget=64, n_targets=10)
 MENAGERIE = dict(seeds=3, budget=160)
+SWARM_VERSION = 2   # 2: replicated channel findings, review agent, second chain modeler
+FRESH_SEEDS = range(101, 106)
 FAULT_RUNS = dict(seeds=5, budget=64)
 NOISE = dict(seeds=5, budget=64, levels_mm=(1, 2, 5, 10))
 UNKNOWN_BODY_CONDITIONS = ("swarm", "pipeline", "single_probe", "single")
@@ -72,7 +79,7 @@ def build_jobs(only, menagerie):
     jobs = []
     if "bodies" in only:
         jobs += [("bodies", {"family": f, "seed": s, "condition": c})
-                 for f in FAMILIES for s in range(1, BODIES["seeds"] + 1)
+                 for f in FAMILIES for s in [*range(1, BODIES["seeds"] + 1), *FRESH_SEEDS]
                  for c in ("swarm", "single", "single_probe", "pipeline")]
     if "damage" in only:
         jobs += [("damage", {"family": f, "seed": s, "damage": k, "condition": c})
@@ -80,7 +87,7 @@ def build_jobs(only, menagerie):
                  for c in ("swarm", "single", "single_probe", "pipeline")]
     if "faults" in only:
         jobs += [("faults", {"family": f, "seed": s, "fault": k, "condition": c})
-                 for f in FAMILIES for s in range(1, FAULT_RUNS["seeds"] + 1) for k in FAULTS
+                 for f in FAMILIES for s in [*range(1, FAULT_RUNS["seeds"] + 1), *FRESH_SEEDS] for k in FAULTS
                  for c in UNKNOWN_BODY_CONDITIONS]
     if "noise" in only:
         jobs += [("noise", {"family": f, "seed": s, "noise_mm": mm, "condition": c})
@@ -100,7 +107,10 @@ def build_jobs(only, menagerie):
 
 
 def key_of(exp, p):
-    return exp + "|" + "|".join(f"{k}={v}" for k, v in p.items())
+    key = exp + "|" + "|".join(f"{k}={v}" for k, v in p.items())
+    if p.get("condition", "swarm") == "swarm":  # extrapolation has no condition: it is a swarm job
+        key += f"|swarm=v{SWARM_VERSION}"
+    return key
 
 
 # ---- one function per experiment; each returns (curve rows, meta) ----------------------------
@@ -120,7 +130,8 @@ def save_blackboard(p, out, exp):
 def run_meta(out):
     """What every run-based job records about its cost and its board."""
     bb = out["blackboard"]
-    return {"motions_used": out["motions"], "agent_s": out["agent_s"], "agent_cpu_s": out["agent_cpu_s"],
+    return {"motions_used": out["motions"], "probe_motions": out["probe_motions"],
+            "agent_s": out["agent_s"], "agent_cpu_s": out["agent_cpu_s"],
             "fault_hits": out["fault_hits"], "champions": len(bb.of("champion", epoch=-1)),
             "disagreements": len(bb.of("disagreement", epoch=-1))}
 
@@ -208,6 +219,8 @@ def work(job):
     t0 = time.time()
     try:
         rows, meta = DO[exp](p)
+        if p.get("condition", "swarm") == "swarm":
+            meta["swarm_version"] = SWARM_VERSION
         return {"key": key, "exp": exp, "params": p, "rows": rows, "meta": meta,
                 "seconds": round(time.time() - t0, 1)}
     except Exception:

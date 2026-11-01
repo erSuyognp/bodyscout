@@ -1,0 +1,551 @@
+[
+ {
+  "family": "gantry",
+  "seed": 1,
+  "damage": "long_link",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": null,
+  "alarms": [
+   103
+  ],
+  "events": [
+   {
+    "motion": 65,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64,
+  "motions_used": 135,
+  "probe_motions": 80,
+  "agent_s": 189.36348500015447,
+  "agent_cpu_s": 177.109375,
+  "fault_hits": {},
+  "champions": 5,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "damage": "long_link",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "sz",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64,
+  "motions_used": 128,
+  "probe_motions": 0,
+  "agent_s": 18.781686300120782,
+  "agent_cpu_s": 18.015625,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "damage": "long_link",
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64,
+  "motions_used": 128,
+  "probe_motions": 16,
+  "agent_s": 11.454761399829295,
+  "agent_cpu_s": 11.015625,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "damage": "long_link",
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   94
+  ],
+  "events": [
+   {
+    "motion": 68,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64,
+  "motions_used": 132,
+  "probe_motions": 32,
+  "agent_s": 4.617834400036372,
+  "agent_cpu_s": 4.375,
+  "fault_hits": {},
+  "champions": 13,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "damage": "long_link",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64,
+  "motions_used": 128,
+  "probe_motions": 64,
+  "agent_s": 497.456283499836,
+  "agent_cpu_s": 467.5,
+  "fault_hits": {},
+  "champions": 5,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "damage": "long_link",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64,
+  "motions_used": 128,
+  "probe_motions": 0,
+  "agent_s": 19.830227899947204,
+  "agent_cpu_s": 19.15625,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "damage": "long_link",
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64,
+  "motions_used": 128,
+  "probe_motions": 16,
+  "agent_s": 11.676278600061778,
+  "agent_cpu_s": 11.0625,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "damage": "long_link",
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   94
+  ],
+  "events": [
+   {
+    "motion": 68,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64,
+  "motions_used": 132,
+  "probe_motions": 32,
+  "agent_s": 4.390304799948353,
+  "agent_cpu_s": 4.203125,
+  "fault_hits": {},
+  "champions": 11,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "damage": "long_link",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": null,
+  "alarms": [
+   103
+  ],
+  "events": [
+   {
+    "motion": 65,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64,
+  "motions_used": 135,
+  "probe_motions": 80,
+  "agent_s": 116.63534229999641,
+  "agent_cpu_s": 107.671875,
+  "fault_hits": {},
+  "champions": 5,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "damage": "long_link",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64,
+  "motions_used": 128,
+  "probe_motions": 0,
+  "agent_s": 14.60004069993738,
+  "agent_cpu_s": 14.15625,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "damage": "long_link",
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64,
+  "motions_used": 128,
+  "probe_motions": 16,
+  "agent_s": 13.351434199896175,
+  "agent_cpu_s": 12.84375,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "damage": "long_link",
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   94
+  ],
+  "events": [
+   {
+    "motion": 68,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64,
+  "motions_used": 132,
+  "probe_motions": 32,
+  "agent_s": 6.959616400010418,
+  "agent_cpu_s": 6.6875,
+  "fault_hits": {},
+  "champions": 13,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "damage": "long_link",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": null,
+  "alarms": [
+   95
+  ],
+  "events": [
+   {
+    "motion": 65,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64,
+  "motions_used": 131,
+  "probe_motions": 80,
+  "agent_s": 95.23034040001221,
+  "agent_cpu_s": 88.140625,
+  "fault_hits": {},
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "damage": "long_link",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64,
+  "motions_used": 128,
+  "probe_motions": 0,
+  "agent_s": 15.231849699979648,
+  "agent_cpu_s": 14.875,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "damage": "long_link",
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64,
+  "motions_used": 128,
+  "probe_motions": 16,
+  "agent_s": 13.070951999980025,
+  "agent_cpu_s": 12.6875,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "damage": "long_link",
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   94
+  ],
+  "events": [
+   {
+    "motion": 68,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64,
+  "motions_used": 132,
+  "probe_motions": 32,
+  "agent_s": 7.69989210012136,
+  "agent_cpu_s": 7.484375,
+  "fault_hits": {},
+  "champions": 10,
+  "disagreements": 0
+ }
+]

@@ -1,0 +1,4875 @@
+[
+ {
+  "family": "gantry",
+  "seed": 1,
+  "fault": "none",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 65,
+  "probe_motions": 32,
+  "agent_s": 85.90705949993571,
+  "agent_cpu_s": 78.609375,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "fault": "none",
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 2.398237099929247,
+  "agent_cpu_s": 2.3125,
+  "fault_hits": {},
+  "champions": 9,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "fault": "none",
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 4.685142500093207,
+  "agent_cpu_s": 4.53125,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "fault": "none",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 7.006477399962023,
+  "agent_cpu_s": 6.703125,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "fault": "wrong_finding",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 65,
+  "probe_motions": 32,
+  "agent_s": 79.67223949998152,
+  "agent_cpu_s": 73.203125,
+  "fault_hits": {
+   "wrong_finding": 1
+  },
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "fault": "wrong_finding",
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 11.162904900033027,
+  "agent_cpu_s": 10.84375,
+  "fault_hits": {
+   "wrong_finding": 1
+  },
+  "champions": 2,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "fault": "wrong_finding",
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 31.023508900078014,
+  "agent_cpu_s": 29.828125,
+  "fault_hits": {
+   "wrong_finding": 1
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "fault": "wrong_finding",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 7.268994400044903,
+  "agent_cpu_s": 6.96875,
+  "fault_hits": {
+   "wrong_finding": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "fault": "bad_llm",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 42.17069360008463,
+  "agent_cpu_s": 40.125,
+  "fault_hits": {
+   "bad_llm": 1
+  },
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "fault": "bad_llm",
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 7.85226350009907,
+  "agent_cpu_s": 7.53125,
+  "fault_hits": {
+   "bad_llm": 1
+  },
+  "champions": 5,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "fault": "bad_llm",
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 4.917048899980728,
+  "agent_cpu_s": 4.75,
+  "fault_hits": {
+   "bad_llm": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "fault": "bad_llm",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 6.911423700046726,
+  "agent_cpu_s": 6.625,
+  "fault_hits": {
+   "bad_llm": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "fault": "modeler_crash",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "agent_s": 32.0952227000962,
+  "agent_cpu_s": 30.6875,
+  "fault_hits": {
+   "modeler_crash": 1
+  },
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "fault": "modeler_crash",
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": null,
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 0.30330270004924387,
+  "agent_cpu_s": 0.28125,
+  "fault_hits": {
+   "modeler_crash": 11
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "fault": "modeler_crash",
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 1.805681099940557,
+  "agent_cpu_s": 1.734375,
+  "fault_hits": {
+   "modeler_crash": 11
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "fault": "modeler_crash",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 1.8877874999307096,
+  "agent_cpu_s": 1.828125,
+  "fault_hits": {
+   "modeler_crash": 11
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "fault": "noisy_channel",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": null,
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 65,
+  "probe_motions": 32,
+  "agent_s": 43.5902179001132,
+  "agent_cpu_s": 41.203125,
+  "fault_hits": {
+   "noisy_channel": 8
+  },
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "fault": "noisy_channel",
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 6.720218599890359,
+  "agent_cpu_s": 6.546875,
+  "fault_hits": {
+   "noisy_channel": 4
+  },
+  "champions": 2,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "fault": "noisy_channel",
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hx",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 11.133346800052095,
+  "agent_cpu_s": 10.921875,
+  "fault_hits": {
+   "noisy_channel": 4
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "fault": "noisy_channel",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 6.7910606999648735,
+  "agent_cpu_s": 6.6875,
+  "fault_hits": {
+   "noisy_channel": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "fault": "none",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 337.336126299866,
+  "agent_cpu_s": 316.953125,
+  "fault_hits": {},
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "fault": "none",
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 2.252464099903591,
+  "agent_cpu_s": 2.203125,
+  "fault_hits": {},
+  "champions": 6,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "fault": "none",
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 4.0567028999794275,
+  "agent_cpu_s": 4.03125,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "fault": "none",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 7.689343199832365,
+  "agent_cpu_s": 7.59375,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "fault": "wrong_finding",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 170.9278757001739,
+  "agent_cpu_s": 162.953125,
+  "fault_hits": {
+   "wrong_finding": 1
+  },
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "fault": "wrong_finding",
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 7.097706599975936,
+  "agent_cpu_s": 6.734375,
+  "fault_hits": {
+   "wrong_finding": 1
+  },
+  "champions": 10,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "fault": "wrong_finding",
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 35.46441050013527,
+  "agent_cpu_s": 34.28125,
+  "fault_hits": {
+   "wrong_finding": 1
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "fault": "wrong_finding",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 7.849481200100854,
+  "agent_cpu_s": 7.578125,
+  "fault_hits": {
+   "wrong_finding": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "fault": "bad_llm",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 65,
+  "probe_motions": 40,
+  "agent_s": 37.05611470004078,
+  "agent_cpu_s": 35.5,
+  "fault_hits": {
+   "bad_llm": 1
+  },
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "fault": "bad_llm",
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 9.612448400002904,
+  "agent_cpu_s": 9.296875,
+  "fault_hits": {
+   "bad_llm": 1
+  },
+  "champions": 8,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "fault": "bad_llm",
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 4.092858099902514,
+  "agent_cpu_s": 4.0,
+  "fault_hits": {
+   "bad_llm": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "fault": "bad_llm",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 7.549731899984181,
+  "agent_cpu_s": 7.359375,
+  "fault_hits": {
+   "bad_llm": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "fault": "modeler_crash",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 86.28226530028041,
+  "agent_cpu_s": 82.0625,
+  "fault_hits": {
+   "modeler_crash": 1
+  },
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "fault": "modeler_crash",
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": null,
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 0.30770829995162785,
+  "agent_cpu_s": 0.265625,
+  "fault_hits": {
+   "modeler_crash": 11
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "fault": "modeler_crash",
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 0.631126599968411,
+  "agent_cpu_s": 0.640625,
+  "fault_hits": {
+   "modeler_crash": 11
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "fault": "modeler_crash",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 1.3812746000476182,
+  "agent_cpu_s": 1.34375,
+  "fault_hits": {
+   "modeler_crash": 11
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "fault": "noisy_channel",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": null,
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 65,
+  "probe_motions": 40,
+  "agent_s": 60.467048200021964,
+  "agent_cpu_s": 57.53125,
+  "fault_hits": {
+   "noisy_channel": 12
+  },
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "fault": "noisy_channel",
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 7.297646700113546,
+  "agent_cpu_s": 6.96875,
+  "fault_hits": {
+   "noisy_channel": 4
+  },
+  "champions": 8,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "fault": "noisy_channel",
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 18.48075820005033,
+  "agent_cpu_s": 18.0,
+  "fault_hits": {
+   "noisy_channel": 4
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "fault": "noisy_channel",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 7.840681500034407,
+  "agent_cpu_s": 7.453125,
+  "fault_hits": {
+   "noisy_channel": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "fault": "none",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 144.81449710018933,
+  "agent_cpu_s": 138.375,
+  "fault_hits": {},
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "fault": "none",
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 2.389642400026787,
+  "agent_cpu_s": 2.265625,
+  "fault_hits": {},
+  "champions": 9,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "fault": "none",
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 4.287926999852061,
+  "agent_cpu_s": 4.03125,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "fault": "none",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 5.248968800064176,
+  "agent_cpu_s": 5.21875,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "fault": "wrong_finding",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 54.5466578999185,
+  "agent_cpu_s": 51.96875,
+  "fault_hits": {
+   "wrong_finding": 1
+  },
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "fault": "wrong_finding",
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 7.926544300047681,
+  "agent_cpu_s": 7.71875,
+  "fault_hits": {
+   "wrong_finding": 1
+  },
+  "champions": 5,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "fault": "wrong_finding",
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 16.542633699835278,
+  "agent_cpu_s": 16.15625,
+  "fault_hits": {
+   "wrong_finding": 1
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "fault": "wrong_finding",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 5.121880599821452,
+  "agent_cpu_s": 5.03125,
+  "fault_hits": {
+   "wrong_finding": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "fault": "bad_llm",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 101.01525089988718,
+  "agent_cpu_s": 96.734375,
+  "fault_hits": {
+   "bad_llm": 1
+  },
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "fault": "bad_llm",
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 8.842422599846032,
+  "agent_cpu_s": 8.640625,
+  "fault_hits": {
+   "bad_llm": 1
+  },
+  "champions": 4,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "fault": "bad_llm",
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 4.018820299999788,
+  "agent_cpu_s": 3.828125,
+  "fault_hits": {
+   "bad_llm": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "fault": "bad_llm",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 5.621166999917477,
+  "agent_cpu_s": 5.40625,
+  "fault_hits": {
+   "bad_llm": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "fault": "modeler_crash",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 96.40165150008397,
+  "agent_cpu_s": 92.171875,
+  "fault_hits": {
+   "modeler_crash": 1
+  },
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "fault": "modeler_crash",
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": null,
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 0.2672642999677919,
+  "agent_cpu_s": 0.234375,
+  "fault_hits": {
+   "modeler_crash": 11
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "fault": "modeler_crash",
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 1.2501093000173569,
+  "agent_cpu_s": 1.1875,
+  "fault_hits": {
+   "modeler_crash": 11
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "fault": "modeler_crash",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hy",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 1.1496057001058944,
+  "agent_cpu_s": 1.09375,
+  "fault_hits": {
+   "modeler_crash": 11
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "fault": "noisy_channel",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": null,
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "agent_s": 59.022280899924226,
+  "agent_cpu_s": 56.46875,
+  "fault_hits": {
+   "noisy_channel": 12
+  },
+  "champions": 5,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "fault": "noisy_channel",
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 6.531628199911211,
+  "agent_cpu_s": 6.375,
+  "fault_hits": {
+   "noisy_channel": 4
+  },
+  "champions": 9,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "fault": "noisy_channel",
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 10.044283799943514,
+  "agent_cpu_s": 9.84375,
+  "fault_hits": {
+   "noisy_channel": 4
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "fault": "noisy_channel",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 5.406565999961458,
+  "agent_cpu_s": 5.25,
+  "fault_hits": {
+   "noisy_channel": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "fault": "none",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 97.50539549987298,
+  "agent_cpu_s": 93.203125,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "fault": "none",
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 2.48720330017386,
+  "agent_cpu_s": 2.421875,
+  "fault_hits": {},
+  "champions": 10,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "fault": "none",
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 3.965128300129436,
+  "agent_cpu_s": 3.875,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "fault": "none",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 8.949403700011317,
+  "agent_cpu_s": 8.734375,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "fault": "wrong_finding",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 102.56436510005733,
+  "agent_cpu_s": 98.015625,
+  "fault_hits": {
+   "wrong_finding": 1
+  },
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "fault": "wrong_finding",
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 16.992516099766362,
+  "agent_cpu_s": 16.625,
+  "fault_hits": {
+   "wrong_finding": 1
+  },
+  "champions": 5,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "fault": "wrong_finding",
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 28.554751699848566,
+  "agent_cpu_s": 28.171875,
+  "fault_hits": {
+   "wrong_finding": 1
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "fault": "wrong_finding",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 8.742530999879818,
+  "agent_cpu_s": 8.5,
+  "fault_hits": {
+   "wrong_finding": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "fault": "bad_llm",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 155.40135490021203,
+  "agent_cpu_s": 147.40625,
+  "fault_hits": {
+   "bad_llm": 1
+  },
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "fault": "bad_llm",
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 10.860201000061352,
+  "agent_cpu_s": 10.75,
+  "fault_hits": {
+   "bad_llm": 1
+  },
+  "champions": 5,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "fault": "bad_llm",
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 3.8842125000082888,
+  "agent_cpu_s": 3.875,
+  "fault_hits": {
+   "bad_llm": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "fault": "bad_llm",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 8.882631400076207,
+  "agent_cpu_s": 8.703125,
+  "fault_hits": {
+   "bad_llm": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "fault": "modeler_crash",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 146.8572075997945,
+  "agent_cpu_s": 139.578125,
+  "fault_hits": {
+   "modeler_crash": 1
+  },
+  "champions": 4,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "fault": "modeler_crash",
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": null,
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 0.5957307001226582,
+  "agent_cpu_s": 0.59375,
+  "fault_hits": {
+   "modeler_crash": 11
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "fault": "modeler_crash",
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 0.5060459999367595,
+  "agent_cpu_s": 0.546875,
+  "fault_hits": {
+   "modeler_crash": 11
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "fault": "modeler_crash",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "hx"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 1.4074900998966768,
+  "agent_cpu_s": 1.375,
+  "fault_hits": {
+   "modeler_crash": 11
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "fault": "noisy_channel",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": null,
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "agent_s": 61.35149939998519,
+  "agent_cpu_s": 58.328125,
+  "fault_hits": {
+   "noisy_channel": 12
+  },
+  "champions": 4,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "fault": "noisy_channel",
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 8.057530999998562,
+  "agent_cpu_s": 7.765625,
+  "fault_hits": {
+   "noisy_channel": 4
+  },
+  "champions": 5,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "fault": "noisy_channel",
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 8.313184500206262,
+  "agent_cpu_s": 8.15625,
+  "fault_hits": {
+   "noisy_channel": 4
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "fault": "noisy_channel",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 9.498340300051495,
+  "agent_cpu_s": 9.265625,
+  "fault_hits": {
+   "noisy_channel": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "fault": "none",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 65,
+  "probe_motions": 32,
+  "agent_s": 43.787018799979705,
+  "agent_cpu_s": 41.90625,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "fault": "none",
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 3.65404680010397,
+  "agent_cpu_s": 3.53125,
+  "fault_hits": {},
+  "champions": 7,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "fault": "none",
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 5.671771200199146,
+  "agent_cpu_s": 5.59375,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "fault": "none",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 5.301210199890193,
+  "agent_cpu_s": 5.109375,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "fault": "wrong_finding",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 65,
+  "probe_motions": 32,
+  "agent_s": 29.268515500123613,
+  "agent_cpu_s": 28.0,
+  "fault_hits": {
+   "wrong_finding": 1
+  },
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "fault": "wrong_finding",
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 3.2248211000696756,
+  "agent_cpu_s": 3.109375,
+  "fault_hits": {
+   "wrong_finding": 1
+  },
+  "champions": 4,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "fault": "wrong_finding",
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 4.2550142999971285,
+  "agent_cpu_s": 4.125,
+  "fault_hits": {
+   "wrong_finding": 1
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "fault": "wrong_finding",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 5.210210999997798,
+  "agent_cpu_s": 5.15625,
+  "fault_hits": {
+   "wrong_finding": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "fault": "bad_llm",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 86.08285569981672,
+  "agent_cpu_s": 82.15625,
+  "fault_hits": {
+   "bad_llm": 1
+  },
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "fault": "bad_llm",
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 9.470171100110747,
+  "agent_cpu_s": 9.3125,
+  "fault_hits": {
+   "bad_llm": 1
+  },
+  "champions": 6,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "fault": "bad_llm",
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 5.7639711000956595,
+  "agent_cpu_s": 5.59375,
+  "fault_hits": {
+   "bad_llm": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "fault": "bad_llm",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 5.309478200157173,
+  "agent_cpu_s": 5.1875,
+  "fault_hits": {
+   "bad_llm": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "fault": "modeler_crash",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 44.00052939984016,
+  "agent_cpu_s": 42.109375,
+  "fault_hits": {
+   "modeler_crash": 1
+  },
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "fault": "modeler_crash",
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": null,
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 0.27612589998170733,
+  "agent_cpu_s": 0.28125,
+  "fault_hits": {
+   "modeler_crash": 11
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "fault": "modeler_crash",
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 1.836186699976679,
+  "agent_cpu_s": 1.765625,
+  "fault_hits": {
+   "modeler_crash": 11
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "fault": "modeler_crash",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 1.4119881000951864,
+  "agent_cpu_s": 1.359375,
+  "fault_hits": {
+   "modeler_crash": 11
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "fault": "noisy_channel",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 65,
+  "probe_motions": 32,
+  "agent_s": 40.19259539997438,
+  "agent_cpu_s": 38.421875,
+  "fault_hits": {
+   "noisy_channel": 8
+  },
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "fault": "noisy_channel",
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 3.5919459999422543,
+  "agent_cpu_s": 3.4375,
+  "fault_hits": {
+   "noisy_channel": 4
+  },
+  "champions": 11,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "fault": "noisy_channel",
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 5.050184299936518,
+  "agent_cpu_s": 4.953125,
+  "fault_hits": {
+   "noisy_channel": 4
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "fault": "noisy_channel",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 5.387416700075846,
+  "agent_cpu_s": 5.28125,
+  "fault_hits": {
+   "noisy_channel": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "fault": "none",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 65,
+  "probe_motions": 40,
+  "agent_s": 47.626804400119,
+  "agent_cpu_s": 45.671875,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "fault": "none",
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 3.6525792000466026,
+  "agent_cpu_s": 3.484375,
+  "fault_hits": {},
+  "champions": 5,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "fault": "none",
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 5.727387600054499,
+  "agent_cpu_s": 5.625,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "fault": "none",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 6.591291800024919,
+  "agent_cpu_s": 6.421875,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "fault": "wrong_finding",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 65,
+  "probe_motions": 40,
+  "agent_s": 51.75354340008926,
+  "agent_cpu_s": 49.40625,
+  "fault_hits": {
+   "wrong_finding": 1
+  },
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "fault": "wrong_finding",
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 10.416856399853714,
+  "agent_cpu_s": 10.25,
+  "fault_hits": {
+   "wrong_finding": 1
+  },
+  "champions": 10,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "fault": "wrong_finding",
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 27.59996499994304,
+  "agent_cpu_s": 26.765625,
+  "fault_hits": {
+   "wrong_finding": 1
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "fault": "wrong_finding",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 6.716890900104772,
+  "agent_cpu_s": 6.5625,
+  "fault_hits": {
+   "wrong_finding": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "fault": "bad_llm",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 65,
+  "probe_motions": 40,
+  "agent_s": 41.404854400025215,
+  "agent_cpu_s": 39.59375,
+  "fault_hits": {
+   "bad_llm": 1
+  },
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "fault": "bad_llm",
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 10.002087500062771,
+  "agent_cpu_s": 9.828125,
+  "fault_hits": {
+   "bad_llm": 1
+  },
+  "champions": 6,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "fault": "bad_llm",
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 5.732238900149241,
+  "agent_cpu_s": 5.59375,
+  "fault_hits": {
+   "bad_llm": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "fault": "bad_llm",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 6.899415799940471,
+  "agent_cpu_s": 6.640625,
+  "fault_hits": {
+   "bad_llm": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "fault": "modeler_crash",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 66,
+  "probe_motions": 36,
+  "agent_s": 19.408418999926653,
+  "agent_cpu_s": 18.640625,
+  "fault_hits": {
+   "modeler_crash": 1
+  },
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "fault": "modeler_crash",
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": null,
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 0.31884950009407476,
+  "agent_cpu_s": 0.328125,
+  "fault_hits": {
+   "modeler_crash": 11
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "fault": "modeler_crash",
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 1.7116649000672624,
+  "agent_cpu_s": 1.640625,
+  "fault_hits": {
+   "modeler_crash": 11
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "fault": "modeler_crash",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 1.7818029999616556,
+  "agent_cpu_s": 1.71875,
+  "fault_hits": {
+   "modeler_crash": 11
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "fault": "noisy_channel",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 65,
+  "probe_motions": 40,
+  "agent_s": 40.074826100084465,
+  "agent_cpu_s": 38.265625,
+  "fault_hits": {
+   "noisy_channel": 12
+  },
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "fault": "noisy_channel",
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 6.8596378999063745,
+  "agent_cpu_s": 6.609375,
+  "fault_hits": {
+   "noisy_channel": 4
+  },
+  "champions": 8,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "fault": "noisy_channel",
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 11.105755499738734,
+  "agent_cpu_s": 10.765625,
+  "fault_hits": {
+   "noisy_channel": 4
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "fault": "noisy_channel",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 6.785211600014009,
+  "agent_cpu_s": 6.609375,
+  "fault_hits": {
+   "noisy_channel": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "fault": "none",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 87.82873670000117,
+  "agent_cpu_s": 80.5625,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "fault": "none",
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 3.3257384001626633,
+  "agent_cpu_s": 3.125,
+  "fault_hits": {},
+  "champions": 8,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "fault": "none",
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 7.0088470001355745,
+  "agent_cpu_s": 6.75,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "fault": "none",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 6.057567299809307,
+  "agent_cpu_s": 5.90625,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "fault": "wrong_finding",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 145.7343181001488,
+  "agent_cpu_s": 135.328125,
+  "fault_hits": {
+   "wrong_finding": 1
+  },
+  "champions": 4,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "fault": "wrong_finding",
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 3.8668974998872727,
+  "agent_cpu_s": 3.765625,
+  "fault_hits": {
+   "wrong_finding": 1
+  },
+  "champions": 8,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "fault": "wrong_finding",
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 6.472766699967906,
+  "agent_cpu_s": 6.28125,
+  "fault_hits": {
+   "wrong_finding": 1
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "fault": "wrong_finding",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 6.224173599912319,
+  "agent_cpu_s": 6.109375,
+  "fault_hits": {
+   "wrong_finding": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "fault": "bad_llm",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 106.71129279996967,
+  "agent_cpu_s": 97.625,
+  "fault_hits": {
+   "bad_llm": 1
+  },
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "fault": "bad_llm",
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": null,
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [
+   55
+  ],
+  "fault_channel": 1,
+  "motions_used": 67,
+  "probe_motions": 28,
+  "agent_s": 7.992070800217334,
+  "agent_cpu_s": 7.859375,
+  "fault_hits": {
+   "bad_llm": 1
+  },
+  "champions": 4,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "fault": "bad_llm",
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 6.853167400171515,
+  "agent_cpu_s": 6.6875,
+  "fault_hits": {
+   "bad_llm": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "fault": "bad_llm",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 5.886045999999624,
+  "agent_cpu_s": 5.734375,
+  "fault_hits": {
+   "bad_llm": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "fault": "modeler_crash",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 65,
+  "probe_motions": 40,
+  "agent_s": 66.13494920002995,
+  "agent_cpu_s": 61.109375,
+  "fault_hits": {
+   "modeler_crash": 1
+  },
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "fault": "modeler_crash",
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": null,
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 0.29012439999496564,
+  "agent_cpu_s": 0.296875,
+  "fault_hits": {
+   "modeler_crash": 11
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "fault": "modeler_crash",
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 2.955341499997303,
+  "agent_cpu_s": 2.90625,
+  "fault_hits": {
+   "modeler_crash": 11
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "fault": "modeler_crash",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "sy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 1.5713691998971626,
+  "agent_cpu_s": 1.5625,
+  "fault_hits": {
+   "modeler_crash": 11
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "fault": "noisy_channel",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "agent_s": 68.16140320000704,
+  "agent_cpu_s": 62.8125,
+  "fault_hits": {
+   "noisy_channel": 12
+  },
+  "champions": 4,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "fault": "noisy_channel",
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 3.339316400117241,
+  "agent_cpu_s": 3.234375,
+  "fault_hits": {
+   "noisy_channel": 4
+  },
+  "champions": 10,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "fault": "noisy_channel",
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 5.510341299988795,
+  "agent_cpu_s": 5.375,
+  "fault_hits": {
+   "noisy_channel": 4
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "fault": "noisy_channel",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 6.107534000067972,
+  "agent_cpu_s": 5.90625,
+  "fault_hits": {
+   "noisy_channel": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "fault": "none",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 97.70728379994398,
+  "agent_cpu_s": 88.21875,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "fault": "none",
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 3.5112529000616632,
+  "agent_cpu_s": 3.484375,
+  "fault_hits": {},
+  "champions": 4,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "fault": "none",
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 7.598758400185034,
+  "agent_cpu_s": 7.328125,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "fault": "none",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 5.185529300186317,
+  "agent_cpu_s": 5.078125,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "fault": "wrong_finding",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 180.32993679994252,
+  "agent_cpu_s": 169.5,
+  "fault_hits": {
+   "wrong_finding": 1
+  },
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "fault": "wrong_finding",
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 13.70822839991888,
+  "agent_cpu_s": 13.3125,
+  "fault_hits": {
+   "wrong_finding": 1
+  },
+  "champions": 4,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "fault": "wrong_finding",
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 24.566866199776996,
+  "agent_cpu_s": 23.796875,
+  "fault_hits": {
+   "wrong_finding": 1
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "fault": "wrong_finding",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 4.93826939992141,
+  "agent_cpu_s": 4.84375,
+  "fault_hits": {
+   "wrong_finding": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "fault": "bad_llm",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 111.3520479000872,
+  "agent_cpu_s": 101.953125,
+  "fault_hits": {
+   "bad_llm": 1
+  },
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "fault": "bad_llm",
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 14.623434500070289,
+  "agent_cpu_s": 14.203125,
+  "fault_hits": {
+   "bad_llm": 1
+  },
+  "champions": 6,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "fault": "bad_llm",
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 7.830703200015705,
+  "agent_cpu_s": 7.578125,
+  "fault_hits": {
+   "bad_llm": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "fault": "bad_llm",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 5.257251200033352,
+  "agent_cpu_s": 5.0625,
+  "fault_hits": {
+   "bad_llm": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "fault": "modeler_crash",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 65,
+  "probe_motions": 32,
+  "agent_s": 34.27752759994473,
+  "agent_cpu_s": 30.875,
+  "fault_hits": {
+   "modeler_crash": 1
+  },
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "fault": "modeler_crash",
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": null,
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 0.4395900001982227,
+  "agent_cpu_s": 0.4375,
+  "fault_hits": {
+   "modeler_crash": 11
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "fault": "modeler_crash",
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 3.2484113999526016,
+  "agent_cpu_s": 3.125,
+  "fault_hits": {
+   "modeler_crash": 11
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "fault": "modeler_crash",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 1.3277739000623114,
+  "agent_cpu_s": 1.25,
+  "fault_hits": {
+   "modeler_crash": 11
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "fault": "noisy_channel",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "agent_s": 57.963694800040685,
+  "agent_cpu_s": 52.671875,
+  "fault_hits": {
+   "noisy_channel": 12
+  },
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "fault": "noisy_channel",
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 6.321352699887939,
+  "agent_cpu_s": 6.109375,
+  "fault_hits": {
+   "noisy_channel": 4
+  },
+  "champions": 3,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "fault": "noisy_channel",
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 10.897006300045177,
+  "agent_cpu_s": 10.71875,
+  "fault_hits": {
+   "noisy_channel": 4
+  },
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "fault": "noisy_channel",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 4.885683799977414,
+  "agent_cpu_s": 4.703125,
+  "fault_hits": {
+   "noisy_channel": 0
+  },
+  "champions": 0,
+  "disagreements": 0
+ }
+]

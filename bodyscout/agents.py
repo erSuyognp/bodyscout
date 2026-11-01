@@ -2,13 +2,17 @@
 single agent whose loss stops the swarm: every role has a second instance or a fallback.
 
 Explorer x2     share the robot through needs; serve `probe` and `data` needs with motions
-Channel x N     one per unlabeled channel: wiggles only its channel, decides hinge or slide and the axis,
-                and, when move() returns several fingertips, which tips that channel moves
+Channel x 2N    two per unlabeled channel, sweeping it from different base poses (home and bent); each
+                wiggles only its channel, decides hinge or slide and the axis, and, when move() returns
+                several fingertips, which tips that channel moves. A channel is settled only when its
+                agents agree; a disputed channel gets structures with every type proposed for it
+Review          when the champion stays above the goal for 3 validations in a row, asks for the least
+                confident channels to be swept again from a third pose and posts that finding too
 Hypothesizers   independent; each posts hypotheses tagged by source: findings (assembles channel
                 findings, groups channels into limbs when there are several fingertips, and posts the
                 chain `order`: which channel drives which link), prior, library, and one LLM agent per
                 API key (Claude, Gemini)
-Modeler x3      chain / gmm / mlp; refit when new data lands. The chain modeler reads hypotheses, the
+Modeler x4      chain x2 (different seeds and restarts) / gmm / mlp; refit when new data lands. The chain modeler reads hypotheses, the
                 limb grouping and the chain order, and works any of those out itself from channel
                 findings when nobody posted one
 Validator x2    replay check candidates and vote for crown(bb), a public pure rule; a champion is
@@ -53,6 +57,12 @@ def current_score(bb: Blackboard, champ) -> dict:
     return {"holdout_mm": src["holdout_mm"], "n_holdout": src["n_holdout"]}
 
 
+# Every other channel's command while one channel is swept: home, bent, and the review's third pose.
+# Attempt k of a sweep uses POSE_BASES[k]. Only the home sweep reports its axis in the base frame.
+POSE_BASES = (0.0, 0.8, -0.8)
+SLIDE_RATIO = 0.12   # second over first singular value of a sweep: below this the path is a line
+
+
 # ---------------------------------------------------------------------------
 class Explorer(Agent):
     def __init__(self, robot, batch=4, holdout_every=4, mode="disagreement", seed=0, name="explorer"):
@@ -90,7 +100,7 @@ class Explorer(Agent):
         """Sweep one channel with every other channel held at a base pose."""
         n = self.robot.n_channels
         ch, attempt = need.payload["channel"], need.payload["attempt"]
-        base = np.zeros(n) if attempt == 0 else np.full(n, 0.8)
+        base = np.full(n, POSE_BASES[attempt])
         for v in self.PROBE_VALUES:
             q = base.copy()
             q[ch] = v
@@ -124,11 +134,13 @@ def _classify_one(P, attempt):
     if spread < 0.006:
         return None, spread
     ratio = float(sv[1] / sv[0])
-    kind = "s" if ratio < 0.12 else "h"
+    kind = "s" if ratio < SLIDE_RATIO else "h"
     direction = vt[0] if kind == "s" else vt[2]
     axis = "xyz"[int(np.argmax(np.abs(direction)))]
     conf = float(np.max(np.abs(direction))) if attempt == 0 else 0.0  # bent pose: frame differs
-    return {"type": kind, "axis": axis, "conf": conf, "curvature": ratio, "spread_mm": spread * 1000}, spread
+    margin = min(1.0, abs(np.log(max(ratio, 1e-6) / SLIDE_RATIO)) / np.log(4.0))  # how clear hinge vs slide is
+    return {"type": kind, "axis": axis, "conf": conf, "curvature": ratio, "type_margin": float(margin),
+            "spread_mm": spread * 1000}, spread
 
 
 def classify_sweep(P, attempt):
@@ -156,42 +168,90 @@ def classify_sweep(P, attempt):
     return fields, biggest
 
 
+def probe_need_kind(ch, attempt):
+    """One need kind per (channel, pose), so two agents asking for the same sweep share it."""
+    return f"probe:{ch}" if attempt == 0 else f"probe:{ch}:{attempt}"
+
+
 class ChannelAgent(Agent):
     """Owns one unlabeled channel. Asks for a sweep of only that channel, then reads the shape of
     the fingertip path: a straight line means the joint slides, an arc means it rotates. The line
     direction (slide) or the arc's plane normal (hinge) gives the axis. When the robot reports
     several fingertips, the finding also lists which tips this channel moved. Knows nothing about
-    other channels; hypothesizers and the chain modeler assemble everyone's findings into limbs."""
+    other channels; hypothesizers and the chain modeler assemble everyone's findings into limbs.
 
-    def __init__(self, channel, n):
-        self.ch, self.n = channel, n
-        self.name = f"channel-{channel}"
-        self.epoch, self.attempt, self.requested, self.done = -1, 0, False, False
+    poses: the sweep poses to try in order (indices into POSE_BASES), moving on when the tip barely
+    moved. The home agent tries (0, 1); its replica, which sweeps from the bent pose, tries (1, 2)."""
+
+    def __init__(self, channel, n, poses=(0, 1), name=None):
+        self.ch, self.n, self.poses = channel, n, tuple(poses)
+        self.name = name or f"channel-{channel}"
+        self.pressure = (200.0 if self.poses[0] == 0 else 150.0) - channel  # home sweeps first
+        self.epoch, self.k, self.requested, self.done = -1, 0, False, False
+
+    @property
+    def attempt(self):
+        return self.poses[self.k]
 
     def step(self, bb, t):
         if bb.epoch != self.epoch:
-            self.epoch, self.attempt, self.requested, self.done = bb.epoch, 0, False, False
+            self.epoch, self.k, self.requested, self.done = bb.epoch, 0, False, False
         if self.done:
             return False
         obs = [a for a in bb.of("observation")
                if a.payload.get("probe") == self.ch and a.payload.get("attempt") == self.attempt]
         if len(obs) < len(Explorer.PROBE_VALUES):
             if not self.requested:
-                bb.need(f"probe:{self.ch}", self.name, 200.0 - self.ch, channel=self.ch, attempt=self.attempt)
+                bb.need(probe_need_kind(self.ch, self.attempt), self.name, self.pressure, channel=self.ch,
+                        attempt=self.attempt)
                 self.requested = True
             return False
+        obs = obs[: len(Explorer.PROBE_VALUES)]
         fields, spread = classify_sweep(np.array([a.payload["x"] for a in obs]), self.attempt)
-        if fields is None:  # the tip barely moved from this pose: look again from a bent pose
-            if self.attempt == 0:
-                self.attempt, self.requested = 1, False
+        if fields is None:  # the tip barely moved from this pose: look again from the next one
+            if self.k + 1 < len(self.poses):
+                self.k, self.requested = self.k + 1, False
                 return True
             bb.post("finding", self.name, {"channel": self.ch, "type": "?", "axis": "?", "conf": 0.0,
-                                           "spread_mm": spread * 1000}, [a.id for a in obs])
+                                           "spread_mm": spread * 1000, "attempt": self.attempt},
+                    [a.id for a in obs])
             self.done = True
             return True
-        bb.post("finding", self.name, {"channel": self.ch, **fields}, [a.id for a in obs])
+        bb.post("finding", self.name, {"channel": self.ch, **fields, "attempt": self.attempt}, [a.id for a in obs])
         self.done = True
         return True
+
+
+def merge_findings(arts) -> dict:
+    """Every finding about one channel, as one payload. The primary opinion is a home pose sweep when
+    there is one (it alone reports the axis in the base frame), else the first with a type. When the
+    opinions name different joint types, `disputed` lists the other types, so structures get built
+    with each. `_ids` keeps every finding for provenance; `type_margin` is the least clear opinion."""
+    known = [a for a in arts if a.payload["type"] != "?"]
+    if not known:
+        a = arts[-1]
+        return {**a.payload, "_id": a.id, "_ids": [x.id for x in arts], "type_margin": 0.0}
+    home = [a for a in known if a.payload.get("attempt", 0) == 0]
+    primary = max(home, key=lambda a: (a.payload["conf"], -a.id)) if home else known[0]
+    out = {**primary.payload, "_id": primary.id, "_ids": [x.id for x in arts],
+           "type_margin": min(a.payload.get("type_margin", 1.0) for a in known)}
+    others = sorted({a.payload["type"] for a in known} - {primary.payload["type"]})
+    if others:
+        out["disputed"] = others
+        out["type_margin"] = 0.0
+    return out
+
+
+def channel_findings(bb) -> dict:
+    """{channel: merged finding} for this epoch, from however many agents reported on each channel."""
+    by = {}
+    for a in bb.of("finding"):
+        by.setdefault(a.payload["channel"], []).append(a)
+    return {ch: merge_findings(arts) for ch, arts in by.items()}
+
+
+def finding_ids(findings: dict) -> list:
+    return [i for f in findings.values() for i in f.get("_ids", [f["_id"]])]
 
 
 # ---------------------------------------------------------------------------
@@ -215,6 +275,9 @@ def structures_from_findings(findings: dict, n: int) -> list:
         f = findings.get(ch)
         if f is None or f["type"] == "?":
             opts.append([(t + a, 1) for t in "hs" for a in "zyx"])
+        elif f.get("disputed"):  # agents disagree on the type: every type with the measured axis first
+            types = [f["type"]] + list(f["disputed"])
+            opts.append([(t + f["axis"], 0) for t in types] + [(t + a, 1) for t in types for a in "zyx" if a != f["axis"]])
         elif f["conf"] >= 0.85:
             opts.append([(f["type"] + f["axis"], 0)])
         else:
@@ -367,8 +430,19 @@ def order_key(bb):
 
 
 def order_from_board(bb, n):
-    return infer_order({a.payload["channel"]: {**a.payload, "_id": a.id} for a in bb.of("finding")},
-                       bb.of("observation"), n)
+    """Chain order from the merged findings. A disputed channel's sweep geometry depends on its type,
+    so every combination of the disputed types is tried and the best fitting order kept."""
+    merged = channel_findings(bb)
+    disputed = sorted(ch for ch, f in merged.items() if f.get("disputed"))
+    best = None
+    for combo in itertools.product(*[[merged[ch]["type"]] + merged[ch]["disputed"] for ch in disputed]):
+        fs = dict(merged)
+        for ch, ty in zip(disputed, combo):
+            fs[ch] = {**merged[ch], "type": ty}
+        found = infer_order(fs, bb.of("observation"), n)
+        if found is not None and (best is None or found[1]["rmse_mm"] < best[1]["rmse_mm"]):
+            best = found
+    return best
 
 
 def limb_groups(findings: dict, n: int):
@@ -495,7 +569,7 @@ class FindingsHypothesizer(HypothesizerBase):
     source = "channels"
 
     def _order(self, bb):
-        arts = {a.payload["channel"]: a.payload for a in bb.of("finding")}
+        arts = channel_findings(bb)
         if limb_groups(arts, self.n) is not None:
             return False  # several fingertips: the limbs artifact carries each chain's order
         key = ("order",) + order_key(bb)
@@ -512,10 +586,9 @@ class FindingsHypothesizer(HypothesizerBase):
 
     def _limbs(self, bb):
         """Group channels by the fingertip they move, and post that grouping once it changes."""
-        arts = {a.payload["channel"]: a for a in bb.of("finding")}
-        if len(arts) < self.n:
+        findings = channel_findings(bb)
+        if len(findings) < self.n:
             return False
-        findings = {ch: {**a.payload, "_id": a.id} for ch, a in arts.items()}
         if limb_groups(findings, self.n) is None:
             return False
         key = ("limbs",) + order_key(bb)
@@ -528,28 +601,28 @@ class FindingsHypothesizer(HypothesizerBase):
         prev = bb.latest("limbs")
         if prev is not None and prev.payload["limbs"] == limbs:
             return False
-        bb.post("limbs", self.name, {"limbs": limbs}, [a.id for a in arts.values()])
+        bb.post("limbs", self.name, {"limbs": limbs}, finding_ids(findings))
         return True
 
     def step(self, bb, t):
         if self._assemble(bb):
             return True
-        if len(bb.of("finding")) < self.n:
+        if len(channel_findings(bb)) < self.n:
             return False
         return self._limbs(bb) or self._order(bb)
 
     def _assemble(self, bb):
-        arts = {a.payload["channel"]: a for a in bb.of("finding")}
+        arts = channel_findings(bb)
         if not arts:
             return False
         if len(arts) < self.n and not bb.has_need("hypotheses"):
             return False  # waits for channel agents, never for another hypothesizer
-        key = (bb.epoch, tuple(sorted(a.id for a in arts.values())))
+        ids = finding_ids(arts)
+        key = (bb.epoch, tuple(sorted(ids)))
         if key in self.done:
             return False
         self.done.add(key)
-        pats = structures_from_findings({ch: a.payload for ch, a in arts.items()}, self.n)
-        return self._post(bb, pats, [a.id for a in arts.values()])
+        return self._post(bb, structures_from_findings(arts, self.n), ids)
 
 
 class PriorHypothesizer(HypothesizerBase):
@@ -651,13 +724,12 @@ class LLMHypothesizer(HypothesizerBase):
     def step(self, bb, t):
         if bb.epoch in self.answers:
             return False
-        arts = {a.payload["channel"]: a for a in bb.of("finding")}
+        arts = channel_findings(bb)
         Q, X, ids = _data(bb, "train")
         if not self._ready(bb, arts, len(Q)):
             return False
         try:
-            text = self._ask(self._prompt({ch: a.payload for ch, a in arts.items()},
-                                          Q[: self.MAX_ROWS], X[: self.MAX_ROWS]))
+            text = self._ask(self._prompt(arts, Q[: self.MAX_ROWS], X[: self.MAX_ROWS]))
             js = json.loads(re.search(r"\{.*\}", text, re.S).group(0))
             self.answers[bb.epoch] = (js["patterns"], str(js.get("why", "")))
         except Exception as e:  # never let an LLM take the swarm down
@@ -665,7 +737,7 @@ class LLMHypothesizer(HypothesizerBase):
             self.last_why = f"{self.source} unavailable: {type(e).__name__}"
             return False
         pats, self.last_why = self.answers[bb.epoch]
-        parents = [a.id for a in arts.values()] + ids[: self.MAX_ROWS]
+        parents = finding_ids(arts) + ids[: self.MAX_ROWS]
         return self._post(bb, pats, parents, why=self.last_why)
 
 
@@ -674,9 +746,10 @@ class Modeler(Agent):
     MIN_DATA = {"chain": 6, "gmm": 28, "mlp": 16}
     N_STRUCTURES = 4
 
-    def __init__(self, family, n, seed=0, warm=None, any_types=False):
+    def __init__(self, family, n, seed=0, warm=None, any_types=False, index=0, restarts=3):
         self.family, self.n, self.seed, self.any_types = family, n, seed, any_types
-        self.name = f"modeler-{family}"
+        self.restarts = restarts
+        self.name = f"modeler-{family}" + (f"-{index}" if index else "")
         self.last_n = -1
         self.last_epoch = -1
         self.warm = warm  # parameters carried over from a previous body (transfer)
@@ -702,11 +775,11 @@ class Modeler(Agent):
         posted = bb.latest("limbs")
         if posted is not None:
             return posted.payload["limbs"], [posted.id]
-        if len({a.payload["channel"] for a in bb.of("finding")}) < self.n:
+        findings = channel_findings(bb)
+        if len(findings) < self.n:
             return None, []
         key = order_key(bb)
         if key not in self.own_limbs:
-            findings = {a.payload["channel"]: {**a.payload, "_id": a.id} for a in bb.of("finding")}
             self.own_limbs[key] = resolve_limbs(findings, bb.of("observation"), self.n)
         return self.own_limbs[key], []
 
@@ -722,10 +795,10 @@ class Modeler(Agent):
             batches.setdefault(h.payload["source"], []).append(h)
         cands = {src: [(h.payload["pattern"], [h.id]) for h in hs] for src, hs in batches.items()}
         if "channels" not in cands:
-            arts = {a.payload["channel"]: a for a in bb.of("finding")}
+            arts = channel_findings(bb)
             if arts:
-                pats = structures_from_findings({ch: a.payload for ch, a in arts.items()}, self.n)
-                cands["channels"] = [(p, [a.id for a in arts.values()]) for p in pats[: self.N_STRUCTURES]]
+                pats = structures_from_findings(arts, self.n)
+                cands["channels"] = [(p, finding_ids(arts)) for p in pats[: self.N_STRUCTURES]]
         rank = {s: i for i, s in enumerate(SOURCE_ORDER)}
         patterns, parents, seen = [], [], set()
         for src in sorted(cands, key=lambda s: rank.get(s, len(rank))):
@@ -761,7 +834,7 @@ class Modeler(Agent):
                     used = used + oids
             prev = [a for a in bb.of("champion", epoch=-1) if a.payload["family"] == "chain"]
             kw["warm"] = prev[-1].payload["_model"].warm_state if prev else self.warm
-            model = ChainModel(self.n, restarts=3, seed=self.seed + len(Q), any_types=self.any_types)
+            model = ChainModel(self.n, restarts=self.restarts, seed=self.seed + len(Q), any_types=self.any_types)
         else:
             model = FAMILIES[self.family](self.n, seed=self.seed)
         try:
@@ -777,10 +850,14 @@ class Modeler(Agent):
 
 
 # ---------------------------------------------------------------------------
+NEAR_TIE = 1.05      # crown: a candidate within 5% (+0.05 mm) of the best counts as tied
+
+
 def crown(bb: Blackboard) -> dict:
     """The public crowning rule, a pure function of the board that any agent can evaluate: the
     champion is the lowest error on the current holdout set among candidates that passed the replay
-    check (some validator passed it, none failed it). Ties go to the older candidate. `basis` names
+    check (some validator passed it, none failed it). Ties, and near ties within NEAR_TIE, go to the
+    older candidate. `basis` names
     every input used, so two agents that computed the same basis must name the same champion."""
     Qh, Xh, hids = _data(bb, "holdout")
     replays = {}
@@ -790,8 +867,12 @@ def crown(bb: Blackboard) -> dict:
     basis = hashlib.sha1(repr(([m.id for m in passed], hids)).encode()).hexdigest()[:12]
     out = {"champion": None, "holdout_mm": None, "n_holdout": len(hids), "basis": basis}
     if len(Qh) >= 3 and passed:
-        out["holdout_mm"], out["champion"] = min((m.payload["_model"].rmse(Qh, Xh) * 1000, m.id)
-                                                 for m in passed)
+        scored = [(m.payload["_model"].rmse(Qh, Xh) * 1000, m.id) for m in passed]
+        best = min(mm for mm, _ in scored)
+        # near ties go to the older candidate too: two chain modelers post near copies every tick,
+        # and a winner that flips on a hair would keep the validators from ever agreeing
+        out["holdout_mm"], out["champion"] = min((s for s in scored if s[0] <= best * NEAR_TIE + 0.05),
+                                                 key=lambda s: s[1])
     return out
 
 
@@ -900,6 +981,66 @@ class Validator(Agent):
             if champ_mm > 4 * self.goal_mm and len(_data(bb, "train")[0]) >= 12:
                 bb.need("hypotheses", self.name, 1.0, why="chain fits are poor, rethink structure")
         return True
+
+
+# ---------------------------------------------------------------------------
+class ReviewAgent(Agent):
+    """Questions the channel findings when the model built on them stays bad. A validation is a new
+    (champion, holdout size) score. After STRIKES validations in a row above the goal, asks for the
+    RECHECK least confident channels (disputed first, then the least clear hinge or slide call) to be
+    swept again from the third pose, reads each sweep with the channel rule and posts it as one more
+    finding. A recheck that disagrees makes the channel disputed, so the hypothesizers propose every
+    type and the validators decide on held out error. Each channel is rechecked at most once an epoch."""
+
+    name = "review"
+    STRIKES, RECHECK, POSE = 3, 2, 2
+
+    def __init__(self, n, goal_mm=4.0):
+        self.n, self.goal = n, goal_mm
+        self.epoch = -1
+
+    def _reset(self, bb):
+        self.epoch, self.scores, self.pending, self.checked = bb.epoch, {}, {}, set()
+
+    def _read_sweeps(self, bb):
+        posted = False
+        for ch, need_id in list(self.pending.items()):
+            obs = [a for a in bb.of("observation")
+                   if a.payload.get("probe") == ch and a.payload.get("attempt") == self.POSE]
+            if len(obs) < len(Explorer.PROBE_VALUES):
+                continue
+            obs = obs[: len(Explorer.PROBE_VALUES)]
+            fields, spread = classify_sweep(np.array([a.payload["x"] for a in obs]), self.POSE)
+            if fields is None:
+                fields = {"type": "?", "axis": "?", "conf": 0.0, "spread_mm": spread * 1000}
+            bb.post("finding", self.name, {"channel": ch, **fields, "attempt": self.POSE, "recheck": True},
+                    [a.id for a in obs] + [need_id])
+            del self.pending[ch]
+            posted = True
+        return posted
+
+    def step(self, bb, t):
+        if bb.epoch != self.epoch:
+            self._reset(bb)
+        posted = self._read_sweeps(bb)
+        champ = bb.latest("champion")
+        if champ is None or self.pending:
+            return posted
+        s = current_score(bb, champ)
+        self.scores.setdefault((champ.id, s["n_holdout"]), (s["holdout_mm"], champ.id))
+        last = list(self.scores.values())[-self.STRIKES:]
+        if len(last) < self.STRIKES or min(mm for mm, _ in last) <= self.goal:
+            return posted
+        findings = channel_findings(bb)
+        cands = sorted((f.get("type_margin", 1.0), ch) for ch, f in findings.items() if ch not in self.checked)
+        for _, ch in cands[: self.RECHECK]:
+            need = bb.need(probe_need_kind(ch, self.POSE), self.name, 120.0 - ch,
+                           parents=[cid for _, cid in last] + findings[ch].get("_ids", [findings[ch]["_id"]]),
+                           channel=ch, attempt=self.POSE, why="champion above goal: recheck this channel")
+            self.pending[ch] = need.id
+            self.checked.add(ch)
+        self.scores = {}  # the next recheck needs fresh strikes
+        return bool(cands) or posted
 
 
 # ---------------------------------------------------------------------------

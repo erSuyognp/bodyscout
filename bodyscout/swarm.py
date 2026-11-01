@@ -21,11 +21,11 @@ from types import SimpleNamespace
 import numpy as np
 
 from .agents import (ORDER_EVERY, ChannelAgent, Explorer, FindingsHypothesizer, LibraryHypothesizer,
-                     LLMHypothesizer, Modeler, Monitor, PriorHypothesizer, Validator, classify_sweep,
+                     LLMHypothesizer, Modeler, Monitor, PriorHypothesizer, ReviewAgent, Validator, classify_sweep,
                      infer_order, llm_providers, order_from_board, order_key, resolve_limbs,
                      structures_from_findings)
 from .blackboard import Blackboard
-from .faults import Faults, FlippedChannelAgent, WrongHypothesizer
+from .faults import Faults, FlippedChannelAgent, WrongHypothesizer, is_probe_of
 from .models import ChainModel, MLPModel
 from .planning import reach_errors
 from .world import reachable_targets
@@ -309,8 +309,11 @@ class PipelineAgent:
 
 def make_swarm(robot, seed=0, library=None, warm=None, use_llm=None, families=("chain", "gmm", "mlp"),
                monitor=True, explore="disagreement", channels=False, n_explorers=2, n_validators=2,
-               dynamics=False):
-    """channels=True: the body type is unknown, so one agent per channel works out hinge or slide.
+               dynamics=False, channel_replicas=2, chain_modelers=2, review=True):
+    """channels=True: the body type is unknown, so agents per channel work out hinge or slide:
+    channel_replicas=2 sweeps each channel from the home and the bent pose independently, and the
+    review agent rechecks doubtful channels from a third pose. chain_modelers=2 runs a second chain
+    modeler with its own seed and more restarts, so losing one leaves a chain fit standing.
     dynamics=True: also learn and watch the body's dynamics (robot needs move_trajectory and dt,
     e.g. bodyscout.dynamics.world_dyn.DynamicRobot); the Exciter serves the modeler's excitation need.
     use_llm: None = one LLM hypothesizer per provider with an API key, False = none, True = those
@@ -322,9 +325,15 @@ def make_swarm(robot, seed=0, library=None, warm=None, use_llm=None, families=("
         *[LLMHypothesizer(n, p) for p in providers],
         *[Explorer(robot, mode=explore, seed=seed + 101 * i, name=f"explorer-{i}") for i in range(n_explorers)],
         *[Modeler(f, n, seed=seed, warm=warm if f == "chain" else None, any_types=channels) for f in families],
+        *[Modeler("chain", n, seed=seed + 1000 * i, warm=warm, any_types=channels, index=i, restarts=3 + i)
+          for i in range(1, chain_modelers if "chain" in families else 1)],
         *[Validator(n, seed=seed, index=i) for i in range(n_validators)]]
     if channels:
         agents += [ChannelAgent(i, n) for i in range(n)]
+        if channel_replicas > 1:
+            agents += [ChannelAgent(i, n, poses=(1, 2), name=f"channel-bent-{i}") for i in range(n)]
+        if review:
+            agents.append(ReviewAgent(n))
     if monitor:
         agents.append(Monitor(robot, seed=seed))
     if dynamics:
@@ -339,7 +348,8 @@ def run(robot, condition="swarm", budget=64, eval_at=(8, 12, 16, 24, 32, 48, 64)
     """damage = (motion_count, kind). knockout = (motion_count, [agent names]) removes those swarm
     agents once that many motions are spent. faults = a name or list from bodyscout.faults.FAULTS.
     Returns dict with curve [(motions, median_reach_mm)], blackboard, motions, agent_s (wall) and
-    agent_cpu_s (process CPU) spent in agent steps, and fault_hits (how often each fault fired)."""
+    agent_cpu_s (process CPU) spent in agent steps, probe_motions (single channel sweeps among the
+    motions) and fault_hits (how often each fault fired)."""
     rng = np.random.default_rng(seed)
     fx = Faults(faults, robot, seed)
     robot = fx.wrap(robot)  # noisy_channel: the agents see a bad camera on one channel's sweeps
@@ -449,7 +459,10 @@ def run(robot, condition="swarm", budget=64, eval_at=(8, 12, 16, 24, 32, 48, 64)
             continue
     out = {"curve": curve, "events": events, "blackboard": bb, "motions": robot.motions,
            "agent_s": agent_s, "agent_cpu_s": agent_cpu, "champion_before": champion_before,
-           "fault_hits": dict(fx.hits)}
+           "fault_hits": dict(fx.hits),
+           # motions spent sweeping one channel at a time, counted from the robot's log (harness side)
+           "probe_motions": sum(any(is_probe_of(q, ch) for ch in range(robot.n_channels))
+                                for q, _ in getattr(robot, "log", []))}
     if multi:
         out["limb_curve"] = limb_curve
     if single is None:

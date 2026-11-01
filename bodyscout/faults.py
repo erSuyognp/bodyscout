@@ -9,6 +9,13 @@ or reads its fields; `swarm.run` wires each fault into whatever slot a condition
   modeler_crash  the chain modeler stops producing models from motion CRASH_AT on
   noisy_channel  the sweep observations of one channel get NOISY_MM of extra noise (std per axis)
 
+Faults hit one agent instance, not a role: wrong_finding corrupts the faulty channel's home pose agent
+(`channel-<k>`; the swarm's bent pose replica `channel-bent-<k>` and the review's recheck report what
+they measure), and modeler_crash kills `modeler-chain` (the swarm's second chain modeler,
+`modeler-chain-1`, keeps running). Conditions with one instance lose that instance: the pipeline's
+channel stage and modeler, the single agents' own probing and fitting. noisy_channel is in the
+camera, so it corrupts every sweep of that channel from any pose, whoever asked for it.
+
 The faulty channel is `seed % n_channels`, so each robot gets one fixed channel. A condition with no
 slot for a fault (a single agent has no channel findings and no hypothesis source) runs unchanged;
 `Faults.hits` counts how often a fault actually fired, so results can say where it did not apply.
@@ -21,7 +28,7 @@ FAULTS = ("none", "wrong_finding", "bad_llm", "modeler_crash", "noisy_channel")
 CRASH_AT = 24
 NOISY_MM = 20.0
 PROBE_VALUES = (-1.5, -0.5, 0.5, 1.5)   # same as Explorer.PROBE_VALUES; kept here so agents stay unaware
-PROBE_BASES = (0.0, 0.8)                # the home pose and the bent pose a channel sweep starts from
+PROBE_BASES = (0.0, 0.8, -0.8)          # home, bent and recheck poses (agents.POSE_BASES)
 
 
 def _flip(token: str) -> str:

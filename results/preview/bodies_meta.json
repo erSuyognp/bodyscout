@@ -1,0 +1,1130 @@
+[
+ {
+  "family": "gantry",
+  "seed": 1,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.05,
+   0.05,
+   0.05,
+   0.097
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 85.95673440012615,
+  "agent_cpu_s": 78.328125,
+  "motions_used": 65,
+  "probe_motions": 32,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.05,
+   0.05,
+   0.05,
+   0.097
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 7.00160119991051,
+  "agent_cpu_s": 6.78125,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.05,
+   0.05,
+   0.05,
+   0.097
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 4.818921300116926,
+  "agent_cpu_s": 4.703125,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.05,
+   0.05,
+   0.05,
+   0.097
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 2.270646800112445,
+  "agent_cpu_s": 2.1875,
+  "motions_used": 68,
+  "probe_motions": 16
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.055,
+   0.055,
+   0.055,
+   0.086
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 347.0822902001091,
+  "agent_cpu_s": 324.828125,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "hz"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.093,
+   0.093,
+   0.037,
+   0.056
+  ],
+  "identifiable": [
+   false,
+   false,
+   true,
+   true
+  ],
+  "agent_s": 7.843558400054462,
+  "agent_cpu_s": 7.578125,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.055,
+   0.055,
+   0.055,
+   0.086
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 4.151711099897511,
+  "agent_cpu_s": 4.03125,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.055,
+   0.055,
+   0.055,
+   0.086
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 2.189139200025238,
+  "agent_cpu_s": 2.125,
+  "motions_used": 68,
+  "probe_motions": 16
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.058,
+   0.058,
+   0.058,
+   0.104
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 156.2898374000797,
+  "agent_cpu_s": 145.875,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.078,
+   0.082,
+   0.082,
+   0.049
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 5.7799822998349555,
+  "agent_cpu_s": 5.59375,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.058,
+   0.058,
+   0.058,
+   0.103
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 4.2683126999181695,
+  "agent_cpu_s": 4.21875,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.058,
+   0.058,
+   0.058,
+   0.104
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 2.339419500087388,
+  "agent_cpu_s": 2.328125,
+  "motions_used": 68,
+  "probe_motions": 16
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.055,
+   0.055,
+   0.055,
+   0.083
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 109.9175662001362,
+  "agent_cpu_s": 102.015625,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.056,
+   0.061,
+   0.061,
+   0.062
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 10.670964999881107,
+  "agent_cpu_s": 10.078125,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.055,
+   0.055,
+   0.055,
+   0.083
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 4.220651500043459,
+  "agent_cpu_s": 4.046875,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.055,
+   0.055,
+   0.055,
+   0.083
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 2.7111244999687187,
+  "agent_cpu_s": 2.609375,
+  "motions_used": 68,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.172,
+   0.055,
+   0.055,
+   0.071
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 53.01510119996965,
+  "agent_cpu_s": 47.515625,
+  "motions_used": 65,
+  "probe_motions": 32,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.172,
+   0.117,
+   0.032,
+   0.06
+  ],
+  "identifiable": [
+   true,
+   false,
+   true,
+   true
+  ],
+  "agent_s": 6.85298279998824,
+  "agent_cpu_s": 6.234375,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.171,
+   0.056,
+   0.056,
+   0.071
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 6.706717799999751,
+  "agent_cpu_s": 6.359375,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.171,
+   0.055,
+   0.055,
+   0.071
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 4.087765299889725,
+  "agent_cpu_s": 3.921875,
+  "motions_used": 68,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.153,
+   0.065,
+   0.065,
+   0.058
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 57.154199399927165,
+  "agent_cpu_s": 51.84375,
+  "motions_used": 65,
+  "probe_motions": 40,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.153,
+   0.065,
+   0.065,
+   0.058
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 6.760850999969989,
+  "agent_cpu_s": 6.6875,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.153,
+   0.065,
+   0.065,
+   0.057
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 5.852115200192202,
+  "agent_cpu_s": 5.6875,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.153,
+   0.065,
+   0.065,
+   0.058
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 3.8103740998194553,
+  "agent_cpu_s": 3.765625,
+  "motions_used": 68,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.193,
+   0.058,
+   0.058,
+   0.071
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 91.12720399996033,
+  "agent_cpu_s": 83.828125,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.193,
+   0.058,
+   0.058,
+   0.072
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 6.301843399938662,
+  "agent_cpu_s": 6.21875,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.194,
+   0.058,
+   0.058,
+   0.071
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 7.258735399984289,
+  "agent_cpu_s": 7.0,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.193,
+   0.058,
+   0.058,
+   0.072
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 3.5337013000971638,
+  "agent_cpu_s": 3.390625,
+  "motions_used": 68,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.165,
+   0.061,
+   0.061,
+   0.058
+  ],
+  "identifiable": [
+   true,
+   true,
+   true,
+   true
+  ],
+  "agent_s": 96.23867120040813,
+  "agent_cpu_s": 88.359375,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.174,
+   0.161,
+   0.034,
+   0.034
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 5.302008300088346,
+  "agent_cpu_s": 5.046875,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.165,
+   0.061,
+   0.061,
+   0.058
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 7.718114800052717,
+  "agent_cpu_s": 7.421875,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.165,
+   0.06,
+   0.06,
+   0.058
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 3.5609981000307016,
+  "agent_cpu_s": 3.4375,
+  "motions_used": 68,
+  "probe_motions": 16
+ }
+]

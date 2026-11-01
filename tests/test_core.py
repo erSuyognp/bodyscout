@@ -228,6 +228,7 @@ def test_claude_called_at_8_motions_on_a_known_arm_and_failures_are_quiet(monkey
         raise TimeoutError
     out, calls = _fake_claude_run(monkeypatch, "arm", boom)
     n_rows = calls[0][1].count("q=") if calls else 0
-    assert len(calls) == 1 and 8 <= n_rows < 12, "called at the first chance after 8 train motions"
+    # agents step in a random order each tick, so up to two explorer batches can land before its turn
+    assert len(calls) == 1 and 8 <= n_rows < 16, "called at the first chance after 8 train motions"
     assert not [a for a in out["blackboard"].of("hypothesis") if a.payload["source"] == "claude"]
     assert out["champion"] is not None, "the swarm carried on without Claude"

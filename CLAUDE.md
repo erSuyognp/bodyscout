@@ -20,10 +20,14 @@ If you add a feature that needs ground truth, it belongs in experiments/ or the 
 - `bodyscout/world.py`      hidden world: procedural arms, gantries, SCARA, telescopes (hinge + slide joints), noise, damage
 - `bodyscout/models.py`     competing self models: ChainModel (physics prior), GMMModel (Kitchin 2025), MLPModel
 - `bodyscout/blackboard.py` ScienceClaw style artifacts (with parents) + needs with pressure
-- `bodyscout/agents.py`     Explorer x2, ChannelAgent x N (hinge or slide per channel), independent
+- `bodyscout/agents.py`     Explorer x2, ChannelAgent x 2N (hinge or slide per channel, swept from the home and the
+                            bent pose; a channel is settled only when both agree, else "disputed" and every type
+                            is proposed), ReviewAgent (rechecks doubtful channels from a third pose when the
+                            champion stays above goal), independent
                             hypothesizers (findings, prior, library, one LLM per key: Claude, Gemini;
                             findings also infers the chain order, since channels may be wired in any order),
-                            Modeler x3 (chain also assembles findings itself), Validator x2 voting on the
+                            Modeler x4 (chain x2 with different seeds and restarts;
+                            chain also assembles findings itself), Validator x2 voting on the
                             public rule `crown(bb)`, Monitor. No role has a single instance without a fallback.
 - `bodyscout/menagerie.py`  real arms (Panda, UR5e, Gen3, vx300s) from MuJoCo Menagerie as BlackBoxRobots, channels
                             shuffled; needs the sparse clone in third_party/ (command in the module docstring)
