@@ -34,6 +34,9 @@ ap.add_argument("--at", type=int, default=48)
 ap.add_argument("--budget", type=int, default=104)
 ap.add_argument("--llm", action="store_true")
 ap.add_argument("--video", default=None)
+ap.add_argument("--camera", choices=("marker", "gemini"), default=None,
+                help="see the tip through two cameras rendered on the NVIDIA GPU (needs MUJOCO_GL=egl): "
+                     "marker = red tip + colour detector, gemini = no marker, Gemini Robotics ER")
 ap.add_argument("--scienceclaw", action="store_true",
                 help="also mirror the blackboard into ~/.scienceclaw/artifacts (ScienceClaw artifact DAG)")
 a = ap.parse_args()
@@ -87,7 +90,14 @@ def on_tick(bb, rob, t, events):
                              f"my body changed. New epoch, relearning.")
 
 
-out = run(robot, "swarm", budget=a.budget, eval_at=tuple(range(8, a.budget + 1, 8)), n_targets=8,
+sensor = robot
+if a.camera:  # swap in the cameras; hidden or disagreeing readings become bad observations, never data
+    import bodyscout.swarm as _swarm
+    from bodyscout import vision
+    sensor = vision.CameraRobot(robot, detector="color" if a.camera == "marker" else "gemini",
+                                markerless=a.camera == "gemini")
+    _swarm.Blackboard = vision.CameraBlackboard
+out = run(sensor, "swarm", budget=a.budget, eval_at=tuple(range(8, a.budget + 1, 8)), n_targets=8,
           seed=a.arm, damage=(a.at, a.damage), use_llm=a.llm or None, max_ticks=600, on_tick=on_tick,
           unknown_body=unknown)
 print(f"\nTrue structure (hidden until now): {' '.join(robot.spec.tokens())}")

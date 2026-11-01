@@ -26,7 +26,6 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 import numpy as np  # noqa: E402
 
-from bodyscout.blackboard import Blackboard  # noqa: E402
 from bodyscout.planning import reach_errors  # noqa: E402
 from bodyscout.swarm import make_swarm  # noqa: E402
 from bodyscout.world import FAMILIES, BlackBoxRobot, random_body, reachable_targets  # noqa: E402
@@ -34,17 +33,6 @@ from bodyscout.world import FAMILIES, BlackBoxRobot, random_body, reachable_targ
 CONDS = ("marker", "color", "gemini")
 NAMES = {"marker": "marker (no camera)", "color": "two cameras, red marker", "gemini": "two cameras, no marker (Gemini)"}
 R = "results"
-
-
-class CameraBlackboard(Blackboard):
-    """A camera can fail to see the tip. A non finite reading is filed as a `bad_observation` artifact (same
-    payload and parents, so the provenance stays complete) instead of an `observation`, so no modeler trains on
-    it and no validator scores on it."""
-
-    def post(self, kind, author, payload, parents=None):
-        if kind == "observation" and "x" in payload and not np.all(np.isfinite(payload["x"])):
-            kind = "bad_observation"
-        return super().post(kind, author, payload, parents)
 
 
 def narrate(a) -> str | None:
@@ -93,7 +81,7 @@ def job(args):
             return x
         sensor.move = recorded_move
     agents = make_swarm(sensor, seed, use_llm=False, channels=True)
-    bb, rng = CameraBlackboard(), np.random.default_rng(seed)
+    bb, rng = vision.CameraBlackboard(), np.random.default_rng(seed)
     captions, seen = [], 0
     for t in range(max_ticks):
         for i in rng.permutation(len(agents)):

@@ -23,6 +23,7 @@ os.environ.setdefault("PYOPENGL_PLATFORM", "egl")
 import mujoco  # noqa: E402
 import numpy as np  # noqa: E402
 
+from .blackboard import Blackboard  # noqa: E402
 from .world import ArmSpec, BlackBoxRobot, build_mjcf  # noqa: E402
 
 if mujoco.GLContext.__module__ != "mujoco.egl":  # mujoco was imported earlier with another backend
@@ -227,9 +228,11 @@ class GeminiPointer:
         from .env import load_env
 
         load_env()
-        key = os.environ.get("GEMINI_API_KEY")
+        # BODYSCOUT_VISION_GEMINI_KEY lets the detector use Gemini while LLM hypothesizers stay off
+        # (they switch on for GEMINI_API_KEY), e.g. for bit-for-bit repeatable demo runs.
+        key = os.environ.get("BODYSCOUT_VISION_GEMINI_KEY") or os.environ.get("GEMINI_API_KEY")
         if not key:
-            raise RuntimeError("GEMINI_API_KEY is not set (put it in .env)")
+            raise RuntimeError("GEMINI_API_KEY (or BODYSCOUT_VISION_GEMINI_KEY) is not set (put it in .env)")
         self.client = genai.Client(api_key=key)
         self.model = model or find_robotics_er_model(self.client)
         self.max_calls, self.temperature, self.retry_wait_s = max_calls, temperature, retry_wait_s
@@ -332,6 +335,18 @@ class VisionCache:
         return {**det, "cached": False}
 
 
+# ---- bad observations stay out of the data --------------------------------------------------------
+class CameraBlackboard(Blackboard):
+    """Blackboard for camera input: a non finite reading (the tip was hidden, or the views disagreed) is filed
+    as a `bad_observation` artifact (same payload and parents, so the provenance stays complete) instead of an
+    `observation`, so no modeler trains on it and no validator scores on it."""
+
+    def post(self, kind, author, payload, parents=None):
+        if kind == "observation" and "x" in payload and not np.all(np.isfinite(payload["x"])):
+            kind = "bad_observation"
+        return super().post(kind, author, payload, parents)
+
+
 # ---- the camera robot -------------------------------------------------------------------------
 class CameraRobot:
     """Same interface as BlackBoxRobot (move, n_channels, limits), but the tip comes from two cameras.
@@ -362,6 +377,7 @@ class CameraRobot:
         self.pointer = pointer if pointer is not None or detector != "gemini" else GeminiPointer()
         self._spec, self._renderer = None, None
         self.last: dict = {}
+        self._atexit = False
 
     # ---- hidden: the scene follows the robot's current (possibly damaged) body
     def _sync(self):
@@ -372,6 +388,10 @@ class CameraRobot:
             self.model = make_model(self._spec, self.width, self.height, self.cameras, self.markerless)
             self.data = mujoco.MjData(self.model)
             self._renderer = mujoco.Renderer(self.model, height=self.height, width=self.width)
+            if not self._atexit:  # registered AFTER mujoco's EGL exit hook, so it runs BEFORE the display is
+                import atexit     # terminated (atexit is last in, first out); avoids EGL errors at exit
+                atexit.register(self.close)
+                self._atexit = True
             self._renderer.update_scene(self.data, camera=next(iter(self.cameras)))
             self._renderer.render()
             self.gl = gl_info()
@@ -380,8 +400,11 @@ class CameraRobot:
         self.data.qpos[:] = self.robot._data.qpos
         mujoco.mj_forward(self.model, self.data)
 
-    def true_tip(self) -> np.ndarray:
-        """The rendered tip position. Scoring only, never for agents."""
+    def true_tip(self, q=None) -> np.ndarray:
+        """Scoring only, never for agents. With q: the hidden robot's noise free tip for command q (what
+        swarm.run's scorer asks). Without q: the tip position in the last rendered pose."""
+        if q is not None:
+            return self.robot.true_tip(q)
         return self.data.site_xpos[self._tip].copy()
 
     def render_views(self) -> list:
