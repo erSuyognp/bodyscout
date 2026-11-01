@@ -8,7 +8,7 @@
   Self contained: no build step, no libraries. Loads (relative to this file)
     ../runs/demo_blackboard.jsonl   provenance DAG written by demo.py
     ../runs/demo_summary.json       ground truth for the reveal (scorer side, never seen by agents)
-    ../results/bodies.csv, ../results/bodies_meta.json, ../results/learning.csv
+    ../results/sweep/bodies.csv, bodies_meta.json, learning.csv, faults.csv, faults_meta.json
   Override the run with ?bb=path/to/board.jsonl&summary=path/to/summary.json
   A pick-and-place trial: ?bb=../runs/task_blackboard.jsonl&summary=../runs/task_summary.json
   Serve over http (fetch does not work from file://):  python -m http.server 8000  then open /dashboard/
@@ -176,7 +176,7 @@ details summary { cursor: pointer; color: var(--text-secondary); font-size: 12px
     <h2>2 · Unknown body types: four methods, same budget</h2>
     <p class="sub">The agents are not told what kind of robot they drive. Reach error on unseen targets (log scale, median and min to max over seeds)
       and the joint structure each one inferred, next to the truth. Same robots, same 64 motion budget, same scorer.
-      Every method that probes one channel at a time finds every structure; only the blind single agent misses. The swarm's own advantage shows up under injected faults (results/summary.md section 5), not here.</p>
+      Every method that probes one channel at a time finds every structure; only the blind single agent misses. The swarm's own advantage is the injected faults in <a href="#faults">section 5</a>.</p>
     <div class="row seedrow"><span class="note">seeds</span><button class="seg on" data-seeds="new">new seeds 101 to 105 (independent check)</button><button class="seg" data-seeds="orig">original seeds 1 to 10</button></div>
     <div class="legend" id="bodiesLegend"></div>
     <div class="grid4" id="bodies"></div>
@@ -198,6 +198,17 @@ details summary { cursor: pointer; color: var(--text-secondary); font-size: 12px
     <div class="row"><button class="primary" id="reveal">Reveal the truth</button></div>
     <div class="champ" id="champ"></div>
   </section>
+
+  <section class="card" id="faults">
+    <h2>5 · One bad part: four injected faults</h2>
+    <p class="sub">Same robots, same 64 motions, same scorer. Reach error is the median at motion 64. A run with no model counts as infinitely far, so a method that lost its model in most runs does not pass the 10 mm line. "No slot" means that method has nowhere for the fault to land, so the number is the clean run. One wrong joint type, a confident wrong hypothesis, one chain modeler dying at motion 24, or 20 mm of noise on every sweep of one channel.</p>
+    <div class="row seedrow" id="faultSeeds"><span class="note">seeds</span><button class="seg on" data-fault-seeds="new">new seeds 101 to 105 (independent check)</button><button class="seg" data-fault-seeds="orig">original seeds 1 to 5</button></div>
+    <p class="stat" id="faultScore"></p>
+    <div class="legend" id="faultLegend"></div>
+    <div id="faultChart"></div>
+    <div class="scroll" id="faultTable"></div>
+    <p class="note">Bars are the median of the runs that still have a model. The 10 mm line is the pass mark used in results/summary.md section 5. Min to max is in the tooltip.</p>
+  </section>
 </main>
 <div class="tip" id="tip"></div>
 
@@ -210,6 +221,8 @@ const PATHS = {
   bodies: "../results/sweep/bodies.csv",
   bodiesMeta: "../results/sweep/bodies_meta.json",
   learning: "../results/sweep/learning.csv",
+  faults: "../results/sweep/faults.csv",
+  faultsMeta: "../results/sweep/faults_meta.json",
 };
 const NS = "http://www.w3.org/2000/svg";
 const css = name => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
@@ -750,6 +763,126 @@ function buildChampion(recs, summary) {
   };
 }
 
+// ================= 5. injected faults =================
+const FAULTS = [
+  ["none", "nothing"],
+  ["wrong_finding", "wrong type"],
+  ["bad_llm", "wrong guess"],
+  ["modeler_crash", "modeler dies"],
+  ["noisy_channel", "lying sensor"],
+];
+const FAULT_CONDS = ["swarm", "single_probe", "pipeline", "single"];
+function medInf(xs) {
+  const v = xs.map(x => Number.isNaN(x) ? Infinity : x).sort((a, b) => a - b);
+  if (!v.length) return Infinity;
+  const m = v.length >> 1;
+  return v.length % 2 ? v[m] : (v[m - 1] + v[m]) / 2;
+}
+function faultCell(rows64, meta, fault, cond) {
+  const reaches = rows64.filter(r => r.fault === fault && r.condition === cond).map(r => r.reach_mm);
+  const ms = meta.filter(m => m.fault === fault && m.condition === cond);
+  const noSlot = fault !== "none" && ms.length > 0 && ms.every(m => {
+    const vals = Object.values(m.fault_hits || {});
+    return vals.length === 0 || vals.every(v => v === 0);
+  });
+  return {
+    q: quant(reaches), inf: medInf(reaches), noSlot,
+    struct: ms.filter(m => m.structure_correct).length, n: ms.length,
+  };
+}
+function drawFaultBars(host, cells) {
+  let lastW = -1;
+  const draw = () => {
+    const w = host.clientWidth;
+    if (!w || w === lastW) return;
+    lastW = w;
+    host.innerHTML = "";
+    const W = Math.max(320, w), H = 300;
+    const m = { l: 44, r: 12, t: 16, b: 46 };
+    const yMin = 0.5, yMax = 400, ly = Math.log10;
+    const Y = v => m.t + (H - m.t - m.b) * (1 - (ly(Math.min(yMax, Math.max(yMin, v))) - ly(yMin)) / (ly(yMax) - ly(yMin)));
+    const svg = el("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Reach error under four faults" }, host);
+    for (const t of [1, 3, 10, 30, 100, 300]) {
+      el("line", { x1: m.l, x2: W - m.r, y1: Y(t), y2: Y(t), class: "gridl" }, svg);
+      el("text", { x: m.l - 6, y: Y(t) + 4, "text-anchor": "end" }, svg).textContent = t;
+    }
+    el("text", { x: m.l - 6, y: 11, "text-anchor": "end" }, svg).textContent = "mm";
+    const y10 = Y(10);
+    el("line", { x1: m.l, x2: W - m.r, y1: y10, y2: y10, stroke: css("--critical"), "stroke-dasharray": "4 3", "stroke-width": 1 }, svg);
+    el("text", { x: W - m.r, y: y10 - 4, "text-anchor": "end" }, svg).textContent = "10 mm";
+    const inner = W - m.l - m.r;
+    const gw = inner / FAULTS.length;
+    const bw = gw / (FAULT_CONDS.length + 0.8);
+    FAULTS.forEach(([fault, label], i) => {
+      const gx = m.l + i * gw;
+      el("text", { x: gx + gw / 2, y: H - 28, "text-anchor": "middle" }, svg).textContent = label;
+      FAULT_CONDS.forEach((cond, j) => {
+        const cell = cells[fault][cond];
+        const x = gx + (j + 0.6) * bw;
+        if (!cell.q.n) {
+          const t = el("text", { x: x + (bw - 2) / 2, y: H - m.b - 8, "text-anchor": "middle" }, svg);
+          t.textContent = "no model";
+          return;
+        }
+        const y = Y(cell.q.med), y0 = Y(yMin);
+        const rect = el("rect", {
+          x, y, width: bw - 2, height: Math.max(1, y0 - y), rx: 2,
+          fill: css(COND[cond].color), opacity: cell.noSlot ? 0.35 : 0.95,
+        }, svg);
+        if (cell.q.n < cell.q.total) {
+          rect.setAttribute("stroke", css("--text-primary"));
+          rect.setAttribute("stroke-width", "1.5");
+        }
+        rect.addEventListener("mousemove", e => {
+          const slot = cell.noSlot ? ` <span class="k">· fault never fired</span>` : "";
+          const gone = cell.q.n < cell.q.total ? ` <span class="k">· ${cell.q.total - cell.q.n} of ${cell.q.total} runs have no model</span>` : "";
+          showTip(`<div><i class="sw" style="background:var(${COND[cond].color})"></i> ${COND[cond].label}</div>`
+            + `<div><b>${fmt(cell.q.med)}</b> mm <span class="k">(${fmt(cell.q.min)} to ${fmt(cell.q.max)})</span>${slot}${gone}</div>`
+            + `<div class="k">structure ${cell.struct}/${cell.n}</div>`, e);
+        });
+        rect.addEventListener("mouseleave", hideTip);
+      });
+    });
+    el("line", { x1: m.l, x2: W - m.r, y1: H - m.b, y2: H - m.b, class: "axis" }, svg);
+  };
+  new ResizeObserver(draw).observe(host);
+  draw();
+}
+function buildFaults(allRows, allMeta, which = "new") {
+  const keep = seed => which === "new" ? seed > 100 : seed <= 100;
+  const rows64 = allRows.filter(r => keep(r.seed) && r.motions === 64);
+  const meta = allMeta.filter(m => keep(m.seed));
+  const cells = {};
+  for (const [fault] of FAULTS) {
+    cells[fault] = {};
+    for (const cond of FAULT_CONDS) cells[fault][cond] = faultCell(rows64, meta, fault, cond);
+  }
+  const scored = FAULTS.filter(([f]) => f !== "none");
+  const passed = cond => scored.filter(([f]) => cells[f][cond].inf <= 10).length;
+  const short = { swarm: "swarm", single_probe: "probing single", pipeline: "pipeline", single: "blind single" };
+  $("faultScore").innerHTML = "Under 10 mm on the four faults: " + FAULT_CONDS.map(c =>
+    `<b style="color:var(${COND[c].color})">${passed(c)}/4</b> ${short[c]}`).join(" · ");
+  $("faultLegend").innerHTML = FAULT_CONDS.map(c =>
+    `<span><i class="sw line" style="background:var(${COND[c].color})"></i>${COND[c].label}</span>`).join("")
+    + `<span class="note">faded bar = the fault has no slot on that method</span>`;
+  const chart = $("faultChart");
+  chart.replaceWith(chart.cloneNode(false));
+  drawFaultBars($("faultChart"), cells);
+  const head = `<tr><th>fault</th>${FAULT_CONDS.map(c => `<th>${short[c]}</th>`).join("")}</tr>`;
+  const body = FAULTS.map(([fault, label]) => `<tr><td>${label}</td>` + FAULT_CONDS.map(c => {
+    const cell = cells[fault][c];
+    if (!cell.q.n) return `<td>no model</td>`;
+    const extra = [
+      cell.noSlot ? "no slot" : "",
+      cell.q.n < cell.q.total ? `${cell.q.total - cell.q.n} no model` : "",
+      `${cell.struct}/${cell.n} structure`,
+    ].filter(Boolean).join(", ");
+    const pass = cell.inf <= 10;
+    return `<td class="num ${pass ? "ok" : "no"}">${fmt(cell.q.med)} mm<span class="note"><br>${extra}</span></td>`;
+  }).join("") + "</tr>").join("");
+  $("faultTable").innerHTML = `<table class="data">${head}${body}</table>`;
+}
+
 // ================= load =================
 function fail(where, e) {
   where.insertAdjacentHTML("beforeend", `<div class="err">Could not load data: ${esc(e.message)}.<br>Serve the repo root over http, e.g. <code>python -m http.server 8000</code>, then open <code>/dashboard/</code>.</div>`);
@@ -782,6 +915,14 @@ function fail(where, e) {
     });
   } catch (e) { fail($("bodies"), e); }
   try { buildLearning(parseCSV(await getText(PATHS.learning))); } catch (e) { fail($("learn"), e); }
+  try {
+    const [fRows, fMeta] = await Promise.all([getText(PATHS.faults).then(parseCSV), getText(PATHS.faultsMeta).then(JSON.parse)]);
+    buildFaults(fRows, fMeta, "new");
+    document.querySelectorAll(".seg[data-fault-seeds]").forEach(b => b.onclick = () => {
+      document.querySelectorAll(".seg[data-fault-seeds]").forEach(x => x.classList.toggle("on", x === b));
+      buildFaults(fRows, fMeta, b.dataset.faultSeeds);
+    });
+  } catch (e) { fail($("faults"), e); }
 
   // redraw size and theme dependent SVGs
   let t;
