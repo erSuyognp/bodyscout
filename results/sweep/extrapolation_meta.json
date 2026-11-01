@@ -1,0 +1,102 @@
+[
+ {
+  "family": "arm",
+  "seed": 1,
+  "reach_max_m": 0.5680000000000001
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "reach_max_m": 0.616
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "reach_max_m": 0.627
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "reach_max_m": 0.6659999999999999
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "reach_max_m": 0.553
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "reach_max_m": 0.7729999999999999
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "reach_max_m": 0.7929999999999999
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "reach_max_m": 0.78
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "reach_max_m": 0.7369999999999999
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "reach_max_m": 0.7829999999999999
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "reach_max_m": 0.604
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "reach_max_m": 0.613
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "reach_max_m": 0.59
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "reach_max_m": 0.5449999999999999
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "reach_max_m": 0.613
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "reach_max_m": 0.6289999999999999
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "reach_max_m": 0.649
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "reach_max_m": 0.6339999999999999
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "reach_max_m": 0.59
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "reach_max_m": 0.659
+ }
+]

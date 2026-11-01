@@ -1,0 +1,2538 @@
+[
+ {
+  "family": "arm",
+  "seed": 1,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.069,
+   0.194,
+   0.121,
+   0.117
+  ],
+  "identifiable": [
+   false,
+   true,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.069,
+   0.193,
+   0.12,
+   0.117
+  ],
+  "identifiable": [
+   false,
+   true,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.066,
+   0.148,
+   0.165,
+   0.094,
+   0.078
+  ],
+  "identifiable": [
+   false,
+   true,
+   true,
+   true,
+   true
+  ]
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "sx",
+   "sx",
+   "hy",
+   "sz"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.054,
+   0.054,
+   0.054,
+   0.033,
+   0.033
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.099,
+   0.082,
+   0.126,
+   0.132,
+   0.091
+  ],
+  "identifiable": [
+   false,
+   true,
+   true,
+   true,
+   true
+  ]
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "sx",
+   "hy",
+   "hy",
+   "sx",
+   "sx"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.114,
+   0.031,
+   0.067,
+   0.067,
+   0.067
+  ],
+  "identifiable": [
+   false,
+   true,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.1,
+   0.101,
+   0.1,
+   0.134,
+   0.133
+  ],
+  "identifiable": [
+   false,
+   true,
+   false,
+   true,
+   true
+  ]
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "sx",
+   "sx",
+   "hy",
+   "sz"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.11,
+   0.11,
+   0.11,
+   0.065,
+   0.065
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.078,
+   0.078,
+   0.121,
+   0.122,
+   0.076
+  ],
+  "identifiable": [
+   false,
+   true,
+   false,
+   false,
+   true
+  ]
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.099,
+   0.096,
+   0.085,
+   0.066,
+   0.05
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false,
+   true
+  ]
+ },
+ {
+  "family": "arm",
+  "seed": 6,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.084,
+   0.12,
+   0.198,
+   0.152
+  ],
+  "identifiable": [
+   false,
+   true,
+   true,
+   true
+  ]
+ },
+ {
+  "family": "arm",
+  "seed": 6,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "sy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.099,
+   0.062,
+   0.158,
+   0.128
+  ],
+  "identifiable": [
+   false,
+   true,
+   true,
+   true
+  ]
+ },
+ {
+  "family": "arm",
+  "seed": 7,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hx",
+   "hx",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hx",
+   "hx",
+   "hz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.074,
+   0.109,
+   0.128,
+   0.128,
+   0.177
+  ],
+  "identifiable": [
+   false,
+   true,
+   false,
+   false,
+   true
+  ]
+ },
+ {
+  "family": "arm",
+  "seed": 7,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hx",
+   "hx",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hx",
+   "sy",
+   "sx",
+   "hy"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.069,
+   0.08,
+   0.08,
+   0.08,
+   0.123
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false,
+   true
+  ]
+ },
+ {
+  "family": "arm",
+  "seed": 8,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.111,
+   0.184,
+   0.124,
+   0.124,
+   0.118
+  ],
+  "identifiable": [
+   false,
+   true,
+   false,
+   false,
+   true
+  ]
+ },
+ {
+  "family": "arm",
+  "seed": 8,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "sx",
+   "hy",
+   "sx",
+   "hy"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.098,
+   0.098,
+   0.077,
+   0.077,
+   0.045
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false,
+   true
+  ]
+ },
+ {
+  "family": "arm",
+  "seed": 9,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.133,
+   0.133,
+   0.134,
+   0.189
+  ],
+  "identifiable": [
+   false,
+   true,
+   true,
+   true
+  ]
+ },
+ {
+  "family": "arm",
+  "seed": 9,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sy",
+   "hy"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.195,
+   0.131,
+   0.131,
+   0.115
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ]
+ },
+ {
+  "family": "arm",
+  "seed": 10,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hy",
+   "hx"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hy",
+   "hx"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.092,
+   0.092,
+   0.088,
+   0.161,
+   0.179
+  ],
+  "identifiable": [
+   false,
+   false,
+   true,
+   true,
+   true
+  ]
+ },
+ {
+  "family": "arm",
+  "seed": 10,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hy",
+   "hx"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hy",
+   "sy"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.093,
+   0.095,
+   0.084,
+   0.12,
+   0.12
+  ],
+  "identifiable": [
+   false,
+   false,
+   true,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.05,
+   0.05,
+   0.05,
+   0.097
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.05,
+   0.05,
+   0.05,
+   0.097
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.055,
+   0.055,
+   0.055,
+   0.086
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "hz"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.093,
+   0.093,
+   0.037,
+   0.056
+  ],
+  "identifiable": [
+   false,
+   false,
+   true,
+   true
+  ]
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.051,
+   0.051,
+   0.051,
+   0.091
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "sy"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.085,
+   0.085,
+   0.033,
+   0.033
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.044,
+   0.044,
+   0.044,
+   0.078
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.091,
+   0.079,
+   0.037,
+   0.037
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.05,
+   0.05,
+   0.05,
+   0.091
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "hz"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.084,
+   0.084,
+   0.085,
+   0.07
+  ],
+  "identifiable": [
+   false,
+   false,
+   true,
+   true
+  ]
+ },
+ {
+  "family": "gantry",
+  "seed": 6,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.051,
+   0.051,
+   0.051,
+   0.078
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "gantry",
+  "seed": 6,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hy",
+   "hx"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.085,
+   0.119,
+   0.047,
+   0.048
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "gantry",
+  "seed": 7,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.057,
+   0.057,
+   0.057,
+   0.082
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "gantry",
+  "seed": 7,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "sy"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.094,
+   0.094,
+   0.033,
+   0.033
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "gantry",
+  "seed": 8,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.051,
+   0.051,
+   0.051,
+   0.102
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "gantry",
+  "seed": 8,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hy",
+   "sy",
+   "hy",
+   "sy"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.036,
+   0.036,
+   0.015,
+   0.015
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "gantry",
+  "seed": 9,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.045,
+   0.045,
+   0.045,
+   0.077
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "gantry",
+  "seed": 9,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.074,
+   0.119,
+   0.087,
+   0.04
+  ],
+  "identifiable": [
+   false,
+   false,
+   true,
+   true
+  ]
+ },
+ {
+  "family": "gantry",
+  "seed": 10,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.056,
+   0.056,
+   0.056,
+   0.105
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "gantry",
+  "seed": 10,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.061,
+   0.068,
+   0.068,
+   0.057
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.171,
+   0.055,
+   0.055,
+   0.071
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.172,
+   0.117,
+   0.032,
+   0.06
+  ],
+  "identifiable": [
+   true,
+   false,
+   true,
+   true
+  ]
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.153,
+   0.065,
+   0.065,
+   0.058
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.153,
+   0.065,
+   0.065,
+   0.058
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.137,
+   0.063,
+   0.063,
+   0.065
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sy",
+   "sy",
+   "hy",
+   "sy"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.062,
+   0.062,
+   0.035,
+   0.035
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.123,
+   0.059,
+   0.059,
+   0.055
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   true
+  ]
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sy",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.048,
+   0.047,
+   0.048,
+   0.048
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.128,
+   0.082,
+   0.082,
+   0.064
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   true
+  ]
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "sy"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.129,
+   0.064,
+   0.064,
+   0.064
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "scara",
+  "seed": 6,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.15,
+   0.071,
+   0.071,
+   0.051
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "scara",
+  "seed": 6,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "sy",
+   "hy",
+   "hx"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.126,
+   0.126,
+   0.044,
+   0.038
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "scara",
+  "seed": 7,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.131,
+   0.079,
+   0.079,
+   0.057
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "scara",
+  "seed": 7,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "sy"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.129,
+   0.065,
+   0.065,
+   0.065
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "scara",
+  "seed": 8,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.136,
+   0.078,
+   0.078,
+   0.073
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "scara",
+  "seed": 8,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "sy",
+   "hy",
+   "sy"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.14,
+   0.14,
+   0.037,
+   0.037
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "scara",
+  "seed": 9,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.127,
+   0.065,
+   0.065,
+   0.054
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "scara",
+  "seed": 9,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.128,
+   0.064,
+   0.064,
+   0.054
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "scara",
+  "seed": 10,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.13,
+   0.074,
+   0.074,
+   0.074
+  ],
+  "identifiable": [
+   true,
+   true,
+   true,
+   true
+  ]
+ },
+ {
+  "family": "scara",
+  "seed": 10,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.142,
+   0.19,
+   0.087,
+   0.067
+  ],
+  "identifiable": [
+   false,
+   false,
+   true,
+   true
+  ]
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.077,
+   0.117,
+   0.117,
+   0.094
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ]
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.079,
+   0.288,
+   0.059,
+   0.088
+  ],
+  "identifiable": [
+   false,
+   true,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.072,
+   0.138,
+   0.138,
+   0.076
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ]
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.072,
+   0.138,
+   0.138,
+   0.076
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ]
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.069,
+   0.131,
+   0.131,
+   0.085
+  ],
+  "identifiable": [
+   false,
+   true,
+   true,
+   true
+  ]
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "sy",
+   "hy",
+   "hy",
+   "sx"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.101,
+   0.191,
+   0.026,
+   0.026
+  ],
+  "identifiable": [
+   false,
+   true,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.065,
+   0.118,
+   0.118,
+   0.075
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ]
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "sy",
+   "hy",
+   "hy",
+   "sy"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.1,
+   0.161,
+   0.041,
+   0.041
+  ],
+  "identifiable": [
+   false,
+   true,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.066,
+   0.141,
+   0.141,
+   0.086
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ]
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "sx"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.07,
+   0.104,
+   0.104,
+   0.104
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "telescope",
+  "seed": 6,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.071,
+   0.134,
+   0.134,
+   0.069
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ]
+ },
+ {
+  "family": "telescope",
+  "seed": 6,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "sx",
+   "hx",
+   "hy"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.086,
+   0.086,
+   0.045,
+   0.06
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ]
+ },
+ {
+  "family": "telescope",
+  "seed": 7,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.065,
+   0.155,
+   0.155,
+   0.068
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ]
+ },
+ {
+  "family": "telescope",
+  "seed": 7,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "sx"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.068,
+   0.113,
+   0.113,
+   0.113
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "telescope",
+  "seed": 8,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.068,
+   0.142,
+   0.142,
+   0.099
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ]
+ },
+ {
+  "family": "telescope",
+  "seed": 8,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "sx",
+   "hx",
+   "sx"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.113,
+   0.113,
+   0.031,
+   0.031
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ {
+  "family": "telescope",
+  "seed": 9,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.066,
+   0.121,
+   0.121,
+   0.071
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ]
+ },
+ {
+  "family": "telescope",
+  "seed": 9,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.066,
+   0.121,
+   0.121,
+   0.071
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ]
+ },
+ {
+  "family": "telescope",
+  "seed": 10,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.067,
+   0.15,
+   0.15,
+   0.099
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ]
+ },
+ {
+  "family": "telescope",
+  "seed": 10,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.07,
+   0.344,
+   0.089,
+   0.089
+  ],
+  "identifiable": [
+   false,
+   true,
+   false,
+   true
+  ]
+ }
+]

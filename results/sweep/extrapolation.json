@@ -1,0 +1,2802 @@
+[
+ {
+  "family": "arm",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.6799269590709398
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.840788247171154
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.7329667212664919
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.2610332978957912
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.364587557487251
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.9070583178236631
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.4121258638304104
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.304528633908593
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.2608158389243154
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.3894930329338973
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 267.39945538691603
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 282.59739079563906
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 260.3080292622255
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 190.5702112911767
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 432.22891549351016
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 387.4929040661401
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 321.7529760356862
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 230.59099816754906
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 330.55719532684554
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 261.7172459931479
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 3.5582552434540022
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.8632461529005884
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.8510056991290598
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 5.2903642325564375
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.0693267148250514
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.9341442372831784
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 4.723337617486293
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.3153854246610504
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 3.6128062537194303
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.95328861721112
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 410.4565116925567
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 281.4778758712825
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 283.1148473288456
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 359.46036647395476
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 264.4810002912018
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 440.1014500383013
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 230.77494312366625
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 225.63587144628016
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 209.0484682279015
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 397.87997910093645
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.3852329440194677
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 3.0452654832301898
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.3447032971205486
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 3.6679348803853498
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.297528872072364
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.0305659013770514
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.8534009069474395
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.156538016989434
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.5369749739607106
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 5.107426013179969
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 360.601274760698
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 458.8179201130247
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 480.69141449133565
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 426.97364554332626
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 559.9151079835749
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 459.9250892205278
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 404.6183709437653
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 461.5560115697972
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 193.4241426152154
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 202.73192965679573
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.6043990010251785
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.081377245298348
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.824912318429083
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.003631731094008
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.1404497306833619
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.7564309754513163
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.7277734825470477
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.40553691164008326
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.9106082525483282
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.199318765562899
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 227.2802152737722
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 656.6787658355586
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 1030.2043867496318
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 201.3477383186038
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 1027.279967877184
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 523.1972275126359
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 873.0340775151114
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 679.0314103059522
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 650.5918410176741
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 991.2011543499912
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.1990504518105525
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.7037323556836785
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.8060751821665137
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.495818303342609
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.5796489247641397
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 3.4228851980861763
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.8970478293808386
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.5592105615306422
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.5116575747030097
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.107504586664475
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 458.01544027439115
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 401.7225915954132
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 272.9607250048678
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 550.8841144072803
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 410.3378553793665
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 566.6420831922037
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 595.6748870560423
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 590.980651581376
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 664.0174558127604
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 455.5855367595046
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.4057715157021944
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.269177378905322
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.786675280267829
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.7886777832514351
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.32139842956960074
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.3321401629932113
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.4188124983483649
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.9589158272761634
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.3968395463867351
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.1145094055430995
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 702.3490305676413
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 729.229343811447
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 665.0662870126266
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 584.7225098994659
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 950.9877332222376
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 900.410449482764
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 818.618716494909
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 626.5695931272577
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 789.2238187413499
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 694.5964884824208
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.8878259133815773
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.9128501990540719
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.773292092654191
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.3117142487811557
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.805716589347432
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.197380739598694
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.2449139100377473
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.1405995768626713
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.0022435309450337
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.8563489112634963
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 977.9143838156617
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 743.1184300470836
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 762.5093290329548
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 882.8185109405315
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 684.5157167861535
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 1049.7602957538911
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 633.0004200547894
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 606.1751502455227
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 572.1024398004236
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 954.9782079403033
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.963656475300075
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.2868416765115993
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.8214333502521607
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.1049997399926823
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.7723879668187617
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.807996584523202
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.9481481706053253
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.8662804537504818
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.6858650918239773
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.6888304717065405
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 772.0998055988003
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 846.6277810187906
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 929.3809315802267
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 850.1458435318035
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 1031.845239377162
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 864.70129798532
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 813.5419395818546
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 863.8890392762381
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 588.8985005232295
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 589.5933493534982
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.0867652295552634
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.586998347070236
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.3385720554618357
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.8067693365675703
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.2442037053374866
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.384938006459344
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.2284480245689957
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.3383323169828831
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.305382911686367
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.8261497124888981
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 577.6424497110822
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 744.9783338436108
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 1016.5466167579411
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 596.696336429768
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 994.004557749957
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 663.5677003914241
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 869.3991709367019
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 782.7524393942396
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 727.6709771399532
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 975.7506948301248
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.47346827178427875
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.001665921594115
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.197510645360488
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.3259555360584399
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.6359713740511008
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.8668987529155172
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.3857064440735278
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.7747247778306028
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.5860934654476921
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.9395605918253958
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 805.3942991475632
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 802.6105407757955
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 618.3544269962481
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 956.967248547019
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 785.7958267268151
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 979.0056067363374
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 958.6347521790682
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 1004.8314319129528
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 1056.424927875553
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 824.9088341897218
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.20285533691517782
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.34399830818121935
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.2115498194212364
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.6546460751290987
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.7638138876465518
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.7882764582427259
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.2901267190232333
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.9228587315315788
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.8264908713360056
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.690549975541901
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 390.0723373471028
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 445.65062027564727
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 393.588365631895
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 447.5840750211961
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 587.511495153442
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 507.70144685183715
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 516.2604516391244
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 375.04909758781275
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 482.714137953402
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 433.4511607605268
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.154402232807189
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.028881595869074
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.3057592445227635
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.2575982842655478
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.4022386182602546
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.590737422559803
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.8436133585016959
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.7774030374629133
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.7630036899099324
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.7150631738604795
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 598.9295873136442
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 468.58718067345023
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 438.93339142047927
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 503.0014892952496
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 412.9610060932797
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 639.4770613208551
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 383.02443889120036
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 396.98699679442944
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 429.13277533329665
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 586.7155075518832
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.0387281387533929
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.9366486137569778
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.5551907648941645
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.74405431152438
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.0783786576678396
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.0400787839960635
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.7380555011345273
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.033549309842457
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.8803602769446417
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.493237865778476
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 452.07675360929306
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 504.90151494249426
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 567.7466549317676
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 463.170478755592
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 672.6281622936552
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 518.3350588691715
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 457.9302606111121
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 486.0515927298239
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 459.7131929210843
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 448.54929484490606
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.0749185592476485
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.445560714980784
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.4057879208470232
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.5288555489164533
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.0511563997194253
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.4390227380734033
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.6564758276033011
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.5021933525806541
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.5439334001721687
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.8097669657032924
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 408.8405119837776
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 425.6376540551994
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 666.7622210733357
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 445.371619074092
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 656.5843699865649
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 386.78115040093803
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 506.22272227589946
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 456.55359756377396
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 426.0205645674178
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 642.0999705101698
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.23831293199243
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.3370821118724585
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.350815132358743
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.2640316159605027
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.7573452067763047
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.7932276462568039
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.4314009971553872
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.312626052112255
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.47046644183070174
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.4921696766811812
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 457.0931286282168
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 450.3115313304552
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 394.5362209883917
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 554.1598141661354
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 450.53856433688503
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 589.9114951168721
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 576.7341954049223
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 604.0939581696371
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 691.3635267440419
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 457.1633349482076
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.8609817651840099
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.6419022020937338
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.0420921609370493
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.9565069404841582
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.5620896812963895
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.7269331595631248
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.1465614362697427
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.642298002602101
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.6926345163831027
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.8596155436079906
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 323.0760936177488
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 338.3680545049138
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 313.7025323705376
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 236.54753212830968
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 486.9448316371044
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 455.44283077475427
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 383.84204704616224
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 279.5200365792292
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 394.8849483831053
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 315.1467909192553
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.8217331446471026
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.0511951392881045
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.8161186469609598
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.1218501765502296
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 3.195450809023085
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.9138527876064908
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.7423500761712246
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.6275774676677206
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.288727521912037
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.1209408397693386
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 482.86455438487434
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 329.6922174313621
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 332.1809916732282
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 416.95006245086154
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 316.0343075783408
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 517.1008075683093
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 280.4809403303701
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 267.9707655295278
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 251.43197000913176
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 470.7338333796512
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.5652111810218234
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.7734330360113155
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.7714213716148602
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.3618713682331016
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.460860249870708
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.066539463918735
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 3.6355120487758383
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.2419774939884243
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.9753947624580244
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.6255540202578165
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 353.01649218785803
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 409.20984293038737
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 435.9720645247374
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 382.7420835940774
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 573.7146479961303
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 423.63161934565954
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 365.32260717908235
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 407.830712578149
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 225.07881210855948
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 228.71627925240395
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.429931545863548
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.259529487377536
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.5203805573038084
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.5666602114774821
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.6445276641134146
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 3.7201557164523704
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.920336015741446
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.6973918147197267
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.091566392581072
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 2.583398890626358
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 216.27259012274078
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 337.9833597180349
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 609.5600680807895
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 207.8906171723873
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 600.9555766296842
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 298.758767456823
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 423.8799583427699
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 364.965106685282
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 345.0789766392045
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 570.7406947063573
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.3231415695002249
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.5758727711914513
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.4370551161818688
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.46599305615883
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.6915149915370178
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.5142784343586416
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 3.394152884113428
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 1.1361429060550043
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.5012180806327536
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "target": "reachable",
+  "refused": false,
+  "naive_miss_mm": 0.4648924745197429
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 397.83627610606703
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 368.50924182932846
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 292.51346603227665
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 515.6731739482415
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 368.00363037455503
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 458.02689472148336
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 486.6285358371422
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 572.9945019019785
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 610.179535168763
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "target": "out_of_reach",
+  "refused": true,
+  "naive_miss_mm": 395.724125355592
+ }
+]

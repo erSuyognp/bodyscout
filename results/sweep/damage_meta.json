@@ -1,0 +1,6728 @@
+[
+ {
+  "family": "arm",
+  "seed": 1,
+  "damage": "long_link",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "alarms": [
+   80
+  ],
+  "events": [
+   {
+    "motion": 70,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "damage": "long_link",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hx"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "damage": "tool",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "alarms": [
+   80
+  ],
+  "events": [
+   {
+    "motion": 70,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "damage": "tool",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "damage": "reversed_motor",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "alarms": [
+   80
+  ],
+  "events": [
+   {
+    "motion": 70,
+    "event": "damage",
+    "what": "motor 2 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "damage": "reversed_motor",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 2 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "damage": "locked_joint",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sy",
+   "hz"
+  ],
+  "alarms": [
+   80
+  ],
+  "events": [
+   {
+    "motion": 70,
+    "event": "damage",
+    "what": "joint 2 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "damage": "locked_joint",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hx"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 2 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "damage": "bent_axis",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 70,
+    "event": "damage",
+    "what": "joint 2 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "damage": "bent_axis",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 2 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "damage": "payload",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 70,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "damage": "payload",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "damage": "long_link",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": null,
+  "alarms": [
+   104
+  ],
+  "events": [
+   {
+    "motion": 70,
+    "event": "damage",
+    "what": "link 3 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "damage": "long_link",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "sx"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 3 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "damage": "tool",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": null,
+  "alarms": [
+   104
+  ],
+  "events": [
+   {
+    "motion": 70,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "damage": "tool",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "sx"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "damage": "reversed_motor",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": null,
+  "alarms": [
+   104
+  ],
+  "events": [
+   {
+    "motion": 70,
+    "event": "damage",
+    "what": "motor 4 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "damage": "reversed_motor",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 4 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "damage": "locked_joint",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": null,
+  "alarms": [
+   126
+  ],
+  "events": [
+   {
+    "motion": 70,
+    "event": "damage",
+    "what": "joint 4 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "damage": "locked_joint",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 4 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "damage": "bent_axis",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": null,
+  "alarms": [
+   126
+  ],
+  "events": [
+   {
+    "motion": 70,
+    "event": "damage",
+    "what": "joint 4 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "damage": "bent_axis",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "sx"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 4 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "damage": "payload",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 70,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "damage": "payload",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "sx"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "damage": "long_link",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 3 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "damage": "long_link",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "sx",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 3 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "damage": "tool",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "damage": "tool",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "sx",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "damage": "reversed_motor",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 4 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "damage": "reversed_motor",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "sx",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 4 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "damage": "locked_joint",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 4 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "damage": "locked_joint",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "sx",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 4 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "damage": "bent_axis",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "alarms": [
+   85
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 4 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "damage": "bent_axis",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "sx",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 4 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "damage": "payload",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "damage": "payload",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "sx",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "damage": "long_link",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "alarms": [
+   92
+  ],
+  "events": [
+   {
+    "motion": 70,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "damage": "long_link",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sx",
+   "hy",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "damage": "tool",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "alarms": [
+   92
+  ],
+  "events": [
+   {
+    "motion": 70,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "damage": "tool",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "sx",
+   "sx",
+   "hy",
+   "hx"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "damage": "reversed_motor",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "alarms": [
+   92
+  ],
+  "events": [
+   {
+    "motion": 70,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "damage": "reversed_motor",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "sx",
+   "sy",
+   "hx",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "damage": "locked_joint",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hz",
+   "hx",
+   "hz"
+  ],
+  "alarms": [
+   92
+  ],
+  "events": [
+   {
+    "motion": 70,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "damage": "locked_joint",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "sy",
+   "sz",
+   "hy",
+   "hx"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "damage": "bent_axis",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": null,
+  "alarms": [
+   122
+  ],
+  "events": [
+   {
+    "motion": 70,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "damage": "bent_axis",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sx",
+   "hy",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "damage": "payload",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 70,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "damage": "payload",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sx",
+   "hy",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "damage": "long_link",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "alarms": [
+   96
+  ],
+  "events": [
+   {
+    "motion": 66,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "damage": "long_link",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "damage": "tool",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "alarms": [
+   96
+  ],
+  "events": [
+   {
+    "motion": 66,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "damage": "tool",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "damage": "reversed_motor",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "alarms": [
+   96
+  ],
+  "events": [
+   {
+    "motion": 66,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "damage": "reversed_motor",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "damage": "locked_joint",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "alarms": [
+   96
+  ],
+  "events": [
+   {
+    "motion": 66,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "damage": "locked_joint",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "damage": "bent_axis",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "alarms": [
+   96
+  ],
+  "events": [
+   {
+    "motion": 66,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "damage": "bent_axis",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "damage": "payload",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 66,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "damage": "payload",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "damage": "long_link",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "damage": "long_link",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "sz",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "damage": "tool",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "damage": "tool",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hy",
+   "sz",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "damage": "reversed_motor",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   68
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 2 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "damage": "reversed_motor",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "sx",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 2 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "damage": "locked_joint",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sx",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 2 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "damage": "locked_joint",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "sz",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 2 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "damage": "bent_axis",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   70
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 2 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "damage": "bent_axis",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "sz",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 2 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "damage": "payload",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "damage": "payload",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "sz",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "damage": "long_link",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "damage": "long_link",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "damage": "tool",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "damage": "tool",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "damage": "reversed_motor",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "damage": "reversed_motor",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hx",
+   "sx"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "damage": "locked_joint",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hx"
+  ],
+  "alarms": [
+   70
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "damage": "locked_joint",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "damage": "bent_axis",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   74
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "damage": "bent_axis",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "damage": "payload",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "damage": "payload",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "damage": "long_link",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "damage": "long_link",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hy",
+   "sy",
+   "sz",
+   "hx"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "damage": "tool",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "damage": "tool",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hy",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "damage": "reversed_motor",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "damage": "reversed_motor",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hy",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "damage": "locked_joint",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": null,
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "damage": "locked_joint",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hy",
+   "sy",
+   "sz",
+   "hx"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "damage": "bent_axis",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "damage": "bent_axis",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hy",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "damage": "payload",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "damage": "payload",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hy",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "damage": "long_link",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "damage": "long_link",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "damage": "tool",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "damage": "tool",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "damage": "reversed_motor",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "damage": "reversed_motor",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "damage": "locked_joint",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hx"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "damage": "locked_joint",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "damage": "bent_axis",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "damage": "bent_axis",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "damage": "payload",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "damage": "payload",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "damage": "long_link",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "damage": "long_link",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hy",
+   "hx"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "damage": "tool",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "damage": "tool",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "damage": "reversed_motor",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   67
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "damage": "reversed_motor",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "damage": "locked_joint",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "damage": "locked_joint",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hy",
+   "hx"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "damage": "bent_axis",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   67
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "damage": "bent_axis",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "damage": "payload",
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "damage": "payload",
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "damage": "long_link",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "damage": "long_link",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "damage": "tool",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "damage": "tool",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "damage": "reversed_motor",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   68
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 2 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "damage": "reversed_motor",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 2 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "damage": "locked_joint",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sy",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 2 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "damage": "locked_joint",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 2 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "damage": "bent_axis",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   70
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 2 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "damage": "bent_axis",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 2 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "damage": "payload",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "damage": "payload",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "damage": "long_link",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "damage": "long_link",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "damage": "tool",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "damage": "tool",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "damage": "reversed_motor",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   68
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "damage": "reversed_motor",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "damage": "locked_joint",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hy"
+  ],
+  "alarms": [
+   68
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "damage": "locked_joint",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "damage": "bent_axis",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   71
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "damage": "bent_axis",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "damage": "payload",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "damage": "payload",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "damage": "long_link",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "damage": "long_link",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "damage": "tool",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "damage": "tool",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "damage": "reversed_motor",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "damage": "reversed_motor",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hx",
+   "sz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "damage": "locked_joint",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hy"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "damage": "locked_joint",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "damage": "bent_axis",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   67
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "damage": "bent_axis",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "damage": "payload",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "damage": "payload",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "damage": "long_link",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "damage": "long_link",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "damage": "tool",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "damage": "tool",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "damage": "reversed_motor",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "damage": "reversed_motor",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "damage": "locked_joint",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hx"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "damage": "locked_joint",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "damage": "bent_axis",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "damage": "bent_axis",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "damage": "payload",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "damage": "payload",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "damage": "long_link",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "damage": "long_link",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "damage": "tool",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "damage": "tool",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "damage": "reversed_motor",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "damage": "reversed_motor",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hx",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "damage": "locked_joint",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "damage": "locked_joint",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "damage": "bent_axis",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "damage": "bent_axis",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "damage": "payload",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "damage": "payload",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "damage": "long_link",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "damage": "long_link",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "damage": "tool",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "damage": "tool",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "damage": "reversed_motor",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [
+   68
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 2 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "damage": "reversed_motor",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 2 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "damage": "locked_joint",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sy",
+   "hy"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 2 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "damage": "locked_joint",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 2 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "damage": "bent_axis",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [
+   70
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 2 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "damage": "bent_axis",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 2 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "damage": "payload",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "damage": "payload",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "damage": "long_link",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [
+   96
+  ],
+  "events": [
+   {
+    "motion": 66,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "damage": "long_link",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "sx"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "damage": "tool",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [
+   96
+  ],
+  "events": [
+   {
+    "motion": 66,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "damage": "tool",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "sx"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "damage": "reversed_motor",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [
+   96
+  ],
+  "events": [
+   {
+    "motion": 66,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "damage": "reversed_motor",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "sx"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "damage": "locked_joint",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hx"
+  ],
+  "alarms": [
+   96
+  ],
+  "events": [
+   {
+    "motion": 66,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "damage": "locked_joint",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "sx"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "damage": "bent_axis",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 66,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "damage": "bent_axis",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "sx"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "damage": "payload",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 66,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "damage": "payload",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "sx"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "damage": "long_link",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "damage": "long_link",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "sx"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "damage": "tool",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "damage": "tool",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "sx"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "damage": "reversed_motor",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "damage": "reversed_motor",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "sz"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "damage": "locked_joint",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "damage": "locked_joint",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "sx"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "damage": "bent_axis",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": null,
+  "alarms": [
+   67
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "damage": "bent_axis",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "sx"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "damage": "payload",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "damage": "payload",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "sx"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "damage": "long_link",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "damage": "long_link",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "damage": "tool",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "damage": "tool",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "damage": "reversed_motor",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "damage": "reversed_motor",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "damage": "locked_joint",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "sx"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "damage": "locked_joint",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "damage": "bent_axis",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "damage": "bent_axis",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "damage": "payload",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "damage": "payload",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "damage": "long_link",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "damage": "long_link",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "damage": "tool",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "damage": "tool",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "8 cm tool attached to the hand"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "damage": "reversed_motor",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "damage": "reversed_motor",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "motor 3 rewired backwards"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "damage": "locked_joint",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hz"
+  ],
+  "alarms": [
+   66
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "damage": "locked_joint",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 seized"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "damage": "bent_axis",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [
+   69
+  ],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "damage": "bent_axis",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "joint 3 bracket bent 25 degrees"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "damage": "payload",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "damage": "payload",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "alarms": [],
+  "events": [
+   {
+    "motion": 64,
+    "event": "damage",
+    "what": "350 g payload in the gripper"
+   }
+  ],
+  "damaged_at": 64
+ }
+]

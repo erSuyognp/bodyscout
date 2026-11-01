@@ -1,9 +1,11 @@
 """Slide figures + summary numbers from results/*.csv. Run from the repo root:
-    python experiments/make_plots.py
+    python experiments/make_plots.py                 # results/
+    python experiments/make_plots.py results/sweep   # the cloud sweep, after export_sweep.py
 """
 import csv
 import json
 import os
+import sys
 from collections import defaultdict
 
 import matplotlib
@@ -12,7 +14,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
 
-R = "results"
+R = sys.argv[1] if len(sys.argv) > 1 else "results"
 COL = {"swarm": "#2a78d6", "single": "#eb6834", "mlp": "#1baf7a"}  # fixed order, entity bound
 NAME = {"swarm": "BodyScout swarm", "single": "Single agent (chain model)", "mlp": "Single agent (neural net)"}
 INK, QUIET, GRID, SURF = "#0b0b0b", "#52514e", "#e4e3df", "#fcfcfb"
@@ -99,9 +101,12 @@ if os.path.exists(f"{R}/damage.csv"):
     rows = load(f"{R}/damage.csv")
     kinds = sorted({r["damage"] for r in rows})
     meta = json.load(open(f"{R}/damage_meta.json"))
+    at = sorted({mm.get("damaged_at", 48) for mm in meta})
+    fams = sorted({mm["family"] for mm in meta if "family" in mm})
     fig, axes = plt.subplots(1, len(kinds), figsize=(3.0 * len(kinds), 3.6), dpi=160, sharey=True)
     axes = np.atleast_1d(axes)
-    summary += ["## Damage mid run (break at motion 48)", "",
+    summary += [f"## Damage mid run (break at motion {'/'.join(map(str, at))}"
+                + (f"; {', '.join(fams)}, body type unknown" if fams else "") + ")", "",
                 "| damage | swarm detected at (median motions after damage) | swarm error at end, mm | single agent error at end, mm |",
                 "| --- | --- | --- | --- |"]
     det_all = n_runs = 0
@@ -116,13 +121,13 @@ if os.path.exists(f"{R}/damage.csv"):
             ax.plot(x[ok], m[ok], "-o", color=COL[c], lw=2, ms=3, label=NAME[c])
             ends[c] = m[ok][-1]
         dmg = [e["motion"] for mm in meta if mm["damage"] == k and mm["condition"] == "swarm" for e in mm["events"]]
-        d0 = int(np.median(dmg)) if dmg else 48
+        d0 = int(np.median(dmg)) if dmg else at[0]
         lat = [a - d0 for mm in meta if mm["damage"] == k and mm["condition"] == "swarm"
                for a in mm["alarms"][:1]]
         ax.axvline(d0, color=QUIET, ls="--", lw=1)
         ax.text(d0 + 2, 1.25, "damage", fontsize=8, color=QUIET)
         ax.set_yscale("log")
-        ax.set_ylim(1, 300)
+        ax.set_ylim(1, max(300, np.nanmax([r["reach_mm"] for r in rows if r["damage"] == k] + [0]) * 1.2))
         ax.set_title(k.replace("_", " "), fontsize=10, color=INK, loc="left")
         ax.set_xlabel("motions", color=QUIET, fontsize=9)
         n_det = sum(1 for mm in meta if mm["damage"] == k and mm["condition"] == "swarm" and mm["alarms"])
@@ -153,10 +158,31 @@ if os.path.exists(f"{R}/extrapolation.json"):
     ex = json.load(open(f"{R}/extrapolation.json"))
     summary += ["## Knowing when it is guessing", "", "| targets | BodyScout refused | naive planner median miss, mm |",
                 "| --- | --- | --- |"]
-    for kind in ("reachable", "out_of_reach"):
-        xs = [o for o in ex if o["target"] == kind]
-        summary.append(f"| {kind.replace('_', ' ')} | {100 * np.mean([o['refused'] for o in xs]):.0f}% | "
-                       f"{np.median([o['naive_miss_mm'] for o in xs]):.0f} |")
+    groups = [("", ex)] + [(f + ", ", [o for o in ex if o.get("family") == f])
+                           for f in sorted({o["family"] for o in ex if "family" in o})]
+    for name, part in groups:
+        for kind in ("reachable", "out_of_reach"):
+            xs = [o for o in part if o["target"] == kind]
+            summary.append(f"| {name}{kind.replace('_', ' ')} | {100 * np.mean([o['refused'] for o in xs]):.0f}% | "
+                           f"{np.median([o['naive_miss_mm'] for o in xs]):.0f} |")
+    summary.append("")
+
+# ---- real arms (Menagerie) ------------------------------------------------------
+if os.path.exists(f"{R}/menagerie_meta.json"):
+    meta = json.load(open(f"{R}/menagerie_meta.json"))
+    summary += ["## Real arms from MuJoCo Menagerie, body type unknown (median over seeds)", "",
+                "| arm | channels | swarm reach, mm | single reach, mm | swarm joints right | single joints right |",
+                "| --- | --- | --- | --- | --- | --- |"]
+    for arm in dict.fromkeys(m["arm"] for m in meta):
+        for ch in ("ordered", "shuffled"):
+            cell = {}
+            for c in ("swarm", "single"):
+                ms = [m for m in meta if m["arm"] == arm and m["channels"] == ch and m["condition"] == c]
+                cell[c] = (np.nanmedian([m["final_reach_mm"] for m in ms]),
+                           f"{sum(m['joints_right'] for m in ms)}/{sum(m['n'] for m in ms)} "
+                           f"(observable {sum(m['observable_right'] for m in ms)}/{sum(m['n_observable'] for m in ms)})")
+            summary.append(f"| {arm} | {ch} | {cell['swarm'][0]:.1f} | {cell['single'][0]:.1f} | "
+                           f"{cell['swarm'][1]} | {cell['single'][1]} |")
     summary.append("")
 
 open(f"{R}/summary.md", "w").write("\n".join(summary))

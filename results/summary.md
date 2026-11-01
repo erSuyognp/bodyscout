@@ -30,6 +30,15 @@ Gaps in the swarm curve are deliberate: between the alarm and the next crowned m
 | reachable | 0% | 2 |
 | out of reach | 100% | 326 |
 
+## Real arms from MuJoCo Menagerie, body type unknown (median over seeds)
+
+| arm | channels | swarm reach, mm | single reach, mm | swarm joints right | single joints right |
+| --- | --- | --- | --- | --- | --- |
+| panda | ordered | 1.5 | 364.7 | 13/14 (observable 12/12) | 7/14 (observable 7/12) |
+| panda | shuffled | 2.1 | 610.3 | 14/14 (observable 12/12) | 3/14 (observable 3/12) |
+| ur5e | ordered | 1.5 | 271.6 | 10/12 (observable 10/10) | 6/12 (observable 5/10) |
+| ur5e | shuffled | 1.9 | 370.1 | 12/12 (observable 10/10) | 2/12 (observable 2/10) |
+
 ## Unknown body types (median reach error at 64 motions, mm; structure found)
 
 | body | swarm | single agent | swarm structure right | single structure right |

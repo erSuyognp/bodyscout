@@ -1,0 +1,1850 @@
+[
+ {
+  "arm": "panda",
+  "seed": 1,
+  "condition": "swarm",
+  "channels": "ordered",
+  "truth": [
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hx",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hx",
+   "hy",
+   "hy"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 6,
+  "observable_right": 6,
+  "n": 7,
+  "n_observable": 6,
+  "structure_correct": false,
+  "final_reach_mm": 1.887577478428895
+ },
+ {
+  "arm": "panda",
+  "seed": 1,
+  "condition": "swarm",
+  "channels": "shuffled",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hx",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hx",
+   "hy",
+   "hy"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   false,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "joints_right": 6,
+  "observable_right": 6,
+  "n": 7,
+  "n_observable": 6,
+  "structure_correct": false,
+  "final_reach_mm": 2.286315861500044
+ },
+ {
+  "arm": "panda",
+  "seed": 1,
+  "condition": "single",
+  "channels": "ordered",
+  "truth": [
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hx",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "sy",
+   "hy",
+   "sy",
+   "hy",
+   "hx",
+   "hy",
+   "hx"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 4,
+  "observable_right": 4,
+  "n": 7,
+  "n_observable": 6,
+  "structure_correct": false,
+  "final_reach_mm": 433.7623350932751
+ },
+ {
+  "arm": "panda",
+  "seed": 1,
+  "condition": "single",
+  "channels": "shuffled",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hx",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "sy",
+   "sz",
+   "hz",
+   "sx",
+   "hz",
+   "sz",
+   "hy"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   false,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "joints_right": 2,
+  "observable_right": 2,
+  "n": 7,
+  "n_observable": 6,
+  "structure_correct": false,
+  "final_reach_mm": 505.9043812039574
+ },
+ {
+  "arm": "panda",
+  "seed": 2,
+  "condition": "swarm",
+  "channels": "ordered",
+  "truth": [
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hx",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hx",
+   "hy",
+   "hx"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 6,
+  "observable_right": 6,
+  "n": 7,
+  "n_observable": 6,
+  "structure_correct": false,
+  "final_reach_mm": 2.030459371775498
+ },
+ {
+  "arm": "panda",
+  "seed": 2,
+  "condition": "swarm",
+  "channels": "shuffled",
+  "truth": [
+   "hy",
+   "hy",
+   "hz",
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hy",
+   "hy",
+   "hx",
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   false,
+   true,
+   true,
+   true,
+   true
+  ],
+  "joints_right": 6,
+  "observable_right": 6,
+  "n": 7,
+  "n_observable": 6,
+  "structure_correct": false,
+  "final_reach_mm": 1.9805648774054003
+ },
+ {
+  "arm": "panda",
+  "seed": 2,
+  "condition": "single",
+  "channels": "ordered",
+  "truth": [
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hx",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hz",
+   "sz",
+   "sy",
+   "sz",
+   "sx"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 3,
+  "observable_right": 3,
+  "n": 7,
+  "n_observable": 6,
+  "structure_correct": false,
+  "final_reach_mm": 340.2818648055843
+ },
+ {
+  "arm": "panda",
+  "seed": 2,
+  "condition": "single",
+  "channels": "shuffled",
+  "truth": [
+   "hy",
+   "hy",
+   "hz",
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "sz",
+   "sx",
+   "sz",
+   "sy",
+   "sz",
+   "hy",
+   "hz"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   false,
+   true,
+   true,
+   true,
+   true
+  ],
+  "joints_right": 1,
+  "observable_right": 1,
+  "n": 7,
+  "n_observable": 6,
+  "structure_correct": false,
+  "final_reach_mm": 684.8288200667729
+ },
+ {
+  "arm": "panda",
+  "seed": 3,
+  "condition": "swarm",
+  "channels": "ordered",
+  "truth": [
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hx",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hx",
+   "hy",
+   "sx"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 6,
+  "observable_right": 6,
+  "n": 7,
+  "n_observable": 6,
+  "structure_correct": false,
+  "final_reach_mm": 1.7874170176855642
+ },
+ {
+  "arm": "panda",
+  "seed": 3,
+  "condition": "swarm",
+  "channels": "shuffled",
+  "truth": [
+   "hy",
+   "hy",
+   "hz",
+   "hy",
+   "hz",
+   "hz",
+   "hx"
+  ],
+  "found": [
+   "hy",
+   "hy",
+   "hz",
+   "hy",
+   "hz",
+   "hz",
+   "hx"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   false,
+   true
+  ],
+  "joints_right": 7,
+  "observable_right": 6,
+  "n": 7,
+  "n_observable": 6,
+  "structure_correct": true,
+  "final_reach_mm": 3.1167601032410928
+ },
+ {
+  "arm": "panda",
+  "seed": 3,
+  "condition": "single",
+  "channels": "ordered",
+  "truth": [
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hx",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "sx",
+   "hz",
+   "sz",
+   "hx",
+   "hy",
+   "sy"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 4,
+  "observable_right": 4,
+  "n": 7,
+  "n_observable": 6,
+  "structure_correct": false,
+  "final_reach_mm": 309.10449170459475
+ },
+ {
+  "arm": "panda",
+  "seed": 3,
+  "condition": "single",
+  "channels": "shuffled",
+  "truth": [
+   "hy",
+   "hy",
+   "hz",
+   "hy",
+   "hz",
+   "hz",
+   "hx"
+  ],
+  "found": [
+   "sx",
+   "hy",
+   "sy",
+   "sz",
+   "sy",
+   "sy",
+   "hx"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   false,
+   true
+  ],
+  "joints_right": 2,
+  "observable_right": 2,
+  "n": 7,
+  "n_observable": 6,
+  "structure_correct": false,
+  "final_reach_mm": 359.4834103444072
+ },
+ {
+  "arm": "ur5e",
+  "seed": 1,
+  "condition": "swarm",
+  "channels": "ordered",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hz",
+   "hz"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 5,
+  "observable_right": 5,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 2.58717829901321
+ },
+ {
+  "arm": "ur5e",
+  "seed": 1,
+  "condition": "swarm",
+  "channels": "shuffled",
+  "truth": [
+   "hy",
+   "hy",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hy",
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   false,
+   true,
+   true,
+   true,
+   true
+  ],
+  "joints_right": 5,
+  "observable_right": 5,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 1.5998321255338013
+ },
+ {
+  "arm": "ur5e",
+  "seed": 1,
+  "condition": "single",
+  "channels": "ordered",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy",
+   "sx",
+   "hy"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 4,
+  "observable_right": 3,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 221.914126552142
+ },
+ {
+  "arm": "ur5e",
+  "seed": 1,
+  "condition": "single",
+  "channels": "shuffled",
+  "truth": [
+   "hy",
+   "hy",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "sz",
+   "sy",
+   "hz",
+   "sz",
+   "hx",
+   "sx"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   false,
+   true,
+   true,
+   true,
+   true
+  ],
+  "joints_right": 1,
+  "observable_right": 1,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 252.37284687383604
+ },
+ {
+  "arm": "ur5e",
+  "seed": 2,
+  "condition": "swarm",
+  "channels": "ordered",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hz",
+   "sx"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 5,
+  "observable_right": 5,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 2.214135505062609
+ },
+ {
+  "arm": "ur5e",
+  "seed": 2,
+  "condition": "swarm",
+  "channels": "shuffled",
+  "truth": [
+   "hy",
+   "hy",
+   "hy",
+   "hy",
+   "hz",
+   "hz"
+  ],
+  "found": [
+   "hy",
+   "hy",
+   "hy",
+   "hy",
+   "hz",
+   "hz"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   false,
+   true,
+   true,
+   true,
+   true
+  ],
+  "joints_right": 6,
+  "observable_right": 5,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": true,
+  "final_reach_mm": 1.4777516028905
+ },
+ {
+  "arm": "ur5e",
+  "seed": 2,
+  "condition": "single",
+  "channels": "ordered",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "sz",
+   "hy",
+   "sx",
+   "hy",
+   "sx"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 2,
+  "observable_right": 2,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 285.17125908978534
+ },
+ {
+  "arm": "ur5e",
+  "seed": 2,
+  "condition": "single",
+  "channels": "shuffled",
+  "truth": [
+   "hy",
+   "hy",
+   "hy",
+   "hy",
+   "hz",
+   "hz"
+  ],
+  "found": [
+   "hy",
+   "sx",
+   "hy",
+   "sy",
+   "hy",
+   "sy"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   false,
+   true,
+   true,
+   true,
+   true
+  ],
+  "joints_right": 2,
+  "observable_right": 2,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 348.3452229554328
+ },
+ {
+  "arm": "ur5e",
+  "seed": 3,
+  "condition": "swarm",
+  "channels": "ordered",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 6,
+  "observable_right": 5,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": true,
+  "final_reach_mm": 1.8720286414815484
+ },
+ {
+  "arm": "ur5e",
+  "seed": 3,
+  "condition": "swarm",
+  "channels": "shuffled",
+  "truth": [
+   "hy",
+   "hy",
+   "hz",
+   "hy",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hy",
+   "hy",
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   false,
+   true
+  ],
+  "joints_right": 5,
+  "observable_right": 5,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 2.685331883519127
+ },
+ {
+  "arm": "ur5e",
+  "seed": 3,
+  "condition": "single",
+  "channels": "ordered",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "sz",
+   "sz",
+   "hy",
+   "hy",
+   "sx"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 2,
+  "observable_right": 2,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 473.69928186999766
+ },
+ {
+  "arm": "ur5e",
+  "seed": 3,
+  "condition": "single",
+  "channels": "shuffled",
+  "truth": [
+   "hy",
+   "hy",
+   "hz",
+   "hy",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "sz",
+   "sz",
+   "hz",
+   "sz",
+   "sx",
+   "hz"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   false,
+   true
+  ],
+  "joints_right": 2,
+  "observable_right": 2,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 455.5555060844346
+ },
+ {
+  "arm": "gen3",
+  "seed": 1,
+  "condition": "swarm",
+  "channels": "ordered",
+  "truth": [
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   false,
+   true,
+   false
+  ],
+  "joints_right": 7,
+  "observable_right": 5,
+  "n": 7,
+  "n_observable": 5,
+  "structure_correct": true,
+  "final_reach_mm": 1.8420635339254403
+ },
+ {
+  "arm": "gen3",
+  "seed": 1,
+  "condition": "swarm",
+  "channels": "shuffled",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hy"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   false,
+   true,
+   true,
+   false,
+   true,
+   true
+  ],
+  "joints_right": 6,
+  "observable_right": 5,
+  "n": 7,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 2.3075172887189823
+ },
+ {
+  "arm": "gen3",
+  "seed": 1,
+  "condition": "single",
+  "channels": "ordered",
+  "truth": [
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "sz",
+   "hy",
+   "sy",
+   "hy",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   false,
+   true,
+   false
+  ],
+  "joints_right": 5,
+  "observable_right": 3,
+  "n": 7,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 832.3595030992198
+ },
+ {
+  "arm": "gen3",
+  "seed": 1,
+  "condition": "single",
+  "channels": "shuffled",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "sz",
+   "sz",
+   "hz",
+   "sx",
+   "hx",
+   "sz",
+   "hz"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   false,
+   true,
+   true,
+   false,
+   true,
+   true
+  ],
+  "joints_right": 1,
+  "observable_right": 1,
+  "n": 7,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 397.9617552240383
+ },
+ {
+  "arm": "gen3",
+  "seed": 2,
+  "condition": "swarm",
+  "channels": "ordered",
+  "truth": [
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 7,
+  "observable_right": 6,
+  "n": 7,
+  "n_observable": 6,
+  "structure_correct": true,
+  "final_reach_mm": 2.356953513686197
+ },
+ {
+  "arm": "gen3",
+  "seed": 2,
+  "condition": "swarm",
+  "channels": "shuffled",
+  "truth": [
+   "hy",
+   "hy",
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hz"
+  ],
+  "found": [
+   "hy",
+   "hy",
+   "hx",
+   "hz",
+   "hy",
+   "hz",
+   "hz"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   false,
+   true,
+   true,
+   false,
+   true
+  ],
+  "joints_right": 6,
+  "observable_right": 5,
+  "n": 7,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 1.8321938650625678
+ },
+ {
+  "arm": "gen3",
+  "seed": 2,
+  "condition": "single",
+  "channels": "ordered",
+  "truth": [
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hz",
+   "sx",
+   "sy",
+   "sz",
+   "sy"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 3,
+  "observable_right": 3,
+  "n": 7,
+  "n_observable": 6,
+  "structure_correct": false,
+  "final_reach_mm": 299.62068638797433
+ },
+ {
+  "arm": "gen3",
+  "seed": 2,
+  "condition": "single",
+  "channels": "shuffled",
+  "truth": [
+   "hy",
+   "hy",
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hz"
+  ],
+  "found": [
+   "hy",
+   "hz",
+   "hx",
+   "sy",
+   "sy",
+   "sy",
+   "sx"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   false,
+   true,
+   true,
+   false,
+   true
+  ],
+  "joints_right": 1,
+  "observable_right": 1,
+  "n": 7,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 591.5725906823633
+ },
+ {
+  "arm": "gen3",
+  "seed": 3,
+  "condition": "swarm",
+  "channels": "ordered",
+  "truth": [
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "sz"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   false,
+   true,
+   false
+  ],
+  "joints_right": 6,
+  "observable_right": 5,
+  "n": 7,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 2.508384431458809
+ },
+ {
+  "arm": "gen3",
+  "seed": 3,
+  "condition": "swarm",
+  "channels": "shuffled",
+  "truth": [
+   "hy",
+   "hy",
+   "hz",
+   "hy",
+   "hz",
+   "hz",
+   "hz"
+  ],
+  "found": [
+   "hy",
+   "hy",
+   "hz",
+   "hy",
+   "hz",
+   "sx",
+   "hz"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   false,
+   true
+  ],
+  "joints_right": 6,
+  "observable_right": 6,
+  "n": 7,
+  "n_observable": 6,
+  "structure_correct": false,
+  "final_reach_mm": 2.2324028573114476
+ },
+ {
+  "arm": "gen3",
+  "seed": 3,
+  "condition": "single",
+  "channels": "ordered",
+  "truth": [
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "sx",
+   "hz",
+   "sx",
+   "hz",
+   "hz",
+   "sy"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   false,
+   true,
+   false
+  ],
+  "joints_right": 3,
+  "observable_right": 2,
+  "n": 7,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 392.27675744433384
+ },
+ {
+  "arm": "gen3",
+  "seed": 3,
+  "condition": "single",
+  "channels": "shuffled",
+  "truth": [
+   "hy",
+   "hy",
+   "hz",
+   "hy",
+   "hz",
+   "hz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "sx",
+   "sy",
+   "sx",
+   "sz",
+   "hy"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   false,
+   true
+  ],
+  "joints_right": 0,
+  "observable_right": 0,
+  "n": 7,
+  "n_observable": 6,
+  "structure_correct": false,
+  "final_reach_mm": 837.0565859560368
+ },
+ {
+  "arm": "vx300s",
+  "seed": 1,
+  "condition": "swarm",
+  "channels": "ordered",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hx",
+   "hy",
+   "hx"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hx",
+   "hy",
+   "hy"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 5,
+  "observable_right": 5,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 1.5299750453990038
+ },
+ {
+  "arm": "vx300s",
+  "seed": 1,
+  "condition": "swarm",
+  "channels": "shuffled",
+  "truth": [
+   "hy",
+   "hx",
+   "hz",
+   "hy",
+   "hy",
+   "hx"
+  ],
+  "found": [
+   "hy",
+   "hz",
+   "hz",
+   "hy",
+   "hy",
+   "hx"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   false,
+   true,
+   true,
+   true,
+   true
+  ],
+  "joints_right": 5,
+  "observable_right": 5,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 2.2640052587497856
+ },
+ {
+  "arm": "vx300s",
+  "seed": 1,
+  "condition": "single",
+  "channels": "ordered",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hx",
+   "hy",
+   "hx"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hx",
+   "sz",
+   "hy"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 3,
+  "observable_right": 3,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 113.17097964096777
+ },
+ {
+  "arm": "vx300s",
+  "seed": 1,
+  "condition": "single",
+  "channels": "shuffled",
+  "truth": [
+   "hy",
+   "hx",
+   "hz",
+   "hy",
+   "hy",
+   "hx"
+  ],
+  "found": [
+   "sz",
+   "sy",
+   "hz",
+   "sx",
+   "hz",
+   "sx"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   false,
+   true,
+   true,
+   true,
+   true
+  ],
+  "joints_right": 1,
+  "observable_right": 1,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 270.06835567448957
+ },
+ {
+  "arm": "vx300s",
+  "seed": 2,
+  "condition": "swarm",
+  "channels": "ordered",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hx",
+   "hy",
+   "hx"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hx",
+   "hy",
+   "hy"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 5,
+  "observable_right": 5,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 2.470902432557233
+ },
+ {
+  "arm": "vx300s",
+  "seed": 2,
+  "condition": "swarm",
+  "channels": "shuffled",
+  "truth": [
+   "hy",
+   "hx",
+   "hy",
+   "hx",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hy",
+   "hz",
+   "hy",
+   "hx",
+   "hy",
+   "hz"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   false,
+   true,
+   true,
+   true,
+   true
+  ],
+  "joints_right": 5,
+  "observable_right": 5,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 2.086363530937161
+ },
+ {
+  "arm": "vx300s",
+  "seed": 2,
+  "condition": "single",
+  "channels": "ordered",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hx",
+   "hy",
+   "hx"
+  ],
+  "found": [
+   "hz",
+   "sx",
+   "hy",
+   "sz",
+   "hx",
+   "sx"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 2,
+  "observable_right": 2,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 332.3300197778186
+ },
+ {
+  "arm": "vx300s",
+  "seed": 2,
+  "condition": "single",
+  "channels": "shuffled",
+  "truth": [
+   "hy",
+   "hx",
+   "hy",
+   "hx",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hy",
+   "sy",
+   "hx",
+   "sy",
+   "hy",
+   "sy"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   false,
+   true,
+   true,
+   true,
+   true
+  ],
+  "joints_right": 2,
+  "observable_right": 2,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 227.4463879110165
+ },
+ {
+  "arm": "vx300s",
+  "seed": 3,
+  "condition": "swarm",
+  "channels": "ordered",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hx",
+   "hy",
+   "hx"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hx",
+   "hy",
+   "hz"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 5,
+  "observable_right": 5,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 2.2886999242714423
+ },
+ {
+  "arm": "vx300s",
+  "seed": 3,
+  "condition": "swarm",
+  "channels": "shuffled",
+  "truth": [
+   "hx",
+   "hy",
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "found": [
+   "hx",
+   "hy",
+   "hz",
+   "hy",
+   "sy",
+   "hy"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   false,
+   true
+  ],
+  "joints_right": 5,
+  "observable_right": 5,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 1.6827332912202497
+ },
+ {
+  "arm": "vx300s",
+  "seed": 3,
+  "condition": "single",
+  "channels": "ordered",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hx",
+   "hy",
+   "hx"
+  ],
+  "found": [
+   "hz",
+   "sx",
+   "sz",
+   "hz",
+   "hy",
+   "sz"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 2,
+  "observable_right": 2,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 296.68307608775336
+ },
+ {
+  "arm": "vx300s",
+  "seed": 3,
+  "condition": "single",
+  "channels": "shuffled",
+  "truth": [
+   "hx",
+   "hy",
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "found": [
+   "sz",
+   "sz",
+   "sy",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   false,
+   true
+  ],
+  "joints_right": 2,
+  "observable_right": 2,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 443.5106778681076
+ }
+]

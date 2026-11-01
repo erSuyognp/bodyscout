@@ -1,0 +1,942 @@
+[
+ {
+  "arm": 1,
+  "condition": "swarm",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "y",
+    "x",
+    "z"
+   ],
+   "types": [
+    "h",
+    "h",
+    "h",
+    "h"
+   ],
+   "structure": [
+    "hz",
+    "hy",
+    "hx",
+    "hz"
+   ],
+   "links_m": [
+    0.069,
+    0.194,
+    0.12,
+    0.117
+   ],
+   "identifiable": [
+    false,
+    true,
+    false,
+    false
+   ]
+  }
+ },
+ {
+  "arm": 1,
+  "condition": "single",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "y",
+    "x",
+    "z"
+   ],
+   "types": [
+    "h",
+    "h",
+    "h",
+    "h"
+   ],
+   "structure": [
+    "hz",
+    "hy",
+    "hx",
+    "hz"
+   ],
+   "links_m": [
+    0.069,
+    0.193,
+    0.12,
+    0.117
+   ],
+   "identifiable": [
+    false,
+    true,
+    false,
+    false
+   ]
+  }
+ },
+ {
+  "arm": 1,
+  "condition": "mlp",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "mlp"
+  }
+ },
+ {
+  "arm": 2,
+  "condition": "swarm",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "y",
+    "y",
+    "y",
+    "y"
+   ],
+   "types": [
+    "h",
+    "h",
+    "h",
+    "h",
+    "h"
+   ],
+   "structure": [
+    "hz",
+    "hy",
+    "hy",
+    "hy",
+    "hy"
+   ],
+   "links_m": [
+    0.065,
+    0.149,
+    0.166,
+    0.093,
+    0.076
+   ],
+   "identifiable": [
+    false,
+    true,
+    true,
+    true,
+    true
+   ]
+  }
+ },
+ {
+  "arm": 2,
+  "condition": "single",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "y",
+    "y",
+    "y",
+    "y"
+   ],
+   "types": [
+    "h",
+    "h",
+    "h",
+    "h",
+    "h"
+   ],
+   "structure": [
+    "hz",
+    "hy",
+    "hy",
+    "hy",
+    "hy"
+   ],
+   "links_m": [
+    0.065,
+    0.148,
+    0.166,
+    0.094,
+    0.077
+   ],
+   "identifiable": [
+    false,
+    true,
+    true,
+    true,
+    true
+   ]
+  }
+ },
+ {
+  "arm": 2,
+  "condition": "mlp",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "mlp"
+  }
+ },
+ {
+  "arm": 3,
+  "condition": "swarm",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "y",
+    "y",
+    "y",
+    "y"
+   ],
+   "types": [
+    "h",
+    "h",
+    "h",
+    "h",
+    "h"
+   ],
+   "structure": [
+    "hz",
+    "hy",
+    "hy",
+    "hy",
+    "hy"
+   ],
+   "links_m": [
+    0.099,
+    0.082,
+    0.126,
+    0.132,
+    0.092
+   ],
+   "identifiable": [
+    false,
+    true,
+    true,
+    true,
+    true
+   ]
+  }
+ },
+ {
+  "arm": 3,
+  "condition": "single",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "y",
+    "y",
+    "y",
+    "y"
+   ],
+   "types": [
+    "h",
+    "h",
+    "h",
+    "h",
+    "h"
+   ],
+   "structure": [
+    "hz",
+    "hy",
+    "hy",
+    "hy",
+    "hy"
+   ],
+   "links_m": [
+    0.099,
+    0.082,
+    0.126,
+    0.133,
+    0.091
+   ],
+   "identifiable": [
+    false,
+    true,
+    true,
+    true,
+    true
+   ]
+  }
+ },
+ {
+  "arm": 3,
+  "condition": "mlp",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "mlp"
+  }
+ },
+ {
+  "arm": 4,
+  "condition": "swarm",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "z",
+    "z",
+    "y",
+    "z"
+   ],
+   "types": [
+    "h",
+    "h",
+    "h",
+    "h",
+    "h"
+   ],
+   "structure": [
+    "hz",
+    "hz",
+    "hz",
+    "hy",
+    "hz"
+   ],
+   "links_m": [
+    0.1,
+    0.101,
+    0.1,
+    0.135,
+    0.133
+   ],
+   "identifiable": [
+    false,
+    false,
+    false,
+    false,
+    true
+   ]
+  }
+ },
+ {
+  "arm": 4,
+  "condition": "single",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "z",
+    "z",
+    "y",
+    "z"
+   ],
+   "types": [
+    "h",
+    "h",
+    "h",
+    "h",
+    "h"
+   ],
+   "structure": [
+    "hz",
+    "hz",
+    "hz",
+    "hy",
+    "hz"
+   ],
+   "links_m": [
+    0.1,
+    0.101,
+    0.1,
+    0.134,
+    0.133
+   ],
+   "identifiable": [
+    false,
+    false,
+    false,
+    false,
+    false
+   ]
+  }
+ },
+ {
+  "arm": 4,
+  "condition": "mlp",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "mlp"
+  }
+ },
+ {
+  "arm": 5,
+  "condition": "swarm",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "z",
+    "y",
+    "z",
+    "y"
+   ],
+   "types": [
+    "h",
+    "h",
+    "h",
+    "h",
+    "h"
+   ],
+   "structure": [
+    "hz",
+    "hz",
+    "hy",
+    "hz",
+    "hy"
+   ],
+   "links_m": [
+    0.078,
+    0.078,
+    0.122,
+    0.121,
+    0.076
+   ],
+   "identifiable": [
+    false,
+    false,
+    false,
+    false,
+    true
+   ]
+  }
+ },
+ {
+  "arm": 5,
+  "condition": "single",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "z",
+    "y",
+    "z",
+    "y"
+   ],
+   "types": [
+    "h",
+    "h",
+    "h",
+    "h",
+    "h"
+   ],
+   "structure": [
+    "hz",
+    "hz",
+    "hy",
+    "hz",
+    "hy"
+   ],
+   "links_m": [
+    0.078,
+    0.078,
+    0.122,
+    0.122,
+    0.076
+   ],
+   "identifiable": [
+    false,
+    false,
+    false,
+    false,
+    true
+   ]
+  }
+ },
+ {
+  "arm": 5,
+  "condition": "mlp",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "mlp"
+  }
+ },
+ {
+  "arm": 6,
+  "condition": "swarm",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "y",
+    "y",
+    "y"
+   ],
+   "types": [
+    "h",
+    "h",
+    "h",
+    "h"
+   ],
+   "structure": [
+    "hz",
+    "hy",
+    "hy",
+    "hy"
+   ],
+   "links_m": [
+    0.083,
+    0.12,
+    0.198,
+    0.152
+   ],
+   "identifiable": [
+    false,
+    true,
+    true,
+    true
+   ]
+  }
+ },
+ {
+  "arm": 6,
+  "condition": "single",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "y",
+    "y",
+    "y"
+   ],
+   "types": [
+    "h",
+    "h",
+    "h",
+    "h"
+   ],
+   "structure": [
+    "hz",
+    "hy",
+    "hy",
+    "hy"
+   ],
+   "links_m": [
+    0.084,
+    0.119,
+    0.198,
+    0.151
+   ],
+   "identifiable": [
+    false,
+    true,
+    true,
+    true
+   ]
+  }
+ },
+ {
+  "arm": 6,
+  "condition": "mlp",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "mlp"
+  }
+ },
+ {
+  "arm": 7,
+  "condition": "swarm",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "x",
+    "x",
+    "z",
+    "y"
+   ],
+   "types": [
+    "h",
+    "h",
+    "h",
+    "h",
+    "h"
+   ],
+   "structure": [
+    "hz",
+    "hx",
+    "hx",
+    "hz",
+    "hy"
+   ],
+   "links_m": [
+    0.073,
+    0.11,
+    0.128,
+    0.128,
+    0.176
+   ],
+   "identifiable": [
+    false,
+    true,
+    false,
+    false,
+    true
+   ]
+  }
+ },
+ {
+  "arm": 7,
+  "condition": "single",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "x",
+    "x",
+    "z",
+    "y"
+   ],
+   "types": [
+    "h",
+    "h",
+    "h",
+    "h",
+    "h"
+   ],
+   "structure": [
+    "hz",
+    "hx",
+    "hx",
+    "hz",
+    "hy"
+   ],
+   "links_m": [
+    0.073,
+    0.109,
+    0.128,
+    0.128,
+    0.178
+   ],
+   "identifiable": [
+    false,
+    true,
+    false,
+    false,
+    true
+   ]
+  }
+ },
+ {
+  "arm": 7,
+  "condition": "mlp",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "mlp"
+  }
+ },
+ {
+  "arm": 8,
+  "condition": "swarm",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "y",
+    "y",
+    "z",
+    "y"
+   ],
+   "types": [
+    "h",
+    "h",
+    "h",
+    "h",
+    "h"
+   ],
+   "structure": [
+    "hz",
+    "hy",
+    "hy",
+    "hz",
+    "hy"
+   ],
+   "links_m": [
+    0.111,
+    0.184,
+    0.124,
+    0.124,
+    0.118
+   ],
+   "identifiable": [
+    false,
+    true,
+    false,
+    false,
+    true
+   ]
+  }
+ },
+ {
+  "arm": 8,
+  "condition": "single",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "y",
+    "y",
+    "z",
+    "y"
+   ],
+   "types": [
+    "h",
+    "h",
+    "h",
+    "h",
+    "h"
+   ],
+   "structure": [
+    "hz",
+    "hy",
+    "hy",
+    "hz",
+    "hy"
+   ],
+   "links_m": [
+    0.111,
+    0.185,
+    0.124,
+    0.124,
+    0.118
+   ],
+   "identifiable": [
+    false,
+    true,
+    false,
+    false,
+    true
+   ]
+  }
+ },
+ {
+  "arm": 8,
+  "condition": "mlp",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "mlp"
+  }
+ },
+ {
+  "arm": 9,
+  "condition": "swarm",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "z",
+    "z",
+    "y"
+   ],
+   "types": [
+    "h",
+    "h",
+    "h",
+    "h"
+   ],
+   "structure": [
+    "hz",
+    "hz",
+    "hz",
+    "hy"
+   ],
+   "links_m": [
+    0.133,
+    0.133,
+    0.134,
+    0.19
+   ],
+   "identifiable": [
+    true,
+    true,
+    true,
+    true
+   ]
+  }
+ },
+ {
+  "arm": 9,
+  "condition": "single",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "z",
+    "z",
+    "y"
+   ],
+   "types": [
+    "h",
+    "h",
+    "h",
+    "h"
+   ],
+   "structure": [
+    "hz",
+    "hz",
+    "hz",
+    "hy"
+   ],
+   "links_m": [
+    0.133,
+    0.133,
+    0.134,
+    0.189
+   ],
+   "identifiable": [
+    false,
+    false,
+    false,
+    true
+   ]
+  }
+ },
+ {
+  "arm": 9,
+  "condition": "mlp",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "mlp"
+  }
+ },
+ {
+  "arm": 10,
+  "condition": "swarm",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "z",
+    "y",
+    "y",
+    "x"
+   ],
+   "types": [
+    "h",
+    "h",
+    "h",
+    "h",
+    "h"
+   ],
+   "structure": [
+    "hz",
+    "hz",
+    "hy",
+    "hy",
+    "hx"
+   ],
+   "links_m": [
+    0.092,
+    0.092,
+    0.089,
+    0.161,
+    0.179
+   ],
+   "identifiable": [
+    false,
+    false,
+    true,
+    true,
+    true
+   ]
+  }
+ },
+ {
+  "arm": 10,
+  "condition": "single",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "chain",
+   "axes": [
+    "z",
+    "z",
+    "y",
+    "y",
+    "x"
+   ],
+   "types": [
+    "h",
+    "h",
+    "h",
+    "h",
+    "h"
+   ],
+   "structure": [
+    "hz",
+    "hz",
+    "hy",
+    "hy",
+    "hx"
+   ],
+   "links_m": [
+    0.092,
+    0.092,
+    0.088,
+    0.161,
+    0.179
+   ],
+   "identifiable": [
+    false,
+    false,
+    true,
+    true,
+    true
+   ]
+  }
+ },
+ {
+  "arm": 10,
+  "condition": "mlp",
+  "alarms": [],
+  "events": [],
+  "champion": {
+   "family": "mlp"
+  }
+ }
+]
