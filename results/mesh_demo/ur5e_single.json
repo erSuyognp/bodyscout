@@ -1,0 +1,57 @@
+{
+ "arm": "ur5e",
+ "condition": "single",
+ "family": "chain",
+ "n": 6,
+ "reach_mm": 265.1130728812671,
+ "describe": {
+  "family": "chain",
+  "axes": [
+   "z",
+   "y",
+   "z",
+   "y",
+   "x",
+   "x"
+  ],
+  "types": [
+   "s",
+   "s",
+   "h",
+   "h",
+   "h",
+   "s"
+  ],
+  "structure": [
+   "sz",
+   "sy",
+   "hz",
+   "hy",
+   "hx",
+   "sx"
+  ],
+  "links_m": [
+   0.051,
+   0.051,
+   0.162,
+   0.329,
+   0.175,
+   0.175
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ "curve": [
+  [
+   128,
+   265.1130728812671
+  ]
+ ],
+ "alarms": []
+}

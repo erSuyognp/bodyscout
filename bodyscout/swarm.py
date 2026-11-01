@@ -17,7 +17,7 @@ import numpy as np
 
 from .agents import (ORDER_EVERY, ChannelAgent, Explorer, FindingsHypothesizer, LibraryHypothesizer,
                      LLMHypothesizer, Modeler, Monitor, PriorHypothesizer, Validator, classify_sweep,
-                     infer_order, llm_providers, structures_from_findings)
+                     infer_order, llm_providers, resolve_limbs, structures_from_findings)
 from .blackboard import Blackboard
 from .models import ChainModel, MLPModel
 from .planning import reach_errors
@@ -60,6 +60,7 @@ class SingleProbeAgent(SingleAgent):
         self.findings, self.obs = {}, []  # obs mimic observation artifacts so infer_order reads them
         self.ch, self.attempt = 0, 0
         self.order_cache = {}
+        self.limb_cache = {}
 
     def _move(self, q, **tags):
         x = self.robot.move(q)
@@ -95,6 +96,16 @@ class SingleProbeAgent(SingleAgent):
             self.order_cache[key] = found[0] if found else None
         return self.order_cache[key]
 
+    def _limbs(self):
+        """Limb grouping from this agent's own findings. None for a single marker."""
+        n = self.robot.n_channels
+        if len(self.findings) < n:
+            return None
+        key = sum(1 for o in self.obs if "probe" not in o.payload) // ORDER_EVERY
+        if key not in self.limb_cache:
+            self.limb_cache[key] = resolve_limbs(self.findings, self.obs, n)
+        return self.limb_cache[key]
+
     def step(self, t):
         n = self.robot.n_channels
         if self.ch < n:
@@ -106,9 +117,13 @@ class SingleProbeAgent(SingleAgent):
         if len(self.Q) < 6:
             return
         kw = {"patterns": structures_from_findings(self.findings, n)[: self.N_STRUCTURES]}
-        order = self._order()
-        if order is not None and order != list(range(n)):
-            kw["order"] = order
+        limbs = self._limbs()
+        if limbs is not None:
+            kw["limbs"] = limbs
+        else:
+            order = self._order()
+            if order is not None and order != list(range(n)):
+                kw["order"] = order
         self.model = ChainModel(n, restarts=3, seed=self.seed + t, any_types=True).fit(
             np.array(self.Q), np.array(self.X), **kw)
 
@@ -143,13 +158,19 @@ def run(robot, condition="swarm", budget=64, eval_at=(8, 12, 16, 24, 32, 48, 64)
     targets = reachable_targets(robot, n_targets, seed)
     bb = Blackboard()
     agents = make_swarm(robot, seed, library, warm, use_llm, channels=unknown_body) if condition == "swarm" else None
-    single = SingleAgent(robot, "chain" if condition == "single" else "mlp", seed=seed, any_types=unknown_body) \
-        if condition in ("single", "mlp", "single_probe") else None
+    if condition == "single_probe":
+        single = SingleProbeAgent(robot, seed=seed)
+    elif condition in ("single", "mlp"):
+        single = SingleAgent(robot, "chain" if condition == "single" else "mlp", seed=seed, any_types=unknown_body)
+    else:
+        single = None
     curve, events, pending = [], [], sorted(eval_at)
     damaged = False
     champion_before = None
     t0 = time.time()
     agent_s = 0.0  # time spent in agent steps only, so scoring checkpoints do not count
+    multi = np.asarray(targets).ndim == 3  # one column of xyz per fingertip
+    limb_curve = []
 
     def champion():
         if single is not None:
@@ -167,6 +188,17 @@ def run(robot, condition="swarm", budget=64, eval_at=(8, 12, 16, 24, 32, 48, 64)
                     "holdout_mm": None, "n_holdout": 0, "candidate": None, "votes": 0}
         c = bb.latest("champion")
         return None if c is None else dict(c.payload)
+
+    def score(model):
+        """Median reach error in mm, and per fingertip when the body has several."""
+        n_tips = int(targets.shape[1]) if multi else 0
+        if model is None:
+            return np.nan, [np.nan] * n_tips
+        raw = reach_errors(robot, model, targets, robot.n_channels, seed)
+        if raw.ndim == 1:
+            return float(np.median(raw)) * 1000, None
+        per = [float(v) * 1000 for v in np.median(raw, axis=0)]
+        return float(np.median(raw)) * 1000, per
 
     for t in range(max_ticks):
         if damage and not damaged and robot.motions >= damage[0]:
@@ -190,10 +222,11 @@ def run(robot, condition="swarm", budget=64, eval_at=(8, 12, 16, 24, 32, 48, 64)
         if on_tick is not None:
             on_tick(bb, robot, t, events)
         while pending and robot.motions >= pending[0]:
-            m = champion()
-            err = float(np.median(reach_errors(robot, m, targets, robot.n_channels, seed))) * 1000 \
-                if m is not None else np.nan
-            curve.append((pending.pop(0), err))
+            err, per = score(champion())
+            motion = pending.pop(0)
+            curve.append((motion, err))
+            if multi:
+                limb_curve.append((motion, per))
             if verbose:
                 print(f"  [{condition}] motions={robot.motions:3d} reach={err:7.1f} mm  ({time.time() - t0:.0f}s)")
         if robot.motions >= budget or not pending:
@@ -203,6 +236,8 @@ def run(robot, condition="swarm", budget=64, eval_at=(8, 12, 16, 24, 32, 48, 64)
             continue
     out = {"curve": curve, "events": events, "blackboard": bb, "motions": robot.motions,
            "agent_s": agent_s, "champion_before": champion_before}
+    if multi:
+        out["limb_curve"] = limb_curve
     if single is None:
         alarms = [a.payload["motion"] for a in bb.of("anomaly", epoch=-1)]
         out["alarms"] = alarms
@@ -215,7 +250,8 @@ def run(robot, condition="swarm", budget=64, eval_at=(8, 12, 16, 24, 32, 48, 64)
                            "_model": single.model}
     # pad the curve if the swarm went quiet (converged) before every checkpoint was reached
     for p in pending:
-        m = champion()
-        err = float(np.median(reach_errors(robot, m, targets, robot.n_channels, seed))) * 1000 if m else np.nan
+        err, per = score(champion())
         curve.append((p, err))
+        if multi:
+            limb_curve.append((p, per))
     return out

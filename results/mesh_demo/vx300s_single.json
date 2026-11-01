@@ -1,0 +1,57 @@
+{
+ "arm": "vx300s",
+ "condition": "single",
+ "family": "chain",
+ "n": 6,
+ "reach_mm": 197.40707869316142,
+ "describe": {
+  "family": "chain",
+  "axes": [
+   "z",
+   "x",
+   "z",
+   "y",
+   "z",
+   "x"
+  ],
+  "types": [
+   "s",
+   "s",
+   "h",
+   "h",
+   "h",
+   "s"
+  ],
+  "structure": [
+   "sz",
+   "sx",
+   "hz",
+   "hy",
+   "hz",
+   "sx"
+  ],
+  "links_m": [
+   0.052,
+   0.052,
+   0.056,
+   0.206,
+   0.133,
+   0.133
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ "curve": [
+  [
+   128,
+   197.40707869316142
+  ]
+ ],
+ "alarms": []
+}

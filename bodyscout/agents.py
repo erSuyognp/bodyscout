@@ -2,12 +2,15 @@
 single agent whose loss stops the swarm: every role has a second instance or a fallback.
 
 Explorer x2     share the robot through needs; serve `probe` and `data` needs with motions
-Channel x N     one per unlabeled channel: wiggles only its channel, decides hinge or slide and the axis
+Channel x N     one per unlabeled channel: wiggles only its channel, decides hinge or slide and the axis,
+                and, when move() returns several fingertips, which tips that channel moves
 Hypothesizers   independent; each posts hypotheses tagged by source: findings (assembles channel
-                findings, and posts the chain `order`: which channel drives which link), prior,
-                library, and one LLM agent per API key (Claude, Gemini)
-Modeler x3      chain / gmm / mlp; refit when new data lands. The chain modeler reads hypotheses and the
-                chain order, and works out either itself from channel findings when nobody posted one
+                findings, groups channels into limbs when there are several fingertips, and posts the
+                chain `order`: which channel drives which link), prior, library, and one LLM agent per
+                API key (Claude, Gemini)
+Modeler x3      chain / gmm / mlp; refit when new data lands. The chain modeler reads hypotheses, the
+                limb grouping and the chain order, and works any of those out itself from channel
+                findings when nobody posted one
 Validator x2    replay check candidates and vote for crown(bb), a public pure rule; a champion is
                 posted only when the live validators agree
 Monitor         spends a sentinel motion now and then; declares "my body changed" on surprise
@@ -19,6 +22,7 @@ import itertools
 import json
 import os
 import re
+from types import SimpleNamespace
 
 import numpy as np
 
@@ -67,8 +71,9 @@ class Explorer(Agent):
         models = [a.payload["_model"] for a in bb.of("model")[-3:]]
         if len(Q) < 6 or len(models) < 2:
             return cands[: self.batch]
-        preds = np.stack([m.predict(cands) for m in models])          # (k, C, 3)
-        disagree = np.linalg.norm(preds.std(0), axis=1)
+        preds = np.stack([m.predict(cands) for m in models])          # (k, C, 3) or (k, C, tips, 3)
+        dev = preds.std(0)
+        disagree = np.linalg.norm(dev, axis=1) if dev.ndim == 2 else np.linalg.norm(dev, axis=-1).mean(-1)
         cover = np.min(np.linalg.norm(cands[:, None] - Q[None], axis=2), axis=1)
         score = disagree / (disagree.std() + 1e-9) + cover / (cover.std() + 1e-9)
         chosen = []
@@ -112,9 +117,8 @@ class Explorer(Agent):
 
 
 # ---------------------------------------------------------------------------
-def classify_sweep(P, attempt):
-    """The channel rule, as a pure function of one channel's sweep (tips P, one row per probe value).
-    Returns (finding fields, spread in m); fields is None when the tip barely moved."""
+def _classify_one(P, attempt):
+    """One fingertip's sweep. Returns (fields or None, spread in metres)."""
     _, sv, vt = np.linalg.svd(P - P.mean(0))
     spread = float(sv[0])
     if spread < 0.006:
@@ -127,11 +131,37 @@ def classify_sweep(P, attempt):
     return {"type": kind, "axis": axis, "conf": conf, "curvature": ratio, "spread_mm": spread * 1000}, spread
 
 
+def classify_sweep(P, attempt):
+    """The channel rule, as a pure function of one channel's sweep (one row per probe value).
+
+    P is (samples, 3) for one marker, or (samples, n_tips, 3) when move() returns every fingertip.
+    A tip counts as moved when its path is large beside the tip that moved most, so a shared base
+    joint lists every fingertip and a limb joint lists only its own. Returns (finding fields, spread
+    in m); fields is None when no tip really moved. A single-marker sweep returns the same fields as
+    before, with no `tips` key.
+    """
+    P = np.asarray(P, float)
+    if P.ndim == 2:
+        return _classify_one(P, attempt)
+    per = [_classify_one(P[:, t], attempt) for t in range(P.shape[1])]
+    moving = [(t, f, s) for t, (f, s) in enumerate(per) if f is not None]
+    if not moving:
+        return None, max(s for _, s in per)
+    _, best, biggest = max(moving, key=lambda row: row[2])
+    keep = [t for t, _, s in moving if s >= max(0.006, 0.25 * biggest)]
+    fields = dict(best)
+    fields["tips"] = sorted(keep)
+    if any(per[t][0]["type"] != fields["type"] for t in keep):
+        fields["conf"] = 0.0
+    return fields, biggest
+
+
 class ChannelAgent(Agent):
     """Owns one unlabeled channel. Asks for a sweep of only that channel, then reads the shape of
     the fingertip path: a straight line means the joint slides, an arc means it rotates. The line
-    direction (slide) or the arc's plane normal (hinge) gives the axis. Knows nothing about other
-    channels; hypothesizers and the chain modeler assemble everyone's findings into a whole body."""
+    direction (slide) or the arc's plane normal (hinge) gives the axis. When the robot reports
+    several fingertips, the finding also lists which tips this channel moved. Knows nothing about
+    other channels; hypothesizers and the chain modeler assemble everyone's findings into limbs."""
 
     def __init__(self, channel, n):
         self.ch, self.n = channel, n
@@ -282,8 +312,11 @@ def _refine(geo, home, sweeps):
 def infer_order(findings: dict, obs: list, n: int):
     """Most likely chain order (channel driving each link, base first) from the channel sweeps and
     the motions seen so far. Returns (order, info) or None when there is not enough to go on.
-    When channels in their given order explain the data about as well, keeps that order."""
+    When channels in their given order explain the data about as well, keeps that order.
+    One fingertip only: several tips are a tree, and resolve_limbs orders each limb instead."""
     if len(findings) < n or n > ORDER_MAX_N:
+        return None
+    if obs and np.asarray(obs[0].payload["x"]).ndim != 1:
         return None
     train = [a for a in obs if a.payload["split"] == "train"]
     mixed = [a for a in train if "probe" not in a.payload]
@@ -338,6 +371,91 @@ def order_from_board(bb, n):
                        bb.of("observation"), n)
 
 
+def limb_groups(findings: dict, n: int):
+    """Channels of each fingertip, shared (moves more than one tip) first.
+
+    None when every channel affects only the single marker, which keeps the serial chain.
+    """
+    if any(ch not in findings for ch in range(n)):
+        return None
+    tips = []
+    for ch in range(n):
+        f = findings[ch]
+        if f.get("type") == "?":
+            tips.append(())
+        else:
+            tips.append(tuple(int(t) for t in f.get("tips", (0,))))
+    known = [t for t in tips if t]
+    if not known or (max(max(t) for t in known) == 0 and all(len(t) <= 1 for t in tips)):
+        return None
+    n_tips = 1 + max(max(t) for t in known)
+    shared = [ch for ch, t in enumerate(tips) if len(t) > 1]
+    return [shared + [ch for ch, t in enumerate(tips) if t == (tip,)] for tip in range(n_tips)]
+
+
+def _order_subset(findings, obs, channels, tip):
+    """Chain order of `channels` using only fingertip `tip`. None without enough mixed motions."""
+    if len(channels) <= 1:
+        return list(channels), {}
+    index = {c: i for i, c in enumerate(channels)}
+    sub = {}
+    for c in channels:
+        f = dict(findings[c])
+        f["channel"] = index[c]
+        f.setdefault("_id", 0)
+        sub[index[c]] = f
+    reduced = []
+    for a in obs:
+        payload = dict(a.payload)
+        x = np.asarray(payload["x"])
+        if x.ndim != 1:
+            payload["x"] = np.asarray(x[tip], float)
+        q = np.asarray(payload["q"], float)
+        payload["q"] = np.array([q[c] for c in channels])
+        probe = payload.get("probe")
+        if probe is not None and probe not in index:
+            continue
+        if probe is not None:
+            payload["probe"] = index[probe]
+        reduced.append(SimpleNamespace(id=getattr(a, "id", 0), payload=payload))
+    found = infer_order(sub, reduced, len(channels))
+    if found is None:
+        return None
+    order, info = found
+    return [channels[i] for i in order], info
+
+
+def resolve_limbs(findings: dict, obs: list, n: int):
+    """One ordered chain per fingertip, trunk channels first. None for a single marker.
+
+    Membership comes from which tip each channel moved. Order inside a limb is the product-of-
+    exponentials search when enough mixed motions exist, otherwise channel order (trunk, then the
+    limb). Shared joints stay a prefix: they are proximal to the branch.
+    """
+    groups = limb_groups(findings, n)
+    if groups is None:
+        return None
+    shared = [ch for ch in range(n)
+              if findings[ch].get("type") != "?" and len(tuple(findings[ch].get("tips", (0,)))) > 1]
+    shared_set = set(shared)
+    refined, shared_orders = [], []
+    for tip, members in enumerate(groups):
+        found = _order_subset(findings, obs, members, tip)
+        if found is None:
+            refined.append(list(members))
+            continue
+        order, info = found
+        shared_part = [c for c in order if c in shared_set]
+        private_part = [c for c in order if c not in shared_set]
+        refined.append(shared_part + private_part)
+        shared_orders.append((info.get("rmse_mm", 0.0), shared_part))
+    if shared_orders and any(part for _, part in shared_orders):
+        best_shared = min(shared_orders, key=lambda item: item[0])[1]
+        if best_shared:
+            return [list(best_shared) + [c for c in limb if c not in set(best_shared)] for limb in refined]
+    return refined
+
+
 class HypothesizerBase(Agent):
     source = "?"
 
@@ -370,12 +488,16 @@ class HypothesizerBase(Agent):
 
 
 class FindingsHypothesizer(HypothesizerBase):
-    """Assembles the channel agents' findings into whole body structures, and works out which
-    channel drives which link (`order` artifacts) as mixed motions come in."""
+    """Assembles the channel agents' findings into whole body structures, groups channels into
+    limbs when several fingertips are observed (`limbs` artifacts), and works out which channel
+    drives which link (`order` artifacts) as mixed motions come in."""
 
     source = "channels"
 
     def _order(self, bb):
+        arts = {a.payload["channel"]: a.payload for a in bb.of("finding")}
+        if limb_groups(arts, self.n) is not None:
+            return False  # several fingertips: the limbs artifact carries each chain's order
         key = ("order",) + order_key(bb)
         if key in self.done:
             return False
@@ -388,8 +510,33 @@ class FindingsHypothesizer(HypothesizerBase):
                 info["parents"])
         return True
 
+    def _limbs(self, bb):
+        """Group channels by the fingertip they move, and post that grouping once it changes."""
+        arts = {a.payload["channel"]: a for a in bb.of("finding")}
+        if len(arts) < self.n:
+            return False
+        findings = {ch: {**a.payload, "_id": a.id} for ch, a in arts.items()}
+        if limb_groups(findings, self.n) is None:
+            return False
+        key = ("limbs",) + order_key(bb)
+        if key in self.done:
+            return False
+        limbs = resolve_limbs(findings, bb.of("observation"), self.n)
+        self.done.add(key)
+        if limbs is None:
+            return False
+        prev = bb.latest("limbs")
+        if prev is not None and prev.payload["limbs"] == limbs:
+            return False
+        bb.post("limbs", self.name, {"limbs": limbs}, [a.id for a in arts.values()])
+        return True
+
     def step(self, bb, t):
-        return self._assemble(bb) or (len(bb.of("finding")) == self.n and self._order(bb))
+        if self._assemble(bb):
+            return True
+        if len(bb.of("finding")) < self.n:
+            return False
+        return self._limbs(bb) or self._order(bb)
 
     def _assemble(self, bb):
         arts = {a.payload["channel"]: a for a in bb.of("finding")}
@@ -450,9 +597,13 @@ class LLMHypothesizer(HypothesizerBase):
         self.last_why = ""
 
     def _prompt(self, findings, Q, X):
-        facts = "\n".join(
-            f"channel {ch}: type={f['type']} axis={f['axis']} curvature={f.get('curvature', float('nan')):.3f} "
-            f"spread_mm={f['spread_mm']:.1f}" for ch, f in sorted(findings.items())) or "none yet"
+        def _fact(ch, f):
+            tips = f" tips={list(f['tips'])}" if "tips" in f else ""
+            curv = f.get("curvature", float("nan"))
+            return (f"channel {ch}: type={f['type']} axis={f['axis']} curvature={curv:.3f} "
+                    f"spread_mm={f['spread_mm']:.1f}{tips}")
+
+        facts = "\n".join(_fact(ch, f) for ch, f in sorted(findings.items())) or "none yet"
         rows = "\n".join(f"q={np.round(q, 2).tolist()} -> tip_mm={np.round(x * 1000).astype(int).tolist()}"
                          for q, x in zip(Q, X)) or "none yet"
         return (f"A jointed robot of unknown type has {self.n} unlabeled channels and we observe its "
@@ -530,6 +681,7 @@ class Modeler(Agent):
         self.last_epoch = -1
         self.warm = warm  # parameters carried over from a previous body (transfer)
         self.own_order = {}  # order_key -> order, worked out here when nobody posted one
+        self.own_limbs = {}  # order_key -> limb chains, worked out here when nobody posted one
 
     def _order(self, bb):
         """Latest posted chain order this epoch; with none, work it out from the findings itself,
@@ -544,6 +696,19 @@ class Modeler(Agent):
             found = order_from_board(bb, self.n)
             self.own_order[key] = found[0] if found else None
         return self.own_order[key], []
+
+    def _limbs(self, bb):
+        """Latest limb grouping this epoch; with none posted, group the channel findings itself."""
+        posted = bb.latest("limbs")
+        if posted is not None:
+            return posted.payload["limbs"], [posted.id]
+        if len({a.payload["channel"] for a in bb.of("finding")}) < self.n:
+            return None, []
+        key = order_key(bb)
+        if key not in self.own_limbs:
+            findings = {a.payload["channel"]: {**a.payload, "_id": a.id} for a in bb.of("finding")}
+            self.own_limbs[key] = resolve_limbs(findings, bb.of("observation"), self.n)
+        return self.own_limbs[key], []
 
     def _structures(self, bb):
         """Up to N_STRUCTURES structures to try and the artifacts they came from. Takes each
@@ -577,13 +742,23 @@ class Modeler(Agent):
             self.last_n, self.last_epoch = -1, bb.epoch
         if len(Q) < self.MIN_DATA[self.family] or len(Q) == self.last_n:
             return False
+        # A multi-tip chain is not worth fitting until the channel sweeps finish: the limb grouping
+        # is what makes the tree, and a blind topology search would throw those motions away.
+        if (self.family == "chain" and np.asarray(X).ndim == 3
+                and any(nd.open and nd.kind.startswith("probe:") for nd in bb.needs)):
+            return False
         kw, used = {}, []
         if self.family == "chain":
             kw["patterns"], used = self._structures(bb)
-            order, oids = self._order(bb)
-            if order is not None and order != list(range(self.n)):
-                kw["order"] = order
-                used = used + oids
+            limbs, lids = self._limbs(bb)
+            if limbs is not None:
+                kw["limbs"] = limbs  # several fingertips: each chain's order is inside the grouping
+                used = used + lids
+            else:
+                order, oids = self._order(bb)
+                if order is not None and order != list(range(self.n)):
+                    kw["order"] = order
+                    used = used + oids
             prev = [a for a in bb.of("champion", epoch=-1) if a.payload["family"] == "chain"]
             kw["warm"] = prev[-1].payload["_model"].warm_state if prev else self.warm
             model = ChainModel(self.n, restarts=3, seed=self.seed + len(Q), any_types=self.any_types)

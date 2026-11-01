@@ -14,11 +14,16 @@ def solve_ik(model, target, n, limits=(-2.0, 2.0), seed=0, n_cand=250, n_refine=
             cands = np.vstack([cands, np.clip(model.sample_inverse(target, 64, rng), lo, hi)])
         except Exception:
             pass
-    err = np.linalg.norm(model.predict(cands) - target, axis=1)
+    pred = model.predict(cands)
+    if pred.ndim == 2:  # one fingertip, shape (candidates, 3)
+        err = np.linalg.norm(pred - target, axis=1)
+        residual = lambda q: model.predict(q[None])[0] - target  # noqa: E731
+    else:  # one column of xyz per fingertip
+        err = np.linalg.norm((pred - target).reshape(pred.shape[0], -1), axis=1)
+        residual = lambda q: (model.predict(q[None])[0] - target).ravel()  # noqa: E731
     best_q, best_e = None, np.inf
     for q0 in cands[np.argsort(err)[:n_refine]]:
-        r = least_squares(lambda q: model.predict(q[None])[0] - target, q0,
-                          bounds=(lo, hi), max_nfev=60, diff_step=1e-3)
+        r = least_squares(residual, q0, bounds=(lo, hi), max_nfev=60, diff_step=1e-3)
         e = float(np.linalg.norm(r.fun))
         if e < best_e:
             best_q, best_e = r.x, e
@@ -47,9 +52,17 @@ def plan(model, target, n, Q_seen, limits=(-2.0, 2.0), reach_tol=0.012, novelty_
 
 def reach_errors(robot, model, targets, n, seed=0):
     """Score a model by what matters: true distance from target after executing its plan.
-    Uses robot.true_tip, which is scoring only and never seen by agents."""
+    Uses robot.true_tip, which is scoring only and never seen by agents.
+
+    One marker returns shape (n_targets,). Several fingertips return (n_targets, n_tips),
+    one column per fingertip.
+    """
     out = []
     for i, t in enumerate(targets):
         q, _ = solve_ik(model, t, n, robot.limits, seed + i)
-        out.append(float(np.linalg.norm(robot.true_tip(q) - t)))
+        got = np.asarray(robot.true_tip(q) - t, float)
+        if got.ndim == 1:
+            out.append(float(np.linalg.norm(got)))
+        else:
+            out.append(np.linalg.norm(got, axis=-1))
     return np.array(out)

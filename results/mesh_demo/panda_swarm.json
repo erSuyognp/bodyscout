@@ -1,0 +1,71 @@
+{
+ "arm": "panda",
+ "condition": "swarm",
+ "family": "chain",
+ "n": 7,
+ "reach_mm": 1.5965353690918513,
+ "describe": {
+  "family": "chain",
+  "axes": [
+   "z",
+   "z",
+   "z",
+   "y",
+   "x",
+   "y",
+   "y"
+  ],
+  "types": [
+   "h",
+   "h",
+   "h",
+   "h",
+   "h",
+   "h",
+   "h"
+  ],
+  "structure": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hx",
+   "hy",
+   "hy"
+  ],
+  "links_m": [
+   0.166,
+   0.158,
+   0.18,
+   0.208,
+   0.192,
+   0.213,
+   0.046
+  ],
+  "identifiable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "chain_order": [
+   2,
+   3,
+   0,
+   6,
+   4,
+   5,
+   1
+  ]
+ },
+ "curve": [
+  [
+   128,
+   1.5965353690918513
+  ]
+ ],
+ "alarms": []
+}

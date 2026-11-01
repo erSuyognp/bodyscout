@@ -36,7 +36,10 @@ class SelfModel:
         raise NotImplementedError
 
     def rmse(self, Q, X) -> float:
-        return float(np.sqrt(np.mean(np.sum((self.predict(Q) - X) ** 2, axis=1))))
+        err = self.predict(Q) - np.asarray(X)
+        # one marker: sum over xyz. several fingertips: sum over xyz, then average tips too.
+        axis = 1 if err.ndim == 2 else -1
+        return float(np.sqrt(np.mean(np.sum(err ** 2, axis=axis))))
 
     def describe(self) -> dict:
         return {"family": self.family}
@@ -48,9 +51,13 @@ def _tok(t):
 
 
 class ChainModel(SelfModel):
-    """Serial chain of hinge or slide joints. Per joint: an offset vector (3) and an axis vector (3).
-    Hinge axes are normalised; a slide axis keeps its length, which absorbs the unknown metres per
-    command unit. The structure (which joints hinge or slide) comes from hypotheses or random restarts."""
+    """Serial chain of hinge or slide joints, or a tree when several fingertips are observed.
+
+    Per joint: an offset vector (3) and an axis vector (3). Hinge axes are normalised; a slide axis
+    keeps its length, which absorbs the unknown metres per command unit. The structure (which joints
+    hinge or slide) comes from hypotheses or random restarts. With several fingertips, `limbs` names
+    each tip's channels from the shared trunk outward and predict() returns one point per tip.
+    One fingertip keeps the serial chain."""
 
     family = "chain"
     NULL_RTOL = 1e-6      # singular values below this fraction of the largest span the null space
@@ -69,6 +76,7 @@ class ChainModel(SelfModel):
         self.types = ["h"] * n   # chain order
         self.identifiable = None
         self.order = list(range(n))  # chain position i is driven by channel order[i]
+        self.tree = False            # True once fit on several fingertips: a trunk plus one chain per tip
 
     def _unpack(self, p):
         offs = p[: 3 * self.n].reshape(self.n, 3)
@@ -104,11 +112,15 @@ class ChainModel(SelfModel):
         axes = ["z"] + list(self.rng.choice(["x", "y", "z"], self.n - 1))
         return [t + a for t, a in zip(types, axes)]
 
-    def fit(self, Q, X, patterns=None, warm=None, weights=None, order=None):
+    def fit(self, Q, X, patterns=None, warm=None, weights=None, order=None, limbs=None):
         """patterns: structural hypotheses ('hz', 'sx', ...) from the hypothesizer, one per channel.
         warm: (params, types[, order]) of a previous champion (transfer / damage recovery).
         order: which channel drives each link, base first (channels need not be wired in chain order).
+        limbs: for several fingertips, each tip's channels from the trunk out. None keeps the serial chain.
         Parameters, types and links are kept in chain order; tokens() reports in channel order."""
+        if np.asarray(X).ndim == 3:
+            return self._fit_tree(Q, X, patterns, warm, weights, limbs)
+        self.tree = False
         self.order = list(order) if order is not None else list(range(self.n))
         Q, X = np.asarray(Q)[:, self.order], np.asarray(X)
         w = np.ones(len(Q)) if weights is None else np.asarray(weights)
@@ -207,9 +219,13 @@ class ChainModel(SelfModel):
 
     @property
     def warm_state(self):
+        if self.tree:
+            return (self.params.copy(), list(self.types), [list(limb) for limb in self.limbs])
         return (self.params.copy(), list(self.types), list(self.order))
 
     def predict(self, Q):
+        if self.tree:
+            return self._fk_tree(self.params, np.atleast_2d(np.asarray(Q, float)))
         return self._fk(self.params, np.atleast_2d(Q)[:, self.order])
 
     def _by_channel(self, xs):
@@ -225,19 +241,242 @@ class ChainModel(SelfModel):
 
     def tokens(self):
         """Structure in channel order."""
+        if self.tree:
+            return self._tree_tokens()
         return self._by_channel([t + a for t, a in zip(self.types, self.axes_letters())])
 
     def link_lengths(self):
+        if self.tree:
+            return self._tree_link_lengths()
         offs, _, tip = self._unpack(self.report_params)
         return [float(np.linalg.norm(o)) for o in offs[1:]] + [float(np.linalg.norm(tip))]
 
     def describe(self):
+        if self.tree:
+            structure = self.tokens()
+            return {"family": self.family, "axes": self._tree_axes(), "types": list(self.types),
+                    "structure": structure, "limbs": [list(l) for l in self.limbs],
+                    "limb_structure": [[structure[c] for c in limb] for limb in self.limbs],
+                    "links_m": [round(v, 3) for v in self.link_lengths()],
+                    "identifiable": list(self.identifiable or [])}
         d = {"family": self.family, "axes": self._by_channel(self.axes_letters()),
              "types": self._by_channel(list(self.types)), "structure": self.tokens(),
              "links_m": [round(v, 3) for v in self.link_lengths()], "identifiable": list(self.identifiable or [])}
         if self.order != list(range(self.n)):
             d["chain_order"] = list(self.order)  # links_m and identifiable follow this order
         return d
+
+    # ---- tree: one trunk, then a chain out to each fingertip ----------------------
+    def _set_topology(self, limbs):
+        """Store the trunk (common prefix of every limb) and each limb's private channels."""
+        limbs = [[int(c) for c in limb] for limb in limbs]
+        trunk = []
+        if limbs and all(limbs):
+            for col in zip(*limbs):
+                if len(set(col)) != 1:
+                    break
+                trunk.append(int(col[0]))
+        branches = []
+        for limb in limbs:
+            rest = limb[len(trunk):] if limb[:len(trunk)] == trunk else [c for c in limb if c not in trunk]
+            branch, seen = [], set()
+            for c in rest:
+                c = int(c)
+                if c not in trunk and c not in seen:
+                    seen.add(c)
+                    branch.append(c)
+            branches.append(branch)
+        # a channel that landed in two branches is trunk-level: keep the first copy only
+        used = set(trunk)
+        clean = []
+        for branch in branches:
+            keep = []
+            for c in branch:
+                if c not in used:
+                    used.add(c)
+                    keep.append(c)
+            clean.append(keep)
+        self.trunk = trunk
+        self.branches = clean
+        self.limbs = [list(trunk) + b for b in clean]
+        self.seq = list(trunk) + [c for b in clean for c in b]
+        self.index = {c: i for i, c in enumerate(self.seq)}
+        self.n_tips = len(limbs)
+
+    def _fk_tree(self, p, Q, types=None):
+        """Fingertips, shape (M, n_tips, 3). Joint parameters follow self.seq, types are per channel."""
+        types = types if types is not None else self.types
+        n = len(self.seq)
+        offs = p[:3 * n].reshape(n, 3)
+        angs = p[3 * n:6 * n].reshape(n, 3)
+        tips = p[6 * n:6 * n + 3 * self.n_tips].reshape(self.n_tips, 3)
+        M = Q.shape[0]
+        pos = np.zeros((M, 3))
+        R = np.broadcast_to(np.eye(3), (M, 3, 3)).copy()
+
+        def apply(ch, pos, R):
+            i = self.index[ch]
+            pos = pos + np.einsum("mij,j->mi", R, offs[i])
+            if types[ch] == "h":
+                axis = angs[i] / (np.linalg.norm(angs[i]) + 1e-9)
+                R = np.einsum("mij,mjk->mik", R, _rot(axis, Q[:, ch]))
+            else:
+                pos = pos + np.einsum("mij,j->mi", R, angs[i]) * Q[:, ch:ch + 1]
+            return pos, R
+
+        for ch in self.trunk:
+            pos, R = apply(ch, pos, R)
+        out = []
+        for b, branch in enumerate(self.branches):
+            pth, r = pos.copy(), R.copy()
+            for ch in branch:
+                pth, r = apply(ch, pth, r)
+            out.append(pth + np.einsum("mij,j->mi", r, tips[b]))
+        return np.stack(out, axis=1)
+
+    def _types_from(self, pattern):
+        types = ["h"] * self.n
+        for ch, tok in enumerate(pattern):
+            types[ch] = _tok(tok)[0]
+        return types
+
+    def _init_tree(self, pattern, branch_dir="x"):
+        """One parameter vector: per joint an offset and an axis, then one tip offset per fingertip."""
+        toks = [_tok(t) for t in pattern]
+        n = len(self.seq)
+        offs = np.zeros((n, 3))
+        angs = np.zeros((n, 3))
+        firsts = [b[0] for b in self.branches if b]
+        for i, ch in enumerate(self.seq):
+            t = toks[ch]
+            scale = 1.0 if t[0] == "h" else 0.06
+            angs[i] = np.array(AX[t[1]]) * scale + self.rng.normal(0, 0.15 * scale, 3)
+            if ch in self.trunk and self.trunk.index(ch) == 0:
+                offs[i] = np.array([0.0, 0.0, 0.08])
+            elif ch in self.trunk:
+                offs[i] = np.array([0.0, 0.0, 0.10])
+            elif ch in firsts:
+                side = 1.0 if firsts.index(ch) % 2 == 0 else -1.0
+                offs[i] = np.array([0.0, 0.10 * side, 0.0])
+            else:
+                offs[i] = np.array(AX[branch_dir]) * 0.12
+            offs[i] = offs[i] + self.rng.normal(0, 0.01, 3)
+        tips = [np.array(AX[branch_dir]) * 0.12 + self.rng.normal(0, 0.01, 3) for _ in self.branches]
+        return np.concatenate([offs.ravel(), angs.ravel(), np.asarray(tips, float).ravel()])
+
+    def _blind_topologies(self, n_tips):
+        """Guesses used when nobody has grouped the channels: channel 0 shared, then random assignments."""
+        out = []
+        shared = [0] if self.n > n_tips else []
+        rest = [i for i in range(self.n) if i not in shared]
+        base = [list(shared) for _ in range(n_tips)]
+        for i, ch in enumerate(rest):
+            base[i % n_tips].append(ch)
+        out.append(base)
+        guard = 0
+        while len(out) < self.restarts and guard < 40:
+            guard += 1
+            role = self.rng.integers(0, n_tips + 1, size=self.n)
+            shared = [int(i) for i in range(self.n) if int(role[i]) == n_tips]
+            limbs, ok = [], True
+            for t in range(n_tips):
+                priv = [int(i) for i in range(self.n) if int(role[i]) == t]
+                if not shared and not priv:
+                    ok = False
+                limbs.append(shared + priv)
+            if ok:
+                out.append(limbs)
+        return out[:self.restarts]
+
+    def _warm_tree(self, warm, topo):
+        if not isinstance(warm, tuple) or len(warm) < 3:
+            return None
+        params, types, extra = warm[0], list(warm[1]), warm[2]
+        if len(types) != self.n or not isinstance(extra, list) or not extra or not isinstance(extra[0], (list, tuple)):
+            return None
+        if [list(map(int, limb)) for limb in extra] != [list(map(int, limb)) for limb in topo]:
+            return None
+        return np.asarray(params, float), types
+
+    def _fit_tree(self, Q, X, patterns, warm, weights, limbs):
+        """Least squares over offsets and axes, topology fixed when `limbs` is known."""
+        Q = np.asarray(Q, float)
+        X = np.asarray(X, float)
+        self.tree = True
+        self.n_tips = int(X.shape[1])
+        self.order = list(range(self.n))
+        w = np.ones(len(Q)) if weights is None else np.asarray(weights, float)
+        pats = [p for p in (patterns or []) if len(p) == self.n]
+        inits = []  # (topology, pattern or None, branch axis letter, warm pair or None)
+        if limbs is not None:
+            topo = limbs
+            warmed = self._warm_tree(warm, topo)
+            if warmed is not None:
+                inits.append((topo, None, "x", warmed))
+            for i, pat in enumerate(pats):
+                inits.append((topo, pat, "x", None))
+                if i == 0:
+                    inits.append((topo, pat, "z", None))
+            while len(inits) < self.restarts:
+                inits.append((topo, self._random_structure(), str(self.rng.choice(["x", "z"])), None))
+        else:
+            for topo in self._blind_topologies(self.n_tips):
+                inits.append((topo, self._random_structure(), str(self.rng.choice(list("xyz"))), None))
+        if not inits:
+            inits.append(([[i] for i in range(self.n)][:self.n_tips] or [list(range(self.n))],
+                           self._random_structure(), "x", None))
+        best = None
+        self.trials = []
+        sw = np.sqrt(w)[:, None, None]
+        for topo, pat, direction, warmed in inits:
+            self._set_topology(topo)
+            if warmed is not None:
+                p0, types = warmed
+                if p0.size != 6 * len(self.seq) + 3 * self.n_tips:
+                    continue
+            else:
+                p0 = self._init_tree(pat, branch_dir=direction)
+                types = self._types_from(pat)
+            def res(p, ty=types):
+                return ((self._fk_tree(p, Q, ty) - X) * sw).ravel()
+            try:
+                r = least_squares(res, p0, method="trf", max_nfev=400)
+            except Exception:
+                continue
+            pred = self._fk_tree(r.x, Q, types)
+            e2 = np.sum((pred - X) ** 2, axis=-1)
+            cost = float(np.sqrt(np.sum(w[:, None] * e2) / (np.sum(w) * e2.shape[1])))
+            self.trials.append((cost, "".join(types)))
+            if best is None or cost < best[0]:
+                best = (cost, r.x.copy(), list(types), [list(l) for l in self.limbs], list(self.trunk),
+                        [list(b) for b in self.branches], list(self.seq), dict(self.index))
+        if best is None:
+            raise RuntimeError("tree fit failed")
+        (self.train_rmse, self.params, self.types, self.limbs, self.trunk, self.branches,
+         self.seq, self.index) = best
+        self.report_params = self.params
+        self.identifiable = []
+        self.tree = True
+        self.n_tips = len(self.limbs)
+        return self
+
+    def _tree_axes(self):
+        n = len(self.seq)
+        angs = self.params[3 * n:6 * n].reshape(n, 3)
+        letters = ["?"] * self.n
+        for ch, i in self.index.items():
+            letters[ch] = "xyz"[int(np.argmax(np.abs(angs[i])))]
+        return letters
+
+    def _tree_tokens(self):
+        axes = self._tree_axes()
+        return [(self.types[c] if self.types[c] in "hs" else "?") + axes[c] for c in range(self.n)]
+
+    def _tree_link_lengths(self):
+        n = len(self.seq)
+        offs = self.params[:3 * n].reshape(n, 3)
+        tips = self.params[6 * n:6 * n + 3 * self.n_tips].reshape(self.n_tips, 3)
+        return ([float(np.linalg.norm(o)) for o in offs[1:]] + [float(np.linalg.norm(t)) for t in tips])
 
 
 class GMMModel(SelfModel):
@@ -251,7 +490,11 @@ class GMMModel(SelfModel):
         self.gmm = None
 
     def fit(self, Q, X, **_):
-        Z = np.hstack([Q, X * 10.0])  # scale x (metres) to radian-ish units
+        X = np.asarray(X, float)
+        self._out_shape = X.shape[1:] if X.ndim == 3 else None
+        rows = X if X.ndim == 2 else X.reshape(len(X), -1)
+        self._xd = rows.shape[1]
+        Z = np.hstack([Q, rows * 10.0])  # scale x (metres) to radian-ish units
         best = None
         for k in (4, 8, 16, 24):
             if k * 4 > len(Z):
@@ -288,8 +531,11 @@ class GMMModel(SelfModel):
     def predict(self, Q):
         Q = np.atleast_2d(Q)
         n = self.n
-        cm, _, resp = self._condition(Q, list(range(n)), list(range(n, n + 3)))
-        return np.einsum("mk,mkd->md", resp, cm) / 10.0
+        d = getattr(self, "_xd", 3)
+        cm, _, resp = self._condition(Q, list(range(n)), list(range(n, n + d)))
+        y = np.einsum("mk,mkd->md", resp, cm) / 10.0
+        shape = getattr(self, "_out_shape", None)
+        return y if shape is None else y.reshape((y.shape[0],) + tuple(shape))
 
     def sample_inverse(self, x, n_samples=32, rng=None):
         """Many joint configurations that could reach x: the redundant IK answer."""
@@ -300,7 +546,9 @@ class GMMModel(SelfModel):
         return np.array([rng.multivariate_normal(cm[0, k], cc[k]) for k in ks])
 
     def density(self, Q, X):
-        return self.gmm.score_samples(np.hstack([Q, X * 10.0]))
+        X = np.asarray(X, float)
+        rows = X if X.ndim == 2 else X.reshape(len(X), -1)
+        return self.gmm.score_samples(np.hstack([Q, rows * 10.0]))
 
 
 class MLPModel(SelfModel):
@@ -317,11 +565,16 @@ class MLPModel(SelfModel):
         return np.hstack([np.sin(Q), np.cos(Q)])
 
     def fit(self, Q, X, **_):
-        self.net.fit(self._f(Q), np.asarray(X) * 10.0)
+        X = np.asarray(X, float)
+        self._out_shape = X.shape[1:] if X.ndim == 3 else None
+        rows = X if X.ndim == 2 else X.reshape(len(X), -1)
+        self.net.fit(self._f(Q), rows * 10.0)
         return self
 
     def predict(self, Q):
-        return self.net.predict(self._f(Q)) / 10.0
+        y = self.net.predict(self._f(Q)) / 10.0
+        shape = getattr(self, "_out_shape", None)
+        return y if shape is None else y.reshape((y.shape[0],) + tuple(shape))
 
 
 FAMILIES = {"chain": ChainModel, "gmm": GMMModel, "mlp": MLPModel}

@@ -1,0 +1,71 @@
+{
+ "arm": "gen3",
+ "condition": "swarm",
+ "family": "chain",
+ "n": 7,
+ "reach_mm": 1.958393119859788,
+ "describe": {
+  "family": "chain",
+  "axes": [
+   "z",
+   "y",
+   "z",
+   "y",
+   "z",
+   "y",
+   "y"
+  ],
+  "types": [
+   "h",
+   "h",
+   "h",
+   "h",
+   "h",
+   "h",
+   "h"
+  ],
+  "structure": [
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hy"
+  ],
+  "links_m": [
+   0.143,
+   0.211,
+   0.211,
+   0.157,
+   0.159,
+   0.131,
+   0.062
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "chain_order": [
+   2,
+   3,
+   0,
+   6,
+   4,
+   5,
+   1
+  ]
+ },
+ "curve": [
+  [
+   128,
+   1.958393119859788
+  ]
+ ],
+ "alarms": []
+}

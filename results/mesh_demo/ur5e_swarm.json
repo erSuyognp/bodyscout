@@ -1,0 +1,65 @@
+{
+ "arm": "ur5e",
+ "condition": "swarm",
+ "family": "chain",
+ "n": 6,
+ "reach_mm": 1.5660276788738108,
+ "describe": {
+  "family": "chain",
+  "axes": [
+   "y",
+   "x",
+   "z",
+   "y",
+   "z",
+   "y"
+  ],
+  "types": [
+   "h",
+   "h",
+   "h",
+   "h",
+   "h",
+   "h"
+  ],
+  "structure": [
+   "hy",
+   "hx",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "links_m": [
+   0.088,
+   0.427,
+   0.393,
+   0.048,
+   0.093,
+   0.043
+  ],
+  "identifiable": [
+   false,
+   true,
+   true,
+   false,
+   false,
+   false
+  ],
+  "chain_order": [
+   2,
+   3,
+   0,
+   5,
+   4,
+   1
+  ]
+ },
+ "curve": [
+  [
+   128,
+   1.5660276788738108
+  ]
+ ],
+ "alarms": []
+}

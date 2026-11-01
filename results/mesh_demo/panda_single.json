@@ -1,0 +1,62 @@
+{
+ "arm": "panda",
+ "condition": "single",
+ "family": "chain",
+ "n": 7,
+ "reach_mm": 261.55956377181985,
+ "describe": {
+  "family": "chain",
+  "axes": [
+   "z",
+   "z",
+   "y",
+   "y",
+   "y",
+   "x",
+   "y"
+  ],
+  "types": [
+   "h",
+   "s",
+   "s",
+   "h",
+   "s",
+   "s",
+   "h"
+  ],
+  "structure": [
+   "hz",
+   "sz",
+   "sy",
+   "hy",
+   "sy",
+   "sx",
+   "hy"
+  ],
+  "links_m": [
+   0.109,
+   0.109,
+   0.109,
+   0.056,
+   0.056,
+   0.056,
+   0.355
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   true
+  ]
+ },
+ "curve": [
+  [
+   128,
+   261.55956377181985
+  ]
+ ],
+ "alarms": []
+}

@@ -1,0 +1,62 @@
+{
+ "arm": "gen3",
+ "condition": "single",
+ "family": "chain",
+ "n": 7,
+ "reach_mm": 967.1263662876714,
+ "describe": {
+  "family": "chain",
+  "axes": [
+   "z",
+   "x",
+   "x",
+   "x",
+   "y",
+   "z",
+   "x"
+  ],
+  "types": [
+   "h",
+   "s",
+   "s",
+   "h",
+   "s",
+   "s",
+   "h"
+  ],
+  "structure": [
+   "hz",
+   "sx",
+   "sx",
+   "hx",
+   "sy",
+   "sz",
+   "hx"
+  ],
+  "links_m": [
+   0.106,
+   0.106,
+   0.106,
+   0.06,
+   0.06,
+   0.06,
+   0.174
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   true
+  ]
+ },
+ "curve": [
+  [
+   128,
+   967.1263662876714
+  ]
+ ],
+ "alarms": []
+}

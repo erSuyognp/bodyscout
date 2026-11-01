@@ -1,0 +1,412 @@
+[
+ {
+  "family": "twoarm",
+  "seed": 1,
+  "condition": "swarm",
+  "truth": [
+   [
+    "hz",
+    "hy",
+    "hy"
+   ],
+   [
+    "hz",
+    "hy",
+    "sx"
+   ]
+  ],
+  "found": [
+   [
+    "hz",
+    "hy",
+    "hy"
+   ],
+   [
+    "hz",
+    "hy",
+    "sx"
+   ]
+  ],
+  "limbs": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0,
+    3,
+    4
+   ]
+  ],
+  "true_limbs": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0,
+    3,
+    4
+   ]
+  ],
+  "structure_correct": [
+   true,
+   true
+  ],
+  "final_reach_mm": [
+   0.67,
+   0.87
+  ],
+  "structure": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "sx"
+  ]
+ },
+ {
+  "family": "twoarm",
+  "seed": 1,
+  "condition": "single_probe",
+  "truth": [
+   [
+    "hz",
+    "hy",
+    "hy"
+   ],
+   [
+    "hz",
+    "hy",
+    "sx"
+   ]
+  ],
+  "found": [
+   [
+    "hz",
+    "hy",
+    "hy"
+   ],
+   [
+    "hz",
+    "hy",
+    "sx"
+   ]
+  ],
+  "limbs": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0,
+    3,
+    4
+   ]
+  ],
+  "true_limbs": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0,
+    3,
+    4
+   ]
+  ],
+  "structure_correct": [
+   true,
+   true
+  ],
+  "final_reach_mm": [
+   0.84,
+   0.62
+  ],
+  "structure": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "sx"
+  ]
+ },
+ {
+  "family": "twoarm",
+  "seed": 1,
+  "condition": "single",
+  "truth": [
+   [
+    "hz",
+    "hy",
+    "hy"
+   ],
+   [
+    "hz",
+    "hy",
+    "sx"
+   ]
+  ],
+  "found": [
+   [
+    "sz",
+    "sx"
+   ],
+   [
+    "sz",
+    "sx",
+    "hz",
+    "hz",
+    "sz"
+   ]
+  ],
+  "limbs": [
+   [
+    2,
+    4
+   ],
+   [
+    2,
+    4,
+    0,
+    1,
+    3
+   ]
+  ],
+  "true_limbs": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0,
+    3,
+    4
+   ]
+  ],
+  "structure_correct": [
+   false,
+   false
+  ],
+  "final_reach_mm": [
+   201.37,
+   190.01
+  ],
+  "structure": [
+   "hz",
+   "hz",
+   "sz",
+   "sz",
+   "sx"
+  ]
+ },
+ {
+  "family": "twoarm",
+  "seed": 2,
+  "condition": "swarm",
+  "truth": [
+   [
+    "hz",
+    "hy",
+    "hy"
+   ],
+   [
+    "hz",
+    "hy",
+    "sx"
+   ]
+  ],
+  "found": [
+   [
+    "hz",
+    "hy",
+    "hy"
+   ],
+   [
+    "hz",
+    "hy",
+    "sx"
+   ]
+  ],
+  "limbs": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0,
+    3,
+    4
+   ]
+  ],
+  "true_limbs": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0,
+    3,
+    4
+   ]
+  ],
+  "structure_correct": [
+   true,
+   true
+  ],
+  "final_reach_mm": [
+   0.77,
+   1.33
+  ],
+  "structure": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "sx"
+  ]
+ },
+ {
+  "family": "twoarm",
+  "seed": 2,
+  "condition": "single_probe",
+  "truth": [
+   [
+    "hz",
+    "hy",
+    "hy"
+   ],
+   [
+    "hz",
+    "hy",
+    "sx"
+   ]
+  ],
+  "found": [
+   [
+    "hz",
+    "hy",
+    "hy"
+   ],
+   [
+    "hz",
+    "hy",
+    "sx"
+   ]
+  ],
+  "limbs": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0,
+    3,
+    4
+   ]
+  ],
+  "true_limbs": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0,
+    3,
+    4
+   ]
+  ],
+  "structure_correct": [
+   true,
+   true
+  ],
+  "final_reach_mm": [
+   0.96,
+   1.24
+  ],
+  "structure": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "sx"
+  ]
+ },
+ {
+  "family": "twoarm",
+  "seed": 2,
+  "condition": "single",
+  "truth": [
+   [
+    "hz",
+    "hy",
+    "hy"
+   ],
+   [
+    "hz",
+    "hy",
+    "sx"
+   ]
+  ],
+  "found": [
+   [
+    "hz",
+    "hy",
+    "hy"
+   ],
+   [
+    "hz",
+    "sz",
+    "sx"
+   ]
+  ],
+  "limbs": [
+   [
+    0,
+    1,
+    3
+   ],
+   [
+    0,
+    2,
+    4
+   ]
+  ],
+  "true_limbs": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0,
+    3,
+    4
+   ]
+  ],
+  "structure_correct": [
+   true,
+   false
+  ],
+  "final_reach_mm": [
+   185.03,
+   180.69
+  ],
+  "structure": [
+   "hz",
+   "hy",
+   "sz",
+   "hy",
+   "sx"
+  ]
+ }
+]
