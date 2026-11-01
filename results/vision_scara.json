@@ -1,0 +1,50 @@
+{
+ "structure-informed Gemini + snap, drop 1": {
+  "n": 200,
+  "accepted": 194,
+  "rejected": 6,
+  "missing": 0,
+  "median_mm": 85.64992939886037,
+  "p90_mm": 291.9403380913022
+ },
+ "chain end walk, drop 1": {
+  "n": 200,
+  "accepted": 192,
+  "rejected": 8,
+  "missing": 0,
+  "median_mm": 14.74364194070968,
+  "p90_mm": 176.5398801277574
+ },
+ "either, agreeing combination, drop 1": {
+  "n": 200,
+  "accepted": 200,
+  "rejected": 0,
+  "missing": 0,
+  "median_mm": 126.95821446583093,
+  "p90_mm": 269.2086750972155
+ },
+ "structure-informed Gemini + snap, strict": {
+  "n": 200,
+  "accepted": 49,
+  "rejected": 151,
+  "missing": 0,
+  "median_mm": 7.142803463383122,
+  "p90_mm": 288.69431039507674
+ },
+ "chain end walk, strict": {
+  "n": 200,
+  "accepted": 52,
+  "rejected": 148,
+  "missing": 0,
+  "median_mm": 136.55647293894702,
+  "p90_mm": 194.52872392355675
+ },
+ "either, agreeing combination, strict": {
+  "n": 200,
+  "accepted": 98,
+  "rejected": 102,
+  "missing": 0,
+  "median_mm": 9.305767506601812,
+  "p90_mm": 237.99109981362082
+ }
+}

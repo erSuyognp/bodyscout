@@ -1,0 +1,354 @@
+{
+ "A": {
+  "cameras": 2,
+  "resolution": "640x480",
+  "median_px": 1.4939113957039791,
+  "families": {
+   "arm": {
+    "n": 200,
+    "accepted": 178,
+    "rejected": 22,
+    "missing": 0,
+    "median_mm": 6.006477916658317,
+    "p90_mm": 9.155984301151431
+   },
+   "gantry": {
+    "n": 200,
+    "accepted": 182,
+    "rejected": 18,
+    "missing": 0,
+    "median_mm": 6.394761302551531,
+    "p90_mm": 11.87627916091667
+   },
+   "scara": {
+    "n": 200,
+    "accepted": 140,
+    "rejected": 60,
+    "missing": 0,
+    "median_mm": 201.2259153565425,
+    "p90_mm": 302.49095140442654
+   },
+   "telescope": {
+    "n": 200,
+    "accepted": 187,
+    "rejected": 13,
+    "missing": 0,
+    "median_mm": 6.104680787263111,
+    "p90_mm": 9.531142695391075
+   }
+  }
+ },
+ "B": {
+  "cameras": 2,
+  "resolution": "640x480",
+  "median_px": 0.565826932662845,
+  "families": {
+   "arm": {
+    "n": 200,
+    "accepted": 177,
+    "rejected": 23,
+    "missing": 0,
+    "median_mm": 1.9780248200621124,
+    "p90_mm": 8.72528407613428
+   },
+   "gantry": {
+    "n": 200,
+    "accepted": 182,
+    "rejected": 18,
+    "missing": 0,
+    "median_mm": 5.844406164217447,
+    "p90_mm": 15.048753872629382
+   },
+   "scara": {
+    "n": 200,
+    "accepted": 139,
+    "rejected": 61,
+    "missing": 0,
+    "median_mm": 201.27516459122737,
+    "p90_mm": 302.795013960869
+   },
+   "telescope": {
+    "n": 200,
+    "accepted": 184,
+    "rejected": 16,
+    "missing": 0,
+    "median_mm": 1.9017365081169348,
+    "p90_mm": 6.152305996757701
+   }
+  }
+ },
+ "C": {
+  "cameras": 2,
+  "resolution": "640x480",
+  "median_px": 0.5670110390493327,
+  "families": {
+   "arm": {
+    "n": 200,
+    "accepted": 175,
+    "rejected": 25,
+    "missing": 0,
+    "median_mm": 1.9809876620693456,
+    "p90_mm": 8.786305975979078
+   },
+   "gantry": {
+    "n": 200,
+    "accepted": 154,
+    "rejected": 46,
+    "missing": 0,
+    "median_mm": 4.2118778049219445,
+    "p90_mm": 16.763476977717264
+   },
+   "scara": {
+    "n": 200,
+    "accepted": 112,
+    "rejected": 88,
+    "missing": 0,
+    "median_mm": 161.74262709054972,
+    "p90_mm": 302.67802007016076
+   },
+   "telescope": {
+    "n": 200,
+    "accepted": 153,
+    "rejected": 47,
+    "missing": 0,
+    "median_mm": 1.8897029894826525,
+    "p90_mm": 22.685427111205097
+   }
+  }
+ },
+ "D": {
+  "cameras": 2,
+  "resolution": "640x480",
+  "median_px": 0.8125072585327522,
+  "families": {
+   "arm": {
+    "n": 200,
+    "accepted": 193,
+    "rejected": 7,
+    "missing": 0,
+    "median_mm": 2.282185580399008,
+    "p90_mm": 423.0182949200556
+   },
+   "gantry": {
+    "n": 200,
+    "accepted": 190,
+    "rejected": 10,
+    "missing": 0,
+    "median_mm": 6.6301689347809845,
+    "p90_mm": 16.544333080909034
+   },
+   "scara": {
+    "n": 200,
+    "accepted": 189,
+    "rejected": 11,
+    "missing": 0,
+    "median_mm": 212.86175042253154,
+    "p90_mm": 313.5634113165957
+   },
+   "telescope": {
+    "n": 200,
+    "accepted": 192,
+    "rejected": 8,
+    "missing": 0,
+    "median_mm": 2.3508152813560144,
+    "p90_mm": 309.2105231959686
+   }
+  }
+ },
+ "_calls": 3200,
+ "E (B)": {
+  "cameras": 4,
+  "resolution": "1280x960",
+  "median_px": 0.7407711144604712,
+  "families": {
+   "arm": {
+    "n": 200,
+    "accepted": 197,
+    "rejected": 3,
+    "missing": 0,
+    "median_mm": 1.3386415579888797,
+    "p90_mm": 5.949684526848142
+   },
+   "gantry": {
+    "n": 200,
+    "accepted": 200,
+    "rejected": 0,
+    "missing": 0,
+    "median_mm": 3.0487947985147796,
+    "p90_mm": 7.612370349055647
+   },
+   "scara": {
+    "n": 200,
+    "accepted": 192,
+    "rejected": 8,
+    "missing": 0,
+    "median_mm": 206.46097648454295,
+    "p90_mm": 308.76470860170576
+   },
+   "telescope": {
+    "n": 200,
+    "accepted": 199,
+    "rejected": 1,
+    "missing": 0,
+    "median_mm": 1.164876703198317,
+    "p90_mm": 4.859467344057683
+   }
+  }
+ },
+ "E (A)": {
+  "cameras": 4,
+  "resolution": "1280x960",
+  "median_px": 2.5906443108240254,
+  "families": {
+   "arm": {
+    "n": 200,
+    "accepted": 198,
+    "rejected": 2,
+    "missing": 0,
+    "median_mm": 5.122088616451212,
+    "p90_mm": 7.900421487566211
+   },
+   "gantry": {
+    "n": 200,
+    "accepted": 200,
+    "rejected": 0,
+    "missing": 0,
+    "median_mm": 5.096170503065811,
+    "p90_mm": 7.733333764254368
+   },
+   "scara": {
+    "n": 200,
+    "accepted": 195,
+    "rejected": 5,
+    "missing": 0,
+    "median_mm": 205.55770304712127,
+    "p90_mm": 303.22275393766097
+   },
+   "telescope": {
+    "n": 200,
+    "accepted": 198,
+    "rejected": 2,
+    "missing": 0,
+    "median_mm": 5.107303942422874,
+    "p90_mm": 7.740357912061558
+   }
+  }
+ },
+ "E (F)": {
+  "cameras": 4,
+  "resolution": "1280x960",
+  "median_px": 6.954621874902942,
+  "families": {
+   "arm": {
+    "n": 200,
+    "accepted": 199,
+    "rejected": 1,
+    "missing": 0,
+    "median_mm": 1.2767982146380354,
+    "p90_mm": 8.778271412084164
+   },
+   "gantry": {
+    "n": 200,
+    "accepted": 195,
+    "rejected": 5,
+    "missing": 0,
+    "median_mm": 172.28659215928673,
+    "p90_mm": 258.87768350165607
+   },
+   "scara": {
+    "n": 200,
+    "accepted": 192,
+    "rejected": 8,
+    "missing": 0,
+    "median_mm": 14.74364194070968,
+    "p90_mm": 176.5398801277574
+   },
+   "telescope": {
+    "n": 200,
+    "accepted": 198,
+    "rejected": 2,
+    "missing": 0,
+    "median_mm": 5.594640740701948,
+    "p90_mm": 260.9925780599635
+   }
+  }
+ },
+ "E (G)": {
+  "cameras": 4,
+  "resolution": "1280x960",
+  "median_px": NaN,
+  "families": {
+   "arm": {
+    "n": 200,
+    "accepted": 200,
+    "rejected": 0,
+    "missing": 0,
+    "median_mm": 1.2707390522303381,
+    "p90_mm": 4.825702841419097
+   },
+   "gantry": {
+    "n": 200,
+    "accepted": 200,
+    "rejected": 0,
+    "missing": 0,
+    "median_mm": 5.961015424788797,
+    "p90_mm": 231.04188248984133
+   },
+   "scara": {
+    "n": 200,
+    "accepted": 200,
+    "rejected": 0,
+    "missing": 0,
+    "median_mm": 164.74279059731145,
+    "p90_mm": 290.4010860759919
+   },
+   "telescope": {
+    "n": 200,
+    "accepted": 200,
+    "rejected": 0,
+    "missing": 0,
+    "median_mm": 1.1223576594481353,
+    "p90_mm": 220.39655891454922
+   }
+  }
+ },
+ "E (B strict)": {
+  "cameras": 4,
+  "resolution": "1280x960",
+  "median_px": 0.7407711144604712,
+  "families": {
+   "arm": {
+    "n": 200,
+    "accepted": 147,
+    "rejected": 53,
+    "missing": 0,
+    "median_mm": 1.288965238528975,
+    "p90_mm": 3.5015862919766487
+   },
+   "gantry": {
+    "n": 200,
+    "accepted": 109,
+    "rejected": 91,
+    "missing": 0,
+    "median_mm": 3.697803831348564,
+    "p90_mm": 7.319580150747164
+   },
+   "scara": {
+    "n": 200,
+    "accepted": 41,
+    "rejected": 159,
+    "missing": 0,
+    "median_mm": 251.62192816939216,
+    "p90_mm": 318.6481213013987
+   },
+   "telescope": {
+    "n": 200,
+    "accepted": 152,
+    "rejected": 48,
+    "missing": 0,
+    "median_mm": 1.1195168128274533,
+    "p90_mm": 3.41567099564082
+   }
+  }
+ }
+}
