@@ -66,8 +66,9 @@ class ChainModel(SelfModel):
         self.any_types = any_types  # random restarts may guess slides too (body type unknown)
         self.params = None
         self.report_params = None  # same tips as params, shortest links; for describe() only
-        self.types = ["h"] * n
+        self.types = ["h"] * n   # chain order
         self.identifiable = None
+        self.order = list(range(n))  # chain position i is driven by channel order[i]
 
     def _unpack(self, p):
         offs = p[: 3 * self.n].reshape(self.n, 3)
@@ -103,19 +104,23 @@ class ChainModel(SelfModel):
         axes = ["z"] + list(self.rng.choice(["x", "y", "z"], self.n - 1))
         return [t + a for t, a in zip(types, axes)]
 
-    def fit(self, Q, X, patterns=None, warm=None, weights=None):
-        """patterns: structural hypotheses ('hz', 'sx', ...) from the hypothesizer.
-        warm: (params, types) of a previous champion (transfer / damage recovery)."""
-        Q, X = np.asarray(Q), np.asarray(X)
+    def fit(self, Q, X, patterns=None, warm=None, weights=None, order=None):
+        """patterns: structural hypotheses ('hz', 'sx', ...) from the hypothesizer, one per channel.
+        warm: (params, types[, order]) of a previous champion (transfer / damage recovery).
+        order: which channel drives each link, base first (channels need not be wired in chain order).
+        Parameters, types and links are kept in chain order; tokens() reports in channel order."""
+        self.order = list(order) if order is not None else list(range(self.n))
+        Q, X = np.asarray(Q)[:, self.order], np.asarray(X)
         w = np.ones(len(Q)) if weights is None else np.asarray(weights)
         sw = np.sqrt(w)[:, None]
         inits = []
         if warm is not None:
-            wp, wt = warm if isinstance(warm, tuple) else (warm, ["h"] * self.n)
-            if len(wt) == self.n:
+            wp, wt, wo = (tuple(warm) + (list(range(self.n)),))[:3] if isinstance(warm, tuple)                 else (warm, ["h"] * self.n, list(range(self.n)))
+            if len(wt) == self.n and list(wo) == self.order:
                 inits.append((np.asarray(wp, float), list(wt)))
         for pat in (patterns or []):
             if len(pat) == self.n:  # links might point up or sideways: try both
+                pat = [pat[c] for c in self.order]
                 inits.append(self.init_from_pattern(pat))
                 inits.append(self.init_from_pattern(pat, link_dir="x"))
         while len(inits) < self.restarts:
@@ -202,10 +207,16 @@ class ChainModel(SelfModel):
 
     @property
     def warm_state(self):
-        return (self.params.copy(), list(self.types))
+        return (self.params.copy(), list(self.types), list(self.order))
 
     def predict(self, Q):
-        return self._fk(self.params, np.atleast_2d(Q))
+        return self._fk(self.params, np.atleast_2d(Q)[:, self.order])
+
+    def _by_channel(self, xs):
+        out = [None] * self.n
+        for i, c in enumerate(self.order):
+            out[c] = xs[i]
+        return out
 
     def axes_letters(self):
         """Read back which axis each joint is closest to: an interpretable discovery."""
@@ -213,16 +224,20 @@ class ChainModel(SelfModel):
         return ["xyz"[int(np.argmax(np.abs(a)))] for a in angs]
 
     def tokens(self):
-        return [t + a for t, a in zip(self.types, self.axes_letters())]
+        """Structure in channel order."""
+        return self._by_channel([t + a for t, a in zip(self.types, self.axes_letters())])
 
     def link_lengths(self):
         offs, _, tip = self._unpack(self.report_params)
         return [float(np.linalg.norm(o)) for o in offs[1:]] + [float(np.linalg.norm(tip))]
 
     def describe(self):
-        return {"family": self.family, "axes": self.axes_letters(), "types": list(self.types),
-                "structure": self.tokens(), "links_m": [round(v, 3) for v in self.link_lengths()],
-                "identifiable": list(self.identifiable or [])}
+        d = {"family": self.family, "axes": self._by_channel(self.axes_letters()),
+             "types": self._by_channel(list(self.types)), "structure": self.tokens(),
+             "links_m": [round(v, 3) for v in self.link_lengths()], "identifiable": list(self.identifiable or [])}
+        if self.order != list(range(self.n)):
+            d["chain_order"] = list(self.order)  # links_m and identifiable follow this order
+        return d
 
 
 class GMMModel(SelfModel):

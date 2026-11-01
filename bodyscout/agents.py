@@ -4,9 +4,10 @@ single agent whose loss stops the swarm: every role has a second instance or a f
 Explorer x2     share the robot through needs; serve `probe` and `data` needs with motions
 Channel x N     one per unlabeled channel: wiggles only its channel, decides hinge or slide and the axis
 Hypothesizers   independent; each posts hypotheses tagged by source: findings (assembles channel
-                findings), prior, library, and one LLM agent per API key (Claude, Gemini)
-Modeler x3      chain / gmm / mlp; refit when new data lands. The chain modeler reads hypotheses, and
-                assembles channel findings itself when no findings hypothesizer has
+                findings, and posts the chain `order`: which channel drives which link), prior,
+                library, and one LLM agent per API key (Claude, Gemini)
+Modeler x3      chain / gmm / mlp; refit when new data lands. The chain modeler reads hypotheses and the
+                chain order, and works out either itself from channel findings when nobody posted one
 Validator x2    replay check candidates and vote for crown(bb), a public pure rule; a champion is
                 posted only when the live validators agree
 Monitor         spends a sentinel motion now and then; declares "my body changed" on surprise
@@ -195,6 +196,141 @@ def prior_structures(n: int) -> list:
     return sorted(pats, key=lambda p: -sum(c == "hy" for c in p))
 
 
+# ---------------------------------------------------------------------------
+# Chain order. Nothing says channel 0 drives the base. Each channel sweep from the home pose traces
+# that joint's axis line (hinge: arc normal and centre; slide: line direction), and those lines do not
+# depend on the order. Given them, any order predicts every tip with no fitting (product of
+# exponentials: apply the most distal joint first), so the order is a search over permutations scored
+# on the motions where several channels moved at once.
+
+ORDER_MAX_N = 8      # 8! = 40320 orders; past that the exhaustive search is too slow
+ORDER_EVERY = 8      # recompute the order each time this many more mixed motions arrive
+
+
+def _spin(r, w, a):
+    """Rotate vectors r (M,3) about unit axis w by angles a (M,)."""
+    c, s = np.cos(a)[:, None], np.sin(a)[:, None]
+    return r * c + np.cross(w, r) * s + np.outer(r @ w, w) * (1 - c)
+
+
+def _move_point(g, p, v):
+    """Apply one joint's home pose screw g to points p (M,3) at commands v (M,)."""
+    if g is None:
+        return p
+    if g[0] == "h":
+        return g[2] + _spin(p - g[2], g[1], v)
+    return p + v[:, None] * g[1]
+
+
+def _sweep_geometry(kind, v, P):
+    """One channel's screw from its home pose sweep, plus its estimate of the home tip."""
+    if kind == "s":
+        coef = np.linalg.lstsq(np.c_[v, np.ones_like(v)], P, rcond=None)[0]
+        return ("s", coef[0]), coef[1]
+    m = P.mean(0)
+    _, _, vt = np.linalg.svd(P - m)
+    u = (P - m) @ vt[:2].T                                  # arc in its own plane
+    a, b, _ = np.linalg.lstsq(np.c_[2 * u, np.ones(len(u))], (u ** 2).sum(1), rcond=None)[0]
+    c = m + a * vt[0] + b * vt[1]                           # circle centre (Kasa fit)
+    best = None
+    for w in (vt[2], -vt[2]):                               # which way positive commands turn
+        homes = _move_point(("h", w, c), P, -v)
+        spread = float(homes.std(0).sum())
+        if best is None or spread < best[0]:
+            best = (spread, ("h", w, c), homes.mean(0))
+    return best[1], best[2]
+
+
+def _refine(geo, home, sweeps):
+    """Joint least squares over every sweep with one shared home tip."""
+    from scipy.optimize import least_squares
+    chans = [ch for ch in sorted(sweeps) if geo[ch] is not None]
+
+    def unpack(p):
+        out, k = {}, 3
+        for ch in chans:
+            if geo[ch][0] == "h":
+                w = p[k:k + 3]
+                out[ch] = ("h", w / (np.linalg.norm(w) + 1e-12), p[k + 3:k + 6])
+                k += 6
+            else:
+                out[ch] = ("s", p[k:k + 3])
+                k += 3
+        return p[:3], out
+
+    def res(p):
+        x0, g = unpack(p)
+        r = [(_move_point(g[ch], np.tile(x0, (len(sweeps[ch][0]), 1)), sweeps[ch][0]) - sweeps[ch][1]).ravel()
+             for ch in chans]
+        for ch in chans:  # the centre may slide along its own axis for free: pin it lightly
+            if g[ch][0] == "h":
+                r.append([1e-2 * (g[ch][2] - geo[ch][2]) @ g[ch][1]])
+        return np.concatenate(r)
+
+    p0 = np.concatenate([home] + [np.r_[g[1], g[2]] if g[0] == "h" else g[1] for g in (geo[ch] for ch in chans)])
+    x0, g = unpack(least_squares(res, p0, method="trf", max_nfev=200).x)
+    return x0, {ch: g.get(ch) for ch in geo}
+
+
+def infer_order(findings: dict, obs: list, n: int):
+    """Most likely chain order (channel driving each link, base first) from the channel sweeps and
+    the motions seen so far. Returns (order, info) or None when there is not enough to go on.
+    When channels in their given order explain the data about as well, keeps that order."""
+    if len(findings) < n or n > ORDER_MAX_N:
+        return None
+    train = [a for a in obs if a.payload["split"] == "train"]
+    mixed = [a for a in train if "probe" not in a.payload]
+    if len(mixed) < max(8, n):
+        return None
+    sweeps, geo, homes = {}, {}, []
+    for ch in range(n):
+        pts = [a for a in train if a.payload.get("probe") == ch and a.payload.get("attempt") == 0]
+        kind = findings[ch]["type"]
+        if len(pts) < 3 or kind == "?":
+            geo[ch] = None  # never seen to move the tip from home: treated as moving nothing
+            continue
+        v = np.array([a.payload["q"][ch] for a in pts])
+        P = np.array([a.payload["x"] for a in pts])
+        sweeps[ch] = (v, P)
+        geo[ch], h = _sweep_geometry(kind, v, P)
+        homes.append(h)
+    if not homes:
+        return None
+    x0, geo = _refine(geo, np.median(homes, axis=0), sweeps)
+    Q = np.array([a.payload["q"] for a in train])
+    X = np.array([a.payload["x"] for a in train])
+    scores = {}
+
+    def search(p, left, suffix):  # suffix: the distal end of the chain, already applied to p
+        if not left:
+            scores[tuple(suffix)] = float(np.sqrt(np.mean(np.sum((p - X) ** 2, axis=1))))
+            return
+        for ch in left:
+            search(_move_point(geo[ch], p, Q[:, ch]), [c for c in left if c != ch], [ch] + suffix)
+
+    search(np.tile(x0, (len(Q), 1)), list(range(n)), [])
+    best = min(scores.values())
+    ident = scores[tuple(range(n))]
+    if ident <= 1.2 * best + 0.002:
+        order = list(range(n))
+    else:  # orders that fit equally well (commuting joints): take the one closest to as wired
+        ties = [o for o, s in scores.items() if s <= 1.05 * best + 5e-4]
+        order = list(min(ties, key=lambda o: (sum(a > b for i, a in enumerate(o) for b in o[i + 1:]), o)))
+    return order, {"rmse_mm": best * 1000, "as_wired_rmse_mm": ident * 1000, "n_motions": len(mixed),
+                   "parents": [findings[ch]["_id"] for ch in range(n)] + [a.id for a in mixed[-8:]]}
+
+
+def order_key(bb):
+    """(epoch, data bucket): when the chain order is worth recomputing."""
+    mixed = sum(1 for a in bb.of("observation") if a.payload["split"] == "train" and "probe" not in a.payload)
+    return bb.epoch, mixed // ORDER_EVERY
+
+
+def order_from_board(bb, n):
+    return infer_order({a.payload["channel"]: {**a.payload, "_id": a.id} for a in bb.of("finding")},
+                       bb.of("observation"), n)
+
+
 class HypothesizerBase(Agent):
     source = "?"
 
@@ -227,11 +363,28 @@ class HypothesizerBase(Agent):
 
 
 class FindingsHypothesizer(HypothesizerBase):
-    """Assembles the channel agents' findings into whole body structures."""
+    """Assembles the channel agents' findings into whole body structures, and works out which
+    channel drives which link (`order` artifacts) as mixed motions come in."""
 
     source = "channels"
 
+    def _order(self, bb):
+        key = ("order",) + order_key(bb)
+        if key in self.done:
+            return False
+        found = order_from_board(bb, self.n)
+        if found is None:
+            return False
+        self.done.add(key)
+        order, info = found
+        bb.post("order", self.name, {"order": order, **{k: v for k, v in info.items() if k != "parents"}},
+                info["parents"])
+        return True
+
     def step(self, bb, t):
+        return self._assemble(bb) or (len(bb.of("finding")) == self.n and self._order(bb))
+
+    def _assemble(self, bb):
         arts = {a.payload["channel"]: a for a in bb.of("finding")}
         if not arts:
             return False
@@ -369,6 +522,21 @@ class Modeler(Agent):
         self.last_n = -1
         self.last_epoch = -1
         self.warm = warm  # parameters carried over from a previous body (transfer)
+        self.own_order = {}  # order_key -> order, worked out here when nobody posted one
+
+    def _order(self, bb):
+        """Latest posted chain order this epoch; with none, work it out from the findings itself,
+        so a lost findings hypothesizer does not leave the channels in the wrong order."""
+        posted = bb.latest("order")
+        if posted is not None:
+            return posted.payload["order"], [posted.id]
+        if not bb.of("finding"):
+            return None, []
+        key = order_key(bb)
+        if key not in self.own_order:
+            found = order_from_board(bb, self.n)
+            self.own_order[key] = found[0] if found else None
+        return self.own_order[key], []
 
     def _structures(self, bb):
         """Up to N_STRUCTURES structures to try and the artifacts they came from. Takes each
@@ -405,6 +573,10 @@ class Modeler(Agent):
         kw, used = {}, []
         if self.family == "chain":
             kw["patterns"], used = self._structures(bb)
+            order, oids = self._order(bb)
+            if order is not None and order != list(range(self.n)):
+                kw["order"] = order
+                used = used + oids
             prev = [a for a in bb.of("champion", epoch=-1) if a.payload["family"] == "chain"]
             kw["warm"] = prev[-1].payload["_model"].warm_state if prev else self.warm
             model = ChainModel(self.n, restarts=3, seed=self.seed + len(Q), any_types=self.any_types)

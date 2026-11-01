@@ -20,9 +20,12 @@ If you add a feature that needs ground truth, it belongs in experiments/ or the 
 - `bodyscout/models.py`     competing self models: ChainModel (physics prior), GMMModel (Kitchin 2025), MLPModel
 - `bodyscout/blackboard.py` ScienceClaw style artifacts (with parents) + needs with pressure
 - `bodyscout/agents.py`     Explorer x2, ChannelAgent x N (hinge or slide per channel), independent
-                            hypothesizers (findings, prior, library, one LLM per key: Claude, Gemini),
+                            hypothesizers (findings, prior, library, one LLM per key: Claude, Gemini;
+                            findings also infers the chain order, since channels may be wired in any order),
                             Modeler x3 (chain also assembles findings itself), Validator x2 voting on the
                             public rule `crown(bb)`, Monitor. No role has a single instance without a fallback.
+- `bodyscout/menagerie.py`  real arms (Panda, UR5e, Gen3, vx300s) from MuJoCo Menagerie as BlackBoxRobots, channels
+                            shuffled; needs the sparse clone in third_party/ (command in the module docstring)
 - `bodyscout/env.py`        loads API keys from .env (gitignored); no keys = no LLM hypothesizers
 - Structure tokens: "hz" = hinge about z, "sx" = slide along x. `run(..., unknown_body=True)` turns on channel agents.
 - `bodyscout/planning.py`   IK on the champion, extrapolation guard, true reach scorer

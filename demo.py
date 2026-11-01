@@ -13,6 +13,8 @@ for _var in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS", "VECL
     os.environ.setdefault(_var, "1")
 
 import argparse
+import hashlib
+import json
 
 import numpy as np
 
@@ -32,6 +34,8 @@ ap.add_argument("--at", type=int, default=48)
 ap.add_argument("--budget", type=int, default=104)
 ap.add_argument("--llm", action="store_true")
 ap.add_argument("--video", default=None)
+ap.add_argument("--scienceclaw", action="store_true",
+                help="also mirror the blackboard into ~/.scienceclaw/artifacts (ScienceClaw artifact DAG)")
 a = ap.parse_args()
 
 unknown = a.unknown or a.family != "arm"
@@ -39,6 +43,7 @@ robot = BlackBoxRobot(random_body(a.arm, a.family), seed=a.arm)
 print(f"\nUnknown robot with {robot.n_channels} unlabeled channels. The swarm sees nothing else.\n")
 seen = set()
 timeline = []  # (motion, text) for the video
+damage_events = []  # for runs/demo_summary.json
 
 
 def say(m, text):
@@ -52,6 +57,7 @@ def on_tick(bb, rob, t, events):
         if key not in seen:
             seen.add(key)
             say(e["motion"], f"!! HIDDEN DAMAGE: {e['what']} (the swarm is not told)")
+            damage_events.append({"motion": e["motion"], "what": e["what"]})
     for art in bb.artifacts:
         if art.id in seen:
             continue
@@ -90,6 +96,19 @@ for m, e in out["curve"]:
     print(f"  {m:4d} motions  {e:6.1f}  {bar}")
 out["blackboard"].to_jsonl("runs/demo_blackboard.jsonl")
 print("\nProvenance DAG written to runs/demo_blackboard.jsonl")
+# same run, same id (re-mirroring is a no op); a run that differs (LLM answers vary) gets its own
+with open("runs/demo_blackboard.jsonl", "rb") as f:
+    investigation_id = f"bodyscout_{robot.spec.name}_{a.damage}_{hashlib.sha256(f.read()).hexdigest()[:8]}"
+with open("runs/demo_summary.json", "w") as f:  # ground truth for the write up (experiments/infinite_post.py)
+    json.dump({"investigation_id": investigation_id, "robot": robot.spec.name, "family": a.family,
+               "n_channels": robot.n_channels, "true_structure": robot.spec.tokens(), "budget": a.budget,
+               "damage": {"kind": a.damage, "at": a.at, "events": damage_events},
+               "curve_mm": [[m, None if np.isnan(e) else round(float(e), 2)] for m, e in out["curve"]],
+               "llm": sorted(k for k in ("ANTHROPIC_API_KEY", "GEMINI_API_KEY") if os.environ.get(k))}, f, indent=1)
+if a.scienceclaw:
+    from bodyscout.scienceclaw_bridge import export_blackboard
+    rep = export_blackboard(out["blackboard"], investigation_id)
+    print(f"Mirrored {rep['written']} artifacts from {len(rep['agents'])} agents into {rep['index']}")
 
 if a.video:
     import matplotlib

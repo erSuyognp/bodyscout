@@ -1,0 +1,588 @@
+[
+ {
+  "arm": "panda",
+  "seed": 1,
+  "channels": "ordered",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hx",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hx",
+   "hy",
+   "hz"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 7,
+  "observable_right": 6,
+  "n": 7,
+  "n_observable": 6,
+  "structure_correct": true,
+  "final_reach_mm": 1.178362127502059
+ },
+ {
+  "arm": "panda",
+  "seed": 1,
+  "channels": "shuffled",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hx",
+   "hy",
+   "hy"
+  ],
+  "found": null,
+  "champion": "mlp",
+  "observable": [
+   true,
+   false,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "joints_right": 0,
+  "observable_right": 0,
+  "n": 7,
+  "n_observable": 6,
+  "structure_correct": false,
+  "final_reach_mm": 187.06316790518056
+ },
+ {
+  "arm": "panda",
+  "seed": 1,
+  "channels": "ordered",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hx",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "sy",
+   "hy",
+   "sy",
+   "hy",
+   "hx",
+   "hy",
+   "hx"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 4,
+  "observable_right": 4,
+  "n": 7,
+  "n_observable": 6,
+  "structure_correct": false,
+  "final_reach_mm": 437.9762915649409
+ },
+ {
+  "arm": "panda",
+  "seed": 1,
+  "channels": "shuffled",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hx",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "sy",
+   "sz",
+   "hz",
+   "sx",
+   "hz",
+   "sz",
+   "hy"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   false,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "joints_right": 2,
+  "observable_right": 2,
+  "n": 7,
+  "n_observable": 6,
+  "structure_correct": false,
+  "final_reach_mm": 538.2560930037611
+ },
+ {
+  "arm": "panda",
+  "seed": 2,
+  "channels": "ordered",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hx",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hx",
+   "hy",
+   "hx"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 6,
+  "observable_right": 6,
+  "n": 7,
+  "n_observable": 6,
+  "structure_correct": false,
+  "final_reach_mm": 1.8818055749955862
+ },
+ {
+  "arm": "panda",
+  "seed": 2,
+  "channels": "shuffled",
+  "condition": "swarm",
+  "truth": [
+   "hy",
+   "hy",
+   "hz",
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": null,
+  "champion": "mlp",
+  "observable": [
+   true,
+   true,
+   false,
+   true,
+   true,
+   true,
+   true
+  ],
+  "joints_right": 0,
+  "observable_right": 0,
+  "n": 7,
+  "n_observable": 6,
+  "structure_correct": false,
+  "final_reach_mm": 128.08843233328022
+ },
+ {
+  "arm": "panda",
+  "seed": 2,
+  "channels": "ordered",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hz",
+   "hy",
+   "hx",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hz",
+   "sz",
+   "sy",
+   "sz",
+   "sx"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 3,
+  "observable_right": 3,
+  "n": 7,
+  "n_observable": 6,
+  "structure_correct": false,
+  "final_reach_mm": 291.4410118158507
+ },
+ {
+  "arm": "panda",
+  "seed": 2,
+  "channels": "shuffled",
+  "condition": "single",
+  "truth": [
+   "hy",
+   "hy",
+   "hz",
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "sz",
+   "sx",
+   "sz",
+   "sy",
+   "sz",
+   "hy",
+   "hz"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   false,
+   true,
+   true,
+   true,
+   true
+  ],
+  "joints_right": 1,
+  "observable_right": 1,
+  "n": 7,
+  "n_observable": 6,
+  "structure_correct": false,
+  "final_reach_mm": 682.3478733405761
+ },
+ {
+  "arm": "ur5e",
+  "seed": 1,
+  "channels": "ordered",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hz",
+   "hx"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 5,
+  "observable_right": 5,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 1.6026299553824053
+ },
+ {
+  "arm": "ur5e",
+  "seed": 1,
+  "channels": "shuffled",
+  "condition": "swarm",
+  "truth": [
+   "hy",
+   "hy",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": null,
+  "champion": "mlp",
+  "observable": [
+   true,
+   false,
+   true,
+   true,
+   true,
+   true
+  ],
+  "joints_right": 0,
+  "observable_right": 0,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 189.50624946251932
+ },
+ {
+  "arm": "ur5e",
+  "seed": 1,
+  "channels": "ordered",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy",
+   "sx",
+   "hy"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 4,
+  "observable_right": 3,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 263.90460178317693
+ },
+ {
+  "arm": "ur5e",
+  "seed": 1,
+  "channels": "shuffled",
+  "condition": "single",
+  "truth": [
+   "hy",
+   "hy",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "sz",
+   "sy",
+   "hz",
+   "sz",
+   "hx",
+   "sx"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   false,
+   true,
+   true,
+   true,
+   true
+  ],
+  "joints_right": 1,
+  "observable_right": 1,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 322.84404881034243
+ },
+ {
+  "arm": "ur5e",
+  "seed": 2,
+  "channels": "ordered",
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hz",
+   "sy"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 5,
+  "observable_right": 5,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 1.4324451318533569
+ },
+ {
+  "arm": "ur5e",
+  "seed": 2,
+  "channels": "shuffled",
+  "condition": "swarm",
+  "truth": [
+   "hy",
+   "hy",
+   "hy",
+   "hy",
+   "hz",
+   "hz"
+  ],
+  "found": null,
+  "champion": "mlp",
+  "observable": [
+   true,
+   false,
+   true,
+   true,
+   true,
+   true
+  ],
+  "joints_right": 0,
+  "observable_right": 0,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 186.62932857339365
+ },
+ {
+  "arm": "ur5e",
+  "seed": 2,
+  "channels": "ordered",
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "sz",
+   "hy",
+   "sx",
+   "hy",
+   "sx"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "joints_right": 2,
+  "observable_right": 2,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 279.3831653094988
+ },
+ {
+  "arm": "ur5e",
+  "seed": 2,
+  "channels": "shuffled",
+  "condition": "single",
+  "truth": [
+   "hy",
+   "hy",
+   "hy",
+   "hy",
+   "hz",
+   "hz"
+  ],
+  "found": [
+   "sz",
+   "sz",
+   "sz",
+   "sy",
+   "sy",
+   "hz"
+  ],
+  "champion": "chain",
+  "observable": [
+   true,
+   false,
+   true,
+   true,
+   true,
+   true
+  ],
+  "joints_right": 1,
+  "observable_right": 1,
+  "n": 6,
+  "n_observable": 5,
+  "structure_correct": false,
+  "final_reach_mm": 417.26280045286563
+ }
+]

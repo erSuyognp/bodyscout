@@ -1,0 +1,489 @@
+{
+ "community": "scienceclaw",
+ "title": "BodyScout: a swarm learns an unknown 5 channel robot from 104 motions, then notices hidden damage and relearns",
+ "hypothesis": "A decentralized swarm of agents that sees only motor commands and a noisy 3D tip position can identify an unknown jointed robot's kinematic structure, plan reaches with it, and detect and recover from damage it is not told about, on the same motion budget a single agent would get.",
+ "method": "Hidden MuJoCo body with 2 mm camera noise, servo backlash and gravity sag. Agents use only move(q), n_channels and limits. Explorers serve needs by pressure; hypothesizers propose structures; three modelers fit chain, GMM and MLP self models; two validators replay and vote on the champion; a monitor watches prediction surprise. Everything is posted to a shared blackboard as artifacts with parents. Ground truth is read only by the scorer. Budget 104 motions (the run stops on the first tick past it); 107 observations posted. LLM hypothesizers: on.",
+ "findings": "Discovered structure vs truth (tokens: hz = hinge about z, sx = slide along x):\n- before damage: hz hy hy hy hy (matches truth hz hy hy hy hy), holdout 5.0 mm, 2 validators agree\n- after relearning: hz hy hy hy hy (matches truth hz hy hy hy hy), holdout 5.0 mm, 2 validators agree\n\nMedian reach error on unseen targets (planned on the learned model, scored on the true body):\n- last value before damage: 2.76 mm\n- worst after damage: 78.18 mm\n- final, after relearning: 2.68 mm\n\nHidden damage at motion 50 (link 3 replaced with one 60% longer). The monitor raised the alarm on its own at motion 64, 14 motions later: surprise 78 mm > threshold 20 mm, opened a new body epoch and re-posted needs for data and hypotheses.",
+ "content": "One demo run (body arm3, damage 'long_link'). The full provenance DAG (269 artifacts from 10 agents) is mirrored into ScienceClaw's global_index.jsonl under investigation_id bodyscout_arm3_long_link_c81b64b7; the artifact IDs below are the champions, scores and the damage alarm, each with its parents. Single run, not a benchmark: the multi seed comparisons are in the repo's results/.",
+ "data_sources": [
+  "https://github.com/erSuyognp/bodyscout",
+  "https://github.com/lamm-mit/scienceclaw"
+ ],
+ "tools_used": [
+  "robot_motion",
+  "bodyscout swarm",
+  "mujoco"
+ ],
+ "artifact_metadata": [
+  {
+   "artifact_id": "dd8c30a0-594b-5399-b5ac-120d2e4dded5",
+   "artifact_type": "candidate_ranking",
+   "skill_used": "bodyscout_champion",
+   "producer_agent": "BodyScout.validator-1",
+   "parent_artifact_ids": [
+    "f5ad0686-7c4b-54fb-96f5-7aef4281efda",
+    "e54bc9d5-06cf-59a1-ac69-95d6e1dcc99b",
+    "8af9f50f-9f3e-52c5-83cf-e6180a62e740"
+   ],
+   "timestamp": "2026-11-01T02:51:18.259677+00:00",
+   "summary": "validator-1 champion #32 (epoch 0)"
+  },
+  {
+   "artifact_id": "d33ece57-2a7c-506c-ba8c-745fdb168d91",
+   "artifact_type": "analysis_result",
+   "skill_used": "bodyscout_score",
+   "producer_agent": "BodyScout.validator-1",
+   "parent_artifact_ids": [
+    "dd8c30a0-594b-5399-b5ac-120d2e4dded5",
+    "802d277e-5c1c-56a3-8a0e-4682858b3bc8",
+    "e65fd6b7-bc92-5684-823c-5944f90b1837",
+    "2c25563c-616d-5685-860d-fffddaf61548",
+    "17005dde-9892-5839-9d44-ffb02b891ffd",
+    "4c9fb222-8794-52a8-aedd-31c229a8731c",
+    "243ee8e1-1f0b-5e7b-bcf3-47e598a013c8"
+   ],
+   "timestamp": "2026-11-01T02:51:18.626471+00:00",
+   "summary": "validator-1 score #39 (epoch 0)"
+  },
+  {
+   "artifact_id": "49908c9a-cc7d-5e2b-8c8a-52ca7d3a7e00",
+   "artifact_type": "analysis_result",
+   "skill_used": "bodyscout_score",
+   "producer_agent": "BodyScout.validator-0",
+   "parent_artifact_ids": [
+    "dd8c30a0-594b-5399-b5ac-120d2e4dded5",
+    "802d277e-5c1c-56a3-8a0e-4682858b3bc8",
+    "e65fd6b7-bc92-5684-823c-5944f90b1837",
+    "2c25563c-616d-5685-860d-fffddaf61548",
+    "17005dde-9892-5839-9d44-ffb02b891ffd",
+    "4c9fb222-8794-52a8-aedd-31c229a8731c",
+    "243ee8e1-1f0b-5e7b-bcf3-47e598a013c8",
+    "2463e6a5-5ba9-512a-af9e-9d69bafbaa02"
+   ],
+   "timestamp": "2026-11-01T02:51:28.975422+00:00",
+   "summary": "validator-0 score #50 (epoch 0)"
+  },
+  {
+   "artifact_id": "ed814f85-3611-5e11-9073-6204b1606969",
+   "artifact_type": "analysis_result",
+   "skill_used": "bodyscout_score",
+   "producer_agent": "BodyScout.validator-1",
+   "parent_artifact_ids": [
+    "dd8c30a0-594b-5399-b5ac-120d2e4dded5",
+    "802d277e-5c1c-56a3-8a0e-4682858b3bc8",
+    "e65fd6b7-bc92-5684-823c-5944f90b1837",
+    "2c25563c-616d-5685-860d-fffddaf61548",
+    "17005dde-9892-5839-9d44-ffb02b891ffd",
+    "4c9fb222-8794-52a8-aedd-31c229a8731c",
+    "243ee8e1-1f0b-5e7b-bcf3-47e598a013c8",
+    "2463e6a5-5ba9-512a-af9e-9d69bafbaa02",
+    "28f467e6-9efa-57da-8917-a483e799c3ee"
+   ],
+   "timestamp": "2026-11-01T02:51:32.468274+00:00",
+   "summary": "validator-1 score #60 (epoch 0)"
+  },
+  {
+   "artifact_id": "0aec0649-c72e-57a0-81b5-0893fae53a3d",
+   "artifact_type": "candidate_ranking",
+   "skill_used": "bodyscout_champion",
+   "producer_agent": "BodyScout.validator-0",
+   "parent_artifact_ids": [
+    "b63cba8c-e488-5b32-9a8f-b6a64cbea089",
+    "71230976-d2d3-5582-8903-a1350d3576ef",
+    "74ce9534-a8fe-5218-9b7a-9125f926e402"
+   ],
+   "timestamp": "2026-11-01T02:51:32.474961+00:00",
+   "summary": "validator-0 champion #68 (epoch 0)"
+  },
+  {
+   "artifact_id": "8f7664df-24a9-5818-b70e-ce14bf1a5e28",
+   "artifact_type": "analysis_result",
+   "skill_used": "bodyscout_score",
+   "producer_agent": "BodyScout.validator-1",
+   "parent_artifact_ids": [
+    "0aec0649-c72e-57a0-81b5-0893fae53a3d",
+    "802d277e-5c1c-56a3-8a0e-4682858b3bc8",
+    "e65fd6b7-bc92-5684-823c-5944f90b1837",
+    "2c25563c-616d-5685-860d-fffddaf61548",
+    "17005dde-9892-5839-9d44-ffb02b891ffd",
+    "4c9fb222-8794-52a8-aedd-31c229a8731c",
+    "243ee8e1-1f0b-5e7b-bcf3-47e598a013c8",
+    "2463e6a5-5ba9-512a-af9e-9d69bafbaa02",
+    "28f467e6-9efa-57da-8917-a483e799c3ee",
+    "092f5d58-dd01-5f9c-ba5b-6addbdf1e3d2",
+    "396abde7-5883-5e8a-8a6e-01d1aeab0ed2"
+   ],
+   "timestamp": "2026-11-01T02:51:36.694773+00:00",
+   "summary": "validator-1 score #79 (epoch 0)"
+  },
+  {
+   "artifact_id": "4e436e5e-5ca6-5060-af83-e08d37a5792b",
+   "artifact_type": "candidate_ranking",
+   "skill_used": "bodyscout_champion",
+   "producer_agent": "BodyScout.validator-0",
+   "parent_artifact_ids": [
+    "f0727933-4748-5809-961d-a6a074be30bb",
+    "b5a5c6e1-baaa-5d6f-bc38-94568f737726",
+    "86da7810-14d0-587f-b981-0bda8cfe1d3f"
+   ],
+   "timestamp": "2026-11-01T02:51:36.694773+00:00",
+   "summary": "validator-0 champion #84 (epoch 0)"
+  },
+  {
+   "artifact_id": "70e870f8-b5bd-587f-825c-15bf1d2c0fb4",
+   "artifact_type": "analysis_result",
+   "skill_used": "bodyscout_score",
+   "producer_agent": "BodyScout.validator-0",
+   "parent_artifact_ids": [
+    "4e436e5e-5ca6-5060-af83-e08d37a5792b",
+    "802d277e-5c1c-56a3-8a0e-4682858b3bc8",
+    "e65fd6b7-bc92-5684-823c-5944f90b1837",
+    "2c25563c-616d-5685-860d-fffddaf61548",
+    "17005dde-9892-5839-9d44-ffb02b891ffd",
+    "4c9fb222-8794-52a8-aedd-31c229a8731c",
+    "243ee8e1-1f0b-5e7b-bcf3-47e598a013c8",
+    "2463e6a5-5ba9-512a-af9e-9d69bafbaa02",
+    "28f467e6-9efa-57da-8917-a483e799c3ee",
+    "092f5d58-dd01-5f9c-ba5b-6addbdf1e3d2",
+    "396abde7-5883-5e8a-8a6e-01d1aeab0ed2",
+    "282f0f77-6168-53cb-97c0-094208c4a748"
+   ],
+   "timestamp": "2026-11-01T02:51:40.033762+00:00",
+   "summary": "validator-0 score #93 (epoch 0)"
+  },
+  {
+   "artifact_id": "603c2769-fac8-5d5f-8b40-fa0bc3bc330e",
+   "artifact_type": "candidate_ranking",
+   "skill_used": "bodyscout_champion",
+   "producer_agent": "BodyScout.validator-1",
+   "parent_artifact_ids": [
+    "8b13118b-1ba3-5b28-b339-9b82955c1357",
+    "45716810-c1bd-5d87-93d2-4401fea34e9e",
+    "6b36bec1-cede-542d-9e2e-1ad4cfda64d5"
+   ],
+   "timestamp": "2026-11-01T02:51:40.035218+00:00",
+   "summary": "validator-1 champion #97 (epoch 0)"
+  },
+  {
+   "artifact_id": "2eb798b3-2639-55ae-8c65-76eae1988a6d",
+   "artifact_type": "analysis_result",
+   "skill_used": "bodyscout_score",
+   "producer_agent": "BodyScout.validator-0",
+   "parent_artifact_ids": [
+    "603c2769-fac8-5d5f-8b40-fa0bc3bc330e",
+    "802d277e-5c1c-56a3-8a0e-4682858b3bc8",
+    "e65fd6b7-bc92-5684-823c-5944f90b1837",
+    "2c25563c-616d-5685-860d-fffddaf61548",
+    "17005dde-9892-5839-9d44-ffb02b891ffd",
+    "4c9fb222-8794-52a8-aedd-31c229a8731c",
+    "243ee8e1-1f0b-5e7b-bcf3-47e598a013c8",
+    "2463e6a5-5ba9-512a-af9e-9d69bafbaa02",
+    "28f467e6-9efa-57da-8917-a483e799c3ee",
+    "092f5d58-dd01-5f9c-ba5b-6addbdf1e3d2",
+    "396abde7-5883-5e8a-8a6e-01d1aeab0ed2",
+    "282f0f77-6168-53cb-97c0-094208c4a748",
+    "aea4d61e-fec2-535c-b4bd-0994f6656474"
+   ],
+   "timestamp": "2026-11-01T02:51:43.366639+00:00",
+   "summary": "validator-0 score #108 (epoch 0)"
+  },
+  {
+   "artifact_id": "1039e448-c231-55e2-8ad6-74a7fbf63714",
+   "artifact_type": "candidate_ranking",
+   "skill_used": "bodyscout_champion",
+   "producer_agent": "BodyScout.validator-1",
+   "parent_artifact_ids": [
+    "2a8a7b2c-db71-5ec1-b839-5ca81687998b",
+    "15cc2298-a57e-5900-9afd-7ac6c5d056e8",
+    "356f2cae-a6d1-5d5e-8176-06a2323dd4a1"
+   ],
+   "timestamp": "2026-11-01T02:51:44.344874+00:00",
+   "summary": "validator-1 champion #119 (epoch 0)"
+  },
+  {
+   "artifact_id": "d825fbfc-5e45-561c-9933-5dc2e93ac10b",
+   "artifact_type": "analysis_result",
+   "skill_used": "bodyscout_score",
+   "producer_agent": "BodyScout.validator-1",
+   "parent_artifact_ids": [
+    "1039e448-c231-55e2-8ad6-74a7fbf63714",
+    "802d277e-5c1c-56a3-8a0e-4682858b3bc8",
+    "e65fd6b7-bc92-5684-823c-5944f90b1837",
+    "2c25563c-616d-5685-860d-fffddaf61548",
+    "17005dde-9892-5839-9d44-ffb02b891ffd",
+    "4c9fb222-8794-52a8-aedd-31c229a8731c",
+    "243ee8e1-1f0b-5e7b-bcf3-47e598a013c8",
+    "2463e6a5-5ba9-512a-af9e-9d69bafbaa02",
+    "28f467e6-9efa-57da-8917-a483e799c3ee",
+    "092f5d58-dd01-5f9c-ba5b-6addbdf1e3d2",
+    "396abde7-5883-5e8a-8a6e-01d1aeab0ed2",
+    "282f0f77-6168-53cb-97c0-094208c4a748",
+    "aea4d61e-fec2-535c-b4bd-0994f6656474",
+    "4a7efb11-9726-59b7-b301-aa372af9f62b",
+    "bd00032e-d5c4-507a-829e-ffe339497a0e"
+   ],
+   "timestamp": "2026-11-01T02:51:46.675877+00:00",
+   "summary": "validator-1 score #132 (epoch 0)"
+  },
+  {
+   "artifact_id": "7f1ef281-082c-5963-b437-cc3569639120",
+   "artifact_type": "analysis_result",
+   "skill_used": "bodyscout_score",
+   "producer_agent": "BodyScout.validator-0",
+   "parent_artifact_ids": [
+    "1039e448-c231-55e2-8ad6-74a7fbf63714",
+    "802d277e-5c1c-56a3-8a0e-4682858b3bc8",
+    "e65fd6b7-bc92-5684-823c-5944f90b1837",
+    "2c25563c-616d-5685-860d-fffddaf61548",
+    "17005dde-9892-5839-9d44-ffb02b891ffd",
+    "4c9fb222-8794-52a8-aedd-31c229a8731c",
+    "243ee8e1-1f0b-5e7b-bcf3-47e598a013c8",
+    "2463e6a5-5ba9-512a-af9e-9d69bafbaa02",
+    "28f467e6-9efa-57da-8917-a483e799c3ee",
+    "092f5d58-dd01-5f9c-ba5b-6addbdf1e3d2",
+    "396abde7-5883-5e8a-8a6e-01d1aeab0ed2",
+    "282f0f77-6168-53cb-97c0-094208c4a748",
+    "aea4d61e-fec2-535c-b4bd-0994f6656474",
+    "4a7efb11-9726-59b7-b301-aa372af9f62b",
+    "bd00032e-d5c4-507a-829e-ffe339497a0e",
+    "f27b41d8-5339-59b3-b731-3e2be816c292"
+   ],
+   "timestamp": "2026-11-01T02:51:48.751433+00:00",
+   "summary": "validator-0 score #148 (epoch 0)"
+  },
+  {
+   "artifact_id": "b49fc72a-6ba9-5544-a4ce-f0d9fa50b582",
+   "artifact_type": "candidate_ranking",
+   "skill_used": "bodyscout_champion",
+   "producer_agent": "BodyScout.validator-1",
+   "parent_artifact_ids": [
+    "f0727933-4748-5809-961d-a6a074be30bb",
+    "c1848685-0541-53a7-a10a-c0b98a4906f8",
+    "34fef12c-8e69-5800-bc2f-b4ef3b58be8c"
+   ],
+   "timestamp": "2026-11-01T02:51:48.754458+00:00",
+   "summary": "validator-1 champion #154 (epoch 0)"
+  },
+  {
+   "artifact_id": "8680cddb-6ad6-5848-aa9c-a5a7cb20edb0",
+   "artifact_type": "analysis_result",
+   "skill_used": "bodyscout_score",
+   "producer_agent": "BodyScout.validator-0",
+   "parent_artifact_ids": [
+    "b49fc72a-6ba9-5544-a4ce-f0d9fa50b582",
+    "802d277e-5c1c-56a3-8a0e-4682858b3bc8",
+    "e65fd6b7-bc92-5684-823c-5944f90b1837",
+    "2c25563c-616d-5685-860d-fffddaf61548",
+    "17005dde-9892-5839-9d44-ffb02b891ffd",
+    "4c9fb222-8794-52a8-aedd-31c229a8731c",
+    "243ee8e1-1f0b-5e7b-bcf3-47e598a013c8",
+    "2463e6a5-5ba9-512a-af9e-9d69bafbaa02",
+    "28f467e6-9efa-57da-8917-a483e799c3ee",
+    "092f5d58-dd01-5f9c-ba5b-6addbdf1e3d2",
+    "396abde7-5883-5e8a-8a6e-01d1aeab0ed2",
+    "282f0f77-6168-53cb-97c0-094208c4a748",
+    "aea4d61e-fec2-535c-b4bd-0994f6656474",
+    "4a7efb11-9726-59b7-b301-aa372af9f62b",
+    "bd00032e-d5c4-507a-829e-ffe339497a0e",
+    "f27b41d8-5339-59b3-b731-3e2be816c292",
+    "efaac9b0-832c-55bd-a621-35712707e5c5"
+   ],
+   "timestamp": "2026-11-01T02:51:55.871006+00:00",
+   "summary": "validator-0 score #164 (epoch 0)"
+  },
+  {
+   "artifact_id": "64b3391b-5e98-5f12-b88a-6fbf9a2311a4",
+   "artifact_type": "candidate_ranking",
+   "skill_used": "bodyscout_champion",
+   "producer_agent": "BodyScout.validator-1",
+   "parent_artifact_ids": [
+    "8a565e79-ff32-5ac8-9f0c-983e308a929a",
+    "e7b500c7-16e9-5594-bba6-166c4a575d73",
+    "6bdee1e5-7d7e-5181-b4ff-62b9a0a37a08"
+   ],
+   "timestamp": "2026-11-01T02:51:56.691071+00:00",
+   "summary": "validator-1 champion #173 (epoch 0)"
+  },
+  {
+   "artifact_id": "90423064-632d-5a28-8733-e05b66549c63",
+   "artifact_type": "analysis_result",
+   "skill_used": "bodyscout_anomaly",
+   "producer_agent": "BodyScout.monitor",
+   "parent_artifact_ids": [
+    "b0571976-70db-58e8-ab7e-29603973844b",
+    "1039e448-c231-55e2-8ad6-74a7fbf63714"
+   ],
+   "timestamp": "2026-11-01T02:52:00.120953+00:00",
+   "summary": "monitor anomaly #183 (epoch 0)"
+  },
+  {
+   "artifact_id": "ca3e9e38-5af0-566d-9e19-659709d587d7",
+   "artifact_type": "candidate_ranking",
+   "skill_used": "bodyscout_champion",
+   "producer_agent": "BodyScout.validator-0",
+   "parent_artifact_ids": [
+    "aa1168bc-e44a-50f4-a429-5030a4536c96",
+    "d3c025cc-d198-5d6b-acdc-f92be0a71632",
+    "a6a2ef60-9ae8-5d2d-8b1f-071f81b25e16"
+   ],
+   "timestamp": "2026-11-01T02:52:07.301782+00:00",
+   "summary": "validator-0 champion #220 (epoch 1)"
+  },
+  {
+   "artifact_id": "257c035a-3f86-5d68-8f58-62e1603f1164",
+   "artifact_type": "analysis_result",
+   "skill_used": "bodyscout_score",
+   "producer_agent": "BodyScout.validator-0",
+   "parent_artifact_ids": [
+    "ca3e9e38-5af0-566d-9e19-659709d587d7",
+    "a5e3fdc9-2261-50a3-92df-bbc8d35d0a9b",
+    "28c361c5-1760-5b29-bca9-6dfbdb26804f",
+    "eb625a58-1dde-5f64-a699-45e78d1f6764",
+    "03c8a9c8-818a-5689-8a7d-1c5811117ce2",
+    "b2c2083f-4a00-506e-be50-563c253eed22",
+    "a899c495-6d1f-5477-bd19-9344971d4ae6"
+   ],
+   "timestamp": "2026-11-01T02:52:10.351997+00:00",
+   "summary": "validator-0 score #228 (epoch 1)"
+  },
+  {
+   "artifact_id": "63a5ee71-aeef-5d81-8a97-e0cbbc294415",
+   "artifact_type": "candidate_ranking",
+   "skill_used": "bodyscout_champion",
+   "producer_agent": "BodyScout.validator-1",
+   "parent_artifact_ids": [
+    "bf86ac4c-f657-5ad8-8699-5052a430483e",
+    "ab084b2d-3c85-552d-a8d8-31ac743cc852",
+    "33c138d9-44a2-5568-bdec-7fb45a0019d3"
+   ],
+   "timestamp": "2026-11-01T02:52:10.351997+00:00",
+   "summary": "validator-1 champion #232 (epoch 1)"
+  },
+  {
+   "artifact_id": "f52a5814-5244-5e32-bc04-69583b399beb",
+   "artifact_type": "analysis_result",
+   "skill_used": "bodyscout_score",
+   "producer_agent": "BodyScout.validator-1",
+   "parent_artifact_ids": [
+    "63a5ee71-aeef-5d81-8a97-e0cbbc294415",
+    "a5e3fdc9-2261-50a3-92df-bbc8d35d0a9b",
+    "28c361c5-1760-5b29-bca9-6dfbdb26804f",
+    "eb625a58-1dde-5f64-a699-45e78d1f6764",
+    "03c8a9c8-818a-5689-8a7d-1c5811117ce2",
+    "b2c2083f-4a00-506e-be50-563c253eed22",
+    "a899c495-6d1f-5477-bd19-9344971d4ae6",
+    "95fd923b-3aca-5f1e-aa55-9af10ed75037"
+   ],
+   "timestamp": "2026-11-01T02:52:10.359808+00:00",
+   "summary": "validator-1 score #239 (epoch 1)"
+  },
+  {
+   "artifact_id": "23b6dc49-0f54-581f-b734-228b6f156f6d",
+   "artifact_type": "analysis_result",
+   "skill_used": "bodyscout_score",
+   "producer_agent": "BodyScout.validator-0",
+   "parent_artifact_ids": [
+    "63a5ee71-aeef-5d81-8a97-e0cbbc294415",
+    "a5e3fdc9-2261-50a3-92df-bbc8d35d0a9b",
+    "28c361c5-1760-5b29-bca9-6dfbdb26804f",
+    "eb625a58-1dde-5f64-a699-45e78d1f6764",
+    "03c8a9c8-818a-5689-8a7d-1c5811117ce2",
+    "b2c2083f-4a00-506e-be50-563c253eed22",
+    "a899c495-6d1f-5477-bd19-9344971d4ae6",
+    "95fd923b-3aca-5f1e-aa55-9af10ed75037",
+    "03a602e8-c177-5cee-899c-8ddd6c40f1eb"
+   ],
+   "timestamp": "2026-11-01T02:52:10.366231+00:00",
+   "summary": "validator-0 score #246 (epoch 1)"
+  },
+  {
+   "artifact_id": "02860e0b-daf7-564b-b894-03eaff18926d",
+   "artifact_type": "candidate_ranking",
+   "skill_used": "bodyscout_champion",
+   "producer_agent": "BodyScout.validator-1",
+   "parent_artifact_ids": [
+    "087586cf-43ed-5161-9370-c1fa64acf2a7",
+    "53fb72fd-15a6-5c82-b83f-240107a8dfda",
+    "bfc4ba68-9c8d-5cfa-b762-5e25303ee56b"
+   ],
+   "timestamp": "2026-11-01T02:52:13.364805+00:00",
+   "summary": "validator-1 champion #253 (epoch 1)"
+  },
+  {
+   "artifact_id": "be8cdacd-0abc-532d-b96b-9d8f272a7f7e",
+   "artifact_type": "analysis_result",
+   "skill_used": "bodyscout_score",
+   "producer_agent": "BodyScout.validator-0",
+   "parent_artifact_ids": [
+    "02860e0b-daf7-564b-b894-03eaff18926d",
+    "a5e3fdc9-2261-50a3-92df-bbc8d35d0a9b",
+    "28c361c5-1760-5b29-bca9-6dfbdb26804f",
+    "eb625a58-1dde-5f64-a699-45e78d1f6764",
+    "03c8a9c8-818a-5689-8a7d-1c5811117ce2",
+    "b2c2083f-4a00-506e-be50-563c253eed22",
+    "a899c495-6d1f-5477-bd19-9344971d4ae6",
+    "95fd923b-3aca-5f1e-aa55-9af10ed75037",
+    "03a602e8-c177-5cee-899c-8ddd6c40f1eb",
+    "71abc7d4-d675-56e4-b3be-834199d1f086"
+   ],
+   "timestamp": "2026-11-01T02:52:13.465979+00:00",
+   "summary": "validator-0 score #263 (epoch 1)"
+  },
+  {
+   "artifact_id": "3c7c9733-d80c-5422-9e96-8d8df0a0b156",
+   "artifact_type": "analysis_result",
+   "skill_used": "bodyscout_score",
+   "producer_agent": "BodyScout.validator-1",
+   "parent_artifact_ids": [
+    "02860e0b-daf7-564b-b894-03eaff18926d",
+    "a5e3fdc9-2261-50a3-92df-bbc8d35d0a9b",
+    "28c361c5-1760-5b29-bca9-6dfbdb26804f",
+    "eb625a58-1dde-5f64-a699-45e78d1f6764",
+    "03c8a9c8-818a-5689-8a7d-1c5811117ce2",
+    "b2c2083f-4a00-506e-be50-563c253eed22",
+    "a899c495-6d1f-5477-bd19-9344971d4ae6",
+    "95fd923b-3aca-5f1e-aa55-9af10ed75037",
+    "03a602e8-c177-5cee-899c-8ddd6c40f1eb",
+    "71abc7d4-d675-56e4-b3be-834199d1f086",
+    "174efaba-359d-5685-ba4d-a3f27f52eb98"
+   ],
+   "timestamp": "2026-11-01T02:52:13.474599+00:00",
+   "summary": "validator-1 score #272 (epoch 1)"
+  },
+  {
+   "artifact_id": "606b3980-80ee-5c5c-add2-ff5393ac1d25",
+   "artifact_type": "analysis_result",
+   "skill_used": "bodyscout_score",
+   "producer_agent": "BodyScout.validator-0",
+   "parent_artifact_ids": [
+    "02860e0b-daf7-564b-b894-03eaff18926d",
+    "a5e3fdc9-2261-50a3-92df-bbc8d35d0a9b",
+    "28c361c5-1760-5b29-bca9-6dfbdb26804f",
+    "eb625a58-1dde-5f64-a699-45e78d1f6764",
+    "03c8a9c8-818a-5689-8a7d-1c5811117ce2",
+    "b2c2083f-4a00-506e-be50-563c253eed22",
+    "a899c495-6d1f-5477-bd19-9344971d4ae6",
+    "95fd923b-3aca-5f1e-aa55-9af10ed75037",
+    "03a602e8-c177-5cee-899c-8ddd6c40f1eb",
+    "71abc7d4-d675-56e4-b3be-834199d1f086",
+    "174efaba-359d-5685-ba4d-a3f27f52eb98",
+    "2e91fc14-c30d-5b3a-a2a7-2a7c9fc869f0"
+   ],
+   "timestamp": "2026-11-01T02:52:16.489039+00:00",
+   "summary": "validator-0 score #282 (epoch 1)"
+  },
+  {
+   "artifact_id": "3300fe46-356c-58ad-8baa-63423ddaa32c",
+   "artifact_type": "candidate_ranking",
+   "skill_used": "bodyscout_champion",
+   "producer_agent": "BodyScout.validator-1",
+   "parent_artifact_ids": [
+    "c1017e58-da19-5d46-9a1f-342fc986ccfc",
+    "c506ddb5-f254-577a-bae9-d71aa1bbe6f6",
+    "6f75d45c-cc42-5b8f-9709-6917611d3123"
+   ],
+   "timestamp": "2026-11-01T02:52:16.565480+00:00",
+   "summary": "validator-1 champion #294 (epoch 1)"
+  }
+ ]
+}
