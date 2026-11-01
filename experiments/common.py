@@ -23,7 +23,8 @@ def job(args):
     rows = [{"arm": arm_seed, "n_joints": robot.n_channels, "condition": cond, "motions": m,
              "reach_mm": e} for m, e in out["curve"]]
     meta = {"arm": arm_seed, "condition": cond, "alarms": out["alarms"], "events": out["events"],
-            "champion": (out["champion"] or {}).get("describe")}
+            "champion": (out["champion"] or {}).get("describe"), "agent_s": out["agent_s"],
+            "truth": robot.spec.tokens()}  # body as it is at the end of the run; scoring only
     return rows, meta
 
 

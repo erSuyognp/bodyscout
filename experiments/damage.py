@@ -1,4 +1,5 @@
-"""Experiment 2: break the robot mid run. Who notices, and how fast do they recover?"""
+"""Experiment 2: break the robot mid run. Who notices, and how fast do they recover? Body type unknown
+(channel agents on), so single_probe can be compared on the same footing."""
 import argparse
 import json
 
@@ -10,14 +11,14 @@ if __name__ == "__main__":  # Windows spawns workers by re-importing this file
     ap.add_argument("--kinds", nargs="+", default=["long_link", "reversed_motor", "tool", "bent_axis"])
     ap.add_argument("--at", type=int, default=48)
     ap.add_argument("--budget", type=int, default=112)
-    ap.add_argument("--conditions", nargs="+", default=["swarm", "single"])
+    ap.add_argument("--conditions", nargs="+", default=["swarm", "single", "single_probe"])
     a = ap.parse_args()
 
     rows, metas = [], []
     jobs = []
     for kind in a.kinds:
-        kw = {"budget": a.budget, "eval_at": tuple(range(8, a.budget + 1, 8)), "n_targets": 8,
-              "damage": (a.at, kind), "max_ticks": 600, "use_llm": False}
+        kw = {"budget": a.budget, "eval_at": tuple(range(8, a.budget + 1, 4)), "n_targets": 8,
+              "damage": (a.at, kind), "max_ticks": 600, "use_llm": False, "unknown_body": True}
         jobs += [(s, c, kw) for s in range(1, a.arms + 1) for c in a.conditions]
     for (s, c, kw), (rs, meta) in zip(jobs, run_jobs(jobs)):
         for r in rs:

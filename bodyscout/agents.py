@@ -112,6 +112,21 @@ class Explorer(Agent):
 
 
 # ---------------------------------------------------------------------------
+def classify_sweep(P, attempt):
+    """The channel rule, as a pure function of one channel's sweep (tips P, one row per probe value).
+    Returns (finding fields, spread in m); fields is None when the tip barely moved."""
+    _, sv, vt = np.linalg.svd(P - P.mean(0))
+    spread = float(sv[0])
+    if spread < 0.006:
+        return None, spread
+    ratio = float(sv[1] / sv[0])
+    kind = "s" if ratio < 0.12 else "h"
+    direction = vt[0] if kind == "s" else vt[2]
+    axis = "xyz"[int(np.argmax(np.abs(direction)))]
+    conf = float(np.max(np.abs(direction))) if attempt == 0 else 0.0  # bent pose: frame differs
+    return {"type": kind, "axis": axis, "conf": conf, "curvature": ratio, "spread_mm": spread * 1000}, spread
+
+
 class ChannelAgent(Agent):
     """Owns one unlabeled channel. Asks for a sweep of only that channel, then reads the shape of
     the fingertip path: a straight line means the joint slides, an arc means it rotates. The line
@@ -135,10 +150,8 @@ class ChannelAgent(Agent):
                 bb.need(f"probe:{self.ch}", self.name, 200.0 - self.ch, channel=self.ch, attempt=self.attempt)
                 self.requested = True
             return False
-        P = np.array([a.payload["x"] for a in obs])
-        _, sv, vt = np.linalg.svd(P - P.mean(0))
-        spread = float(sv[0])
-        if spread < 0.006:  # the tip barely moved from this pose: look again from a bent pose
+        fields, spread = classify_sweep(np.array([a.payload["x"] for a in obs]), self.attempt)
+        if fields is None:  # the tip barely moved from this pose: look again from a bent pose
             if self.attempt == 0:
                 self.attempt, self.requested = 1, False
                 return True
@@ -146,13 +159,7 @@ class ChannelAgent(Agent):
                                            "spread_mm": spread * 1000}, [a.id for a in obs])
             self.done = True
             return True
-        ratio = float(sv[1] / sv[0])
-        kind = "s" if ratio < 0.12 else "h"
-        direction = vt[0] if kind == "s" else vt[2]
-        axis = "xyz"[int(np.argmax(np.abs(direction)))]
-        conf = float(np.max(np.abs(direction))) if self.attempt == 0 else 0.0  # bent pose: frame differs
-        bb.post("finding", self.name, {"channel": self.ch, "type": kind, "axis": axis, "conf": conf,
-                                       "curvature": ratio, "spread_mm": spread * 1000}, [a.id for a in obs])
+        bb.post("finding", self.name, {"channel": self.ch, **fields}, [a.id for a in obs])
         self.done = True
         return True
 

@@ -35,7 +35,7 @@ def claude_answer(bb, truth):
 def job(args):
     fam, seed, cond, budget, llm = args
     robot = BlackBoxRobot(random_body(seed, fam), seed=seed)
-    out = run(robot, cond, budget=budget, eval_at=(16, 24, 32, 48, 64), n_targets=8, seed=seed,
+    out = run(robot, cond, budget=budget, eval_at=tuple(range(8, budget + 1, 4)), n_targets=8, seed=seed,
               use_llm=llm, unknown_body=True)
     d = (out["champion"] or {}).get("describe") or {}
     truth = robot.spec.tokens()
@@ -45,7 +45,7 @@ def job(args):
     meta = {"family": fam, "seed": seed, "condition": cond, "truth": truth, "found": found,
             "types_correct": found is not None and [t[0] for t in found] == [t[0] for t in truth],
             "structure_correct": found == truth, "links_m": d.get("links_m"),
-            "identifiable": d.get("identifiable")}
+            "identifiable": d.get("identifiable"), "agent_s": out["agent_s"]}
     if llm:
         meta.update(claude_answer(out["blackboard"], truth))
     return rows, meta
@@ -56,10 +56,11 @@ if __name__ == "__main__":  # Windows spawns workers by re-importing this file
     ap.add_argument("--seeds", type=int, default=3)
     ap.add_argument("--budget", type=int, default=64)
     ap.add_argument("--families", nargs="+", default=list(FAMILIES))
+    ap.add_argument("--conditions", nargs="+", default=["swarm", "single", "single_probe"])
     ap.add_argument("--llm", action="store_true",
                     help="also run the swarm with the Claude hypothesizer (needs ANTHROPIC_API_KEY)")
     a = ap.parse_args()
-    jobs = [(f, s, c, a.budget, False) for f in a.families for s in range(1, a.seeds + 1) for c in ("swarm", "single")]
+    jobs = [(f, s, c, a.budget, False) for f in a.families for s in range(1, a.seeds + 1) for c in a.conditions]
     if a.llm:
         load_env()
         if not os.environ.get("ANTHROPIC_API_KEY"):
@@ -72,7 +73,7 @@ if __name__ == "__main__":  # Windows spawns workers by re-importing this file
     tag = "_llm" if a.llm else ""  # keep the committed no-LLM results intact
     save_csv([r for rs, _ in res for r in rs], f"results/bodies{tag}.csv")
     json.dump([m for _, m in res], open(f"results/bodies{tag}_meta.json", "w"), indent=1)
-    for c in ("swarm", "single") + (("swarm+claude",) if a.llm else ()):
+    for c in tuple(a.conditions) + (("swarm+claude",) if a.llm else ()):
         ms = [m for _, m in res if m["condition"] == c]
         print(f"{c:12s} joint types right {sum(m['types_correct'] for m in ms)}/{len(ms)}, "
               f"full structure right {sum(m['structure_correct'] for m in ms)}/{len(ms)}")
