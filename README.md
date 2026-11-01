@@ -87,6 +87,36 @@ gcloud compute instances delete bodyscout-sweep --zone=us-central1-a   # stops t
 If `c2d-standard-32` is out of quota in that zone, `n2-standard-32` or another zone works too.
 Spot VMs (`--provisioning-model=SPOT`) are cheaper and safe here, because the sweep resumes.
 
+## Dashboard
+
+`dashboard/index.html` is one self contained page (no build step, no libraries). It reads
+`runs/demo_blackboard.jsonl`, `runs/demo_summary.json`, `results/bodies.csv`,
+`results/bodies_meta.json` and `results/learning.csv`, and shows the provenance DAG as an animated
+timeline (one lane per agent, needs as dashed arrows, the hidden damage as a red line), the
+unknown body types result, reach error vs motions, and the champion's structure with a truth reveal.
+`runs/` is gitignored, so make the demo run first:
+
+```bash
+python demo.py --unknown                  # channel agents on, writes runs/demo_*.json(l)
+python -m http.server 8000                # from the repo root, then open http://localhost:8000/dashboard/
+```
+
+Another run: `/dashboard/?bb=../runs/other.jsonl&summary=../runs/other_summary.json`.
+
+### Cloud Run
+
+The `Dockerfile` serves the page and its data (nothing else; `.env` never enters the image) with
+nginx on `$PORT`. Cloud Run gives it an HTTPS URL, so no VM and no firewall rule is involved.
+
+```bash
+gcloud run deploy bodyscout-dashboard --source . --region us-central1 --allow-unauthenticated
+```
+
+`--source .` builds the Dockerfile with Cloud Build; `.gcloudignore` keeps `runs/` in the upload
+and `.env`, `.git`, `third_party` out. Drop `--allow-unauthenticated` to keep it private
+(viewers then need `roles/run.invoker`). Local check: `docker build -t bodyscout-dash . &&
+docker run --rm -p 127.0.0.1:8080:8080 bodyscout-dash`.
+
 ## Agents
 
 | Agent | Job |

@@ -40,6 +40,7 @@ a = ap.parse_args()
 
 unknown = a.unknown or a.family != "arm"
 robot = BlackBoxRobot(random_body(a.arm, a.family), seed=a.arm)
+true_links = list(robot.spec.links)  # before damage, for the dashboard's truth reveal
 print(f"\nUnknown robot with {robot.n_channels} unlabeled channels. The swarm sees nothing else.\n")
 seen = set()
 timeline = []  # (motion, text) for the video
@@ -101,7 +102,9 @@ with open("runs/demo_blackboard.jsonl", "rb") as f:
     investigation_id = f"bodyscout_{robot.spec.name}_{a.damage}_{hashlib.sha256(f.read()).hexdigest()[:8]}"
 with open("runs/demo_summary.json", "w") as f:  # ground truth for the write up (experiments/infinite_post.py)
     json.dump({"investigation_id": investigation_id, "robot": robot.spec.name, "family": a.family,
-               "n_channels": robot.n_channels, "true_structure": robot.spec.tokens(), "budget": a.budget,
+               "n_channels": robot.n_channels, "true_structure": robot.spec.tokens(),
+               "true_links_m": true_links, "true_links_after_m": list(robot.spec.links),
+               "true_tool_m": robot.spec.tool, "budget": a.budget,
                "damage": {"kind": a.damage, "at": a.at, "events": damage_events},
                "curve_mm": [[m, None if np.isnan(e) else round(float(e), 2)] for m, e in out["curve"]],
                "llm": sorted(k for k in ("ANTHROPIC_API_KEY", "GEMINI_API_KEY") if os.environ.get(k))}, f, indent=1)

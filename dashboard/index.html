@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BodyScout Dashboard</title>
+<!--
+  Self contained: no build step, no libraries. Loads (relative to this file)
+    ../runs/demo_blackboard.jsonl   provenance DAG written by demo.py
+    ../runs/demo_summary.json       ground truth for the reveal (scorer side, never seen by agents)
+    ../results/bodies.csv, ../results/bodies_meta.json, ../results/learning.csv
+  Override the run with ?bb=path/to/board.jsonl&summary=path/to/summary.json
+  Serve over http (fetch does not work from file://):  python -m http.server 8000  then open /dashboard/
+-->
+<style>
+:root {
+  color-scheme: light;
+  --surface-0: #f4f3f0;
+  --surface-1: #fcfcfb;
+  --border: #e2e0da;
+  --grid: #ebe9e4;
+  --text-primary: #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted: #7c7b76;
+  --series-1: #2a78d6;  /* swarm  / finding   */
+  --series-2: #eb6834;  /* single / hypothesis */
+  --series-3: #1baf7a;  /* mlp    / model      */
+  --series-7: #6250d6;  /* validation          */
+  --obs: #a9a7a0;
+  --critical: #d03b3b;
+  --good: #2f7d32;
+  --lane-alt: #f5f4f1;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --surface-0: #121211;
+    --surface-1: #1a1a19;
+    --border: #33322f;
+    --grid: #2a2a28;
+    --text-primary: #f0efec;
+    --text-secondary: #c3c2b7;
+    --text-muted: #8e8d86;
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --series-3: #199e70;
+    --series-7: #9085e9;
+    --obs: #5d5c57;
+    --critical: #e66767;
+    --good: #6cbf6f;
+    --lane-alt: #1f1f1e;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --surface-0: #121211;
+  --surface-1: #1a1a19;
+  --border: #33322f;
+  --grid: #2a2a28;
+  --text-primary: #f0efec;
+  --text-secondary: #c3c2b7;
+  --text-muted: #8e8d86;
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --series-3: #199e70;
+  --series-7: #9085e9;
+  --obs: #5d5c57;
+  --critical: #e66767;
+  --good: #6cbf6f;
+  --lane-alt: #1f1f1e;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--surface-0); color: var(--text-primary);
+  font: 14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+main { max-width: 1180px; margin: 0 auto; padding: 24px 16px 64px; }
+header h1 { font-size: 22px; margin: 0 0 4px; }
+header p { margin: 0; color: var(--text-secondary); }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 12px; color: var(--text-secondary); font-size: 13px; }
+.meta b { color: var(--text-primary); font-weight: 600; }
+section.card {
+  background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px;
+  padding: 18px 18px 14px; margin-top: 20px;
+}
+section h2 { font-size: 16px; margin: 0 0 2px; }
+section .sub { margin: 0 0 12px; color: var(--text-secondary); font-size: 13px; max-width: 80ch; }
+.row { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; margin-bottom: 10px; }
+button {
+  font: inherit; font-size: 13px; padding: 5px 12px; border-radius: 6px; cursor: pointer;
+  border: 1px solid var(--border); background: var(--surface-0); color: var(--text-primary);
+}
+button:hover { border-color: var(--text-muted); }
+button.primary { background: var(--text-primary); color: var(--surface-1); border-color: var(--text-primary); }
+input[type=range] { flex: 1; min-width: 160px; accent-color: var(--text-secondary); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12px; color: var(--text-secondary); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.sw { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.sw.line { width: 16px; height: 2px; border-radius: 1px; }
+.scroll { overflow-x: auto; }
+svg text { fill: var(--text-secondary); font-size: 11px; }
+svg .lane-label { fill: var(--text-primary); font-size: 11px; }
+svg .axis { stroke: var(--border); }
+svg .gridl { stroke: var(--grid); }
+.tip {
+  position: fixed; pointer-events: none; z-index: 10; max-width: 340px; display: none;
+  background: var(--surface-1); color: var(--text-primary); border: 1px solid var(--border);
+  border-radius: 8px; padding: 8px 10px; font-size: 12px; box-shadow: 0 4px 16px rgba(0,0,0,.18);
+}
+.tip .k { color: var(--text-muted); }
+.tip pre { margin: 4px 0 0; white-space: pre-wrap; font: 11px/1.35 ui-monospace, Consolas, monospace; color: var(--text-secondary); }
+.grid4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 20px 24px; }
+.panel h3 { font-size: 13px; margin: 0 0 4px; text-transform: capitalize; }
+.panel .stat { font-size: 12px; color: var(--text-secondary); margin-bottom: 4px; }
+.tok {
+  display: inline-block; min-width: 28px; text-align: center; padding: 1px 5px; margin: 1px;
+  border-radius: 4px; border: 1px solid var(--border); font: 12px ui-monospace, Consolas, monospace;
+  background: var(--surface-0);
+}
+.tok.bad { border-color: var(--critical); color: var(--critical); text-decoration: line-through; }
+table.struct { border-collapse: collapse; font-size: 12px; width: 100%; }
+table.struct td, table.struct th { padding: 3px 4px; text-align: left; vertical-align: middle; white-space: nowrap; }
+table.struct th { color: var(--text-muted); font-weight: 500; }
+table.data { border-collapse: collapse; font-size: 12px; margin-top: 8px; }
+table.data td, table.data th { border-bottom: 1px solid var(--grid); padding: 2px 10px 2px 0; text-align: right; }
+table.data th:first-child, table.data td:first-child { text-align: left; }
+details summary { cursor: pointer; color: var(--text-secondary); font-size: 12px; margin-top: 8px; }
+.champ { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 16px; }
+.champ .box { border: 1px solid var(--border); border-radius: 8px; padding: 12px; }
+.champ h3 { font-size: 13px; margin: 0 0 8px; }
+.champ table { border-collapse: collapse; font-size: 13px; width: 100%; }
+.champ td, .champ th { padding: 4px 6px; text-align: left; border-bottom: 1px solid var(--grid); }
+.champ th { color: var(--text-muted); font-weight: 500; font-size: 12px; }
+.num { font-variant-numeric: tabular-nums; }
+.truth { display: none; }
+.revealed .truth { display: table-cell; }
+.ok { color: var(--good); }
+.no { color: var(--critical); }
+.err { color: var(--critical); padding: 12px; border: 1px dashed var(--critical); border-radius: 8px; }
+.note { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>BodyScout</h1>
+    <p>A swarm of agents discovers an unknown robot's body from joint commands and a noisy fingertip only, then notices when the body breaks.</p>
+    <div class="meta" id="meta"></div>
+  </header>
+
+  <section class="card" id="dag">
+    <h2>1 · Provenance DAG, one lane per agent</h2>
+    <p class="sub">Every artifact on the blackboard, in the order it was posted. Dashed arrows run from a need to the artifacts that answered it.
+      The red line is the moment the body was secretly damaged; the swarm is not told. Hover a node to trace its ancestry.</p>
+    <div class="row">
+      <button class="primary" id="play">Pause</button>
+      <input type="range" id="scrub" min="0" max="0" value="0" aria-label="timeline position">
+      <span class="note num" id="pos"></span>
+    </div>
+    <div class="legend" id="kindLegend"></div>
+    <div class="scroll"><svg id="dagSvg" role="img" aria-label="Provenance timeline"></svg></div>
+  </section>
+
+  <section class="card">
+    <h2>2 · Unknown body types: swarm vs single agent</h2>
+    <p class="sub">The agents are not told what kind of robot they drive. Reach error on unseen targets (log scale, median and min to max over seeds)
+      and the joint structure each one inferred, next to the truth. Same robots, same motion budget, same scorer.</p>
+    <div class="legend" id="bodiesLegend"></div>
+    <div class="grid4" id="bodies"></div>
+    <details><summary>Data table</summary><div id="bodiesTable"></div></details>
+  </section>
+
+  <section class="card">
+    <h2>3 · Reach error vs motions (known arm family)</h2>
+    <p class="sub" id="learnSub">Swarm, single agent and a neural net (MLP) on the same arms. Median line, min to max band, log scale.</p>
+    <div class="legend" id="learnLegend"></div>
+    <div id="learn"></div>
+    <details><summary>Data table</summary><div id="learnTable"></div></details>
+  </section>
+
+  <section class="card" id="champCard">
+    <h2>4 · What the champion believes about its body</h2>
+    <p class="sub">The model the validators crowned in each body epoch: joint structure (hz = hinge about z, sx = slide along x) and link lengths.
+      The truth is hidden from every agent; reveal it to score the belief.</p>
+    <div class="row"><button class="primary" id="reveal">Reveal the truth</button></div>
+    <div class="champ" id="champ"></div>
+  </section>
+</main>
+<div class="tip" id="tip"></div>
+
+<script>
+"use strict";
+const qs = new URLSearchParams(location.search);
+const PATHS = {
+  bb: qs.get("bb") || "../runs/demo_blackboard.jsonl",
+  summary: qs.get("summary") || "../runs/demo_summary.json",
+  bodies: "../results/bodies.csv",
+  bodiesMeta: "../results/bodies_meta.json",
+  learning: "../results/learning.csv",
+};
+const NS = "http://www.w3.org/2000/svg";
+const css = name => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+const $ = id => document.getElementById(id);
+function el(tag, attrs = {}, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function h(tag, attrs = {}, html = "") {
+  const e = document.createElement(tag);
+  Object.assign(e, attrs);
+  if (html) e.innerHTML = html;
+  return e;
+}
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const mm = m => (m * 1000).toFixed(0);
+const fmt = v => v == null || Number.isNaN(v) ? "n/a" : v < 10 ? v.toFixed(1) : v.toFixed(0);
+
+async function getText(p) {
+  const r = await fetch(p);
+  if (!r.ok) throw new Error(`${p}: HTTP ${r.status}`);
+  return r.text();
+}
+function parseCSV(text) {
+  const [head, ...rows] = text.trim().split(/\r?\n/);
+  const keys = head.split(",");
+  return rows.map(line => {
+    const vals = line.split(","), o = {};
+    keys.forEach((k, i) => { const n = Number(vals[i]); o[k] = vals[i] === "nan" ? NaN : (vals[i] !== "" && !Number.isNaN(n) ? n : vals[i]); });
+    return o;
+  });
+}
+function quant(xs) {
+  const v = xs.filter(x => !Number.isNaN(x)).sort((a, b) => a - b);
+  if (!v.length) return { n: 0, total: xs.length };
+  const m = v.length >> 1;
+  return { n: v.length, total: xs.length, min: v[0], max: v[v.length - 1], med: v.length % 2 ? v[m] : (v[m - 1] + v[m]) / 2 };
+}
+
+// ---------- tooltip ----------
+const tip = $("tip");
+function showTip(html, ev) {
+  tip.innerHTML = html; tip.style.display = "block";
+  const w = tip.offsetWidth, hh = tip.offsetHeight;
+  let x = ev.clientX + 14, y = ev.clientY + 14;
+  if (x + w > innerWidth - 8) x = ev.clientX - w - 14;
+  if (y + hh > innerHeight - 8) y = ev.clientY - hh - 14;
+  tip.style.left = Math.max(8, x) + "px"; tip.style.top = Math.max(8, y) + "px";
+}
+const hideTip = () => { tip.style.display = "none"; };
+
+// ================= 1. provenance DAG timeline =================
+const KIND = {
+  observation: { group: "data (motions)", color: "--obs", r: 2.5 },
+  finding: { group: "channel finding", color: "--series-1", r: 4.5 },
+  hypothesis: { group: "hypothesis / order", color: "--series-2", r: 4 },
+  order: { group: "hypothesis / order", color: "--series-2", r: 4 },
+  source: { group: "hypothesis / order", color: "--series-2", r: 3 },
+  model: { group: "model fit", color: "--series-3", r: 4.5 },
+  verdict: { group: "validation", color: "--series-7", r: 3 },
+  vote: { group: "validation", color: "--series-7", r: 2.5 },
+  score: { group: "validation", color: "--series-7", r: 3 },
+  disagreement: { group: "validation", color: "--series-7", r: 4 },
+  champion: { group: "champion", color: "--text-primary", r: 5.5, shape: "diamond" },
+  anomaly: { group: "anomaly", color: "--critical", r: 6, shape: "diamond" },
+  need: { group: "need", color: "--text-muted", r: 4, shape: "ring" },
+};
+function laneRank(a) {
+  const order = [/^explorer/, /^channel/, /^hyp-/, /^modeler/, /^validator/, /^monitor/];
+  const i = order.findIndex(r => r.test(a));
+  const num = Number((a.match(/(\d+)$/) || [0, 0])[1]);
+  return [i < 0 ? order.length : i, a.replace(/\d+$/, ""), num];
+}
+function cmpLane(a, b) {
+  const x = laneRank(a), y = laneRank(b);
+  return x[0] - y[0] || x[1].localeCompare(y[1]) || x[2] - y[2];
+}
+function summarize(d) {
+  const p = d.payload || {};
+  switch (d.kind) {
+    case "need": return `wants <b>${esc(d.need)}</b>, pressure ${fmt(d.pressure)}${p.why ? `<br>${esc(p.why)}` : ""}`;
+    case "observation": return `q = [${(p.q || []).map(v => v.toFixed(2)).join(", ")}]<br>tip = [${(p.x || []).map(mm).join(", ")}] mm · ${esc(p.split || "")}${p.carried ? " · carried over" : ""}`;
+    case "finding": return p.type === "?" ? "channel hidden from here" : `channel ${p.channel} ${p.type === "h" ? "rotates about" : "slides along"} <b>${esc(p.axis)}</b> · conf ${(p.conf * 100).toFixed(0)}%`;
+    case "hypothesis": return `<b>${esc((p.pattern || []).join(" "))}</b> · from ${esc(p.source)}, rank ${p.rank}${p.why ? `<br>${esc(p.why)}` : ""}`;
+    case "order": return `chain order [${(p.order || []).join(", ")}] · rmse ${fmt(p.rmse_mm)} mm`;
+    case "model": return `${esc(p.family)} fit on ${p.n_train} motions · train rmse ${fmt(p.train_rmse_mm)} mm${p.describe && p.describe.structure ? `<br><b>${esc(p.describe.structure.join(" "))}</b>` : ""}`;
+    case "verdict": return `candidate #${p.candidate} (${esc(p.family)}) · holdout ${fmt(p.holdout_mm)} mm on ${p.n_holdout}${p.replayed === false ? " · <b>failed replay</b>" : ""}`;
+    case "vote": return p.champion == null ? "no champion yet" : `votes for #${p.champion} · holdout ${fmt(p.holdout_mm)} mm`;
+    case "score": return `champion #${p.champion} · holdout ${fmt(p.holdout_mm)} mm on ${p.n_holdout}`;
+    case "champion": return `crowned <b>${esc(p.family)}</b> · holdout ${fmt(p.holdout_mm)} mm · ${p.votes} votes${p.describe && p.describe.structure ? `<br><b>${esc(p.describe.structure.join(" "))}</b>` : ""}`;
+    case "anomaly": return `surprise <b>${fmt(p.surprise_mm)} mm</b> &gt; threshold ${fmt(p.threshold_mm)} mm at motion ${p.motion}<br>body changed, new epoch`;
+    case "source": return esc(p.describes || p.source || "");
+    default: return `<pre>${esc(JSON.stringify(p).slice(0, 300))}</pre>`;
+  }
+}
+
+function buildDag(recs, summary) {
+  recs.sort((a, b) => a.id - b.id);
+  // motion clock: every observation that is not carried over cost one move
+  let motions = 0;
+  recs.forEach((d, i) => {
+    if (d.kind === "observation" && !(d.payload && d.payload.carried)) motions++;
+    d.motion = motions; d.seq = i;
+  });
+  const byId = new Map(recs.map(d => [d.id, d]));
+  const lanes = [...new Set(recs.map(d => d.author))].sort(cmpLane);
+  const lane = new Map(lanes.map((a, i) => [a, i]));
+  const children = new Map();
+  for (const d of recs) for (const p of d.parents || []) {
+    if (!children.has(p)) children.set(p, []);
+    children.get(p).push(d.id);
+  }
+
+  // legend
+  const kl = $("kindLegend"); kl.innerHTML = "";
+  const groups = [...new Map(Object.values(KIND).map(k => [k.group, k])).values()];
+  for (const g of groups) {
+    const c = `var(${g.color})`;
+    const sw = g.shape === "ring" ? `border:1.5px dashed ${c};background:none`
+      : g.shape === "diamond" ? `background:${c};border-radius:1px;transform:rotate(45deg)` : `background:${c}`;
+    kl.append(h("span", {}, `<i class="sw" style="${sw}"></i>${g.group}`));
+  }
+  kl.append(h("span", {}, `<i class="sw line" style="background:var(--critical)"></i>hidden damage`));
+
+  const svg = $("dagSvg");
+  svg.innerHTML = "";
+  const LW = 110, LH = 22, top = 34, bot = 10;
+  const W = Math.max(900, $("dag").clientWidth - 38);
+  const H = top + lanes.length * LH + bot;
+  svg.setAttribute("width", W); svg.setAttribute("height", H); svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  const x0 = LW + 8, x1 = W - 10;
+  const X = s => x0 + (x1 - x0) * s / Math.max(1, recs.length - 1);
+  const Y = a => top + lane.get(a) * LH + LH / 2;
+
+  const defs = el("defs", {}, svg);
+  const mk = el("marker", { id: "arrow", viewBox: "0 0 8 8", refX: 7, refY: 4, markerWidth: 6, markerHeight: 6, orient: "auto-start-reverse" }, defs);
+  el("path", { d: "M0,0 L8,4 L0,8 z", fill: css("--text-muted") }, mk);
+
+  lanes.forEach((a, i) => {
+    if (i % 2) el("rect", { x: 0, y: top + i * LH, width: W, height: LH, fill: css("--lane-alt") }, svg);
+    el("text", { x: 4, y: top + i * LH + LH / 2 + 4, class: "lane-label" }, svg).textContent = a;
+  });
+  // epoch shading + motion axis
+  const firstEp = recs.find(d => (d.epoch || 0) > 0);
+  if (firstEp) {
+    el("text", { x: X(firstEp.seq) + 4, y: top - 6 }, svg).textContent = `epoch ${firstEp.epoch}: relearning`;
+  }
+  el("line", { x1: x0, x2: x1, y1: top - 0.5, y2: top - 0.5, class: "axis" }, svg);
+  const total = recs[recs.length - 1].motion;
+  const step = total > 160 ? 32 : 16;
+  for (let m = step; m <= total; m += step) {
+    const d = recs.find(r => r.motion >= m);
+    if (!d) continue;
+    el("line", { x1: X(d.seq), x2: X(d.seq), y1: top, y2: H - bot, class: "gridl" }, svg);
+    el("text", { x: X(d.seq), y: 14, "text-anchor": "middle" }, svg).textContent = m;
+  }
+  el("text", { x: x0 - 6, y: 14, "text-anchor": "end" }, svg).textContent = "motion";
+
+  // damage line
+  const ev = summary && summary.damage && summary.damage.events && summary.damage.events[0];
+  if (ev) {
+    const d = recs.find(r => r.motion >= ev.motion);
+    if (d) {
+      const xd = X(d.seq) - 1;
+      el("line", { x1: xd, x2: xd, y1: 18, y2: H - bot, stroke: css("--critical"), "stroke-width": 2 }, svg);
+      const t = el("text", { x: xd - 4, y: 28, "text-anchor": "end" }, svg);
+      t.style.fill = css("--critical"); t.textContent = `motion ${ev.motion}: ${ev.what}`;
+    }
+  }
+
+  const gEdges = el("g", {}, svg), gNeeds = el("g", {}, svg), gNodes = el("g", {}, svg);
+  const curve = (a, b) => {
+    const ax = X(a.seq), ay = Y(a.author), bx = X(b.seq), by = Y(b.author);
+    const mx = (ax + bx) / 2;
+    return `M${ax},${ay} C${mx},${ay} ${mx},${by} ${bx},${by}`;
+  };
+  // need arrows (always shown once the target is revealed)
+  const needEdges = [];
+  for (const d of recs) for (const p of d.parents || []) {
+    const src = byId.get(p);
+    if (src && src.kind === "need") {
+      const path = el("path", { d: curve(src, d), fill: "none", stroke: css("--text-muted"), "stroke-width": 1,
+        "stroke-dasharray": "3 3", "marker-end": "url(#arrow)", opacity: 0.55 }, gNeeds);
+      needEdges.push({ path, seq: d.seq });
+    }
+  }
+  // nodes
+  const nodes = recs.map(d => {
+    const k = KIND[d.kind] || { color: "--text-muted", r: 3 };
+    const x = X(d.seq), y = Y(d.author), c = css(k.color);
+    let n;
+    if (k.shape === "diamond") n = el("rect", { x: x - k.r, y: y - k.r, width: 2 * k.r, height: 2 * k.r, rx: 1, fill: c,
+      stroke: css("--surface-1"), "stroke-width": 1.5, transform: `rotate(45 ${x} ${y})` }, gNodes);
+    else if (k.shape === "ring") n = el("circle", { cx: x, cy: y, r: k.r, fill: css("--surface-1"), stroke: c, "stroke-width": 1.5, "stroke-dasharray": "2 1.5" }, gNodes);
+    else n = el("circle", { cx: x, cy: y, r: k.r, fill: c, stroke: css("--surface-1"), "stroke-width": 1 }, gNodes);
+    n.style.cursor = "pointer";
+    n.addEventListener("mouseenter", e => { highlight(d); showTip(`<div><b>#${d.id} ${esc(d.kind)}</b> <span class="k">by ${esc(d.author)} · motion ${d.motion}${d.epoch != null ? ` · epoch ${d.epoch}` : ""}</span></div><div>${summarize(d)}</div>`
+      + (d.parents && d.parents.length ? `<div class="k">parents: ${d.parents.length} · ancestors: ${ancestors(d).size - 1}</div>` : ""), e); });
+    n.addEventListener("mousemove", e => showTip(tip.innerHTML, e));
+    n.addEventListener("mouseleave", () => { hideTip(); highlight(null); });
+    return n;
+  });
+  function ancestors(d) {
+    const seen = new Set([d.id]), stack = [d.id];
+    while (stack.length) for (const p of (byId.get(stack.pop()) || {}).parents || []) if (!seen.has(p)) { seen.add(p); stack.push(p); }
+    return seen;
+  }
+  function highlight(d) {
+    gEdges.innerHTML = "";
+    if (!d) { nodes.forEach((n, i) => n.style.opacity = i <= head ? 1 : 0); return; }
+    const anc = ancestors(d);
+    nodes.forEach((n, i) => n.style.opacity = i > head ? 0 : anc.has(recs[i].id) ? 1 : 0.15);
+    for (const id of anc) for (const p of byId.get(id).parents || []) {
+      const s = byId.get(p);
+      if (s && s.kind !== "need") el("path", { d: curve(s, byId.get(id)), fill: "none", stroke: css("--text-secondary"), "stroke-width": 1, opacity: 0.5 }, gEdges);
+    }
+  }
+
+  // animation
+  let head = 0, headF = 0, playing = true, last = 0;
+  const scrub = $("scrub"), btn = $("play");
+  scrub.max = recs.length - 1;
+  function render() {
+    nodes.forEach((n, i) => n.style.opacity = i <= head ? 1 : 0);
+    needEdges.forEach(e => e.path.style.display = e.seq <= head ? "" : "none");
+    scrub.value = head;
+    const d = recs[head];
+    $("pos").textContent = `artifact ${head + 1} / ${recs.length} · motion ${d.motion}`;
+  }
+  const rate = recs.length / 14000; // whole run in about 14 s
+  function tick(t) {
+    if (playing) {
+      if (last) { headF = Math.min(recs.length - 1, headF + (t - last) * rate); head = Math.floor(headF); }
+      last = t; render();
+      if (head >= recs.length - 1) { playing = false; btn.textContent = "Replay"; }
+    }
+    if (playing) requestAnimationFrame(tick); else last = 0;
+  }
+  btn.onclick = () => {
+    if (!playing && head >= recs.length - 1) head = 0;
+    headF = head;
+    playing = !playing; btn.textContent = playing ? "Pause" : "Play";
+    if (playing) requestAnimationFrame(tick);
+  };
+  scrub.oninput = () => { playing = false; btn.textContent = "Play"; head = Number(scrub.value); render(); };
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) { head = recs.length - 1; playing = false; btn.textContent = "Replay"; render(); }
+  else requestAnimationFrame(tick);
+}
+
+// ================= shared: line + min/max band chart =================
+const COND = {
+  swarm: { label: "swarm", color: "--series-1" },
+  single: { label: "single agent", color: "--series-2" },
+  mlp: { label: "MLP", color: "--series-3" },
+};
+function legend(target, conds) {
+  target.innerHTML = conds.map(c => `<span><i class="sw line" style="background:var(${COND[c].color})"></i>${COND[c].label}</span>`).join("")
+    + `<span class="note">shaded band = min to max · hollow tick = no trusted model yet in some runs</span>`;
+}
+function bandChart(host, series, opts = {}) {
+  let lastW = -1;
+  const draw = () => {
+    const w = host.clientWidth;
+    if (!w || w === lastW) return;
+    lastW = w; host.innerHTML = ""; drawBand(host, series, opts);
+  };
+  new ResizeObserver(draw).observe(host);
+  draw();
+}
+function drawBand(host, series, { height = 220, yMin = 0.5, yMax = 500, xLabel = "motions", directLabels = false } = {}) {
+  const W = Math.max(240, host.clientWidth), H = height;
+  const m = { l: 40, r: directLabels ? 90 : 12, t: 20, b: 30 };
+  const svg = el("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: "img" }, host);
+  const xs = [...new Set(series.flatMap(s => s.points.map(p => p.x)))].sort((a, b) => a - b);
+  const X = x => m.l + (W - m.l - m.r) * (x - xs[0]) / (xs[xs.length - 1] - xs[0]);
+  const ly = Math.log10, Y = v => m.t + (H - m.t - m.b) * (1 - (ly(Math.min(yMax, Math.max(yMin, v))) - ly(yMin)) / (ly(yMax) - ly(yMin)));
+  for (const t of [1, 3, 10, 30, 100, 300]) if (t >= yMin && t <= yMax) {
+    el("line", { x1: m.l, x2: W - m.r, y1: Y(t), y2: Y(t), class: "gridl" }, svg);
+    el("text", { x: m.l - 6, y: Y(t) + 4, "text-anchor": "end" }, svg).textContent = t;
+  }
+  el("text", { x: m.l - 6, y: 10, "text-anchor": "end" }, svg).textContent = "mm";
+  el("line", { x1: m.l, x2: W - m.r, y1: H - m.b, y2: H - m.b, class: "axis" }, svg);
+  for (const x of xs) el("text", { x: X(x), y: H - m.b + 14, "text-anchor": "middle" }, svg).textContent = x;
+  el("text", { x: W - m.r, y: H - 3, "text-anchor": "end" }, svg).textContent = xLabel;
+
+  for (const s of series) {
+    const c = css(COND[s.key].color);
+    const pts = s.points.filter(p => p.n > 0);
+    // band and line split into runs of consecutive x with data
+    let runs = [], cur = [];
+    for (const p of s.points) { if (p.n > 0) cur.push(p); else if (cur.length) { runs.push(cur); cur = []; } }
+    if (cur.length) runs.push(cur);
+    for (const r of runs) {
+      const up = r.map(p => `${X(p.x)},${Y(p.max)}`), dn = r.slice().reverse().map(p => `${X(p.x)},${Y(p.min)}`);
+      el("polygon", { points: [...up, ...dn].join(" "), fill: c, opacity: 0.14 }, svg);
+      el("polyline", { points: r.map(p => `${X(p.x)},${Y(p.med)}`).join(" "), fill: "none", stroke: c, "stroke-width": 2, "stroke-linejoin": "round" }, svg);
+    }
+    for (const p of pts) el("circle", { cx: X(p.x), cy: Y(p.med), r: 3, fill: c, stroke: css("--surface-1"), "stroke-width": 1.5 }, svg);
+    for (const p of s.points) if (p.n < p.total)
+      el("rect", { x: X(p.x) - 3.5, y: H - m.b - 9, width: 7, height: 7, rx: 1, fill: "none", stroke: c, "stroke-width": 1.5 }, svg);
+    if (directLabels && pts.length) {
+      const p = pts[pts.length - 1];
+      const t = el("text", { x: X(p.x) + 8, y: Y(p.med) + 4 }, svg);
+      t.style.fill = css("--text-primary"); t.textContent = COND[s.key].label;
+    }
+  }
+  // crosshair + tooltip
+  const cross = el("line", { y1: m.t, y2: H - m.b, stroke: css("--text-muted"), "stroke-width": 1, opacity: 0 }, svg);
+  const hit = el("rect", { x: m.l, y: m.t, width: W - m.l - m.r, height: H - m.t - m.b, fill: "transparent" }, svg);
+  hit.addEventListener("mousemove", e => {
+    const bx = svg.getBoundingClientRect().left;
+    const px = e.clientX - bx;
+    const x = xs.reduce((a, b) => Math.abs(X(b) - px) < Math.abs(X(a) - px) ? b : a);
+    cross.setAttribute("x1", X(x)); cross.setAttribute("x2", X(x)); cross.setAttribute("opacity", 0.6);
+    const rows = series.map(s => {
+      const p = s.points.find(q => q.x === x) || { n: 0, total: 0 };
+      const val = p.n ? `<b>${fmt(p.med)}</b> mm <span class="k">(${fmt(p.min)} to ${fmt(p.max)})</span>` : `<span class="k">no trusted model</span>`;
+      return `<div><i class="sw" style="background:var(${COND[s.key].color})"></i> ${COND[s.key].label}: ${val} <span class="k">· ${p.n}/${p.total} runs</span></div>`;
+    }).join("");
+    showTip(`<div class="k">${x} ${xLabel}</div>${rows}`, e);
+  });
+  hit.addEventListener("mouseleave", () => { cross.setAttribute("opacity", 0); hideTip(); });
+}
+function seriesFrom(rows, conds, xKey = "motions") {
+  return conds.map(key => {
+    const xs = [...new Set(rows.filter(r => r.condition === key).map(r => r[xKey]))].sort((a, b) => a - b);
+    return { key, points: xs.map(x => ({ x, ...quant(rows.filter(r => r.condition === key && r[xKey] === x).map(r => r.reach_mm)) })) };
+  }).filter(s => s.points.length);
+}
+function dataTable(host, series) {
+  const xs = [...new Set(series.flatMap(s => s.points.map(p => p.x)))].sort((a, b) => a - b);
+  host.innerHTML = `<table class="data"><tr><th>condition</th>${xs.map(x => `<th>${x}</th>`).join("")}</tr>`
+    + series.map(s => `<tr><td>${COND[s.key].label}</td>${xs.map(x => { const p = s.points.find(q => q.x === x); return `<td class="num">${p && p.n ? fmt(p.med) : "paused"}</td>`; }).join("")}</tr>`).join("")
+    + "</table>";
+}
+
+// ================= 2. unknown body types =================
+function buildBodies(rows, meta) {
+  legend($("bodiesLegend"), ["swarm", "single"]);
+  const host = $("bodies"); host.innerHTML = "";
+  const tables = [];
+  for (const fam of [...new Set(rows.map(r => r.family))]) {
+    const fr = rows.filter(r => r.family === fam);
+    const panel = h("div", { className: "panel" });
+    const fm = meta.filter(m => m.family === fam);
+    const ok = c => fm.filter(m => m.condition === c && m.structure_correct).length;
+    const n = c => fm.filter(m => m.condition === c).length;
+    panel.append(h("h3", {}, esc(fam)));
+    panel.append(h("div", { className: "stat" }, `structure correct: swarm <b>${ok("swarm")}/${n("swarm")}</b> · single <b>${ok("single")}/${n("single")}</b>`));
+    const chart = h("div"); panel.append(chart); host.append(panel);
+    const series = seriesFrom(fr, ["swarm", "single"]);
+    bandChart(chart, series, { height: 170 });
+    tables.push(`<p class="note"><b>${esc(fam)}</b> median reach error, mm</p>`);
+    const tmp = h("div"); dataTable(tmp, series); tables.push(tmp.innerHTML);
+    // structure found vs truth per seed
+    const seeds = [...new Set(fm.map(m => m.seed))].sort((a, b) => a - b);
+    const chips = (toks, truth) => toks.map((t, i) => `<span class="tok${truth && t !== truth[i] ? " bad" : ""}" title="${truth && t !== truth[i] ? `wrong: truth is ${truth[i]}` : ""}">${esc(t)}</span>`).join("");
+    let tb = `<table class="struct"><tr><th>seed</th><th>truth</th><th>swarm</th><th>single</th></tr>`;
+    for (const s of seeds) {
+      const get = c => fm.find(m => m.seed === s && m.condition === c);
+      const sw = get("swarm"), si = get("single"), truth = (sw || si).truth;
+      const cell = m => m ? chips(m.found, truth) + (m.structure_correct ? ` <span class="ok" aria-label="correct">✓</span>` : ` <span class="no" aria-label="wrong">✗</span>`) : "";
+      tb += `<tr><td>${s}</td><td>${chips(truth)}</td><td>${cell(sw)}</td><td>${cell(si)}</td></tr>`;
+    }
+    panel.append(h("div", { className: "scroll" }, tb + "</table>"));
+  }
+  $("bodiesTable").innerHTML = tables.join("");
+}
+
+// ================= 3. learning curve =================
+function buildLearning(rows) {
+  const conds = ["swarm", "single", "mlp"].filter(c => rows.some(r => r.condition === c));
+  legend($("learnLegend"), conds);
+  const series = seriesFrom(rows, conds);
+  const nArms = new Set(rows.map(r => r.arm)).size;
+  $("learnSub").textContent = `Swarm, single agent and a neural net (MLP) on the same ${nArms} arms, same budget, same targets. `
+    + "Median line, min to max band, log scale. Paused runs (no validated model yet) are left out of the median and counted in the tooltip. "
+    + "On a known arm family the single agent is as good or slightly better: the swarm spends motions on holdout data before it will plan.";
+  $("learn").innerHTML = "";
+  bandChart($("learn"), series, { height: 280, directLabels: true });
+  dataTable($("learnTable"), series);
+}
+
+// ================= 4. champion vs truth =================
+function buildChampion(recs, summary) {
+  const host = $("champ"); host.innerHTML = "";
+  const champs = recs.filter(d => d.kind === "champion" && d.payload.describe && d.payload.describe.structure);
+  const epochs = [...new Set(champs.map(d => d.epoch || 0))].sort();
+  if (!epochs.length) { host.innerHTML = `<p class="note">No chain champion on this board.</p>`; return; }
+  const tool = (summary && summary.true_tool_m) || 0;
+  for (const ep of epochs) {
+    const c = champs.filter(d => (d.epoch || 0) === ep).pop(), d = c.payload.describe;
+    const truthTok = summary && summary.true_structure;
+    let tl = summary && (ep > 0 ? summary.true_links_after_m : summary.true_links_m);
+    if (tl) tl = tl.map((v, i) => i === tl.length - 1 ? v + tool : v);
+    const order = d.chain_order || d.structure.map((_, i) => i);
+    let rows = "";
+    d.structure.forEach((tok, ch) => {
+      const t = truthTok && truthTok[ch];
+      rows += `<tr><td>channel ${ch}</td><td><span class="tok">${esc(tok)}</span></td>`
+        + `<td class="truth">${t ? `<span class="tok">${esc(t)}</span> ${t === tok ? '<span class="ok">✓</span>' : '<span class="no">✗</span>'}` : "n/a"}</td></tr>`;
+    });
+    let lrows = "";
+    (d.links_m || []).forEach((v, i) => {
+      const idf = d.identifiable ? d.identifiable[i] : true;
+      const t = tl && tl[i];
+      const errTxt = t == null ? "n/a" : idf ? `${Math.abs(v - t) * 1000 < 0.5 ? "<1" : (Math.abs(v - t) * 1000).toFixed(0)} mm` : "";
+      lrows += `<tr><td>link ${i}${d.chain_order ? ` <span class="note">(after channel ${order[i]})</span>` : ""}</td>`
+        + `<td class="num">${idf ? `${mm(v)} mm` : `<span class="note">not identifiable</span>`}</td>`
+        + `<td class="truth num">${t != null ? `${mm(t)} mm` : "n/a"}</td><td class="truth num">${errTxt}</td></tr>`;
+    });
+    const dmg = ep > 0 && summary && summary.damage && summary.damage.events && summary.damage.events[0];
+    host.append(h("div", { className: "box" },
+      `<h3>Epoch ${ep}${ep > 0 ? " (after the monitor noticed damage)" : " (before damage)"}</h3>`
+      + `<p class="note">champion #${c.id}, ${esc(c.payload.family)} model, holdout ${fmt(c.payload.holdout_mm)} mm, ${c.payload.votes} validators agree</p>`
+      + `<table><tr><th>channel</th><th>discovered</th><th class="truth">truth</th></tr>${rows}</table>`
+      + `<table style="margin-top:10px"><tr><th>link</th><th>discovered</th><th class="truth">truth</th><th class="truth">error</th></tr>${lrows}</table>`
+      + (dmg ? `<p class="note" style="display:none" data-dmg>Hidden damage at motion ${dmg.motion}: ${esc(dmg.what)}.</p>` : "")
+      + `<p class="note">Links the data cannot pin down (for example the base height under a yaw joint) are reported as not identifiable rather than guessed.</p>`));
+  }
+  const btn = $("reveal");
+  btn.onclick = () => {
+    const on = $("champCard").classList.toggle("revealed");
+    btn.textContent = on ? "Hide the truth" : "Reveal the truth";
+    document.querySelectorAll("[data-dmg]").forEach(p => p.style.display = on ? "block" : "none");
+  };
+}
+
+// ================= load =================
+function fail(where, e) {
+  where.insertAdjacentHTML("beforeend", `<div class="err">Could not load data: ${esc(e.message)}.<br>Serve the repo root over http, e.g. <code>python -m http.server 8000</code>, then open <code>/dashboard/</code>.</div>`);
+}
+(async () => {
+  let summary = null;
+  try { summary = JSON.parse(await getText(PATHS.summary)); } catch (e) { /* truth reveal shows n/a */ }
+  if (summary) {
+    const dmg = summary.damage && summary.damage.events && summary.damage.events[0];
+    $("meta").innerHTML = [
+      `robot <b>${esc(summary.family || "")}</b>`, `<b>${summary.n_channels}</b> unlabeled channels`,
+      `budget <b>${summary.budget}</b> motions`,
+      dmg ? `damage <b>${esc(summary.damage.kind)}</b> at motion <b>${dmg.motion}</b>` : "",
+      summary.llm && summary.llm.length ? `LLM hypothesizers: <b>${summary.llm.map(k => k.split("_")[0].toLowerCase()).join(", ")}</b>` : "LLM hypothesizers off",
+    ].filter(Boolean).map(s => `<span>${s}</span>`).join("");
+  }
+  let recs = null;
+  try {
+    recs = (await getText(PATHS.bb)).trim().split(/\r?\n/).filter(Boolean).map(l => JSON.parse(l));
+    buildDag(recs, summary);
+    buildChampion(recs, summary);
+  } catch (e) { fail($("dag"), e); }
+  try {
+    const [rows, meta] = await Promise.all([getText(PATHS.bodies).then(parseCSV), getText(PATHS.bodiesMeta).then(JSON.parse)]);
+    buildBodies(rows, meta);
+  } catch (e) { fail($("bodies"), e); }
+  try { buildLearning(parseCSV(await getText(PATHS.learning))); } catch (e) { fail($("learn"), e); }
+
+  // redraw size and theme dependent SVGs
+  let t;
+  const redraw = () => { clearTimeout(t); t = setTimeout(() => location.reload(), 0); };
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", redraw);
+})();
+</script>
+</body>
+</html>

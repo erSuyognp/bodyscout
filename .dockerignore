@@ -1,0 +1,8 @@
+# The image needs only dashboard/, runs/ and results/ (see Dockerfile)
+*
+!dashboard/
+!runs/demo_blackboard.jsonl
+!runs/demo_summary.json
+!results/bodies.csv
+!results/bodies_meta.json
+!results/learning.csv

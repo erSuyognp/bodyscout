@@ -1,0 +1,13 @@
+# Upload for `gcloud run deploy --source .`. Without this file gcloud would reuse .gitignore,
+# which drops runs/ (the dashboard's data). Secrets and heavy folders stay out.
+.env
+.env.*
+.git/
+.gitignore
+.venv/
+venv/
+.claude/
+third_party/
+__pycache__/
+results/*.mp4
+results/sweep/
