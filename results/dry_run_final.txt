@@ -1,0 +1,1 @@
+1938 jobs (bodies 240, damage 480, learning 30, extrapolation 20, menagerie 48, faults 800, noise 320), 1938 already in results/sweep.jsonl, 0 to run on 64 processes

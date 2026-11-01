@@ -19,16 +19,21 @@
   "structure_correct": true,
   "links_m": [
    0.069,
-   0.194,
-   0.121,
-   0.117
+   0.193,
+   0.136,
+   0.111
   ],
   "identifiable": [
    false,
    true,
-   false,
+   true,
    false
-  ]
+  ],
+  "agent_s": 205.2173485319945,
+  "agent_cpu_s": 205.21427023999934,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "swarm_version": 2
  },
  {
   "family": "arm",
@@ -59,7 +64,78 @@
    true,
    false,
    false
-  ]
+  ],
+  "agent_s": 8.606384674000537
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.069,
+   0.193,
+   0.119,
+   0.118
+  ],
+  "identifiable": [
+   false,
+   true,
+   false,
+   false
+  ],
+  "agent_s": 20.05963164199875,
+  "agent_cpu_s": 20.04420604200004,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.069,
+   0.194,
+   0.125,
+   0.116
+  ],
+  "identifiable": [
+   false,
+   true,
+   false,
+   false
+  ],
+  "agent_s": 17.83708337799999,
+  "agent_cpu_s": 17.816540957000257,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "arm",
@@ -82,19 +158,24 @@
   "types_correct": true,
   "structure_correct": true,
   "links_m": [
-   0.066,
-   0.148,
-   0.165,
-   0.094,
+   0.065,
+   0.149,
+   0.166,
+   0.093,
    0.078
   ],
   "identifiable": [
-   false,
+   true,
    true,
    true,
    true,
    true
-  ]
+  ],
+  "agent_s": 64.7915125490008,
+  "agent_cpu_s": 64.34381680299987,
+  "motions_used": 65,
+  "probe_motions": 40,
+  "swarm_version": 2
  },
  {
   "family": "arm",
@@ -129,7 +210,86 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 14.77615442399997
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.065,
+   0.149,
+   0.166,
+   0.093,
+   0.077
+  ],
+  "identifiable": [
+   false,
+   true,
+   true,
+   true,
+   true
+  ],
+  "agent_s": 15.773609240998667,
+  "agent_cpu_s": 15.746743944999935,
+  "motions_used": 64,
+  "probe_motions": 20
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.065,
+   0.148,
+   0.166,
+   0.093,
+   0.078
+  ],
+  "identifiable": [
+   false,
+   true,
+   true,
+   true,
+   true
+  ],
+  "agent_s": 10.460470504001023,
+  "agent_cpu_s": 10.460226197999987,
+  "motions_used": 68,
+  "probe_motions": 20
  },
  {
   "family": "arm",
@@ -154,7 +314,7 @@
   "links_m": [
    0.099,
    0.082,
-   0.126,
+   0.127,
    0.132,
    0.091
   ],
@@ -164,7 +324,12 @@
    true,
    true,
    true
-  ]
+  ],
+  "agent_s": 48.32496843100034,
+  "agent_cpu_s": 48.32371041900012,
+  "motions_used": 65,
+  "probe_motions": 48,
+  "swarm_version": 2
  },
  {
   "family": "arm",
@@ -199,7 +364,86 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 12.271734473999686
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.099,
+   0.082,
+   0.127,
+   0.132,
+   0.091
+  ],
+  "identifiable": [
+   false,
+   true,
+   true,
+   true,
+   true
+  ],
+  "agent_s": 16.070129211000676,
+  "agent_cpu_s": 15.95705383099994,
+  "motions_used": 64,
+  "probe_motions": 20
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.099,
+   0.083,
+   0.127,
+   0.132,
+   0.091
+  ],
+  "identifiable": [
+   false,
+   true,
+   true,
+   true,
+   true
+  ],
+  "agent_s": 9.265107567998712,
+  "agent_cpu_s": 9.259155148000104,
+  "motions_used": 68,
+  "probe_motions": 20
  },
  {
   "family": "arm",
@@ -225,16 +469,21 @@
    0.1,
    0.101,
    0.1,
-   0.134,
-   0.133
+   0.133,
+   0.134
   ],
   "identifiable": [
    false,
-   true,
    false,
-   true,
-   true
-  ]
+   false,
+   false,
+   false
+  ],
+  "agent_s": 46.57320604799952,
+  "agent_cpu_s": 46.554223211000135,
+  "motions_used": 64,
+  "probe_motions": 40,
+  "swarm_version": 2
  },
  {
   "family": "arm",
@@ -269,7 +518,86 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 16.110671973000308
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.1,
+   0.101,
+   0.102,
+   0.14,
+   0.13
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 18.417077175000486,
+  "agent_cpu_s": 18.416379779000295,
+  "motions_used": 64,
+  "probe_motions": 20
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.1,
+   0.101,
+   0.101,
+   0.135,
+   0.132
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 11.244580181000856,
+  "agent_cpu_s": 11.244313647000126,
+  "motions_used": 68,
+  "probe_motions": 20
  },
  {
   "family": "arm",
@@ -295,16 +623,21 @@
    0.078,
    0.078,
    0.121,
-   0.122,
+   0.121,
    0.076
   ],
   "identifiable": [
    false,
-   true,
+   false,
    false,
    false,
    true
-  ]
+  ],
+  "agent_s": 80.79910286900213,
+  "agent_cpu_s": 80.70856391700022,
+  "motions_used": 69,
+  "probe_motions": 40,
+  "swarm_version": 2
  },
  {
   "family": "arm",
@@ -339,7 +672,86 @@
    false,
    false,
    true
-  ]
+  ],
+  "agent_s": 15.693982664000714
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.078,
+   0.078,
+   0.122,
+   0.122,
+   0.076
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 16.27885365399652,
+  "agent_cpu_s": 16.277908655000147,
+  "motions_used": 64,
+  "probe_motions": 20
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.078,
+   0.078,
+   0.122,
+   0.122,
+   0.075
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 11.08468379399801,
+  "agent_cpu_s": 11.079799029000014,
+  "motions_used": 68,
+  "probe_motions": 20
  },
  {
   "family": "arm",
@@ -361,16 +773,21 @@
   "structure_correct": true,
   "links_m": [
    0.084,
-   0.12,
+   0.119,
    0.198,
-   0.152
+   0.153
   ],
   "identifiable": [
    false,
    true,
    true,
    true
-  ]
+  ],
+  "agent_s": 45.748879990001114,
+  "agent_cpu_s": 45.60771891400009,
+  "motions_used": 65,
+  "probe_motions": 40,
+  "swarm_version": 2
  },
  {
   "family": "arm",
@@ -401,7 +818,78 @@
    true,
    true,
    true
-  ]
+  ],
+  "agent_s": 7.349219508000033
+ },
+ {
+  "family": "arm",
+  "seed": 6,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.084,
+   0.119,
+   0.199,
+   0.152
+  ],
+  "identifiable": [
+   false,
+   true,
+   true,
+   true
+  ],
+  "agent_s": 9.86620709500312,
+  "agent_cpu_s": 9.865749459000085,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "arm",
+  "seed": 6,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.084,
+   0.12,
+   0.198,
+   0.152
+  ],
+  "identifiable": [
+   false,
+   true,
+   true,
+   true
+  ],
+  "agent_s": 12.306033609999758,
+  "agent_cpu_s": 12.301493377000043,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "arm",
@@ -424,9 +912,9 @@
   "types_correct": true,
   "structure_correct": true,
   "links_m": [
-   0.074,
+   0.073,
    0.109,
-   0.128,
+   0.129,
    0.128,
    0.177
   ],
@@ -436,7 +924,12 @@
    false,
    false,
    true
-  ]
+  ],
+  "agent_s": 61.64659762800147,
+  "agent_cpu_s": 61.61511396699984,
+  "motions_used": 65,
+  "probe_motions": 40,
+  "swarm_version": 2
  },
  {
   "family": "arm",
@@ -471,7 +964,86 @@
    false,
    false,
    true
-  ]
+  ],
+  "agent_s": 14.452653100000362
+ },
+ {
+  "family": "arm",
+  "seed": 7,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hx",
+   "hx",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hx",
+   "hx",
+   "hz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.073,
+   0.109,
+   0.128,
+   0.128,
+   0.177
+  ],
+  "identifiable": [
+   false,
+   true,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 14.760670102001313,
+  "agent_cpu_s": 14.760119505000148,
+  "motions_used": 64,
+  "probe_motions": 20
+ },
+ {
+  "family": "arm",
+  "seed": 7,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hx",
+   "hx",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hx",
+   "hx",
+   "hz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.073,
+   0.109,
+   0.128,
+   0.128,
+   0.177
+  ],
+  "identifiable": [
+   false,
+   true,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 8.786155981002594,
+  "agent_cpu_s": 8.757666327999914,
+  "motions_used": 68,
+  "probe_motions": 20
  },
  {
   "family": "arm",
@@ -498,7 +1070,7 @@
    0.184,
    0.124,
    0.124,
-   0.118
+   0.119
   ],
   "identifiable": [
    false,
@@ -506,7 +1078,12 @@
    false,
    false,
    true
-  ]
+  ],
+  "agent_s": 44.93002557199816,
+  "agent_cpu_s": 44.693148046999795,
+  "motions_used": 64,
+  "probe_motions": 40,
+  "swarm_version": 2
  },
  {
   "family": "arm",
@@ -541,7 +1118,86 @@
    false,
    false,
    true
-  ]
+  ],
+  "agent_s": 16.09565005399986
+ },
+ {
+  "family": "arm",
+  "seed": 8,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.111,
+   0.185,
+   0.124,
+   0.124,
+   0.118
+  ],
+  "identifiable": [
+   false,
+   true,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 15.52726946099665,
+  "agent_cpu_s": 15.478244046999976,
+  "motions_used": 64,
+  "probe_motions": 20
+ },
+ {
+  "family": "arm",
+  "seed": 8,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.111,
+   0.185,
+   0.124,
+   0.124,
+   0.117
+  ],
+  "identifiable": [
+   true,
+   true,
+   true,
+   false,
+   true
+  ],
+  "agent_s": 9.534423359999892,
+  "agent_cpu_s": 9.526804112999912,
+  "motions_used": 68,
+  "probe_motions": 20
  },
  {
   "family": "arm",
@@ -568,11 +1224,16 @@
    0.189
   ],
   "identifiable": [
-   false,
+   true,
    true,
    true,
    true
-  ]
+  ],
+  "agent_s": 50.14477595900007,
+  "agent_cpu_s": 50.11319346499988,
+  "motions_used": 66,
+  "probe_motions": 32,
+  "swarm_version": 2
  },
  {
   "family": "arm",
@@ -603,7 +1264,78 @@
    false,
    false,
    true
-  ]
+  ],
+  "agent_s": 9.79862267699923
+ },
+ {
+  "family": "arm",
+  "seed": 9,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.133,
+   0.133,
+   0.134,
+   0.189
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 9.834292358000312,
+  "agent_cpu_s": 9.830295862000298,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "arm",
+  "seed": 9,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.133,
+   0.133,
+   0.134,
+   0.189
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 6.705223413999192,
+  "agent_cpu_s": 6.70166437700027,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "arm",
@@ -629,8 +1361,8 @@
    0.092,
    0.092,
    0.088,
-   0.161,
-   0.179
+   0.162,
+   0.178
   ],
   "identifiable": [
    false,
@@ -638,7 +1370,12 @@
    true,
    true,
    true
-  ]
+  ],
+  "agent_s": 45.14523460100099,
+  "agent_cpu_s": 44.63505554100004,
+  "motions_used": 64,
+  "probe_motions": 40,
+  "swarm_version": 2
  },
  {
   "family": "arm",
@@ -673,7 +1410,775 @@
    true,
    false,
    false
-  ]
+  ],
+  "agent_s": 16.03478257899951
+ },
+ {
+  "family": "arm",
+  "seed": 10,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hy",
+   "hx"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hy",
+   "hx"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.092,
+   0.092,
+   0.089,
+   0.161,
+   0.179
+  ],
+  "identifiable": [
+   false,
+   false,
+   true,
+   true,
+   true
+  ],
+  "agent_s": 17.019991231002678,
+  "agent_cpu_s": 16.90271063499995,
+  "motions_used": 64,
+  "probe_motions": 20
+ },
+ {
+  "family": "arm",
+  "seed": 10,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hy",
+   "hx"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hy",
+   "hx"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.092,
+   0.092,
+   0.088,
+   0.16,
+   0.179
+  ],
+  "identifiable": [
+   true,
+   false,
+   true,
+   true,
+   true
+  ],
+  "agent_s": 10.117074543000854,
+  "agent_cpu_s": 10.116717787999846,
+  "motions_used": 68,
+  "probe_motions": 20
+ },
+ {
+  "family": "arm",
+  "seed": 101,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "hx"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hx"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.124,
+   0.123,
+   0.108
+  ],
+  "identifiable": [
+   false,
+   false,
+   true
+  ],
+  "agent_s": 77.25047897600598,
+  "agent_cpu_s": 77.22976467000046,
+  "motions_used": 64,
+  "probe_motions": 24,
+  "swarm_version": 2
+ },
+ {
+  "family": "arm",
+  "seed": 101,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "hx"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hx"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.124,
+   0.123,
+   0.108
+  ],
+  "identifiable": [
+   false,
+   false,
+   true
+  ],
+  "agent_s": 4.858802370999001,
+  "agent_cpu_s": 4.856639192000102,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "arm",
+  "seed": 101,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "hx"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hx"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.124,
+   0.123,
+   0.108
+  ],
+  "identifiable": [
+   false,
+   false,
+   true
+  ],
+  "agent_s": 5.285825570999805,
+  "agent_cpu_s": 5.285629607000033,
+  "motions_used": 64,
+  "probe_motions": 12
+ },
+ {
+  "family": "arm",
+  "seed": 101,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "hx"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hx"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.124,
+   0.123,
+   0.108
+  ],
+  "identifiable": [
+   false,
+   false,
+   true
+  ],
+  "agent_s": 4.198944597999798,
+  "agent_cpu_s": 4.19883618900019,
+  "motions_used": 68,
+  "probe_motions": 12
+ },
+ {
+  "family": "arm",
+  "seed": 102,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.114,
+   0.11,
+   0.158,
+   0.13
+  ],
+  "identifiable": [
+   false,
+   true,
+   true,
+   true
+  ],
+  "agent_s": 88.79800089600121,
+  "agent_cpu_s": 88.7700550039998,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "swarm_version": 2
+ },
+ {
+  "family": "arm",
+  "seed": 102,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "sx"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.112,
+   0.11,
+   0.116,
+   0.116
+  ],
+  "identifiable": [
+   false,
+   true,
+   false,
+   false
+  ],
+  "agent_s": 7.847559680998529,
+  "agent_cpu_s": 7.832858280999972,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "arm",
+  "seed": 102,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.114,
+   0.11,
+   0.158,
+   0.131
+  ],
+  "identifiable": [
+   false,
+   true,
+   true,
+   true
+  ],
+  "agent_s": 9.511766936998356,
+  "agent_cpu_s": 9.405451249999942,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "arm",
+  "seed": 102,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.113,
+   0.112,
+   0.158,
+   0.13
+  ],
+  "identifiable": [
+   false,
+   true,
+   true,
+   true
+  ],
+  "agent_s": 6.676936597999884,
+  "agent_cpu_s": 6.670504800000117,
+  "motions_used": 68,
+  "probe_motions": 16
+ },
+ {
+  "family": "arm",
+  "seed": 103,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.072,
+   0.183,
+   0.181,
+   0.083
+  ],
+  "identifiable": [
+   false,
+   true,
+   true,
+   true
+  ],
+  "agent_s": 68.55235012499998,
+  "agent_cpu_s": 68.46107229699987,
+  "motions_used": 65,
+  "probe_motions": 32,
+  "swarm_version": 2
+ },
+ {
+  "family": "arm",
+  "seed": 103,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "sx",
+   "sx",
+   "sx"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.058,
+   0.058,
+   0.058,
+   0.058
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 8.415540281002905,
+  "agent_cpu_s": 8.415392186999838,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "arm",
+  "seed": 103,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.073,
+   0.182,
+   0.182,
+   0.083
+  ],
+  "identifiable": [
+   false,
+   true,
+   true,
+   true
+  ],
+  "agent_s": 10.650991574997533,
+  "agent_cpu_s": 10.456977936000044,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "arm",
+  "seed": 103,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.073,
+   0.181,
+   0.182,
+   0.083
+  ],
+  "identifiable": [
+   false,
+   true,
+   true,
+   true
+  ],
+  "agent_s": 5.965905881002072,
+  "agent_cpu_s": 5.955005666999682,
+  "motions_used": 68,
+  "probe_motions": 16
+ },
+ {
+  "family": "arm",
+  "seed": 104,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.085,
+   0.085,
+   0.167,
+   0.165,
+   0.126
+  ],
+  "identifiable": [
+   false,
+   false,
+   true,
+   true,
+   true
+  ],
+  "agent_s": 73.91849222800101,
+  "agent_cpu_s": 73.31023613600007,
+  "motions_used": 69,
+  "probe_motions": 40,
+  "swarm_version": 2
+ },
+ {
+  "family": "arm",
+  "seed": 104,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "sy",
+   "hy",
+   "sy",
+   "sx"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.089,
+   0.089,
+   0.077,
+   0.077,
+   0.077
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 14.295513420001953,
+  "agent_cpu_s": 14.293561730000192,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "arm",
+  "seed": 104,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.085,
+   0.085,
+   0.168,
+   0.166,
+   0.124
+  ],
+  "identifiable": [
+   false,
+   false,
+   true,
+   true,
+   true
+  ],
+  "agent_s": 16.60356545799732,
+  "agent_cpu_s": 16.585961732000214,
+  "motions_used": 64,
+  "probe_motions": 20
+ },
+ {
+  "family": "arm",
+  "seed": 104,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.085,
+   0.085,
+   0.168,
+   0.166,
+   0.124
+  ],
+  "identifiable": [
+   false,
+   false,
+   true,
+   true,
+   true
+  ],
+  "agent_s": 9.79674255000009,
+  "agent_cpu_s": 9.79670703800025,
+  "motions_used": 68,
+  "probe_motions": 20
+ },
+ {
+  "family": "arm",
+  "seed": 105,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hx",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.066,
+   0.133,
+   0.128
+  ],
+  "identifiable": [
+   false,
+   false,
+   false
+  ],
+  "agent_s": 100.87454421999882,
+  "agent_cpu_s": 100.85120911999854,
+  "motions_used": 64,
+  "probe_motions": 24,
+  "swarm_version": 2
+ },
+ {
+  "family": "arm",
+  "seed": 105,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hx",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.067,
+   0.129,
+   0.129
+  ],
+  "identifiable": [
+   false,
+   false,
+   false
+  ],
+  "agent_s": 8.201863752000463,
+  "agent_cpu_s": 8.201721766999981,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "arm",
+  "seed": 105,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hx",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.067,
+   0.129,
+   0.129
+  ],
+  "identifiable": [
+   false,
+   false,
+   false
+  ],
+  "agent_s": 18.927767911000956,
+  "agent_cpu_s": 18.92725308000024,
+  "motions_used": 64,
+  "probe_motions": 12
+ },
+ {
+  "family": "arm",
+  "seed": 105,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hx",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.067,
+   0.129,
+   0.129
+  ],
+  "identifiable": [
+   false,
+   false,
+   false
+  ],
+  "agent_s": 15.817431885999213,
+  "agent_cpu_s": 15.816512791999912,
+  "motions_used": 68,
+  "probe_motions": 12
  },
  {
   "family": "gantry",
@@ -704,7 +2209,12 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 109.58252408300086,
+  "agent_cpu_s": 108.89769289000049,
+  "motions_used": 65,
+  "probe_motions": 32,
+  "swarm_version": 2
  },
  {
   "family": "gantry",
@@ -735,7 +2245,78 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 11.320062602999997
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.05,
+   0.05,
+   0.05,
+   0.097
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 6.863597169001878,
+  "agent_cpu_s": 6.863476306999814,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.05,
+   0.05,
+   0.05,
+   0.098
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 3.3430373259998305,
+  "agent_cpu_s": 3.341253313000152,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "gantry",
@@ -766,7 +2347,12 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 497.61361241300347,
+  "agent_cpu_s": 497.05638161500065,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "swarm_version": 2
  },
  {
   "family": "gantry",
@@ -797,7 +2383,78 @@
    false,
    true,
    true
-  ]
+  ],
+  "agent_s": 10.931689750000032
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.055,
+   0.055,
+   0.055,
+   0.086
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 6.671599705998233,
+  "agent_cpu_s": 6.666033390000052,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.055,
+   0.055,
+   0.055,
+   0.086
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 3.134175815997878,
+  "agent_cpu_s": 3.1188959219997514,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "gantry",
@@ -828,7 +2485,12 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 282.4281765290016,
+  "agent_cpu_s": 280.2207303209997,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "swarm_version": 2
  },
  {
   "family": "gantry",
@@ -859,7 +2521,78 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 10.660190413000691
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.051,
+   0.051,
+   0.051,
+   0.091
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 5.513090669997837,
+  "agent_cpu_s": 5.512994065999919,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.051,
+   0.051,
+   0.051,
+   0.092
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 3.5986018769999646,
+  "agent_cpu_s": 3.596553186000051,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "gantry",
@@ -890,7 +2623,12 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 227.07925890800016,
+  "agent_cpu_s": 225.56948833900015,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "swarm_version": 2
  },
  {
   "family": "gantry",
@@ -921,7 +2659,78 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 11.45751832999963
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.044,
+   0.044,
+   0.044,
+   0.078
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 5.609909605000212,
+  "agent_cpu_s": 5.60775963799972,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.044,
+   0.044,
+   0.044,
+   0.078
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 3.3266691240023647,
+  "agent_cpu_s": 3.3152817989998766,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "gantry",
@@ -952,7 +2761,12 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 97.80295220899916,
+  "agent_cpu_s": 97.58282126500012,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "swarm_version": 2
  },
  {
   "family": "gantry",
@@ -983,7 +2797,78 @@
    false,
    true,
    true
-  ]
+  ],
+  "agent_s": 11.237115132000554
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.05,
+   0.05,
+   0.05,
+   0.09
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 7.296478832000503,
+  "agent_cpu_s": 7.295990236999955,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.05,
+   0.05,
+   0.05,
+   0.091
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 2.837206686999707,
+  "agent_cpu_s": 2.8337226420001116,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "gantry",
@@ -1014,7 +2899,12 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 166.8281994179988,
+  "agent_cpu_s": 166.44855951900036,
+  "motions_used": 66,
+  "probe_motions": 40,
+  "swarm_version": 2
  },
  {
   "family": "gantry",
@@ -1045,7 +2935,78 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 11.81942061199993
+ },
+ {
+  "family": "gantry",
+  "seed": 6,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.05,
+   0.05,
+   0.05,
+   0.078
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 5.338123165998695,
+  "agent_cpu_s": 5.265743543999861,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "gantry",
+  "seed": 6,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.05,
+   0.05,
+   0.05,
+   0.078
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 2.9372889579972252,
+  "agent_cpu_s": 2.9372654069998134,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "gantry",
@@ -1076,7 +3037,12 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 224.02267107800162,
+  "agent_cpu_s": 222.7191655899992,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "swarm_version": 2
  },
  {
   "family": "gantry",
@@ -1107,7 +3073,78 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 11.91250481599991
+ },
+ {
+  "family": "gantry",
+  "seed": 7,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.057,
+   0.057,
+   0.057,
+   0.081
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 5.771340780997889,
+  "agent_cpu_s": 5.768383825000001,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "gantry",
+  "seed": 7,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.057,
+   0.057,
+   0.057,
+   0.081
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 3.134839400999226,
+  "agent_cpu_s": 3.1299328980001064,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "gantry",
@@ -1138,7 +3175,12 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 146.54017184900113,
+  "agent_cpu_s": 146.52873251900007,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "swarm_version": 2
  },
  {
   "family": "gantry",
@@ -1169,7 +3211,78 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 11.224301281000862
+ },
+ {
+  "family": "gantry",
+  "seed": 8,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.051,
+   0.051,
+   0.051,
+   0.102
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 10.864499925001837,
+  "agent_cpu_s": 10.864339886999915,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "gantry",
+  "seed": 8,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.051,
+   0.051,
+   0.051,
+   0.102
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 3.5986123020002196,
+  "agent_cpu_s": 3.588189152999803,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "gantry",
@@ -1200,7 +3313,12 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 109.22114668500308,
+  "agent_cpu_s": 109.05063929699986,
+  "motions_used": 65,
+  "probe_motions": 32,
+  "swarm_version": 2
  },
  {
   "family": "gantry",
@@ -1231,7 +3349,78 @@
    false,
    true,
    true
-  ]
+  ],
+  "agent_s": 10.186340390999703
+ },
+ {
+  "family": "gantry",
+  "seed": 9,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.045,
+   0.045,
+   0.045,
+   0.076
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 5.468027935999089,
+  "agent_cpu_s": 5.466634268000007,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "gantry",
+  "seed": 9,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.046,
+   0.046,
+   0.046,
+   0.077
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 4.685669412999232,
+  "agent_cpu_s": 4.684986428000116,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "gantry",
@@ -1262,7 +3451,12 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 135.32774870600133,
+  "agent_cpu_s": 135.2113110409996,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "swarm_version": 2
  },
  {
   "family": "gantry",
@@ -1293,7 +3487,783 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 11.471554149000667
+ },
+ {
+  "family": "gantry",
+  "seed": 10,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.056,
+   0.056,
+   0.056,
+   0.105
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 6.089066327997898,
+  "agent_cpu_s": 5.902420636999977,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "gantry",
+  "seed": 10,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.056,
+   0.056,
+   0.056,
+   0.105
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 3.746059824999975,
+  "agent_cpu_s": 3.744814087000236,
+  "motions_used": 68,
+  "probe_motions": 16
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.058,
+   0.058,
+   0.058,
+   0.104
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 163.34220191999884,
+  "agent_cpu_s": 163.24743684800035,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.078,
+   0.082,
+   0.082,
+   0.049
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 8.798043352000605,
+  "agent_cpu_s": 8.797896329999958,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.058,
+   0.058,
+   0.058,
+   0.103
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 5.727655467998375,
+  "agent_cpu_s": 5.726879732000157,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "gantry",
+  "seed": 101,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.058,
+   0.058,
+   0.058,
+   0.104
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 3.5419043840020095,
+  "agent_cpu_s": 3.5418918969998003,
+  "motions_used": 68,
+  "probe_motions": 16
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.055,
+   0.055,
+   0.055,
+   0.083
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 128.40872167399993,
+  "agent_cpu_s": 127.73481920499898,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.056,
+   0.061,
+   0.061,
+   0.062
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 12.15033405200029,
+  "agent_cpu_s": 12.103501833999985,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.055,
+   0.055,
+   0.055,
+   0.083
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 5.966165019998698,
+  "agent_cpu_s": 5.966012998999531,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "gantry",
+  "seed": 102,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.055,
+   0.055,
+   0.055,
+   0.083
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 3.764471874999799,
+  "agent_cpu_s": 3.7612799800002676,
+  "motions_used": 68,
+  "probe_motions": 16
+ },
+ {
+  "family": "gantry",
+  "seed": 103,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.055,
+   0.055,
+   0.055,
+   0.079
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 175.3058607109997,
+  "agent_cpu_s": 174.72269973999994,
+  "motions_used": 70,
+  "probe_motions": 36,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 103,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.094,
+   0.094,
+   0.034,
+   0.034
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 9.552186216000337,
+  "agent_cpu_s": 9.551836584000284,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 103,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.055,
+   0.055,
+   0.055,
+   0.079
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 4.895073886998034,
+  "agent_cpu_s": 4.885536873999854,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "gantry",
+  "seed": 103,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.055,
+   0.055,
+   0.055,
+   0.079
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 3.4196684269973048,
+  "agent_cpu_s": 3.418197947000408,
+  "motions_used": 68,
+  "probe_motions": 16
+ },
+ {
+  "family": "gantry",
+  "seed": 104,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.051,
+   0.051,
+   0.051,
+   0.095
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 395.723232872002,
+  "agent_cpu_s": 393.4111699539999,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 104,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.051,
+   0.051,
+   0.051,
+   0.094
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 11.736733823999202,
+  "agent_cpu_s": 11.729191084999911,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 104,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.051,
+   0.051,
+   0.051,
+   0.095
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 6.234143696000501,
+  "agent_cpu_s": 6.21587551600021,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "gantry",
+  "seed": 104,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.051,
+   0.051,
+   0.051,
+   0.095
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 3.3162924159987597,
+  "agent_cpu_s": 3.3162912580003194,
+  "motions_used": 68,
+  "probe_motions": 16
+ },
+ {
+  "family": "gantry",
+  "seed": 105,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.055,
+   0.055,
+   0.055,
+   0.086
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 435.12345362099586,
+  "agent_cpu_s": 433.4627683680002,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 105,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hx",
+   "hz"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.091,
+   0.112,
+   0.082,
+   0.035
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 10.110887623998678,
+  "agent_cpu_s": 10.10466018399984,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 105,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.055,
+   0.055,
+   0.055,
+   0.086
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 6.406994082997699,
+  "agent_cpu_s": 6.4067934889997105,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "gantry",
+  "seed": 105,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.055,
+   0.055,
+   0.055,
+   0.086
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 3.159527519003859,
+  "agent_cpu_s": 3.159409566000022,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "scara",
@@ -1324,7 +4294,12 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 64.1612042859997,
+  "agent_cpu_s": 64.16048330500018,
+  "motions_used": 65,
+  "probe_motions": 32,
+  "swarm_version": 2
  },
  {
   "family": "scara",
@@ -1355,7 +4330,78 @@
    false,
    true,
    true
-  ]
+  ],
+  "agent_s": 8.531267787999923
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.17,
+   0.056,
+   0.056,
+   0.071
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 8.461064500001157,
+  "agent_cpu_s": 8.409274865000043,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.172,
+   0.055,
+   0.055,
+   0.071
+  ],
+  "identifiable": [
+   true,
+   true,
+   true,
+   true
+  ],
+  "agent_s": 5.915756895999948,
+  "agent_cpu_s": 5.914876031999825,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "scara",
@@ -1386,7 +4432,12 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 67.55465851400004,
+  "agent_cpu_s": 67.45245350599976,
+  "motions_used": 65,
+  "probe_motions": 40,
+  "swarm_version": 2
  },
  {
   "family": "scara",
@@ -1417,7 +4468,78 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 9.114954137000268
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.152,
+   0.066,
+   0.066,
+   0.057
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 9.062923924002462,
+  "agent_cpu_s": 9.06257598000002,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.153,
+   0.065,
+   0.065,
+   0.058
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 5.8213893330002975,
+  "agent_cpu_s": 5.815325268000038,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "scara",
@@ -1438,17 +4560,22 @@
   "types_correct": true,
   "structure_correct": true,
   "links_m": [
-   0.137,
+   0.138,
    0.063,
    0.063,
-   0.065
+   0.064
   ],
   "identifiable": [
    true,
    false,
    false,
-   false
-  ]
+   true
+  ],
+  "agent_s": 79.01550268600113,
+  "agent_cpu_s": 78.99062186900039,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "swarm_version": 2
  },
  {
   "family": "scara",
@@ -1479,7 +4606,78 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 9.321887864000018
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.138,
+   0.063,
+   0.063,
+   0.065
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 8.463420058998963,
+  "agent_cpu_s": 8.46331481500033,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.138,
+   0.063,
+   0.063,
+   0.065
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 6.082473778003987,
+  "agent_cpu_s": 6.071830755999827,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "scara",
@@ -1509,8 +4707,13 @@
    true,
    false,
    false,
-   true
-  ]
+   false
+  ],
+  "agent_s": 61.31035082900053,
+  "agent_cpu_s": 61.2363231490001,
+  "motions_used": 69,
+  "probe_motions": 40,
+  "swarm_version": 2
  },
  {
   "family": "scara",
@@ -1541,7 +4744,78 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 10.505553720999615
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.124,
+   0.059,
+   0.059,
+   0.054
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 8.21924969399879,
+  "agent_cpu_s": 8.218960287999835,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.123,
+   0.059,
+   0.059,
+   0.054
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 5.533938887999284,
+  "agent_cpu_s": 5.511306148000244,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "scara",
@@ -1562,17 +4836,22 @@
   "types_correct": true,
   "structure_correct": true,
   "links_m": [
-   0.128,
-   0.082,
-   0.082,
-   0.064
+   0.127,
+   0.083,
+   0.083,
+   0.063
   ],
   "identifiable": [
    true,
    false,
    false,
-   true
-  ]
+   false
+  ],
+  "agent_s": 158.47511997400397,
+  "agent_cpu_s": 158.2711405609998,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "swarm_version": 2
  },
  {
   "family": "scara",
@@ -1603,7 +4882,78 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 7.533196075999285
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.128,
+   0.082,
+   0.082,
+   0.063
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 9.645874395000646,
+  "agent_cpu_s": 9.64560713599974,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.129,
+   0.082,
+   0.082,
+   0.064
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 5.291746272000637,
+  "agent_cpu_s": 5.29159467000045,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "scara",
@@ -1634,7 +4984,12 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 100.42508455999905,
+  "agent_cpu_s": 100.183660583,
+  "motions_used": 65,
+  "probe_motions": 32,
+  "swarm_version": 2
  },
  {
   "family": "scara",
@@ -1665,7 +5020,78 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 8.840286869000465
+ },
+ {
+  "family": "scara",
+  "seed": 6,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.149,
+   0.071,
+   0.071,
+   0.051
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 8.994288290997247,
+  "agent_cpu_s": 8.992966351000405,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 6,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.15,
+   0.071,
+   0.071,
+   0.051
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 5.582999857001596,
+  "agent_cpu_s": 5.494509705999803,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "scara",
@@ -1686,7 +5112,7 @@
   "types_correct": true,
   "structure_correct": true,
   "links_m": [
-   0.131,
+   0.129,
    0.079,
    0.079,
    0.057
@@ -1696,7 +5122,12 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 70.71969880799861,
+  "agent_cpu_s": 70.64852733800058,
+  "motions_used": 65,
+  "probe_motions": 40,
+  "swarm_version": 2
  },
  {
   "family": "scara",
@@ -1727,7 +5158,78 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 9.113935846000004
+ },
+ {
+  "family": "scara",
+  "seed": 7,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.129,
+   0.08,
+   0.08,
+   0.056
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 9.509250616000827,
+  "agent_cpu_s": 9.446090345999892,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 7,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.13,
+   0.079,
+   0.079,
+   0.057
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 6.164499301999967,
+  "agent_cpu_s": 6.162557916000196,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "scara",
@@ -1755,10 +5257,15 @@
   ],
   "identifiable": [
    true,
-   false,
-   false,
-   false
-  ]
+   true,
+   true,
+   true
+  ],
+  "agent_s": 164.3520031209955,
+  "agent_cpu_s": 163.99071445100026,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "swarm_version": 2
  },
  {
   "family": "scara",
@@ -1789,7 +5296,78 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 7.9699798250001095
+ },
+ {
+  "family": "scara",
+  "seed": 8,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.136,
+   0.078,
+   0.078,
+   0.073
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 9.577328944001238,
+  "agent_cpu_s": 9.576953981000315,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 8,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.135,
+   0.079,
+   0.079,
+   0.072
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 5.517404608998731,
+  "agent_cpu_s": 5.5034997370005385,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "scara",
@@ -1811,8 +5389,8 @@
   "structure_correct": true,
   "links_m": [
    0.127,
-   0.065,
-   0.065,
+   0.064,
+   0.064,
    0.054
   ],
   "identifiable": [
@@ -1820,7 +5398,12 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 105.66737603899765,
+  "agent_cpu_s": 105.51637619099961,
+  "motions_used": 66,
+  "probe_motions": 32,
+  "swarm_version": 2
  },
  {
   "family": "scara",
@@ -1851,7 +5434,78 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 9.812475721000055
+ },
+ {
+  "family": "scara",
+  "seed": 9,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.128,
+   0.065,
+   0.065,
+   0.054
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 9.76837522599908,
+  "agent_cpu_s": 9.599695711999857,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 9,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.128,
+   0.064,
+   0.064,
+   0.055
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 5.478417415000877,
+  "agent_cpu_s": 5.4783281030001945,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "scara",
@@ -1872,17 +5526,22 @@
   "types_correct": true,
   "structure_correct": true,
   "links_m": [
-   0.13,
+   0.131,
    0.074,
    0.074,
-   0.074
+   0.075
   ],
   "identifiable": [
    true,
-   true,
-   true,
+   false,
+   false,
    true
-  ]
+  ],
+  "agent_s": 62.53254264299994,
+  "agent_cpu_s": 62.524822248999726,
+  "motions_used": 69,
+  "probe_motions": 40,
+  "swarm_version": 2
  },
  {
   "family": "scara",
@@ -1913,7 +5572,783 @@
    false,
    true,
    true
-  ]
+  ],
+  "agent_s": 7.851444733000335
+ },
+ {
+  "family": "scara",
+  "seed": 10,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.129,
+   0.074,
+   0.074,
+   0.075
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 8.48528372400142,
+  "agent_cpu_s": 8.48513505900064,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 10,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.132,
+   0.073,
+   0.073,
+   0.075
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 5.713787550997949,
+  "agent_cpu_s": 5.695725673999959,
+  "motions_used": 68,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.193,
+   0.058,
+   0.058,
+   0.071
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 105.10482011799922,
+  "agent_cpu_s": 105.07413310099992,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.193,
+   0.058,
+   0.058,
+   0.072
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 9.727380697999251,
+  "agent_cpu_s": 9.4878775090001,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.194,
+   0.058,
+   0.058,
+   0.071
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 10.956061748001048,
+  "agent_cpu_s": 10.922812964999594,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 101,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.194,
+   0.058,
+   0.058,
+   0.072
+  ],
+  "identifiable": [
+   true,
+   true,
+   true,
+   true
+  ],
+  "agent_s": 5.48166250399845,
+  "agent_cpu_s": 5.47929477699995,
+  "motions_used": 68,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.165,
+   0.061,
+   0.061,
+   0.058
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 122.9221143860068,
+  "agent_cpu_s": 122.89847250200023,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.17,
+   0.113,
+   0.033,
+   0.033
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 7.771589308999864,
+  "agent_cpu_s": 7.771567727000502,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.165,
+   0.061,
+   0.061,
+   0.058
+  ],
+  "identifiable": [
+   true,
+   true,
+   true,
+   true
+  ],
+  "agent_s": 9.043829776998791,
+  "agent_cpu_s": 9.01418798600048,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 102,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.165,
+   0.06,
+   0.06,
+   0.058
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 5.814439032001246,
+  "agent_cpu_s": 5.805721959000266,
+  "motions_used": 68,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 103,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.142,
+   0.077,
+   0.077,
+   0.053
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 105.99197493900101,
+  "agent_cpu_s": 105.85065573499992,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 103,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "sy",
+   "sz",
+   "sy"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.06,
+   0.06,
+   0.06,
+   0.06
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 7.020655106001868,
+  "agent_cpu_s": 7.02051835700081,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "scara",
+  "seed": 103,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.14,
+   0.078,
+   0.078,
+   0.052
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 7.882751461000225,
+  "agent_cpu_s": 7.838570300999891,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 103,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.141,
+   0.077,
+   0.077,
+   0.052
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 6.038669964000292,
+  "agent_cpu_s": 6.03313513299986,
+  "motions_used": 68,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 104,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.13,
+   0.057,
+   0.057,
+   0.068
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 145.43039417999807,
+  "agent_cpu_s": 145.4034357269984,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 104,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "sy",
+   "sz",
+   "sy"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.052,
+   0.052,
+   0.052,
+   0.052
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 8.917231190997882,
+  "agent_cpu_s": 8.917023026999459,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "scara",
+  "seed": 104,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.13,
+   0.057,
+   0.057,
+   0.067
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 10.568900290999409,
+  "agent_cpu_s": 10.567636289999427,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 104,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.129,
+   0.057,
+   0.057,
+   0.067
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 5.921979424002529,
+  "agent_cpu_s": 5.921942797000156,
+  "motions_used": 68,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 105,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.174,
+   0.071,
+   0.071,
+   0.059
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 69.48661794500094,
+  "agent_cpu_s": 69.26920168300035,
+  "motions_used": 69,
+  "probe_motions": 36,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 105,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.174,
+   0.134,
+   0.044,
+   0.05
+  ],
+  "identifiable": [
+   true,
+   false,
+   true,
+   true
+  ],
+  "agent_s": 8.339265307998176,
+  "agent_cpu_s": 8.322749550000253,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "scara",
+  "seed": 105,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.174,
+   0.071,
+   0.071,
+   0.058
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 10.865227015999153,
+  "agent_cpu_s": 10.86506204699981,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "scara",
+  "seed": 105,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.175,
+   0.07,
+   0.07,
+   0.059
+  ],
+  "identifiable": [
+   true,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 5.87809169799948,
+  "agent_cpu_s": 5.877955582000141,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "telescope",
@@ -1944,7 +6379,12 @@
    false,
    false,
    true
-  ]
+  ],
+  "agent_s": 41.695475116001035,
+  "agent_cpu_s": 41.56108706499981,
+  "motions_used": 65,
+  "probe_motions": 32,
+  "swarm_version": 2
  },
  {
   "family": "telescope",
@@ -1975,7 +6415,78 @@
    true,
    false,
    false
-  ]
+  ],
+  "agent_s": 9.079009985999846
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.078,
+   0.117,
+   0.117,
+   0.094
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 8.430403404999197,
+  "agent_cpu_s": 8.430288875000542,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.077,
+   0.118,
+   0.118,
+   0.094
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 6.347433488998831,
+  "agent_cpu_s": 6.275819943999977,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "telescope",
@@ -2006,7 +6517,12 @@
    false,
    false,
    true
-  ]
+  ],
+  "agent_s": 46.48506870299934,
+  "agent_cpu_s": 46.46356298700016,
+  "motions_used": 69,
+  "probe_motions": 36,
+  "swarm_version": 2
  },
  {
   "family": "telescope",
@@ -2037,7 +6553,78 @@
    false,
    false,
    true
-  ]
+  ],
+  "agent_s": 7.036787495000226
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.072,
+   0.138,
+   0.138,
+   0.076
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 8.728940527999839,
+  "agent_cpu_s": 8.714427092000278,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.072,
+   0.138,
+   0.138,
+   0.076
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 6.012872356003754,
+  "agent_cpu_s": 6.012629087999585,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "telescope",
@@ -2058,17 +6645,22 @@
   "types_correct": true,
   "structure_correct": true,
   "links_m": [
-   0.069,
+   0.068,
    0.131,
    0.131,
-   0.085
+   0.086
   ],
   "identifiable": [
    false,
-   true,
-   true,
+   false,
+   false,
    true
-  ]
+  ],
+  "agent_s": 61.03865700199913,
+  "agent_cpu_s": 60.97101851899993,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "swarm_version": 2
  },
  {
   "family": "telescope",
@@ -2099,7 +6691,78 @@
    true,
    false,
    false
-  ]
+  ],
+  "agent_s": 8.782410491000064
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.069,
+   0.131,
+   0.131,
+   0.086
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 12.648538626001937,
+  "agent_cpu_s": 12.571684965999793,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.069,
+   0.131,
+   0.131,
+   0.085
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 6.223483960000522,
+  "agent_cpu_s": 6.198927294999976,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "telescope",
@@ -2121,8 +6784,8 @@
   "structure_correct": true,
   "links_m": [
    0.065,
-   0.118,
-   0.118,
+   0.119,
+   0.119,
    0.075
   ],
   "identifiable": [
@@ -2130,7 +6793,12 @@
    false,
    false,
    true
-  ]
+  ],
+  "agent_s": 39.73868821299857,
+  "agent_cpu_s": 39.68686533899995,
+  "motions_used": 69,
+  "probe_motions": 40,
+  "swarm_version": 2
  },
  {
   "family": "telescope",
@@ -2161,7 +6829,78 @@
    true,
    false,
    false
-  ]
+  ],
+  "agent_s": 10.07155492000038
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.065,
+   0.119,
+   0.119,
+   0.074
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 8.353898588999982,
+  "agent_cpu_s": 8.353872356999773,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.065,
+   0.119,
+   0.119,
+   0.074
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 5.778103118000217,
+  "agent_cpu_s": 5.776826849000145,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "telescope",
@@ -2192,7 +6931,12 @@
    false,
    false,
    true
-  ]
+  ],
+  "agent_s": 97.82025230300133,
+  "agent_cpu_s": 97.80837979199987,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "swarm_version": 2
  },
  {
   "family": "telescope",
@@ -2223,7 +6967,78 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 7.114706114999763
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.067,
+   0.141,
+   0.141,
+   0.086
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 9.693578122999497,
+  "agent_cpu_s": 9.667884718000778,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.066,
+   0.141,
+   0.141,
+   0.085
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 6.03143166100017,
+  "agent_cpu_s": 6.031221960999801,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "telescope",
@@ -2247,14 +7062,19 @@
    0.071,
    0.134,
    0.134,
-   0.069
+   0.071
   ],
   "identifiable": [
    false,
-   false,
-   false,
+   true,
+   true,
    true
-  ]
+  ],
+  "agent_s": 94.21251788500012,
+  "agent_cpu_s": 94.13658922799937,
+  "motions_used": 65,
+  "probe_motions": 40,
+  "swarm_version": 2
  },
  {
   "family": "telescope",
@@ -2285,7 +7105,78 @@
    false,
    false,
    true
-  ]
+  ],
+  "agent_s": 8.497589015000358
+ },
+ {
+  "family": "telescope",
+  "seed": 6,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.071,
+   0.134,
+   0.134,
+   0.069
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 11.124526228001741,
+  "agent_cpu_s": 11.110797080999646,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "telescope",
+  "seed": 6,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.071,
+   0.134,
+   0.134,
+   0.07
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 6.27386064300299,
+  "agent_cpu_s": 6.267197000999886,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "telescope",
@@ -2306,7 +7197,7 @@
   "types_correct": true,
   "structure_correct": true,
   "links_m": [
-   0.065,
+   0.066,
    0.155,
    0.155,
    0.068
@@ -2316,7 +7207,12 @@
    false,
    false,
    true
-  ]
+  ],
+  "agent_s": 74.87471904400081,
+  "agent_cpu_s": 74.27741674700019,
+  "motions_used": 65,
+  "probe_motions": 40,
+  "swarm_version": 2
  },
  {
   "family": "telescope",
@@ -2347,7 +7243,78 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 8.706310825999708
+ },
+ {
+  "family": "telescope",
+  "seed": 7,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.066,
+   0.155,
+   0.155,
+   0.068
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 10.062347063001653,
+  "agent_cpu_s": 10.032646447999241,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "telescope",
+  "seed": 7,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.066,
+   0.155,
+   0.155,
+   0.067
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 6.0365952740003195,
+  "agent_cpu_s": 6.033902532000411,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "telescope",
@@ -2369,8 +7336,8 @@
   "structure_correct": true,
   "links_m": [
    0.068,
-   0.142,
-   0.142,
+   0.143,
+   0.143,
    0.099
   ],
   "identifiable": [
@@ -2378,7 +7345,12 @@
    false,
    false,
    true
-  ]
+  ],
+  "agent_s": 84.69573976100128,
+  "agent_cpu_s": 84.05869633200018,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "swarm_version": 2
  },
  {
   "family": "telescope",
@@ -2409,7 +7381,78 @@
    false,
    false,
    false
-  ]
+  ],
+  "agent_s": 7.995237180000231
+ },
+ {
+  "family": "telescope",
+  "seed": 8,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.068,
+   0.142,
+   0.142,
+   0.099
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 9.948994103003315,
+  "agent_cpu_s": 9.94271511299985,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "telescope",
+  "seed": 8,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.069,
+   0.142,
+   0.142,
+   0.098
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 5.941308140000729,
+  "agent_cpu_s": 5.90707290999967,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "telescope",
@@ -2433,14 +7476,19 @@
    0.066,
    0.121,
    0.121,
-   0.071
+   0.072
   ],
   "identifiable": [
    false,
    false,
    false,
    true
-  ]
+  ],
+  "agent_s": 178.7876395549938,
+  "agent_cpu_s": 178.50945111199917,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "swarm_version": 2
  },
  {
   "family": "telescope",
@@ -2471,7 +7519,78 @@
    false,
    false,
    true
-  ]
+  ],
+  "agent_s": 8.548804442999653
+ },
+ {
+  "family": "telescope",
+  "seed": 9,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.066,
+   0.121,
+   0.121,
+   0.071
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 9.497530553003344,
+  "agent_cpu_s": 9.489041772000292,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "telescope",
+  "seed": 9,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.066,
+   0.121,
+   0.121,
+   0.071
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 5.716039601999,
+  "agent_cpu_s": 5.714910223999823,
+  "motions_used": 68,
+  "probe_motions": 16
  },
  {
   "family": "telescope",
@@ -2502,7 +7621,12 @@
    false,
    false,
    true
-  ]
+  ],
+  "agent_s": 72.38479636399916,
+  "agent_cpu_s": 71.71306220999963,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "swarm_version": 2
  },
  {
   "family": "telescope",
@@ -2533,6 +7657,782 @@
    true,
    false,
    true
-  ]
+  ],
+  "agent_s": 7.778074148000314
+ },
+ {
+  "family": "telescope",
+  "seed": 10,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.067,
+   0.15,
+   0.15,
+   0.099
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 8.916736845001651,
+  "agent_cpu_s": 8.906515479999825,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "telescope",
+  "seed": 10,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.067,
+   0.15,
+   0.15,
+   0.099
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 5.42250139799944,
+  "agent_cpu_s": 5.421192340999596,
+  "motions_used": 68,
+  "probe_motions": 16
+ },
+ {
+  "family": "telescope",
+  "seed": 101,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.082,
+   0.134,
+   0.134,
+   0.096
+  ],
+  "identifiable": [
+   false,
+   true,
+   true,
+   true
+  ],
+  "agent_s": 103.96583622399885,
+  "agent_cpu_s": 103.96190161300046,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "swarm_version": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 101,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.083,
+   0.134,
+   0.134,
+   0.096
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 8.539173857000605,
+  "agent_cpu_s": 8.53272163700035,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 101,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.083,
+   0.134,
+   0.134,
+   0.096
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 9.46881089499766,
+  "agent_cpu_s": 9.465371455999957,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "telescope",
+  "seed": 101,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.083,
+   0.134,
+   0.134,
+   0.096
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 5.259852411999418,
+  "agent_cpu_s": 5.259597395000128,
+  "motions_used": 68,
+  "probe_motions": 16
+ },
+ {
+  "family": "telescope",
+  "seed": 102,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.076,
+   0.132,
+   0.132,
+   0.072
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 66.6174809769991,
+  "agent_cpu_s": 66.56408018699994,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "swarm_version": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 102,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "sx"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.078,
+   0.3,
+   0.036,
+   0.036
+  ],
+  "identifiable": [
+   false,
+   true,
+   false,
+   false
+  ],
+  "agent_s": 7.411403196003448,
+  "agent_cpu_s": 7.389088520999849,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 102,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.076,
+   0.132,
+   0.132,
+   0.072
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 8.645956450000085,
+  "agent_cpu_s": 8.645742329000086,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "telescope",
+  "seed": 102,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.076,
+   0.132,
+   0.132,
+   0.072
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 5.9816550089990415,
+  "agent_cpu_s": 5.956643244999896,
+  "motions_used": 68,
+  "probe_motions": 16
+ },
+ {
+  "family": "telescope",
+  "seed": 103,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.069,
+   0.147,
+   0.147,
+   0.068
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 56.93447719800315,
+  "agent_cpu_s": 56.438891023,
+  "motions_used": 65,
+  "probe_motions": 32,
+  "swarm_version": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 103,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "sx",
+   "sz",
+   "hz"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.054,
+   0.054,
+   0.054,
+   0.059
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 7.301371714000197,
+  "agent_cpu_s": 7.293047182999999,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 103,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.069,
+   0.147,
+   0.147,
+   0.067
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 8.850508209999134,
+  "agent_cpu_s": 8.850378027000033,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "telescope",
+  "seed": 103,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.07,
+   0.147,
+   0.147,
+   0.067
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 5.471054251002897,
+  "agent_cpu_s": 5.47103077800034,
+  "motions_used": 68,
+  "probe_motions": 16
+ },
+ {
+  "family": "telescope",
+  "seed": 104,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.066,
+   0.129,
+   0.129,
+   0.089
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 77.09417465499973,
+  "agent_cpu_s": 77.09135180800035,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "swarm_version": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 104,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "sx",
+   "sz",
+   "sx"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.052,
+   0.052,
+   0.052,
+   0.052
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "agent_s": 6.082046372001059,
+  "agent_cpu_s": 6.080344420999836,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 104,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.066,
+   0.129,
+   0.129,
+   0.09
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 10.19635995400131,
+  "agent_cpu_s": 10.182315861999541,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "telescope",
+  "seed": 104,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.066,
+   0.128,
+   0.128,
+   0.091
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 6.406604859000254,
+  "agent_cpu_s": 6.403484253999977,
+  "motions_used": 68,
+  "probe_motions": 16
+ },
+ {
+  "family": "telescope",
+  "seed": 105,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.078,
+   0.138,
+   0.138,
+   0.076
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 104.63474774399856,
+  "agent_cpu_s": 104.06714152599943,
+  "motions_used": 69,
+  "probe_motions": 36,
+  "swarm_version": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 105,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "types_correct": false,
+  "structure_correct": false,
+  "links_m": [
+   0.078,
+   0.309,
+   0.039,
+   0.079
+  ],
+  "identifiable": [
+   false,
+   true,
+   false,
+   false
+  ],
+  "agent_s": 7.245824906997768,
+  "agent_cpu_s": 7.245671887999606,
+  "motions_used": 64,
+  "probe_motions": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 105,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.078,
+   0.138,
+   0.138,
+   0.076
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 9.326220345003094,
+  "agent_cpu_s": 9.322577103000413,
+  "motions_used": 64,
+  "probe_motions": 16
+ },
+ {
+  "family": "telescope",
+  "seed": 105,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "types_correct": true,
+  "structure_correct": true,
+  "links_m": [
+   0.078,
+   0.138,
+   0.138,
+   0.076
+  ],
+  "identifiable": [
+   false,
+   false,
+   false,
+   true
+  ],
+  "agent_s": 5.558665904000918,
+  "agent_cpu_s": 5.557240679999495,
+  "motions_used": 68,
+  "probe_motions": 16
  }
 ]

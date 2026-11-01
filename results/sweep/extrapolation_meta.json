@@ -2,101 +2,161 @@
  {
   "family": "arm",
   "seed": 1,
-  "reach_max_m": 0.5680000000000001
+  "reach_max_m": 0.5680000000000001,
+  "motions_used": 64,
+  "agent_cpu_s": 140.54393181599994,
+  "swarm_version": 2
  },
  {
   "family": "arm",
   "seed": 2,
-  "reach_max_m": 0.616
+  "reach_max_m": 0.616,
+  "motions_used": 65,
+  "agent_cpu_s": 63.03971845399974,
+  "swarm_version": 2
  },
  {
   "family": "arm",
   "seed": 3,
-  "reach_max_m": 0.627
+  "reach_max_m": 0.627,
+  "motions_used": 65,
+  "agent_cpu_s": 46.237219147999895,
+  "swarm_version": 2
  },
  {
   "family": "arm",
   "seed": 4,
-  "reach_max_m": 0.6659999999999999
+  "reach_max_m": 0.6659999999999999,
+  "motions_used": 64,
+  "agent_cpu_s": 46.882086311000876,
+  "swarm_version": 2
  },
  {
   "family": "arm",
   "seed": 5,
-  "reach_max_m": 0.553
+  "reach_max_m": 0.553,
+  "motions_used": 69,
+  "agent_cpu_s": 65.75401771400084,
+  "swarm_version": 2
  },
  {
   "family": "gantry",
   "seed": 1,
-  "reach_max_m": 0.7729999999999999
+  "reach_max_m": 0.7729999999999999,
+  "motions_used": 65,
+  "agent_cpu_s": 74.35852236599976,
+  "swarm_version": 2
  },
  {
   "family": "gantry",
   "seed": 2,
-  "reach_max_m": 0.7929999999999999
+  "reach_max_m": 0.7929999999999999,
+  "motions_used": 64,
+  "agent_cpu_s": 280.7258685789998,
+  "swarm_version": 2
  },
  {
   "family": "gantry",
   "seed": 3,
-  "reach_max_m": 0.78
+  "reach_max_m": 0.78,
+  "motions_used": 64,
+  "agent_cpu_s": 174.76125288599997,
+  "swarm_version": 2
  },
  {
   "family": "gantry",
   "seed": 4,
-  "reach_max_m": 0.7369999999999999
+  "reach_max_m": 0.7369999999999999,
+  "motions_used": 64,
+  "agent_cpu_s": 146.30173112100283,
+  "swarm_version": 2
  },
  {
   "family": "gantry",
   "seed": 5,
-  "reach_max_m": 0.7829999999999999
+  "reach_max_m": 0.7829999999999999,
+  "motions_used": 70,
+  "agent_cpu_s": 81.0710653279998,
+  "swarm_version": 2
  },
  {
   "family": "scara",
   "seed": 1,
-  "reach_max_m": 0.604
+  "reach_max_m": 0.604,
+  "motions_used": 65,
+  "agent_cpu_s": 62.44334437899988,
+  "swarm_version": 2
  },
  {
   "family": "scara",
   "seed": 2,
-  "reach_max_m": 0.613
+  "reach_max_m": 0.613,
+  "motions_used": 65,
+  "agent_cpu_s": 43.70361670099919,
+  "swarm_version": 2
  },
  {
   "family": "scara",
   "seed": 3,
-  "reach_max_m": 0.59
+  "reach_max_m": 0.59,
+  "motions_used": 70,
+  "agent_cpu_s": 62.03986855699986,
+  "swarm_version": 2
  },
  {
   "family": "scara",
   "seed": 4,
-  "reach_max_m": 0.5449999999999999
+  "reach_max_m": 0.5449999999999999,
+  "motions_used": 69,
+  "agent_cpu_s": 53.620957229999476,
+  "swarm_version": 2
  },
  {
   "family": "scara",
   "seed": 5,
-  "reach_max_m": 0.613
+  "reach_max_m": 0.613,
+  "motions_used": 64,
+  "agent_cpu_s": 104.66790814699971,
+  "swarm_version": 2
  },
  {
   "family": "telescope",
   "seed": 1,
-  "reach_max_m": 0.6289999999999999
+  "reach_max_m": 0.6289999999999999,
+  "motions_used": 65,
+  "agent_cpu_s": 41.14950458599969,
+  "swarm_version": 2
  },
  {
   "family": "telescope",
   "seed": 2,
-  "reach_max_m": 0.649
+  "reach_max_m": 0.649,
+  "motions_used": 69,
+  "agent_cpu_s": 27.752641564999976,
+  "swarm_version": 2
  },
  {
   "family": "telescope",
   "seed": 3,
-  "reach_max_m": 0.6339999999999999
+  "reach_max_m": 0.6339999999999999,
+  "motions_used": 70,
+  "agent_cpu_s": 53.08346061700013,
+  "swarm_version": 2
  },
  {
   "family": "telescope",
   "seed": 4,
-  "reach_max_m": 0.59
+  "reach_max_m": 0.59,
+  "motions_used": 69,
+  "agent_cpu_s": 39.85167851000142,
+  "swarm_version": 2
  },
  {
   "family": "telescope",
   "seed": 5,
-  "reach_max_m": 0.659
+  "reach_max_m": 0.659,
+  "motions_used": 70,
+  "agent_cpu_s": 73.1689720190002,
+  "swarm_version": 2
  }
 ]

@@ -1,0 +1,9480 @@
+[
+ {
+  "family": "arm",
+  "seed": 1,
+  "noise_mm": 1,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 214.40919071900316,
+  "agent_cpu_s": 213.13729885000066,
+  "fault_hits": {},
+  "champions": 9,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "noise_mm": 1,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 7.112044241998774,
+  "agent_cpu_s": 7.110964020000438,
+  "fault_hits": {},
+  "champions": 10,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "noise_mm": 1,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 12.460941049002031,
+  "agent_cpu_s": 12.433495990999972,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "noise_mm": 1,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 9.500878287999512,
+  "agent_cpu_s": 9.459002158000658,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "noise_mm": 2,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 220.48758851399543,
+  "agent_cpu_s": 220.12546602899988,
+  "fault_hits": {},
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "noise_mm": 2,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 18.973024071995496,
+  "agent_cpu_s": 18.948353963000045,
+  "fault_hits": {},
+  "champions": 9,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "noise_mm": 2,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 20.480931359998976,
+  "agent_cpu_s": 20.479344964000347,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "noise_mm": 2,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 8.570232936002867,
+  "agent_cpu_s": 8.570085370000015,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "noise_mm": 5,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 65,
+  "probe_motions": 32,
+  "agent_s": 51.596012650000375,
+  "agent_cpu_s": 51.5644327240002,
+  "fault_hits": {},
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "noise_mm": 5,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 10.43290836199867,
+  "agent_cpu_s": 10.424313615999608,
+  "fault_hits": {},
+  "champions": 8,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "noise_mm": 5,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 10.78948306899838,
+  "agent_cpu_s": 10.65372202699973,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "noise_mm": 5,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 9.58667534399774,
+  "agent_cpu_s": 9.573504761000095,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "noise_mm": 10,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 65,
+  "probe_motions": 32,
+  "agent_s": 79.59841126800166,
+  "agent_cpu_s": 79.27517035799974,
+  "fault_hits": {},
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "noise_mm": 10,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hx"
+  ],
+  "structure_correct": false,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 28.934152572999665,
+  "agent_cpu_s": 28.93351785000027,
+  "fault_hits": {},
+  "champions": 6,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "noise_mm": 10,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 23.28132914699927,
+  "agent_cpu_s": 23.270742576999965,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "noise_mm": 10,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 8.264339684999868,
+  "agent_cpu_s": 8.253508756000201,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "noise_mm": 1,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 40,
+  "agent_s": 152.5889698750043,
+  "agent_cpu_s": 152.57467550399974,
+  "fault_hits": {},
+  "champions": 4,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "noise_mm": 1,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 20,
+  "agent_s": 9.642721326998071,
+  "agent_cpu_s": 9.632773453000254,
+  "fault_hits": {},
+  "champions": 9,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "noise_mm": 1,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 20,
+  "agent_s": 15.957765931000722,
+  "agent_cpu_s": 15.697950924999532,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "noise_mm": 1,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "sx",
+   "sx",
+   "hy",
+   "sz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 14.94884905499839,
+  "agent_cpu_s": 14.942019824999988,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "noise_mm": 2,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 65,
+  "probe_motions": 40,
+  "agent_s": 66.40979307800171,
+  "agent_cpu_s": 66.1537210700003,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "noise_mm": 2,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 20,
+  "agent_s": 10.683425808999345,
+  "agent_cpu_s": 10.68296060300031,
+  "fault_hits": {},
+  "champions": 7,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "noise_mm": 2,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 20,
+  "agent_s": 17.127837639999598,
+  "agent_cpu_s": 17.066384724000272,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "noise_mm": 2,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "sx",
+   "sx",
+   "hy",
+   "sz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 15.352848698003072,
+  "agent_cpu_s": 15.323793711999997,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "noise_mm": 5,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 69,
+  "probe_motions": 40,
+  "agent_s": 59.022689084999,
+  "agent_cpu_s": 59.01282793799942,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "noise_mm": 5,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 20,
+  "agent_s": 8.634681166000519,
+  "agent_cpu_s": 8.634546016999593,
+  "fault_hits": {},
+  "champions": 6,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "noise_mm": 5,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 20,
+  "agent_s": 17.221909553999467,
+  "agent_cpu_s": 17.1786068170004,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "noise_mm": 5,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "sx",
+   "sx",
+   "hy",
+   "sz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 15.318269274002887,
+  "agent_cpu_s": 15.31140090800045,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "noise_mm": 10,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 69,
+  "probe_motions": 40,
+  "agent_s": 68.86416596699928,
+  "agent_cpu_s": 68.79819766299966,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "noise_mm": 10,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 20,
+  "agent_s": 11.817547391998232,
+  "agent_cpu_s": 11.815051051999262,
+  "fault_hits": {},
+  "champions": 3,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "noise_mm": 10,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 20,
+  "agent_s": 20.094481274998543,
+  "agent_cpu_s": 20.093042543000593,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "noise_mm": 10,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "sx",
+   "sx",
+   "hy",
+   "sz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 14.048807833002684,
+  "agent_cpu_s": 14.023274755999864,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "noise_mm": 1,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 69,
+  "probe_motions": 48,
+  "agent_s": 51.63555135599836,
+  "agent_cpu_s": 51.382043224999734,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "noise_mm": 1,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 68,
+  "probe_motions": 20,
+  "agent_s": 9.937509602002137,
+  "agent_cpu_s": 9.910312951999913,
+  "fault_hits": {},
+  "champions": 5,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "noise_mm": 1,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 20,
+  "agent_s": 16.197933448000185,
+  "agent_cpu_s": 15.863408156000105,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "noise_mm": 1,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "sx",
+   "hy",
+   "hy",
+   "sx",
+   "sx"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 13.3257089000017,
+  "agent_cpu_s": 13.301249426000368,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "noise_mm": 2,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 65,
+  "probe_motions": 48,
+  "agent_s": 48.128277063000496,
+  "agent_cpu_s": 48.087307093999925,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "noise_mm": 2,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 68,
+  "probe_motions": 20,
+  "agent_s": 9.775806597996962,
+  "agent_cpu_s": 9.775639099000045,
+  "fault_hits": {},
+  "champions": 4,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "noise_mm": 2,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 20,
+  "agent_s": 17.163094323999758,
+  "agent_cpu_s": 16.69177402299988,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "noise_mm": 2,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "sx",
+   "hy",
+   "hy",
+   "sx",
+   "sx"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 12.873509320001176,
+  "agent_cpu_s": 12.860075544999518,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "noise_mm": 5,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 69,
+  "probe_motions": 48,
+  "agent_s": 76.51314061300127,
+  "agent_cpu_s": 76.51194852500021,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "noise_mm": 5,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 68,
+  "probe_motions": 20,
+  "agent_s": 8.91552899999806,
+  "agent_cpu_s": 8.915379468000538,
+  "fault_hits": {},
+  "champions": 5,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "noise_mm": 5,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 20,
+  "agent_s": 15.767634142001043,
+  "agent_cpu_s": 15.60780214700003,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "noise_mm": 5,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "sx",
+   "hy",
+   "hy",
+   "sx",
+   "sx"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 12.631207932001416,
+  "agent_cpu_s": 12.630918709999378,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "noise_mm": 10,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 69,
+  "probe_motions": 48,
+  "agent_s": 65.18386118000035,
+  "agent_cpu_s": 65.08282496200013,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "noise_mm": 10,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 68,
+  "probe_motions": 20,
+  "agent_s": 10.374260453001625,
+  "agent_cpu_s": 10.373788287000025,
+  "fault_hits": {},
+  "champions": 5,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "noise_mm": 10,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 20,
+  "agent_s": 18.43920228799925,
+  "agent_cpu_s": 18.434141380000028,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "noise_mm": 10,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "sx",
+   "hy",
+   "hy",
+   "sx",
+   "sx"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 12.72169289500016,
+  "agent_cpu_s": 12.71832760700022,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "noise_mm": 1,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 4,
+  "motions_used": 64,
+  "probe_motions": 40,
+  "agent_s": 124.08604068799832,
+  "agent_cpu_s": 123.78670265400001,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "noise_mm": 1,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 4,
+  "motions_used": 68,
+  "probe_motions": 20,
+  "agent_s": 11.579479161998279,
+  "agent_cpu_s": 11.573073601000488,
+  "fault_hits": {},
+  "champions": 5,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "noise_mm": 1,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 4,
+  "motions_used": 64,
+  "probe_motions": 20,
+  "agent_s": 17.01535652899929,
+  "agent_cpu_s": 17.013880157999893,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "noise_mm": 1,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "sx",
+   "sx",
+   "hy",
+   "sz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 4,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 17.14714068699959,
+  "agent_cpu_s": 17.131826728999386,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "noise_mm": 2,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 4,
+  "motions_used": 64,
+  "probe_motions": 40,
+  "agent_s": 49.114464282999506,
+  "agent_cpu_s": 49.113116295999816,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "noise_mm": 2,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 4,
+  "motions_used": 68,
+  "probe_motions": 20,
+  "agent_s": 10.972225741999864,
+  "agent_cpu_s": 10.940280813000072,
+  "fault_hits": {},
+  "champions": 6,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "noise_mm": 2,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 4,
+  "motions_used": 64,
+  "probe_motions": 20,
+  "agent_s": 19.186050002999764,
+  "agent_cpu_s": 19.121993974999896,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "noise_mm": 2,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "sx",
+   "sx",
+   "hy",
+   "sz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 4,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 16.149044092000622,
+  "agent_cpu_s": 16.14895362899938,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "noise_mm": 5,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 4,
+  "motions_used": 64,
+  "probe_motions": 40,
+  "agent_s": 58.71728239299955,
+  "agent_cpu_s": 58.32925032900016,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "noise_mm": 5,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 4,
+  "motions_used": 68,
+  "probe_motions": 20,
+  "agent_s": 31.417242281002473,
+  "agent_cpu_s": 31.413025372999755,
+  "fault_hits": {},
+  "champions": 5,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "noise_mm": 5,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 4,
+  "motions_used": 64,
+  "probe_motions": 20,
+  "agent_s": 44.975268424001115,
+  "agent_cpu_s": 44.97478703800016,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "noise_mm": 5,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "sx",
+   "sx",
+   "hy",
+   "sz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 4,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 17.317091763999997,
+  "agent_cpu_s": 17.296334865999597,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "noise_mm": 10,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 4,
+  "motions_used": 64,
+  "probe_motions": 40,
+  "agent_s": 58.16877170499902,
+  "agent_cpu_s": 58.1662772039997,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "noise_mm": 10,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 4,
+  "motions_used": 68,
+  "probe_motions": 20,
+  "agent_s": 43.78722746600215,
+  "agent_cpu_s": 43.78673417000027,
+  "fault_hits": {},
+  "champions": 4,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "noise_mm": 10,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": false,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 4,
+  "motions_used": 64,
+  "probe_motions": 20,
+  "agent_s": 43.6690521369992,
+  "agent_cpu_s": 43.56389125799956,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 4,
+  "noise_mm": 10,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "sx",
+   "sx",
+   "hy",
+   "sz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 4,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 16.984114758000032,
+  "agent_cpu_s": 16.983775579000394,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "noise_mm": 1,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 40,
+  "agent_s": 166.23069257199768,
+  "agent_cpu_s": 165.57381033000024,
+  "fault_hits": {},
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "noise_mm": 1,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 68,
+  "probe_motions": 20,
+  "agent_s": 9.510772867999549,
+  "agent_cpu_s": 9.50597788600021,
+  "fault_hits": {},
+  "champions": 7,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "noise_mm": 1,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 20,
+  "agent_s": 16.693728326999917,
+  "agent_cpu_s": 16.683490921000384,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "noise_mm": 1,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 16.54723015699983,
+  "agent_cpu_s": 16.54672138800015,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "noise_mm": 2,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 69,
+  "probe_motions": 40,
+  "agent_s": 83.21271236299981,
+  "agent_cpu_s": 83.01190917900021,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "noise_mm": 2,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 68,
+  "probe_motions": 20,
+  "agent_s": 11.447482663998926,
+  "agent_cpu_s": 11.433195760999979,
+  "fault_hits": {},
+  "champions": 6,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "noise_mm": 2,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 20,
+  "agent_s": 16.99509328899785,
+  "agent_cpu_s": 16.974002858000176,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "noise_mm": 2,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 16.12488733400096,
+  "agent_cpu_s": 16.124683028000618,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "noise_mm": 5,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 69,
+  "probe_motions": 48,
+  "agent_s": 104.18211825300114,
+  "agent_cpu_s": 104.15419451399998,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "noise_mm": 5,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 68,
+  "probe_motions": 20,
+  "agent_s": 12.166302394000013,
+  "agent_cpu_s": 12.154126292999763,
+  "fault_hits": {},
+  "champions": 7,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "noise_mm": 5,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 20,
+  "agent_s": 22.17095537900059,
+  "agent_cpu_s": 22.131407470999875,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "noise_mm": 5,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hy",
+   "hz",
+   "sz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 16.04274586899919,
+  "agent_cpu_s": 16.03567510099947,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "noise_mm": 10,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 69,
+  "probe_motions": 48,
+  "agent_s": 153.24088347899942,
+  "agent_cpu_s": 152.6731514579992,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "noise_mm": 10,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 68,
+  "probe_motions": 20,
+  "agent_s": 18.02860882999812,
+  "agent_cpu_s": 17.894915544000696,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "noise_mm": 10,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hz",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 20,
+  "agent_s": 33.715489225000056,
+  "agent_cpu_s": 33.59460586800037,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "arm",
+  "seed": 5,
+  "noise_mm": 10,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hy",
+   "hz",
+   "sz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 19.262119997999434,
+  "agent_cpu_s": 19.246123107999892,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "noise_mm": 1,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 285.9524392489975,
+  "agent_cpu_s": 285.80926422499965,
+  "fault_hits": {},
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "noise_mm": 1,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 3.124666683000214,
+  "agent_cpu_s": 3.122538774999839,
+  "fault_hits": {},
+  "champions": 8,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "noise_mm": 1,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 6.834039599998505,
+  "agent_cpu_s": 6.830236673999707,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "noise_mm": 1,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 11.050248037000529,
+  "agent_cpu_s": 10.996632570000202,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "noise_mm": 2,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 65,
+  "probe_motions": 32,
+  "agent_s": 111.70056358900001,
+  "agent_cpu_s": 111.44467126400014,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "noise_mm": 2,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 3.442262447001667,
+  "agent_cpu_s": 3.4164212099990436,
+  "fault_hits": {},
+  "champions": 8,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "noise_mm": 2,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 6.455984747998627,
+  "agent_cpu_s": 6.449502468999981,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "noise_mm": 2,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 11.700781359998473,
+  "agent_cpu_s": 11.700742686999774,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "noise_mm": 5,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 65,
+  "probe_motions": 32,
+  "agent_s": 98.16186610900058,
+  "agent_cpu_s": 98.13867416199992,
+  "fault_hits": {},
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "noise_mm": 5,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 3.069035629998325,
+  "agent_cpu_s": 3.0656290299998545,
+  "fault_hits": {},
+  "champions": 7,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "noise_mm": 5,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 6.8877635729977555,
+  "agent_cpu_s": 6.63017094099996,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "noise_mm": 5,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 12.477877734000685,
+  "agent_cpu_s": 12.335083908999877,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "noise_mm": 10,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": null,
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 65,
+  "probe_motions": 32,
+  "agent_s": 123.4664747279985,
+  "agent_cpu_s": 123.42989856099962,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "noise_mm": 10,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hy",
+   "hx",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 42.46455051000066,
+  "agent_cpu_s": 42.45199183199907,
+  "fault_hits": {},
+  "champions": 7,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "noise_mm": 10,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hy",
+   "hx",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 60.07731570299893,
+  "agent_cpu_s": 59.990386775999696,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "noise_mm": 10,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 10.785154634997525,
+  "agent_cpu_s": 10.704672209999671,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "noise_mm": 1,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 313.58522882900434,
+  "agent_cpu_s": 312.9475674589994,
+  "fault_hits": {},
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "noise_mm": 1,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 3.1821796299991547,
+  "agent_cpu_s": 3.1776927729997624,
+  "fault_hits": {},
+  "champions": 5,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "noise_mm": 1,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 5.9780331680021845,
+  "agent_cpu_s": 5.973112669999864,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "noise_mm": 1,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 10.225313548001395,
+  "agent_cpu_s": 10.2248914959996,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "noise_mm": 2,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 381.59709781700076,
+  "agent_cpu_s": 381.3313139789991,
+  "fault_hits": {},
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "noise_mm": 2,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 3.212005397998837,
+  "agent_cpu_s": 3.211967800999446,
+  "fault_hits": {},
+  "champions": 6,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "noise_mm": 2,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 6.618296435000957,
+  "agent_cpu_s": 6.617240509999874,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "noise_mm": 2,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 11.722984361997987,
+  "agent_cpu_s": 11.715348175000827,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "noise_mm": 5,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 65,
+  "probe_motions": 40,
+  "agent_s": 75.9616658310033,
+  "agent_cpu_s": 75.85255219900068,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "noise_mm": 5,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 3.146216080001068,
+  "agent_cpu_s": 3.132152635999546,
+  "fault_hits": {},
+  "champions": 6,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "noise_mm": 5,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 6.025689816001432,
+  "agent_cpu_s": 6.011598238999568,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "noise_mm": 5,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 10.50520689500172,
+  "agent_cpu_s": 10.49691361400005,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "noise_mm": 10,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 65,
+  "probe_motions": 40,
+  "agent_s": 53.43460034200052,
+  "agent_cpu_s": 53.2109397600002,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "noise_mm": 10,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 13.800450394000109,
+  "agent_cpu_s": 13.800138916999458,
+  "fault_hits": {},
+  "champions": 5,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "noise_mm": 10,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 45.01926444000037,
+  "agent_cpu_s": 44.94631112199954,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "noise_mm": 10,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 9.954888430998835,
+  "agent_cpu_s": 9.908993605000205,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "noise_mm": 1,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 257.94760131800194,
+  "agent_cpu_s": 257.73917267500224,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "noise_mm": 1,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 3.6747780589994363,
+  "agent_cpu_s": 3.6719516499993006,
+  "fault_hits": {},
+  "champions": 7,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "noise_mm": 1,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 5.208990056999937,
+  "agent_cpu_s": 5.208753515999888,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "noise_mm": 1,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 10.140688193002461,
+  "agent_cpu_s": 10.140691017999416,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "noise_mm": 2,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 247.59757196900136,
+  "agent_cpu_s": 247.26258920899977,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "noise_mm": 2,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 3.7118817500004297,
+  "agent_cpu_s": 3.710597910999468,
+  "fault_hits": {},
+  "champions": 7,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "noise_mm": 2,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 6.087226442001338,
+  "agent_cpu_s": 5.966097810000292,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "noise_mm": 2,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 11.114891850997992,
+  "agent_cpu_s": 11.101855126000146,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "noise_mm": 5,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "agent_s": 97.29100947000006,
+  "agent_cpu_s": 97.13987099300016,
+  "fault_hits": {},
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "noise_mm": 5,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 3.5906126039981245,
+  "agent_cpu_s": 3.5906230599998707,
+  "fault_hits": {},
+  "champions": 7,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "noise_mm": 5,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 5.050054225001077,
+  "agent_cpu_s": 5.04288201800091,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "noise_mm": 5,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 10.160621591998279,
+  "agent_cpu_s": 10.160563407999689,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "noise_mm": 10,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "agent_s": 68.057641383999,
+  "agent_cpu_s": 67.78785032500014,
+  "fault_hits": {},
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "noise_mm": 10,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "sy",
+   "sz",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 11.030896040003427,
+  "agent_cpu_s": 11.030746905999877,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "noise_mm": 10,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "sy",
+   "hy",
+   "hx"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 25.464984016995913,
+  "agent_cpu_s": 25.441159927999934,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "noise_mm": 10,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 10.400729514001796,
+  "agent_cpu_s": 10.396332669999993,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "noise_mm": 1,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 225.84328479899705,
+  "agent_cpu_s": 225.12246365999977,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "noise_mm": 1,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 3.1985038489992803,
+  "agent_cpu_s": 3.1971626419999666,
+  "fault_hits": {},
+  "champions": 3,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "noise_mm": 1,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 6.312889280999116,
+  "agent_cpu_s": 6.305668764000075,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "noise_mm": 1,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 12.4471409079988,
+  "agent_cpu_s": 12.273722609999822,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "noise_mm": 2,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 228.31510849799724,
+  "agent_cpu_s": 227.95477728100082,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "noise_mm": 2,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 3.349790372998541,
+  "agent_cpu_s": 3.34778094599983,
+  "fault_hits": {},
+  "champions": 3,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "noise_mm": 2,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 5.6454633180010205,
+  "agent_cpu_s": 5.6450581339997825,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "noise_mm": 2,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 12.488833306000743,
+  "agent_cpu_s": 12.470641586000056,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "noise_mm": 5,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 69,
+  "probe_motions": 40,
+  "agent_s": 76.97073649399863,
+  "agent_cpu_s": 76.9565736560005,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "noise_mm": 5,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 3.3731969520003986,
+  "agent_cpu_s": 3.3719776489997457,
+  "fault_hits": {},
+  "champions": 3,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "noise_mm": 5,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 6.4882688969983064,
+  "agent_cpu_s": 6.488077436999902,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "noise_mm": 5,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 10.56676786800017,
+  "agent_cpu_s": 10.566500961999736,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "noise_mm": 10,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 69,
+  "probe_motions": 40,
+  "agent_s": 88.32132365699908,
+  "agent_cpu_s": 88.17780909399971,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "noise_mm": 10,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "sy",
+   "hx",
+   "hx"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 31.778440423001484,
+  "agent_cpu_s": 31.625337787999115,
+  "fault_hits": {},
+  "champions": 7,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "noise_mm": 10,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hy",
+   "sy",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 47.42974117400263,
+  "agent_cpu_s": 47.37467612400019,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 4,
+  "noise_mm": 10,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 11.046209228001317,
+  "agent_cpu_s": 11.044208067,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "noise_mm": 1,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 410.36663715600207,
+  "agent_cpu_s": 410.23918309400165,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "noise_mm": 1,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 3.0856557160013836,
+  "agent_cpu_s": 3.0854499669992492,
+  "fault_hits": {},
+  "champions": 4,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "noise_mm": 1,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 5.694733243001792,
+  "agent_cpu_s": 5.6871451650001745,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "noise_mm": 1,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 11.18482927399964,
+  "agent_cpu_s": 11.183922420000272,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "noise_mm": 2,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "agent_s": 102.30008381500102,
+  "agent_cpu_s": 102.2987275590001,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "noise_mm": 2,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 2.9713175180004328,
+  "agent_cpu_s": 2.9712802150002062,
+  "fault_hits": {},
+  "champions": 4,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "noise_mm": 2,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 7.175568795998515,
+  "agent_cpu_s": 7.171139959000584,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "noise_mm": 2,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 12.492986884000857,
+  "agent_cpu_s": 12.484960772999784,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "noise_mm": 5,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "agent_s": 119.99363797399928,
+  "agent_cpu_s": 119.86841015900018,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "noise_mm": 5,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 3.2766443809996417,
+  "agent_cpu_s": 3.2446626459998242,
+  "fault_hits": {},
+  "champions": 4,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "noise_mm": 5,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 6.074577180002052,
+  "agent_cpu_s": 6.074389351000036,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "noise_mm": 5,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 11.305511345000014,
+  "agent_cpu_s": 11.305324015999759,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "noise_mm": 10,
+  "condition": "swarm",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": null,
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "agent_s": 91.4892056259996,
+  "agent_cpu_s": 91.35943703999942,
+  "fault_hits": {},
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "noise_mm": 10,
+  "condition": "pipeline",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 33.875949911000134,
+  "agent_cpu_s": 33.84826802400062,
+  "fault_hits": {},
+  "champions": 6,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "noise_mm": 10,
+  "condition": "single_probe",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 52.23376525600179,
+  "agent_cpu_s": 52.2020704060003,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "gantry",
+  "seed": 5,
+  "noise_mm": 10,
+  "condition": "single",
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 11.114901202996407,
+  "agent_cpu_s": 11.114876107999862,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "noise_mm": 1,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 158.66986660799557,
+  "agent_cpu_s": 158.64703605799968,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "noise_mm": 1,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 7.518084388997522,
+  "agent_cpu_s": 7.422216630000094,
+  "fault_hits": {},
+  "champions": 7,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "noise_mm": 1,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 9.59805320200121,
+  "agent_cpu_s": 9.59359092600016,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "noise_mm": 1,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 9.379947708997861,
+  "agent_cpu_s": 9.37747014100023,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "noise_mm": 2,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 65,
+  "probe_motions": 32,
+  "agent_s": 65.33090580800035,
+  "agent_cpu_s": 65.2054556569999,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "noise_mm": 2,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 5.921106353999676,
+  "agent_cpu_s": 5.920869114999505,
+  "fault_hits": {},
+  "champions": 7,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "noise_mm": 2,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 8.410863933996552,
+  "agent_cpu_s": 8.251631806999967,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "noise_mm": 2,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 8.745919321999281,
+  "agent_cpu_s": 8.721395884999993,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "noise_mm": 5,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 65,
+  "probe_motions": 32,
+  "agent_s": 62.503518258999975,
+  "agent_cpu_s": 62.27626267999972,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "noise_mm": 5,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 5.624019423003119,
+  "agent_cpu_s": 5.614728625000225,
+  "fault_hits": {},
+  "champions": 6,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "noise_mm": 5,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 8.891382511999836,
+  "agent_cpu_s": 8.877888820999715,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "noise_mm": 5,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 8.214821200001097,
+  "agent_cpu_s": 8.204807636000396,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "noise_mm": 10,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 65,
+  "probe_motions": 32,
+  "agent_s": 126.55527664500005,
+  "agent_cpu_s": 126.14433122200012,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "noise_mm": 10,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 28.429284265001115,
+  "agent_cpu_s": 28.42732372399996,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "noise_mm": 10,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 54.1557979800009,
+  "agent_cpu_s": 54.14745820799976,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "noise_mm": 10,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 7.718521136998788,
+  "agent_cpu_s": 7.691797636000274,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "noise_mm": 1,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 141.91015822099962,
+  "agent_cpu_s": 140.79758636600127,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "noise_mm": 1,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 5.786353483998937,
+  "agent_cpu_s": 5.750712707000275,
+  "fault_hits": {},
+  "champions": 4,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "noise_mm": 1,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 8.314715769998656,
+  "agent_cpu_s": 8.198641711000391,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "noise_mm": 1,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 9.612522420001369,
+  "agent_cpu_s": 9.6122994010002,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "noise_mm": 2,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 65,
+  "probe_motions": 40,
+  "agent_s": 65.47427129500011,
+  "agent_cpu_s": 65.29369198999984,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "noise_mm": 2,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 5.9164960569996765,
+  "agent_cpu_s": 5.916331461999562,
+  "fault_hits": {},
+  "champions": 4,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "noise_mm": 2,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 8.882943081997837,
+  "agent_cpu_s": 8.873711701000275,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "noise_mm": 2,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 9.707191033001436,
+  "agent_cpu_s": 9.695750487000623,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "noise_mm": 5,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 65,
+  "probe_motions": 40,
+  "agent_s": 41.56076851600119,
+  "agent_cpu_s": 41.48437104299978,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "noise_mm": 5,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 5.5172021289981785,
+  "agent_cpu_s": 5.515904128000329,
+  "fault_hits": {},
+  "champions": 5,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "noise_mm": 5,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 8.73557981399972,
+  "agent_cpu_s": 8.73555518799958,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "noise_mm": 5,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 9.538895288000276,
+  "agent_cpu_s": 9.530561247999685,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "noise_mm": 10,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 65,
+  "probe_motions": 40,
+  "agent_s": 46.339663656000994,
+  "agent_cpu_s": 46.32803376499987,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "noise_mm": 10,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 25.06909942999846,
+  "agent_cpu_s": 25.059930791999932,
+  "fault_hits": {},
+  "champions": 7,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "noise_mm": 10,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 38.22525401900111,
+  "agent_cpu_s": 38.19759593599974,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "noise_mm": 10,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 9.077520855998955,
+  "agent_cpu_s": 9.075100364999571,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "noise_mm": 1,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 199.6302574750025,
+  "agent_cpu_s": 199.50390893200165,
+  "fault_hits": {},
+  "champions": 6,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "noise_mm": 1,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 6.093689258002087,
+  "agent_cpu_s": 6.061133082000197,
+  "fault_hits": {},
+  "champions": 7,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "noise_mm": 1,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 9.19231994600068,
+  "agent_cpu_s": 9.182778512999676,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "noise_mm": 1,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sy",
+   "sy",
+   "hy",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 9.967515021999134,
+  "agent_cpu_s": 9.96725101800007,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "noise_mm": 2,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "agent_s": 81.05314448699846,
+  "agent_cpu_s": 80.77816872100038,
+  "fault_hits": {},
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "noise_mm": 2,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 6.1280072780009505,
+  "agent_cpu_s": 6.126098778999676,
+  "fault_hits": {},
+  "champions": 7,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "noise_mm": 2,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 8.821368046998941,
+  "agent_cpu_s": 8.738619234000453,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "noise_mm": 2,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sy",
+   "sy",
+   "hy",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 9.778351027000099,
+  "agent_cpu_s": 9.76793096199981,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "noise_mm": 5,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "agent_s": 79.9963391780002,
+  "agent_cpu_s": 79.97992956600046,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "noise_mm": 5,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 6.225750121001511,
+  "agent_cpu_s": 6.222515777000126,
+  "fault_hits": {},
+  "champions": 6,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "noise_mm": 5,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 8.671162839999852,
+  "agent_cpu_s": 8.625023074999945,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "noise_mm": 5,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sy",
+   "hz",
+   "hx",
+   "sz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 11.33273543300129,
+  "agent_cpu_s": 11.33263201300042,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "noise_mm": 10,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "agent_s": 56.8702320379989,
+  "agent_cpu_s": 56.764480285000445,
+  "fault_hits": {},
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "noise_mm": 10,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 21.28117355699942,
+  "agent_cpu_s": 21.263031601000193,
+  "fault_hits": {},
+  "champions": 7,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "noise_mm": 10,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 30.08412758599934,
+  "agent_cpu_s": 30.010693979000052,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "noise_mm": 10,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sy",
+   "hz",
+   "hx",
+   "sz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 12.243027767997773,
+  "agent_cpu_s": 12.230363821999845,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "noise_mm": 1,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 175.76921174599465,
+  "agent_cpu_s": 175.6995014710019,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "noise_mm": 1,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 6.555848928001069,
+  "agent_cpu_s": 6.553126319000285,
+  "fault_hits": {},
+  "champions": 8,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "noise_mm": 1,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 8.9234195179979,
+  "agent_cpu_s": 8.923115422000137,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "noise_mm": 1,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sy",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 8.924223459999666,
+  "agent_cpu_s": 8.913992654000594,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "noise_mm": 2,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 69,
+  "probe_motions": 40,
+  "agent_s": 61.744313804999365,
+  "agent_cpu_s": 61.59116456200013,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "noise_mm": 2,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 5.776728818002084,
+  "agent_cpu_s": 5.776553659000228,
+  "fault_hits": {},
+  "champions": 7,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "noise_mm": 2,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 8.482708138999442,
+  "agent_cpu_s": 8.479451367000593,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "noise_mm": 2,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sy",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 11.491721049997977,
+  "agent_cpu_s": 11.456503496999176,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "noise_mm": 5,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 69,
+  "probe_motions": 40,
+  "agent_s": 52.237148604998765,
+  "agent_cpu_s": 52.22808945599991,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "noise_mm": 5,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 5.325351764997322,
+  "agent_cpu_s": 5.325332188000402,
+  "fault_hits": {},
+  "champions": 8,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "noise_mm": 5,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 8.96750156500093,
+  "agent_cpu_s": 8.967221802000722,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "noise_mm": 5,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sy",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 9.69770438100204,
+  "agent_cpu_s": 9.686362207999991,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "noise_mm": 10,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 69,
+  "probe_motions": 40,
+  "agent_s": 91.10568923699884,
+  "agent_cpu_s": 91.10480171299992,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "noise_mm": 10,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 29.347005395999986,
+  "agent_cpu_s": 29.273150763999638,
+  "fault_hits": {},
+  "champions": 6,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "noise_mm": 10,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 41.6550084879982,
+  "agent_cpu_s": 41.65369148799982,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 4,
+  "noise_mm": 10,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sy",
+   "hz",
+   "hy",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 10.078130022999176,
+  "agent_cpu_s": 10.064686656000049,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "noise_mm": 1,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 142.3375580990023,
+  "agent_cpu_s": 142.21916447500098,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "noise_mm": 1,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 5.7978695729998435,
+  "agent_cpu_s": 5.795484596999586,
+  "fault_hits": {},
+  "champions": 7,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "noise_mm": 1,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 9.76486430699606,
+  "agent_cpu_s": 9.764703124999869,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "noise_mm": 1,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 9.168079136000415,
+  "agent_cpu_s": 9.166363939000348,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "noise_mm": 2,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 158.8857542559981,
+  "agent_cpu_s": 158.79585952200023,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "noise_mm": 2,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 5.3670643920004295,
+  "agent_cpu_s": 5.347853757000166,
+  "fault_hits": {},
+  "champions": 5,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "noise_mm": 2,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 9.32737836400156,
+  "agent_cpu_s": 9.280254080000532,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "noise_mm": 2,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 8.207775969999602,
+  "agent_cpu_s": 8.198542008000004,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "noise_mm": 5,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "agent_s": 63.3327465780003,
+  "agent_cpu_s": 63.33183719699991,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "noise_mm": 5,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 5.483221471001343,
+  "agent_cpu_s": 5.47995277799896,
+  "fault_hits": {},
+  "champions": 5,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "noise_mm": 5,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 9.309813133997523,
+  "agent_cpu_s": 9.309661830000096,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "noise_mm": 5,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 9.120584702000997,
+  "agent_cpu_s": 9.120451582000669,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "noise_mm": 10,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "agent_s": 125.39156490599999,
+  "agent_cpu_s": 125.34558151099964,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "noise_mm": 10,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 10.645687724001618,
+  "agent_cpu_s": 10.64540227600014,
+  "fault_hits": {},
+  "champions": 5,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "noise_mm": 10,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 29.512434752000445,
+  "agent_cpu_s": 29.335172504000184,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "scara",
+  "seed": 5,
+  "noise_mm": 10,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 9.320049203000963,
+  "agent_cpu_s": 9.25358927000002,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "noise_mm": 1,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 205.7421940560016,
+  "agent_cpu_s": 205.60064207899973,
+  "fault_hits": {},
+  "champions": 4,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "noise_mm": 1,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 7.1705079200010005,
+  "agent_cpu_s": 7.131057793999844,
+  "fault_hits": {},
+  "champions": 8,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "noise_mm": 1,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 9.446933945001547,
+  "agent_cpu_s": 9.414655149000737,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "noise_mm": 1,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 10.101318248001007,
+  "agent_cpu_s": 10.098295273999838,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "noise_mm": 2,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 65,
+  "probe_motions": 32,
+  "agent_s": 43.70634792299916,
+  "agent_cpu_s": 43.60354585699929,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "noise_mm": 2,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 6.361072906998743,
+  "agent_cpu_s": 6.361049587000252,
+  "fault_hits": {},
+  "champions": 8,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "noise_mm": 2,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 8.89028379499905,
+  "agent_cpu_s": 8.857816425999772,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "noise_mm": 2,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 9.324868834000881,
+  "agent_cpu_s": 9.324411717999965,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "noise_mm": 5,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 65,
+  "probe_motions": 32,
+  "agent_s": 52.45214802600094,
+  "agent_cpu_s": 52.128251076000424,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "noise_mm": 5,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 6.5105227649983135,
+  "agent_cpu_s": 6.5104829300003075,
+  "fault_hits": {},
+  "champions": 8,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "noise_mm": 5,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 8.670665469000596,
+  "agent_cpu_s": 8.669076895000217,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "noise_mm": 5,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 9.368238519999068,
+  "agent_cpu_s": 9.358410755000023,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "noise_mm": 10,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 65,
+  "probe_motions": 32,
+  "agent_s": 71.30457374800244,
+  "agent_cpu_s": 71.28208221599994,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "noise_mm": 10,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 23.641079303998595,
+  "agent_cpu_s": 23.617738285000087,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "noise_mm": 10,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "sx",
+   "hy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 23.82658797899876,
+  "agent_cpu_s": 23.781179539999357,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "noise_mm": 10,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 8.256768985000235,
+  "agent_cpu_s": 8.25673691499992,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "noise_mm": 1,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 178.30349214800117,
+  "agent_cpu_s": 178.2478683519996,
+  "fault_hits": {},
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "noise_mm": 1,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 6.083147440001085,
+  "agent_cpu_s": 6.0831514329997844,
+  "fault_hits": {},
+  "champions": 3,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "noise_mm": 1,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 8.554200959001719,
+  "agent_cpu_s": 8.55226705699988,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "noise_mm": 1,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 7.997981170001367,
+  "agent_cpu_s": 7.997132665999516,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "noise_mm": 2,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 69,
+  "probe_motions": 36,
+  "agent_s": 47.75274752800033,
+  "agent_cpu_s": 47.665127867000365,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "noise_mm": 2,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 5.783717137998792,
+  "agent_cpu_s": 5.783543880999787,
+  "fault_hits": {},
+  "champions": 7,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "noise_mm": 2,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 8.71126024700061,
+  "agent_cpu_s": 8.654134786999975,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "noise_mm": 2,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 7.257024772001387,
+  "agent_cpu_s": 7.249750798999912,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "noise_mm": 5,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 65,
+  "probe_motions": 40,
+  "agent_s": 39.9852159380016,
+  "agent_cpu_s": 39.98169852999945,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "noise_mm": 5,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 5.630123522998474,
+  "agent_cpu_s": 5.630050047000395,
+  "fault_hits": {},
+  "champions": 8,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "noise_mm": 5,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 8.521244172999104,
+  "agent_cpu_s": 8.513038040999618,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "noise_mm": 5,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 7.816544686002089,
+  "agent_cpu_s": 7.816295445999458,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "noise_mm": 10,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 65,
+  "probe_motions": 40,
+  "agent_s": 60.78228321500137,
+  "agent_cpu_s": 60.694402171999855,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "noise_mm": 10,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 21.685947468999075,
+  "agent_cpu_s": 21.685629571000163,
+  "fault_hits": {},
+  "champions": 7,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "noise_mm": 10,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 32.96563195899944,
+  "agent_cpu_s": 32.89369253500013,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "noise_mm": 10,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 2,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 8.098283209999863,
+  "agent_cpu_s": 8.094439136000574,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "noise_mm": 1,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 126.40577243400276,
+  "agent_cpu_s": 126.31863342400061,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "noise_mm": 1,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 68,
+  "probe_motions": 20,
+  "agent_s": 12.587071579000622,
+  "agent_cpu_s": 12.581956024000874,
+  "fault_hits": {},
+  "champions": 5,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "noise_mm": 1,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 20,
+  "agent_s": 14.769436651999968,
+  "agent_cpu_s": 14.762848843999336,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "noise_mm": 1,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "sy",
+   "hy",
+   "hy",
+   "sx"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 9.027797087998806,
+  "agent_cpu_s": 9.025477381999508,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "noise_mm": 2,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "agent_s": 63.8396735260003,
+  "agent_cpu_s": 63.79816098699962,
+  "fault_hits": {},
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "noise_mm": 2,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 6.127077247998386,
+  "agent_cpu_s": 6.110036940999862,
+  "fault_hits": {},
+  "champions": 7,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "noise_mm": 2,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 13.162772896000206,
+  "agent_cpu_s": 13.162603898999805,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "noise_mm": 2,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "sy",
+   "hy",
+   "hy",
+   "sx"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 9.610944360000758,
+  "agent_cpu_s": 9.590356207000468,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "noise_mm": 5,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "agent_s": 72.45123536099891,
+  "agent_cpu_s": 72.42626939299998,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "noise_mm": 5,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 10.521713332002037,
+  "agent_cpu_s": 10.502949176999891,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "noise_mm": 5,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hy",
+   "hy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 24.48170705299981,
+  "agent_cpu_s": 24.471899081999936,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "noise_mm": 5,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "sy",
+   "hy",
+   "hy",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 9.341867593998359,
+  "agent_cpu_s": 9.336608102999662,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "noise_mm": 10,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "agent_s": 49.31139084200004,
+  "agent_cpu_s": 49.29683555900033,
+  "fault_hits": {},
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "noise_mm": 10,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 23.647036871002456,
+  "agent_cpu_s": 23.62795484600042,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "noise_mm": 10,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hy",
+   "hy",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 41.00157711099928,
+  "agent_cpu_s": 40.89938828500044,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "noise_mm": 10,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "sy",
+   "hy",
+   "hy",
+   "sx"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 3,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 7.94122284200148,
+  "agent_cpu_s": 7.934893254000826,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "noise_mm": 1,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 144.2863473050047,
+  "agent_cpu_s": 144.28527846899988,
+  "fault_hits": {},
+  "champions": 4,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "noise_mm": 1,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 5.362439241001994,
+  "agent_cpu_s": 5.362296358000549,
+  "fault_hits": {},
+  "champions": 7,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "noise_mm": 1,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 8.194159510001555,
+  "agent_cpu_s": 8.1857555520005,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "noise_mm": 1,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "sy",
+   "hy",
+   "hy",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 11.854183248000481,
+  "agent_cpu_s": 11.852803233000031,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "noise_mm": 2,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 69,
+  "probe_motions": 40,
+  "agent_s": 42.10884929999975,
+  "agent_cpu_s": 41.97796592099962,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "noise_mm": 2,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 5.700314465998417,
+  "agent_cpu_s": 5.700139621000062,
+  "fault_hits": {},
+  "champions": 8,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "noise_mm": 2,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 8.978170326001418,
+  "agent_cpu_s": 8.978008810999427,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "noise_mm": 2,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "sy",
+   "hy",
+   "hy",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 10.599453266000637,
+  "agent_cpu_s": 10.590717648999998,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "noise_mm": 5,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 69,
+  "probe_motions": 40,
+  "agent_s": 55.759840222001,
+  "agent_cpu_s": 55.62203546299975,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "noise_mm": 5,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 6.066728641999362,
+  "agent_cpu_s": 6.065213635999498,
+  "fault_hits": {},
+  "champions": 8,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "noise_mm": 5,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 8.305289141000685,
+  "agent_cpu_s": 8.298430339000333,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "noise_mm": 5,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "sy",
+   "hy",
+   "hy",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 12.122100349001812,
+  "agent_cpu_s": 12.115669119999438,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "noise_mm": 10,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 69,
+  "probe_motions": 40,
+  "agent_s": 38.90821691400197,
+  "agent_cpu_s": 38.79973409499985,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "noise_mm": 10,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 18.854594902997633,
+  "agent_cpu_s": 18.854480765000062,
+  "fault_hits": {},
+  "champions": 7,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "noise_mm": 10,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 26.321799155998633,
+  "agent_cpu_s": 26.149994453000318,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 4,
+  "noise_mm": 10,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "sy",
+   "hy",
+   "hy",
+   "sy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 0,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 11.620634591000453,
+  "agent_cpu_s": 11.613527049000822,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "noise_mm": 1,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 32,
+  "agent_s": 203.6122474800004,
+  "agent_cpu_s": 203.58175952999886,
+  "fault_hits": {},
+  "champions": 5,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "noise_mm": 1,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 6.258113025997773,
+  "agent_cpu_s": 6.227309843000057,
+  "fault_hits": {},
+  "champions": 7,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "noise_mm": 1,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 10.213537272001304,
+  "agent_cpu_s": 10.203832414000317,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "noise_mm": 1,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "sx"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 7.488062360998811,
+  "agent_cpu_s": 7.4854429659997095,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "noise_mm": 2,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "agent_s": 83.66685817300004,
+  "agent_cpu_s": 83.63083085699964,
+  "fault_hits": {},
+  "champions": 3,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "noise_mm": 2,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 5.881435520001105,
+  "agent_cpu_s": 5.881383250999761,
+  "fault_hits": {},
+  "champions": 6,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "noise_mm": 2,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 9.703011721999246,
+  "agent_cpu_s": 9.702616129999342,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "noise_mm": 2,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "sx"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 7.462673222999001,
+  "agent_cpu_s": 7.436860217000685,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "noise_mm": 5,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 70,
+  "probe_motions": 40,
+  "agent_s": 63.39866072299992,
+  "agent_cpu_s": 63.27063620600029,
+  "fault_hits": {},
+  "champions": 1,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "noise_mm": 5,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 5.226708501998473,
+  "agent_cpu_s": 5.224700788000973,
+  "fault_hits": {},
+  "champions": 7,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "noise_mm": 5,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "types_correct": true,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 8.966954476997671,
+  "agent_cpu_s": 8.962162448999834,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "noise_mm": 5,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "sx"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 7.123130560999016,
+  "agent_cpu_s": 7.1225040120004905,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "noise_mm": 10,
+  "condition": "swarm",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hz"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 69,
+  "probe_motions": 36,
+  "agent_s": 75.86294696999903,
+  "agent_cpu_s": 75.78277703699905,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0,
+  "swarm_version": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "noise_mm": 10,
+  "condition": "pipeline",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 68,
+  "probe_motions": 16,
+  "agent_s": 13.126406741999745,
+  "agent_cpu_s": 13.120962897000481,
+  "fault_hits": {},
+  "champions": 2,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "noise_mm": 10,
+  "condition": "single_probe",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hy"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 16,
+  "agent_s": 17.315791523999906,
+  "agent_cpu_s": 17.300426330999244,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ },
+ {
+  "family": "telescope",
+  "seed": 5,
+  "noise_mm": 10,
+  "condition": "single",
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "sx"
+  ],
+  "structure_correct": false,
+  "types_correct": false,
+  "alarms": [],
+  "fault_channel": 1,
+  "motions_used": 64,
+  "probe_motions": 0,
+  "agent_s": 7.548594527000205,
+  "agent_cpu_s": 7.548497318001182,
+  "fault_hits": {},
+  "champions": 0,
+  "disagreements": 0
+ }
+]

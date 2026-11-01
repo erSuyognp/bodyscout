@@ -20,7 +20,7 @@
    "hy",
    "hx",
    "hy",
-   "hy"
+   "hx"
   ],
   "champion": "chain",
   "observable": [
@@ -37,7 +37,10 @@
   "n": 7,
   "n_observable": 6,
   "structure_correct": false,
-  "final_reach_mm": 1.887577478428895
+  "final_reach_mm": 2.516696308628522,
+  "agent_cpu_s": 964.2136328979999,
+  "motions_used": 162,
+  "swarm_version": 2
  },
  {
   "arm": "panda",
@@ -55,7 +58,7 @@
   ],
   "found": [
    "hz",
-   "hy",
+   "hx",
    "hz",
    "hy",
    "hx",
@@ -77,7 +80,10 @@
   "n": 7,
   "n_observable": 6,
   "structure_correct": false,
-  "final_reach_mm": 2.286315861500044
+  "final_reach_mm": 2.5855543571504556,
+  "agent_cpu_s": 1240.8650608359994,
+  "motions_used": 162,
+  "swarm_version": 2
  },
  {
   "arm": "panda",
@@ -180,7 +186,7 @@
    "hy",
    "hx",
    "hy",
-   "hx"
+   "hz"
   ],
   "champion": "chain",
   "observable": [
@@ -192,12 +198,15 @@
    true,
    false
   ],
-  "joints_right": 6,
+  "joints_right": 7,
   "observable_right": 6,
   "n": 7,
   "n_observable": 6,
-  "structure_correct": false,
-  "final_reach_mm": 2.030459371775498
+  "structure_correct": true,
+  "final_reach_mm": 2.086762259451775,
+  "agent_cpu_s": 1045.620883921,
+  "motions_used": 165,
+  "swarm_version": 2
  },
  {
   "arm": "panda",
@@ -216,7 +225,7 @@
   "found": [
    "hy",
    "hy",
-   "hx",
+   "hz",
    "hz",
    "hy",
    "hx",
@@ -232,12 +241,15 @@
    true,
    true
   ],
-  "joints_right": 6,
+  "joints_right": 7,
   "observable_right": 6,
   "n": 7,
   "n_observable": 6,
-  "structure_correct": false,
-  "final_reach_mm": 1.9805648774054003
+  "structure_correct": true,
+  "final_reach_mm": 1.3895333409900734,
+  "agent_cpu_s": 1151.5540369189998,
+  "motions_used": 164,
+  "swarm_version": 2
  },
  {
   "arm": "panda",
@@ -340,7 +352,7 @@
    "hy",
    "hx",
    "hy",
-   "sx"
+   "hy"
   ],
   "champion": "chain",
   "observable": [
@@ -357,7 +369,10 @@
   "n": 7,
   "n_observable": 6,
   "structure_correct": false,
-  "final_reach_mm": 1.7874170176855642
+  "final_reach_mm": 1.6905217330746638,
+  "agent_cpu_s": 1104.7732790139996,
+  "motions_used": 161,
+  "swarm_version": 2
  },
  {
   "arm": "panda",
@@ -379,7 +394,7 @@
    "hz",
    "hy",
    "hz",
-   "hz",
+   "hy",
    "hx"
   ],
   "champion": "chain",
@@ -392,12 +407,15 @@
    false,
    true
   ],
-  "joints_right": 7,
+  "joints_right": 6,
   "observable_right": 6,
   "n": 7,
   "n_observable": 6,
-  "structure_correct": true,
-  "final_reach_mm": 3.1167601032410928
+  "structure_correct": false,
+  "final_reach_mm": 3.22964254728315,
+  "agent_cpu_s": 1258.6181360980002,
+  "motions_used": 161,
+  "swarm_version": 2
  },
  {
   "arm": "panda",
@@ -498,7 +516,7 @@
    "hy",
    "hy",
    "hz",
-   "hz"
+   "sx"
   ],
   "champion": "chain",
   "observable": [
@@ -514,7 +532,10 @@
   "n": 6,
   "n_observable": 5,
   "structure_correct": false,
-  "final_reach_mm": 2.58717829901321
+  "final_reach_mm": 2.5095133184681293,
+  "agent_cpu_s": 1494.2038970869999,
+  "motions_used": 161,
+  "swarm_version": 2
  },
  {
   "arm": "ur5e",
@@ -551,7 +572,10 @@
   "n": 6,
   "n_observable": 5,
   "structure_correct": false,
-  "final_reach_mm": 1.5998321255338013
+  "final_reach_mm": 2.1456071538293537,
+  "agent_cpu_s": 1051.8530609640002,
+  "motions_used": 161,
+  "swarm_version": 2
  },
  {
   "arm": "ur5e",
@@ -646,7 +670,7 @@
    "hy",
    "hy",
    "hz",
-   "sx"
+   "hz"
   ],
   "champion": "chain",
   "observable": [
@@ -662,7 +686,10 @@
   "n": 6,
   "n_observable": 5,
   "structure_correct": false,
-  "final_reach_mm": 2.214135505062609
+  "final_reach_mm": 1.9181208402520924,
+  "agent_cpu_s": 888.4043412060003,
+  "motions_used": 162,
+  "swarm_version": 2
  },
  {
   "arm": "ur5e",
@@ -679,7 +706,7 @@
   ],
   "found": [
    "hy",
-   "hy",
+   "hz",
    "hy",
    "hy",
    "hz",
@@ -694,12 +721,15 @@
    true,
    true
   ],
-  "joints_right": 6,
+  "joints_right": 5,
   "observable_right": 5,
   "n": 6,
   "n_observable": 5,
-  "structure_correct": true,
-  "final_reach_mm": 1.4777516028905
+  "structure_correct": false,
+  "final_reach_mm": 2.0405306641407552,
+  "agent_cpu_s": 1705.5288537979998,
+  "motions_used": 163,
+  "swarm_version": 2
  },
  {
   "arm": "ur5e",
@@ -810,7 +840,10 @@
   "n": 6,
   "n_observable": 5,
   "structure_correct": true,
-  "final_reach_mm": 1.8720286414815484
+  "final_reach_mm": 1.3243066934639456,
+  "agent_cpu_s": 1331.2235993659997,
+  "motions_used": 162,
+  "swarm_version": 2
  },
  {
   "arm": "ur5e",
@@ -830,7 +863,7 @@
    "hy",
    "hz",
    "hy",
-   "hx",
+   "sz",
    "hz"
   ],
   "champion": "chain",
@@ -847,7 +880,10 @@
   "n": 6,
   "n_observable": 5,
   "structure_correct": false,
-  "final_reach_mm": 2.685331883519127
+  "final_reach_mm": 2.0409529019771657,
+  "agent_cpu_s": 658.7638116220002,
+  "motions_used": 160,
+  "swarm_version": 2
  },
  {
   "arm": "ur5e",
@@ -944,7 +980,7 @@
    "hy",
    "hz",
    "hy",
-   "hz"
+   "hy"
   ],
   "champion": "chain",
   "observable": [
@@ -956,12 +992,15 @@
    true,
    false
   ],
-  "joints_right": 7,
+  "joints_right": 6,
   "observable_right": 5,
   "n": 7,
   "n_observable": 5,
-  "structure_correct": true,
-  "final_reach_mm": 1.8420635339254403
+  "structure_correct": false,
+  "final_reach_mm": 1.9592588026586828,
+  "agent_cpu_s": 2634.3180544609995,
+  "motions_used": 162,
+  "swarm_version": 2
  },
  {
   "arm": "gen3",
@@ -979,7 +1018,7 @@
   ],
   "found": [
    "hz",
-   "hy",
+   "hx",
    "hz",
    "hy",
    "hz",
@@ -1001,7 +1040,10 @@
   "n": 7,
   "n_observable": 5,
   "structure_correct": false,
-  "final_reach_mm": 2.3075172887189823
+  "final_reach_mm": 1.9598696929099855,
+  "agent_cpu_s": 1599.8809555879996,
+  "motions_used": 162,
+  "swarm_version": 2
  },
  {
   "arm": "gen3",
@@ -1104,7 +1146,7 @@
    "hy",
    "hz",
    "hy",
-   "hz"
+   "sx"
   ],
   "champion": "chain",
   "observable": [
@@ -1116,12 +1158,15 @@
    true,
    false
   ],
-  "joints_right": 7,
+  "joints_right": 6,
   "observable_right": 6,
   "n": 7,
   "n_observable": 6,
-  "structure_correct": true,
-  "final_reach_mm": 2.356953513686197
+  "structure_correct": false,
+  "final_reach_mm": 3.4823670060847847,
+  "agent_cpu_s": 1569.5575366979995,
+  "motions_used": 164,
+  "swarm_version": 2
  },
  {
   "arm": "gen3",
@@ -1140,7 +1185,7 @@
   "found": [
    "hy",
    "hy",
-   "hx",
+   "hz",
    "hz",
    "hy",
    "hz",
@@ -1156,12 +1201,15 @@
    false,
    true
   ],
-  "joints_right": 6,
+  "joints_right": 7,
   "observable_right": 5,
   "n": 7,
   "n_observable": 5,
-  "structure_correct": false,
-  "final_reach_mm": 1.8321938650625678
+  "structure_correct": true,
+  "final_reach_mm": 1.9161618047960463,
+  "agent_cpu_s": 2079.328579917,
+  "motions_used": 165,
+  "swarm_version": 2
  },
  {
   "arm": "gen3",
@@ -1264,7 +1312,7 @@
    "hy",
    "hz",
    "hy",
-   "sz"
+   "hz"
   ],
   "champion": "chain",
   "observable": [
@@ -1276,12 +1324,15 @@
    true,
    false
   ],
-  "joints_right": 6,
+  "joints_right": 7,
   "observable_right": 5,
   "n": 7,
   "n_observable": 5,
-  "structure_correct": false,
-  "final_reach_mm": 2.508384431458809
+  "structure_correct": true,
+  "final_reach_mm": 2.1177664659814455,
+  "agent_cpu_s": 1134.4318558439998,
+  "motions_used": 160,
+  "swarm_version": 2
  },
  {
   "arm": "gen3",
@@ -1303,7 +1354,7 @@
    "hz",
    "hy",
    "hz",
-   "sx",
+   "hx",
    "hz"
   ],
   "champion": "chain",
@@ -1321,7 +1372,10 @@
   "n": 7,
   "n_observable": 6,
   "structure_correct": false,
-  "final_reach_mm": 2.2324028573114476
+  "final_reach_mm": 2.5214441140828026,
+  "agent_cpu_s": 1639.2913897530002,
+  "motions_used": 160,
+  "swarm_version": 2
  },
  {
   "arm": "gen3",
@@ -1422,7 +1476,7 @@
    "hy",
    "hx",
    "hy",
-   "hy"
+   "hz"
   ],
   "champion": "chain",
   "observable": [
@@ -1438,7 +1492,10 @@
   "n": 6,
   "n_observable": 5,
   "structure_correct": false,
-  "final_reach_mm": 1.5299750453990038
+  "final_reach_mm": 2.4303479763884623,
+  "agent_cpu_s": 708.5246035829998,
+  "motions_used": 161,
+  "swarm_version": 2
  },
  {
   "arm": "vx300s",
@@ -1475,7 +1532,10 @@
   "n": 6,
   "n_observable": 5,
   "structure_correct": false,
-  "final_reach_mm": 2.2640052587497856
+  "final_reach_mm": 1.9602819855256675,
+  "agent_cpu_s": 888.4290647899999,
+  "motions_used": 160,
+  "swarm_version": 2
  },
  {
   "arm": "vx300s",
@@ -1570,7 +1630,7 @@
    "hy",
    "hx",
    "hy",
-   "hy"
+   "hx"
   ],
   "champion": "chain",
   "observable": [
@@ -1581,12 +1641,15 @@
    true,
    false
   ],
-  "joints_right": 5,
+  "joints_right": 6,
   "observable_right": 5,
   "n": 6,
   "n_observable": 5,
-  "structure_correct": false,
-  "final_reach_mm": 2.470902432557233
+  "structure_correct": true,
+  "final_reach_mm": 2.7362603077494536,
+  "agent_cpu_s": 391.3599017329999,
+  "motions_used": 162,
+  "swarm_version": 2
  },
  {
   "arm": "vx300s",
@@ -1603,7 +1666,7 @@
   ],
   "found": [
    "hy",
-   "hz",
+   "hx",
    "hy",
    "hx",
    "hy",
@@ -1618,12 +1681,15 @@
    true,
    true
   ],
-  "joints_right": 5,
+  "joints_right": 6,
   "observable_right": 5,
   "n": 6,
   "n_observable": 5,
-  "structure_correct": false,
-  "final_reach_mm": 2.086363530937161
+  "structure_correct": true,
+  "final_reach_mm": 3.8006848434584364,
+  "agent_cpu_s": 705.7056302939999,
+  "motions_used": 162,
+  "swarm_version": 2
  },
  {
   "arm": "vx300s",
@@ -1734,7 +1800,10 @@
   "n": 6,
   "n_observable": 5,
   "structure_correct": false,
-  "final_reach_mm": 2.2886999242714423
+  "final_reach_mm": 1.7755228657127402,
+  "agent_cpu_s": 690.839567498,
+  "motions_used": 162,
+  "swarm_version": 2
  },
  {
   "arm": "vx300s",
@@ -1754,7 +1823,7 @@
    "hy",
    "hz",
    "hy",
-   "sy",
+   "hz",
    "hy"
   ],
   "champion": "chain",
@@ -1771,7 +1840,10 @@
   "n": 6,
   "n_observable": 5,
   "structure_correct": false,
-  "final_reach_mm": 1.6827332912202497
+  "final_reach_mm": 1.9276678600480792,
+  "agent_cpu_s": 772.2655416239999,
+  "motions_used": 160,
+  "swarm_version": 2
  },
  {
   "arm": "vx300s",

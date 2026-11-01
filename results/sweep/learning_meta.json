@@ -26,17 +26,27 @@
    ],
    "links_m": [
     0.069,
-    0.194,
-    0.12,
-    0.117
+    0.193,
+    0.118,
+    0.118
    ],
    "identifiable": [
     false,
     true,
-    false,
-    false
+    true,
+    true
    ]
-  }
+  },
+  "agent_s": 82.7481194710017,
+  "agent_cpu_s": 82.72507244400026,
+  "motions_used": 64,
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "swarm_version": 2
  },
  {
   "arm": 1,
@@ -75,7 +85,14 @@
     false,
     false
    ]
-  }
+  },
+  "agent_s": 13.96159062799984,
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ]
  },
  {
   "arm": 1,
@@ -84,7 +101,14 @@
   "events": [],
   "champion": {
    "family": "mlp"
-  }
+  },
+  "agent_s": 2.1898565709998365,
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ]
  },
  {
   "arm": 2,
@@ -115,11 +139,11 @@
     "hy"
    ],
    "links_m": [
-    0.065,
+    0.066,
     0.149,
     0.166,
     0.093,
-    0.076
+    0.077
    ],
    "identifiable": [
     false,
@@ -128,7 +152,18 @@
     true,
     true
    ]
-  }
+  },
+  "agent_s": 70.77487581400055,
+  "agent_cpu_s": 70.75345559299967,
+  "motions_used": 64,
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "swarm_version": 2
  },
  {
   "arm": 2,
@@ -172,7 +207,15 @@
     true,
     true
    ]
-  }
+  },
+  "agent_s": 20.832520742999577,
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ]
  },
  {
   "arm": 2,
@@ -181,7 +224,15 @@
   "events": [],
   "champion": {
    "family": "mlp"
-  }
+  },
+  "agent_s": 1.9947275600002286,
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ]
  },
  {
   "arm": 3,
@@ -212,11 +263,11 @@
     "hy"
    ],
    "links_m": [
-    0.099,
+    0.1,
     0.082,
-    0.126,
+    0.128,
     0.132,
-    0.092
+    0.091
    ],
    "identifiable": [
     false,
@@ -225,7 +276,18 @@
     true,
     true
    ]
-  }
+  },
+  "agent_s": 55.63161393300015,
+  "agent_cpu_s": 55.59790714100063,
+  "motions_used": 70,
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "swarm_version": 2
  },
  {
   "arm": 3,
@@ -269,7 +331,15 @@
     true,
     true
    ]
-  }
+  },
+  "agent_s": 16.52252936400032,
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ]
  },
  {
   "arm": 3,
@@ -278,7 +348,15 @@
   "events": [],
   "champion": {
    "family": "mlp"
-  }
+  },
+  "agent_s": 2.1008504770004492,
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ]
  },
  {
   "arm": 4,
@@ -312,7 +390,7 @@
     0.1,
     0.101,
     0.1,
-    0.135,
+    0.136,
     0.133
    ],
    "identifiable": [
@@ -320,9 +398,20 @@
     false,
     false,
     false,
-    true
+    false
    ]
-  }
+  },
+  "agent_s": 79.44441942299818,
+  "agent_cpu_s": 79.21417161200065,
+  "motions_used": 66,
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ],
+  "swarm_version": 2
  },
  {
   "arm": 4,
@@ -366,7 +455,15 @@
     false,
     false
    ]
-  }
+  },
+  "agent_s": 21.236183110000184,
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ]
  },
  {
   "arm": 4,
@@ -375,7 +472,15 @@
   "events": [],
   "champion": {
    "family": "mlp"
-  }
+  },
+  "agent_s": 2.1964424519992463,
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy",
+   "hz"
+  ]
  },
  {
   "arm": 5,
@@ -419,7 +524,18 @@
     false,
     true
    ]
-  }
+  },
+  "agent_s": 151.9756625640057,
+  "agent_cpu_s": 151.96950617999892,
+  "motions_used": 64,
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "swarm_version": 2
  },
  {
   "arm": 5,
@@ -463,7 +579,15 @@
     false,
     true
    ]
-  }
+  },
+  "agent_s": 16.004500172999315,
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ]
  },
  {
   "arm": 5,
@@ -472,7 +596,15 @@
   "events": [],
   "champion": {
    "family": "mlp"
-  }
+  },
+  "agent_s": 1.920789041000262,
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hz",
+   "hy"
+  ]
  },
  {
   "arm": 6,
@@ -500,9 +632,9 @@
     "hy"
    ],
    "links_m": [
-    0.083,
-    0.12,
-    0.198,
+    0.084,
+    0.119,
+    0.199,
     0.152
    ],
    "identifiable": [
@@ -511,7 +643,17 @@
     true,
     true
    ]
-  }
+  },
+  "agent_s": 65.63544686000023,
+  "agent_cpu_s": 65.63478320499917,
+  "motions_used": 67,
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "swarm_version": 2
  },
  {
   "arm": 6,
@@ -550,7 +692,14 @@
     true,
     true
    ]
-  }
+  },
+  "agent_s": 11.46037139999953,
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy"
+  ]
  },
  {
   "arm": 6,
@@ -559,7 +708,14 @@
   "events": [],
   "champion": {
    "family": "mlp"
-  }
+  },
+  "agent_s": 2.359921937999843,
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy"
+  ]
  },
  {
   "arm": 7,
@@ -594,7 +750,7 @@
     0.11,
     0.128,
     0.128,
-    0.176
+    0.177
    ],
    "identifiable": [
     false,
@@ -603,7 +759,18 @@
     false,
     true
    ]
-  }
+  },
+  "agent_s": 91.91328948500086,
+  "agent_cpu_s": 91.86129759199912,
+  "motions_used": 67,
+  "truth": [
+   "hz",
+   "hx",
+   "hx",
+   "hz",
+   "hy"
+  ],
+  "swarm_version": 2
  },
  {
   "arm": 7,
@@ -647,7 +814,15 @@
     false,
     true
    ]
-  }
+  },
+  "agent_s": 15.601299202000973,
+  "truth": [
+   "hz",
+   "hx",
+   "hx",
+   "hz",
+   "hy"
+  ]
  },
  {
   "arm": 7,
@@ -656,7 +831,15 @@
   "events": [],
   "champion": {
    "family": "mlp"
-  }
+  },
+  "agent_s": 2.153841164001051,
+  "truth": [
+   "hz",
+   "hx",
+   "hx",
+   "hz",
+   "hy"
+  ]
  },
  {
   "arm": 8,
@@ -688,7 +871,7 @@
    ],
    "links_m": [
     0.111,
-    0.184,
+    0.183,
     0.124,
     0.124,
     0.118
@@ -700,7 +883,18 @@
     false,
     true
    ]
-  }
+  },
+  "agent_s": 78.22858395000185,
+  "agent_cpu_s": 78.20122258500032,
+  "motions_used": 67,
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hz",
+   "hy"
+  ],
+  "swarm_version": 2
  },
  {
   "arm": 8,
@@ -744,7 +938,15 @@
     false,
     true
    ]
-  }
+  },
+  "agent_s": 14.831640031999768,
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hz",
+   "hy"
+  ]
  },
  {
   "arm": 8,
@@ -753,7 +955,15 @@
   "events": [],
   "champion": {
    "family": "mlp"
-  }
+  },
+  "agent_s": 2.333369248999361,
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hz",
+   "hy"
+  ]
  },
  {
   "arm": 9,
@@ -784,7 +994,7 @@
     0.133,
     0.133,
     0.134,
-    0.19
+    0.189
    ],
    "identifiable": [
     true,
@@ -792,7 +1002,17 @@
     true,
     true
    ]
-  }
+  },
+  "agent_s": 74.07086637200155,
+  "agent_cpu_s": 74.04674074400009,
+  "motions_used": 67,
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy"
+  ],
+  "swarm_version": 2
  },
  {
   "arm": 9,
@@ -831,7 +1051,14 @@
     false,
     true
    ]
-  }
+  },
+  "agent_s": 9.7080553400001,
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy"
+  ]
  },
  {
   "arm": 9,
@@ -840,7 +1067,14 @@
   "events": [],
   "champion": {
    "family": "mlp"
-  }
+  },
+  "agent_s": 0.8268160820000503,
+  "truth": [
+   "hz",
+   "hz",
+   "hz",
+   "hy"
+  ]
  },
  {
   "arm": 10,
@@ -873,8 +1107,8 @@
    "links_m": [
     0.092,
     0.092,
-    0.089,
-    0.161,
+    0.088,
+    0.16,
     0.179
    ],
    "identifiable": [
@@ -884,7 +1118,18 @@
     true,
     true
    ]
-  }
+  },
+  "agent_s": 75.18358154100133,
+  "agent_cpu_s": 75.17019665199996,
+  "motions_used": 67,
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hy",
+   "hx"
+  ],
+  "swarm_version": 2
  },
  {
   "arm": 10,
@@ -928,7 +1173,15 @@
     true,
     true
    ]
-  }
+  },
+  "agent_s": 20.998345168000014,
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hy",
+   "hx"
+  ]
  },
  {
   "arm": 10,
@@ -937,6 +1190,14 @@
   "events": [],
   "champion": {
    "family": "mlp"
-  }
+  },
+  "agent_s": 2.049649187999421,
+  "truth": [
+   "hz",
+   "hz",
+   "hy",
+   "hy",
+   "hx"
+  ]
  }
 ]

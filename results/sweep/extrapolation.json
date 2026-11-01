@@ -4,2799 +4,2799 @@
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.6799269590709398
+  "naive_miss_mm": 2.4583235853788317
  },
  {
   "family": "arm",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.840788247171154
+  "naive_miss_mm": 2.2579320342580287
  },
  {
   "family": "arm",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.7329667212664919
+  "naive_miss_mm": 0.6103773789293648
  },
  {
   "family": "arm",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.2610332978957912
+  "naive_miss_mm": 2.0828279488460675
  },
  {
   "family": "arm",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.364587557487251
+  "naive_miss_mm": 1.75120889473025
  },
  {
   "family": "arm",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.9070583178236631
+  "naive_miss_mm": 0.730534553905397
  },
  {
   "family": "arm",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.4121258638304104
+  "naive_miss_mm": 2.6395436415209983
  },
  {
   "family": "arm",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.304528633908593
+  "naive_miss_mm": 0.9622779615282175
  },
  {
   "family": "arm",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.2608158389243154
+  "naive_miss_mm": 4.156630427192679
  },
  {
   "family": "arm",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.3894930329338973
+  "naive_miss_mm": 1.101716623825104
  },
  {
   "family": "arm",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 267.39945538691603
+  "naive_miss_mm": 267.367011019239
  },
  {
   "family": "arm",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 282.59739079563906
+  "naive_miss_mm": 282.57158967238655
  },
  {
   "family": "arm",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 260.3080292622255
+  "naive_miss_mm": 260.27902363206834
  },
  {
   "family": "arm",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 190.5702112911767
+  "naive_miss_mm": 190.53103187964558
  },
  {
   "family": "arm",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 432.22891549351016
+  "naive_miss_mm": 432.47593670873545
  },
  {
   "family": "arm",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 387.4929040661401
+  "naive_miss_mm": 387.70526650574084
  },
  {
   "family": "arm",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 321.7529760356862
+  "naive_miss_mm": 321.72577457899996
  },
  {
   "family": "arm",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 230.59099816754906
+  "naive_miss_mm": 230.5409749252516
  },
  {
   "family": "arm",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 330.55719532684554
+  "naive_miss_mm": 330.547446763277
  },
  {
   "family": "arm",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 261.7172459931479
+  "naive_miss_mm": 261.6857708157928
  },
  {
   "family": "arm",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 3.5582552434540022
+  "naive_miss_mm": 0.4355496283581747
  },
  {
   "family": "arm",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.8632461529005884
+  "naive_miss_mm": 1.6043794121844404
  },
  {
   "family": "arm",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.8510056991290598
+  "naive_miss_mm": 0.7273355968684503
  },
  {
   "family": "arm",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 5.2903642325564375
+  "naive_miss_mm": 6.9562681484256395
  },
  {
   "family": "arm",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.0693267148250514
+  "naive_miss_mm": 1.5655055151041657
  },
  {
   "family": "arm",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.9341442372831784
+  "naive_miss_mm": 2.1039458389563124
  },
  {
   "family": "arm",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 4.723337617486293
+  "naive_miss_mm": 3.5158399290773366
  },
  {
   "family": "arm",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.3153854246610504
+  "naive_miss_mm": 2.633657728138516
  },
  {
   "family": "arm",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 3.6128062537194303
+  "naive_miss_mm": 3.790178034562274
  },
  {
   "family": "arm",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.95328861721112
+  "naive_miss_mm": 1.5355828491667953
  },
  {
   "family": "arm",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 410.4565116925567
+  "naive_miss_mm": 410.4232863804699
  },
  {
   "family": "arm",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 281.4778758712825
+  "naive_miss_mm": 281.47872940759737
  },
  {
   "family": "arm",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 283.1148473288456
+  "naive_miss_mm": 283.02424896817394
  },
  {
   "family": "arm",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 359.46036647395476
+  "naive_miss_mm": 359.39411015785845
  },
  {
   "family": "arm",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 264.4810002912018
+  "naive_miss_mm": 264.5330658415512
  },
  {
   "family": "arm",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 440.1014500383013
+  "naive_miss_mm": 440.1372165702877
  },
  {
   "family": "arm",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 230.77494312366625
+  "naive_miss_mm": 230.73650469656997
  },
  {
   "family": "arm",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 225.63587144628016
+  "naive_miss_mm": 225.57252728914295
  },
  {
   "family": "arm",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 209.0484682279015
+  "naive_miss_mm": 209.03616552686833
  },
  {
   "family": "arm",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 397.87997910093645
+  "naive_miss_mm": 397.92260791140046
  },
  {
   "family": "arm",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.3852329440194677
+  "naive_miss_mm": 4.8849989187045315
  },
  {
   "family": "arm",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 3.0452654832301898
+  "naive_miss_mm": 2.796377306657146
  },
  {
   "family": "arm",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.3447032971205486
+  "naive_miss_mm": 2.2194955517735044
  },
  {
   "family": "arm",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 3.6679348803853498
+  "naive_miss_mm": 4.725083893150719
  },
  {
   "family": "arm",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.297528872072364
+  "naive_miss_mm": 3.0680344855500583
  },
  {
   "family": "arm",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.0305659013770514
+  "naive_miss_mm": 1.8431193506011316
  },
  {
   "family": "arm",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.8534009069474395
+  "naive_miss_mm": 2.761906378576826
  },
  {
   "family": "arm",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.156538016989434
+  "naive_miss_mm": 3.0768586002856657
  },
  {
   "family": "arm",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.5369749739607106
+  "naive_miss_mm": 4.500325927473121
  },
  {
   "family": "arm",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 5.107426013179969
+  "naive_miss_mm": 3.046926368871276
  },
  {
   "family": "arm",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 360.601274760698
+  "naive_miss_mm": 360.6941580388816
  },
  {
   "family": "arm",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 458.8179201130247
+  "naive_miss_mm": 458.8527113834957
  },
  {
   "family": "arm",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 480.69141449133565
+  "naive_miss_mm": 480.7046337458012
  },
  {
   "family": "arm",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 426.97364554332626
+  "naive_miss_mm": 426.9738148616353
  },
  {
   "family": "arm",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 559.9151079835749
+  "naive_miss_mm": 559.9501269141757
  },
  {
   "family": "arm",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 459.9250892205278
+  "naive_miss_mm": 459.8938910952186
  },
  {
   "family": "arm",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 404.6183709437653
+  "naive_miss_mm": 404.6351508457365
  },
  {
   "family": "arm",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 461.5560115697972
+  "naive_miss_mm": 461.5279140961254
  },
  {
   "family": "arm",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 193.4241426152154
+  "naive_miss_mm": 193.4447764988813
  },
  {
   "family": "arm",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 202.73192965679573
+  "naive_miss_mm": 202.75281906163818
  },
  {
   "family": "arm",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.6043990010251785
+  "naive_miss_mm": 0.5561895308337811
  },
  {
   "family": "arm",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.081377245298348
+  "naive_miss_mm": 1.5578606125476362
  },
  {
   "family": "arm",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.824912318429083
+  "naive_miss_mm": 2.484758487308675
  },
  {
   "family": "arm",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.003631731094008
+  "naive_miss_mm": 1.5685708615780634
  },
  {
   "family": "arm",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.1404497306833619
+  "naive_miss_mm": 2.476143554089619
  },
  {
   "family": "arm",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.7564309754513163
+  "naive_miss_mm": 2.590837110641925
  },
  {
   "family": "arm",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.7277734825470477
+  "naive_miss_mm": 0.6911071969695024
  },
  {
   "family": "arm",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.40553691164008326
+  "naive_miss_mm": 1.1391226095059306
  },
  {
   "family": "arm",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.9106082525483282
+  "naive_miss_mm": 3.4083791837925115
  },
  {
   "family": "arm",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.199318765562899
+  "naive_miss_mm": 1.82929860511917
  },
  {
   "family": "arm",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 227.2802152737722
+  "naive_miss_mm": 227.4656147245044
  },
  {
   "family": "arm",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 656.6787658355586
+  "naive_miss_mm": 657.5206484580369
  },
  {
   "family": "arm",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 1030.2043867496318
+  "naive_miss_mm": 1030.1675331156096
  },
  {
   "family": "arm",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 201.3477383186038
+  "naive_miss_mm": 202.40079186360956
  },
  {
   "family": "arm",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 1027.279967877184
+  "naive_miss_mm": 1027.2559324549613
  },
  {
   "family": "arm",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 523.1972275126359
+  "naive_miss_mm": 523.3248388978766
  },
  {
   "family": "arm",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 873.0340775151114
+  "naive_miss_mm": 873.0208086866098
  },
  {
   "family": "arm",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 679.0314103059522
+  "naive_miss_mm": 679.4682730186822
  },
  {
   "family": "arm",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 650.5918410176741
+  "naive_miss_mm": 650.7095366330377
  },
  {
   "family": "arm",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 991.2011543499912
+  "naive_miss_mm": 991.1704004297734
  },
  {
   "family": "arm",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.1990504518105525
+  "naive_miss_mm": 2.0143567323522524
  },
  {
   "family": "arm",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.7037323556836785
+  "naive_miss_mm": 3.3515994713209754
  },
  {
   "family": "arm",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.8060751821665137
+  "naive_miss_mm": 2.3690436509647355
  },
  {
   "family": "arm",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.495818303342609
+  "naive_miss_mm": 1.4536001402985963
  },
  {
   "family": "arm",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.5796489247641397
+  "naive_miss_mm": 2.9138758776531537
  },
  {
   "family": "arm",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 3.4228851980861763
+  "naive_miss_mm": 2.4274406389255927
  },
  {
   "family": "arm",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.8970478293808386
+  "naive_miss_mm": 0.41947826925424264
  },
  {
   "family": "arm",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.5592105615306422
+  "naive_miss_mm": 0.5616213943654178
  },
  {
   "family": "arm",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.5116575747030097
+  "naive_miss_mm": 4.2906273221868645
  },
  {
   "family": "arm",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.107504586664475
+  "naive_miss_mm": 3.271206255647024
  },
  {
   "family": "arm",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 458.01544027439115
+  "naive_miss_mm": 458.0356161605869
  },
  {
   "family": "arm",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 401.7225915954132
+  "naive_miss_mm": 401.81546766545335
  },
  {
   "family": "arm",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 272.9607250048678
+  "naive_miss_mm": 272.95956326153987
  },
  {
   "family": "arm",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 550.8841144072803
+  "naive_miss_mm": 550.9428438954658
  },
  {
   "family": "arm",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 410.3378553793665
+  "naive_miss_mm": 410.3635323945071
  },
  {
   "family": "arm",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 566.6420831922037
+  "naive_miss_mm": 566.6440837440471
  },
  {
   "family": "arm",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 595.6748870560423
+  "naive_miss_mm": 595.6761656469421
  },
  {
   "family": "arm",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 590.980651581376
+  "naive_miss_mm": 591.0190992545479
  },
  {
   "family": "arm",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 664.0174558127604
+  "naive_miss_mm": 664.0283338657741
  },
  {
   "family": "arm",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 455.5855367595046
+  "naive_miss_mm": 455.59012454574747
  },
  {
   "family": "gantry",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.4057715157021944
+  "naive_miss_mm": 1.8290429959039132
  },
  {
   "family": "gantry",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.269177378905322
+  "naive_miss_mm": 1.4890320836319921
  },
  {
   "family": "gantry",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.786675280267829
+  "naive_miss_mm": 0.4306880569509
  },
  {
   "family": "gantry",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.7886777832514351
+  "naive_miss_mm": 1.583500844077719
  },
  {
   "family": "gantry",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.32139842956960074
+  "naive_miss_mm": 0.6807022248587352
  },
  {
   "family": "gantry",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.3321401629932113
+  "naive_miss_mm": 1.5395436367828712
  },
  {
   "family": "gantry",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.4188124983483649
+  "naive_miss_mm": 0.8898315482251358
  },
  {
   "family": "gantry",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.9589158272761634
+  "naive_miss_mm": 2.3159233439680467
  },
  {
   "family": "gantry",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.3968395463867351
+  "naive_miss_mm": 0.7511630961061528
  },
  {
   "family": "gantry",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.1145094055430995
+  "naive_miss_mm": 0.9739295259537494
  },
  {
   "family": "gantry",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 702.3490305676413
+  "naive_miss_mm": 702.3463918138299
  },
  {
   "family": "gantry",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 729.229343811447
+  "naive_miss_mm": 729.2677370380717
  },
  {
   "family": "gantry",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 665.0662870126266
+  "naive_miss_mm": 665.0662919075256
  },
  {
   "family": "gantry",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 584.7225098994659
+  "naive_miss_mm": 584.746453996282
  },
  {
   "family": "gantry",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 950.9877332222376
+  "naive_miss_mm": 951.0129028699884
  },
  {
   "family": "gantry",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 900.410449482764
+  "naive_miss_mm": 900.4045482164747
  },
  {
   "family": "gantry",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 818.618716494909
+  "naive_miss_mm": 818.6187146633497
  },
  {
   "family": "gantry",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 626.5695931272577
+  "naive_miss_mm": 626.5713303805713
  },
  {
   "family": "gantry",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 789.2238187413499
+  "naive_miss_mm": 789.2238187413695
  },
  {
   "family": "gantry",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 694.5964884824208
+  "naive_miss_mm": 694.5964884598409
  },
  {
   "family": "gantry",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.8878259133815773
+  "naive_miss_mm": 1.004044492660504
  },
  {
   "family": "gantry",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.9128501990540719
+  "naive_miss_mm": 0.9478749739409039
  },
  {
   "family": "gantry",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.773292092654191
+  "naive_miss_mm": 1.5179653454293698
  },
  {
   "family": "gantry",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.3117142487811557
+  "naive_miss_mm": 0.6814099785397655
  },
  {
   "family": "gantry",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.805716589347432
+  "naive_miss_mm": 1.479591684796386
  },
  {
   "family": "gantry",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.197380739598694
+  "naive_miss_mm": 1.1769877727348719
  },
  {
   "family": "gantry",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.2449139100377473
+  "naive_miss_mm": 1.262915748947029
  },
  {
   "family": "gantry",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.1405995768626713
+  "naive_miss_mm": 1.670471954543648
  },
  {
   "family": "gantry",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.0022435309450337
+  "naive_miss_mm": 1.959335172145968
  },
  {
   "family": "gantry",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.8563489112634963
+  "naive_miss_mm": 0.8990656523614824
  },
  {
   "family": "gantry",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 977.9143838156617
+  "naive_miss_mm": 977.9139766207746
  },
  {
   "family": "gantry",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 743.1184300470836
+  "naive_miss_mm": 743.1173331277124
  },
  {
   "family": "gantry",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 762.5093290329548
+  "naive_miss_mm": 762.5115588734868
  },
  {
   "family": "gantry",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 882.8185109405315
+  "naive_miss_mm": 882.8185046282302
  },
  {
   "family": "gantry",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 684.5157167861535
+  "naive_miss_mm": 684.5169079907322
  },
  {
   "family": "gantry",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 1049.7602957538911
+  "naive_miss_mm": 1049.766441135721
  },
  {
   "family": "gantry",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 633.0004200547894
+  "naive_miss_mm": 633.0017602145631
  },
  {
   "family": "gantry",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 606.1751502455227
+  "naive_miss_mm": 606.173440238762
  },
  {
   "family": "gantry",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 572.1024398004236
+  "naive_miss_mm": 572.1024385250485
  },
  {
   "family": "gantry",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 954.9782079403033
+  "naive_miss_mm": 954.9782051930115
  },
  {
   "family": "gantry",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.963656475300075
+  "naive_miss_mm": 4.093718753022926
  },
  {
   "family": "gantry",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.2868416765115993
+  "naive_miss_mm": 3.6614817499039587
  },
  {
   "family": "gantry",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.8214333502521607
+  "naive_miss_mm": 3.0922322866921093
  },
  {
   "family": "gantry",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.1049997399926823
+  "naive_miss_mm": 1.6176839236091916
  },
  {
   "family": "gantry",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.7723879668187617
+  "naive_miss_mm": 1.3106585748060038
  },
  {
   "family": "gantry",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.807996584523202
+  "naive_miss_mm": 4.042487273164938
  },
  {
   "family": "gantry",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.9481481706053253
+  "naive_miss_mm": 1.360046412138605
  },
  {
   "family": "gantry",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.8662804537504818
+  "naive_miss_mm": 2.138323108442762
  },
  {
   "family": "gantry",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.6858650918239773
+  "naive_miss_mm": 2.1081336983507155
  },
  {
   "family": "gantry",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.6888304717065405
+  "naive_miss_mm": 2.215865111760011
  },
  {
   "family": "gantry",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 772.0998055988003
+  "naive_miss_mm": 772.1257436973775
  },
  {
   "family": "gantry",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 846.6277810187906
+  "naive_miss_mm": 846.6277819554061
  },
  {
   "family": "gantry",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 929.3809315802267
+  "naive_miss_mm": 929.4737514421623
  },
  {
   "family": "gantry",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 850.1458435318035
+  "naive_miss_mm": 850.1493309511325
  },
  {
   "family": "gantry",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 1031.845239377162
+  "naive_miss_mm": 1031.8145922821293
  },
  {
   "family": "gantry",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 864.70129798532
+  "naive_miss_mm": 864.7013018599895
  },
  {
   "family": "gantry",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 813.5419395818546
+  "naive_miss_mm": 813.543682045117
  },
  {
   "family": "gantry",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 863.8890392762381
+  "naive_miss_mm": 863.8921658329236
  },
  {
   "family": "gantry",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 588.8985005232295
+  "naive_miss_mm": 588.8470308734834
  },
  {
   "family": "gantry",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 589.5933493534982
+  "naive_miss_mm": 589.5933538925747
  },
  {
   "family": "gantry",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.0867652295552634
+  "naive_miss_mm": 1.8648120806773048
  },
  {
   "family": "gantry",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.586998347070236
+  "naive_miss_mm": 2.7957058550298273
  },
  {
   "family": "gantry",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.3385720554618357
+  "naive_miss_mm": 2.0952526905632376
  },
  {
   "family": "gantry",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.8067693365675703
+  "naive_miss_mm": 4.335883220601653
  },
  {
   "family": "gantry",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.2442037053374866
+  "naive_miss_mm": 2.3518621831367024
  },
  {
   "family": "gantry",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.384938006459344
+  "naive_miss_mm": 3.612574953950167
  },
  {
   "family": "gantry",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.2284480245689957
+  "naive_miss_mm": 2.5224207872073396
  },
  {
   "family": "gantry",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.3383323169828831
+  "naive_miss_mm": 1.315294839887482
  },
  {
   "family": "gantry",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.305382911686367
+  "naive_miss_mm": 5.02956166510679
  },
  {
   "family": "gantry",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.8261497124888981
+  "naive_miss_mm": 0.6936925812932153
  },
  {
   "family": "gantry",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 577.6424497110822
+  "naive_miss_mm": 576.9013040017626
  },
  {
   "family": "gantry",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 744.9783338436108
+  "naive_miss_mm": 744.9837085327491
  },
  {
   "family": "gantry",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 1016.5466167579411
+  "naive_miss_mm": 1016.5466155033054
  },
  {
   "family": "gantry",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 596.696336429768
+  "naive_miss_mm": 596.6930965550138
  },
  {
   "family": "gantry",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 994.004557749957
+  "naive_miss_mm": 994.0019797452763
  },
  {
   "family": "gantry",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 663.5677003914241
+  "naive_miss_mm": 663.6047455133217
  },
  {
   "family": "gantry",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 869.3991709367019
+  "naive_miss_mm": 869.4006022668457
  },
  {
   "family": "gantry",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 782.7524393942396
+  "naive_miss_mm": 782.7524401123362
  },
  {
   "family": "gantry",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 727.6709771399532
+  "naive_miss_mm": 727.6766235119446
  },
  {
   "family": "gantry",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 975.7506948301248
+  "naive_miss_mm": 975.7507256882587
  },
  {
   "family": "gantry",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.47346827178427875
+  "naive_miss_mm": 2.0250959575318426
  },
  {
   "family": "gantry",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.001665921594115
+  "naive_miss_mm": 2.197570980707087
  },
  {
   "family": "gantry",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.197510645360488
+  "naive_miss_mm": 1.2997188518199465
  },
  {
   "family": "gantry",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.3259555360584399
+  "naive_miss_mm": 1.6289702451256034
  },
  {
   "family": "gantry",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.6359713740511008
+  "naive_miss_mm": 1.2046108384259575
  },
  {
   "family": "gantry",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.8668987529155172
+  "naive_miss_mm": 2.3969267288030083
  },
  {
   "family": "gantry",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.3857064440735278
+  "naive_miss_mm": 1.4681927667739405
  },
  {
   "family": "gantry",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.7747247778306028
+  "naive_miss_mm": 1.7778160276660775
  },
  {
   "family": "gantry",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.5860934654476921
+  "naive_miss_mm": 2.109928366315358
  },
  {
   "family": "gantry",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.9395605918253958
+  "naive_miss_mm": 2.061658380141835
  },
  {
   "family": "gantry",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 805.3942991475632
+  "naive_miss_mm": 805.3942992272172
  },
  {
   "family": "gantry",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 802.6105407757955
+  "naive_miss_mm": 802.6449591350178
  },
  {
   "family": "gantry",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 618.3544269962481
+  "naive_miss_mm": 618.3544166097824
  },
  {
   "family": "gantry",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 956.967248547019
+  "naive_miss_mm": 956.9725174557831
  },
  {
   "family": "gantry",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 785.7958267268151
+  "naive_miss_mm": 785.8468221806382
  },
  {
   "family": "gantry",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 979.0056067363374
+  "naive_miss_mm": 981.2870719470924
  },
  {
   "family": "gantry",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 958.6347521790682
+  "naive_miss_mm": 958.6347536690399
  },
  {
   "family": "gantry",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 1004.8314319129528
+  "naive_miss_mm": 1004.8185625905544
  },
  {
   "family": "gantry",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 1056.424927875553
+  "naive_miss_mm": 1056.4253936282003
  },
  {
   "family": "gantry",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 824.9088341897218
+  "naive_miss_mm": 824.9073207406117
  },
  {
   "family": "scara",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.20285533691517782
+  "naive_miss_mm": 2.434327298311337
  },
  {
   "family": "scara",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.34399830818121935
+  "naive_miss_mm": 2.055660198258359
  },
  {
   "family": "scara",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.2115498194212364
+  "naive_miss_mm": 0.6238609068048508
  },
  {
   "family": "scara",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.6546460751290987
+  "naive_miss_mm": 1.864001416637275
  },
  {
   "family": "scara",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.7638138876465518
+  "naive_miss_mm": 0.7407464629524231
  },
  {
   "family": "scara",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.7882764582427259
+  "naive_miss_mm": 0.8580651179312131
  },
  {
   "family": "scara",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.2901267190232333
+  "naive_miss_mm": 1.1942854254147992
  },
  {
   "family": "scara",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.9228587315315788
+  "naive_miss_mm": 1.2683166609750867
  },
  {
   "family": "scara",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.8264908713360056
+  "naive_miss_mm": 1.0931315300325857
  },
  {
   "family": "scara",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.690549975541901
+  "naive_miss_mm": 0.9984332504797452
  },
  {
   "family": "scara",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 390.0723373471028
+  "naive_miss_mm": 390.07606963699
  },
  {
   "family": "scara",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 445.65062027564727
+  "naive_miss_mm": 445.68389187766536
  },
  {
   "family": "scara",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 393.588365631895
+  "naive_miss_mm": 393.5905012285295
  },
  {
   "family": "scara",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 447.5840750211961
+  "naive_miss_mm": 447.5990269948849
  },
  {
   "family": "scara",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 587.511495153442
+  "naive_miss_mm": 587.5127798647377
  },
  {
   "family": "scara",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 507.70144685183715
+  "naive_miss_mm": 507.70243769790227
  },
  {
   "family": "scara",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 516.2604516391244
+  "naive_miss_mm": 516.2926706108435
  },
  {
   "family": "scara",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 375.04909758781275
+  "naive_miss_mm": 375.0522283690576
  },
  {
   "family": "scara",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 482.714137953402
+  "naive_miss_mm": 482.6989330765626
  },
  {
   "family": "scara",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 433.4511607605268
+  "naive_miss_mm": 433.4529830925526
  },
  {
   "family": "scara",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.154402232807189
+  "naive_miss_mm": 1.064169280085194
  },
  {
   "family": "scara",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.028881595869074
+  "naive_miss_mm": 1.08307767134692
  },
  {
   "family": "scara",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.3057592445227635
+  "naive_miss_mm": 1.7091211025232327
  },
  {
   "family": "scara",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.2575982842655478
+  "naive_miss_mm": 1.1460053466165334
  },
  {
   "family": "scara",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.4022386182602546
+  "naive_miss_mm": 1.264676254929834
  },
  {
   "family": "scara",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.590737422559803
+  "naive_miss_mm": 2.2391350006301733
  },
  {
   "family": "scara",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.8436133585016959
+  "naive_miss_mm": 1.4695651133616543
  },
  {
   "family": "scara",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.7774030374629133
+  "naive_miss_mm": 2.9419779970588738
  },
  {
   "family": "scara",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.7630036899099324
+  "naive_miss_mm": 2.0197967352463833
  },
  {
   "family": "scara",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.7150631738604795
+  "naive_miss_mm": 1.4303159410130695
  },
  {
   "family": "scara",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 598.9295873136442
+  "naive_miss_mm": 598.9214896523055
  },
  {
   "family": "scara",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 468.58718067345023
+  "naive_miss_mm": 468.6101658920297
  },
  {
   "family": "scara",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 438.93339142047927
+  "naive_miss_mm": 438.95521897053237
  },
  {
   "family": "scara",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 503.0014892952496
+  "naive_miss_mm": 502.9994479152368
  },
  {
   "family": "scara",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 412.9610060932797
+  "naive_miss_mm": 412.98493029681356
  },
  {
   "family": "scara",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 639.4770613208551
+  "naive_miss_mm": 639.4729234834078
  },
  {
   "family": "scara",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 383.02443889120036
+  "naive_miss_mm": 383.0347399658492
  },
  {
   "family": "scara",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 396.98699679442944
+  "naive_miss_mm": 396.995803829789
  },
  {
   "family": "scara",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 429.13277533329665
+  "naive_miss_mm": 429.1366851455497
  },
  {
   "family": "scara",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 586.7155075518832
+  "naive_miss_mm": 586.7095047182271
  },
  {
   "family": "scara",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.0387281387533929
+  "naive_miss_mm": 1.7319549676227166
  },
  {
   "family": "scara",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.9366486137569778
+  "naive_miss_mm": 2.5823418341966913
  },
  {
   "family": "scara",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.5551907648941645
+  "naive_miss_mm": 2.131957424928071
  },
  {
   "family": "scara",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.74405431152438
+  "naive_miss_mm": 0.8033111467279556
  },
  {
   "family": "scara",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.0783786576678396
+  "naive_miss_mm": 2.1707496836729385
  },
  {
   "family": "scara",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.0400787839960635
+  "naive_miss_mm": 2.609567739260172
  },
  {
   "family": "scara",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.7380555011345273
+  "naive_miss_mm": 1.9928333673344991
  },
  {
   "family": "scara",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.033549309842457
+  "naive_miss_mm": 0.7191649077039446
  },
  {
   "family": "scara",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.8803602769446417
+  "naive_miss_mm": 0.6945562093677184
  },
  {
   "family": "scara",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.493237865778476
+  "naive_miss_mm": 1.6565715272114334
  },
  {
   "family": "scara",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 452.07675360929306
+  "naive_miss_mm": 452.0838030264365
  },
  {
   "family": "scara",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 504.90151494249426
+  "naive_miss_mm": 504.8939387892104
  },
  {
   "family": "scara",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 567.7466549317676
+  "naive_miss_mm": 567.7420715041377
  },
  {
   "family": "scara",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 463.170478755592
+  "naive_miss_mm": 463.174045398548
  },
  {
   "family": "scara",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 672.6281622936552
+  "naive_miss_mm": 672.6316066363261
  },
  {
   "family": "scara",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 518.3350588691715
+  "naive_miss_mm": 518.3338628438246
  },
  {
   "family": "scara",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 457.9302606111121
+  "naive_miss_mm": 457.89687535787914
  },
  {
   "family": "scara",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 486.0515927298239
+  "naive_miss_mm": 486.05553387617215
  },
  {
   "family": "scara",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 459.7131929210843
+  "naive_miss_mm": 459.6646803259671
  },
  {
   "family": "scara",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 448.54929484490606
+  "naive_miss_mm": 448.5461768730136
  },
  {
   "family": "scara",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.0749185592476485
+  "naive_miss_mm": 1.8788510737985633
  },
  {
   "family": "scara",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.445560714980784
+  "naive_miss_mm": 1.9457422304590253
  },
  {
   "family": "scara",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.4057879208470232
+  "naive_miss_mm": 0.5465777076684457
  },
  {
   "family": "scara",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.5288555489164533
+  "naive_miss_mm": 2.2284129597883164
  },
  {
   "family": "scara",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.0511563997194253
+  "naive_miss_mm": 1.4059378251400523
  },
  {
   "family": "scara",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.4390227380734033
+  "naive_miss_mm": 2.3606770009531477
  },
  {
   "family": "scara",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.6564758276033011
+  "naive_miss_mm": 2.3899203793849155
  },
  {
   "family": "scara",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.5021933525806541
+  "naive_miss_mm": 1.4531002059894362
  },
  {
   "family": "scara",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.5439334001721687
+  "naive_miss_mm": 2.760150546600979
  },
  {
   "family": "scara",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.8097669657032924
+  "naive_miss_mm": 0.9644698232659034
  },
  {
   "family": "scara",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 408.8405119837776
+  "naive_miss_mm": 408.83952606450015
  },
  {
   "family": "scara",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 425.6376540551994
+  "naive_miss_mm": 425.616372352417
  },
  {
   "family": "scara",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 666.7622210733357
+  "naive_miss_mm": 666.7438541744442
  },
  {
   "family": "scara",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 445.371619074092
+  "naive_miss_mm": 445.536457892557
  },
  {
   "family": "scara",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 656.5843699865649
+  "naive_miss_mm": 656.5767105061029
  },
  {
   "family": "scara",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 386.78115040093803
+  "naive_miss_mm": 386.7374806301721
  },
  {
   "family": "scara",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 506.22272227589946
+  "naive_miss_mm": 506.21467382033046
  },
  {
   "family": "scara",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 456.55359756377396
+  "naive_miss_mm": 456.54906187349974
  },
  {
   "family": "scara",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 426.0205645674178
+  "naive_miss_mm": 426.0238032276106
  },
  {
   "family": "scara",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 642.0999705101698
+  "naive_miss_mm": 642.0860917574486
  },
  {
   "family": "scara",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.23831293199243
+  "naive_miss_mm": 3.0785279531107537
  },
  {
   "family": "scara",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.3370821118724585
+  "naive_miss_mm": 1.0386379427583898
  },
  {
   "family": "scara",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.350815132358743
+  "naive_miss_mm": 1.409561561211398
  },
  {
   "family": "scara",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.2640316159605027
+  "naive_miss_mm": 2.177700366091696
  },
  {
   "family": "scara",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.7573452067763047
+  "naive_miss_mm": 2.7848595218513137
  },
  {
   "family": "scara",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.7932276462568039
+  "naive_miss_mm": 2.004563454472263
  },
  {
   "family": "scara",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.4314009971553872
+  "naive_miss_mm": 1.2623742961768007
  },
  {
   "family": "scara",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.312626052112255
+  "naive_miss_mm": 2.5880269154498623
  },
  {
   "family": "scara",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.47046644183070174
+  "naive_miss_mm": 1.8217308767466966
  },
  {
   "family": "scara",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.4921696766811812
+  "naive_miss_mm": 1.5463963624132244
  },
  {
   "family": "scara",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 457.0931286282168
+  "naive_miss_mm": 457.1095105414441
  },
  {
   "family": "scara",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 450.3115313304552
+  "naive_miss_mm": 450.32400546911816
  },
  {
   "family": "scara",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 394.5362209883917
+  "naive_miss_mm": 394.5332813092941
  },
  {
   "family": "scara",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 554.1598141661354
+  "naive_miss_mm": 554.151884595817
  },
  {
   "family": "scara",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 450.53856433688503
+  "naive_miss_mm": 450.52144037890184
  },
  {
   "family": "scara",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 589.9114951168721
+  "naive_miss_mm": 589.9084493315298
  },
  {
   "family": "scara",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 576.7341954049223
+  "naive_miss_mm": 576.733133394411
  },
  {
   "family": "scara",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 604.0939581696371
+  "naive_miss_mm": 604.076551715151
  },
  {
   "family": "scara",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 691.3635267440419
+  "naive_miss_mm": 691.3180425250129
  },
  {
   "family": "scara",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 457.1633349482076
+  "naive_miss_mm": 457.19305462001273
  },
  {
   "family": "telescope",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.8609817651840099
+  "naive_miss_mm": 3.1766900375455607
  },
  {
   "family": "telescope",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.6419022020937338
+  "naive_miss_mm": 1.5368930517492942
  },
  {
   "family": "telescope",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.0420921609370493
+  "naive_miss_mm": 0.6481510388745678
  },
  {
   "family": "telescope",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.9565069404841582
+  "naive_miss_mm": 1.3511064973777303
  },
  {
   "family": "telescope",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.5620896812963895
+  "naive_miss_mm": 0.5598455286052774
  },
  {
   "family": "telescope",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.7269331595631248
+  "naive_miss_mm": 1.7305432471704358
  },
  {
   "family": "telescope",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.1465614362697427
+  "naive_miss_mm": 1.837736026709412
  },
  {
   "family": "telescope",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.642298002602101
+  "naive_miss_mm": 2.6387142793096006
  },
  {
   "family": "telescope",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.6926345163831027
+  "naive_miss_mm": 1.0055716115242515
  },
  {
   "family": "telescope",
   "seed": 1,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.8596155436079906
+  "naive_miss_mm": 1.2869399472279575
  },
  {
   "family": "telescope",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 323.0760936177488
+  "naive_miss_mm": 323.0322300471691
  },
  {
   "family": "telescope",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 338.3680545049138
+  "naive_miss_mm": 338.3613603327575
  },
  {
   "family": "telescope",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 313.7025323705376
+  "naive_miss_mm": 313.69449383952826
  },
  {
   "family": "telescope",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 236.54753212830968
+  "naive_miss_mm": 236.54444377826948
  },
  {
   "family": "telescope",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 486.9448316371044
+  "naive_miss_mm": 486.9429719795134
  },
  {
   "family": "telescope",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 455.44283077475427
+  "naive_miss_mm": 455.43603010277775
  },
  {
   "family": "telescope",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 383.84204704616224
+  "naive_miss_mm": 383.84910002579403
  },
  {
   "family": "telescope",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 279.5200365792292
+  "naive_miss_mm": 279.4833390492677
  },
  {
   "family": "telescope",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 394.8849483831053
+  "naive_miss_mm": 394.8965620699773
  },
  {
   "family": "telescope",
   "seed": 1,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 315.1467909192553
+  "naive_miss_mm": 315.1435143438092
  },
  {
   "family": "telescope",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.8217331446471026
+  "naive_miss_mm": 1.5374146282547119
  },
  {
   "family": "telescope",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.0511951392881045
+  "naive_miss_mm": 1.842593455290041
  },
  {
   "family": "telescope",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.8161186469609598
+  "naive_miss_mm": 1.0621764442373443
  },
  {
   "family": "telescope",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.1218501765502296
+  "naive_miss_mm": 3.3560374599653673
  },
  {
   "family": "telescope",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 3.195450809023085
+  "naive_miss_mm": 2.7285081696385505
  },
  {
   "family": "telescope",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.9138527876064908
+  "naive_miss_mm": 3.0605143953390277
  },
  {
   "family": "telescope",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.7423500761712246
+  "naive_miss_mm": 0.19200970227596992
  },
  {
   "family": "telescope",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.6275774676677206
+  "naive_miss_mm": 0.6492174050364492
  },
  {
   "family": "telescope",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.288727521912037
+  "naive_miss_mm": 0.733344951668933
  },
  {
   "family": "telescope",
   "seed": 2,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.1209408397693386
+  "naive_miss_mm": 3.201438645490277
  },
  {
   "family": "telescope",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 482.86455438487434
+  "naive_miss_mm": 482.8609046054183
  },
  {
   "family": "telescope",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 329.6922174313621
+  "naive_miss_mm": 329.696605561364
  },
  {
   "family": "telescope",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 332.1809916732282
+  "naive_miss_mm": 332.1739717576057
  },
  {
   "family": "telescope",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 416.95006245086154
+  "naive_miss_mm": 416.9507540537702
  },
  {
   "family": "telescope",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 316.0343075783408
+  "naive_miss_mm": 316.04009471936325
  },
  {
   "family": "telescope",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 517.1008075683093
+  "naive_miss_mm": 517.1091919252667
  },
  {
   "family": "telescope",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 280.4809403303701
+  "naive_miss_mm": 280.4844831736417
  },
  {
   "family": "telescope",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 267.9707655295278
+  "naive_miss_mm": 267.96691381755187
  },
  {
   "family": "telescope",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 251.43197000913176
+  "naive_miss_mm": 251.4266645919238
  },
  {
   "family": "telescope",
   "seed": 2,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 470.7338333796512
+  "naive_miss_mm": 470.7440201030878
  },
  {
   "family": "telescope",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.5652111810218234
+  "naive_miss_mm": 2.1462547867991626
  },
  {
   "family": "telescope",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.7734330360113155
+  "naive_miss_mm": 0.8810704078489104
  },
  {
   "family": "telescope",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.7714213716148602
+  "naive_miss_mm": 2.2496772192934804
  },
  {
   "family": "telescope",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.3618713682331016
+  "naive_miss_mm": 0.8489044779007077
  },
  {
   "family": "telescope",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.460860249870708
+  "naive_miss_mm": 1.1134846691751636
  },
  {
   "family": "telescope",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.066539463918735
+  "naive_miss_mm": 1.265112199935829
  },
  {
   "family": "telescope",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 3.6355120487758383
+  "naive_miss_mm": 1.788840223016133
  },
  {
   "family": "telescope",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.2419774939884243
+  "naive_miss_mm": 1.7937901308036395
  },
  {
   "family": "telescope",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.9753947624580244
+  "naive_miss_mm": 1.4840290117446229
  },
  {
   "family": "telescope",
   "seed": 3,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.6255540202578165
+  "naive_miss_mm": 1.435359457146795
  },
  {
   "family": "telescope",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 353.01649218785803
+  "naive_miss_mm": 352.9548337674669
  },
  {
   "family": "telescope",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 409.20984293038737
+  "naive_miss_mm": 409.21644922268246
  },
  {
   "family": "telescope",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 435.9720645247374
+  "naive_miss_mm": 435.977722113134
  },
  {
   "family": "telescope",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 382.7420835940774
+  "naive_miss_mm": 382.706540097081
  },
  {
   "family": "telescope",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 573.7146479961303
+  "naive_miss_mm": 573.6790438600785
  },
  {
   "family": "telescope",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 423.63161934565954
+  "naive_miss_mm": 423.6455718053848
  },
  {
   "family": "telescope",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 365.32260717908235
+  "naive_miss_mm": 365.2754679007943
  },
  {
   "family": "telescope",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 407.830712578149
+  "naive_miss_mm": 407.8112299620109
  },
  {
   "family": "telescope",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 225.07881210855948
+  "naive_miss_mm": 225.0785799053377
  },
  {
   "family": "telescope",
   "seed": 3,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 228.71627925240395
+  "naive_miss_mm": 228.72290164702994
  },
  {
   "family": "telescope",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.429931545863548
+  "naive_miss_mm": 0.9409562646854777
  },
  {
   "family": "telescope",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.259529487377536
+  "naive_miss_mm": 1.2980994268393662
  },
  {
   "family": "telescope",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.5203805573038084
+  "naive_miss_mm": 3.078096021255391
  },
  {
   "family": "telescope",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.5666602114774821
+  "naive_miss_mm": 1.7552586621148356
  },
  {
   "family": "telescope",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.6445276641134146
+  "naive_miss_mm": 1.2649859258956309
  },
  {
   "family": "telescope",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 3.7201557164523704
+  "naive_miss_mm": 3.732858097431967
  },
  {
   "family": "telescope",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.920336015741446
+  "naive_miss_mm": 0.8040528938205412
  },
  {
   "family": "telescope",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.6973918147197267
+  "naive_miss_mm": 0.4314191874103895
  },
  {
   "family": "telescope",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.091566392581072
+  "naive_miss_mm": 2.571791756226868
  },
  {
   "family": "telescope",
   "seed": 4,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 2.583398890626358
+  "naive_miss_mm": 1.6662725906869729
  },
  {
   "family": "telescope",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 216.27259012274078
+  "naive_miss_mm": 216.2741364858434
  },
  {
   "family": "telescope",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 337.9833597180349
+  "naive_miss_mm": 337.9827223061937
  },
  {
   "family": "telescope",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 609.5600680807895
+  "naive_miss_mm": 609.5629187152539
  },
  {
   "family": "telescope",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 207.8906171723873
+  "naive_miss_mm": 207.89644981091317
  },
  {
   "family": "telescope",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 600.9555766296842
+  "naive_miss_mm": 600.9525225518596
  },
  {
   "family": "telescope",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 298.758767456823
+  "naive_miss_mm": 298.7796793010168
  },
  {
   "family": "telescope",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 423.8799583427699
+  "naive_miss_mm": 423.88875866549756
  },
  {
   "family": "telescope",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 364.965106685282
+  "naive_miss_mm": 364.93437915935107
  },
  {
   "family": "telescope",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 345.0789766392045
+  "naive_miss_mm": 345.0969080726421
  },
  {
   "family": "telescope",
   "seed": 4,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 570.7406947063573
+  "naive_miss_mm": 570.7377710281719
  },
  {
   "family": "telescope",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.3231415695002249
+  "naive_miss_mm": 0.7797805384540766
  },
  {
   "family": "telescope",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.5758727711914513
+  "naive_miss_mm": 1.1430686028913015
  },
  {
   "family": "telescope",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.4370551161818688
+  "naive_miss_mm": 1.721893816657338
  },
  {
   "family": "telescope",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.46599305615883
+  "naive_miss_mm": 2.1438475207297794
  },
  {
   "family": "telescope",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.6915149915370178
+  "naive_miss_mm": 1.8160073399675873
  },
  {
   "family": "telescope",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.5142784343586416
+  "naive_miss_mm": 0.931724837731061
  },
  {
   "family": "telescope",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 3.394152884113428
+  "naive_miss_mm": 4.265766505991988
  },
  {
   "family": "telescope",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 1.1361429060550043
+  "naive_miss_mm": 1.5191014893236978
  },
  {
   "family": "telescope",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.5012180806327536
+  "naive_miss_mm": 0.6153504394759524
  },
  {
   "family": "telescope",
   "seed": 5,
   "target": "reachable",
   "refused": false,
-  "naive_miss_mm": 0.4648924745197429
+  "naive_miss_mm": 0.7389112338792028
  },
  {
   "family": "telescope",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 397.83627610606703
+  "naive_miss_mm": 397.832204404249
  },
  {
   "family": "telescope",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 368.50924182932846
+  "naive_miss_mm": 368.52690605611514
  },
  {
   "family": "telescope",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 292.51346603227665
+  "naive_miss_mm": 292.5292862467694
  },
  {
   "family": "telescope",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 515.6731739482415
+  "naive_miss_mm": 515.6751262367864
  },
  {
   "family": "telescope",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 368.00363037455503
+  "naive_miss_mm": 368.0557349433703
  },
  {
   "family": "telescope",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 458.02689472148336
+  "naive_miss_mm": 458.03960626591584
  },
  {
   "family": "telescope",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 486.6285358371422
+  "naive_miss_mm": 486.63552494237103
  },
  {
   "family": "telescope",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 572.9945019019785
+  "naive_miss_mm": 572.997160327906
  },
  {
   "family": "telescope",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 610.179535168763
+  "naive_miss_mm": 610.1991429448072
  },
  {
   "family": "telescope",
   "seed": 5,
   "target": "out_of_reach",
   "refused": true,
-  "naive_miss_mm": 395.724125355592
+  "naive_miss_mm": 395.7242386622794
  }
 ]

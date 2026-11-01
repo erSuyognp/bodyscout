@@ -4,7 +4,7 @@
   "condition": "swarm",
   "damage": "long_link",
   "alarms": [
-   69
+   73
   ],
   "events": [
    {
@@ -15,7 +15,7 @@
   ],
   "champion_before": {
    "family": "chain",
-   "holdout_mm": 4.939288003026209,
+   "holdout_mm": 4.232037526031372,
    "describe": {
     "family": "chain",
     "axes": [
@@ -39,20 +39,20 @@
     "links_m": [
      0.069,
      0.193,
-     0.12,
+     0.118,
      0.118
     ],
     "identifiable": [
      false,
      true,
-     false,
-     false
+     true,
+     true
     ]
    }
   },
   "champion_after": {
    "family": "chain",
-   "holdout_mm": 5.548633100632005,
+   "holdout_mm": 5.126291561147319,
    "describe": {
     "family": "chain",
     "axes": [
@@ -75,9 +75,9 @@
     ],
     "links_m": [
      0.069,
-     0.311,
-     0.125,
-     0.116
+     0.309,
+     0.131,
+     0.114
     ],
     "identifiable": [
      false,
@@ -187,18 +187,18 @@
   "condition": "swarm",
   "damage": "long_link",
   "alarms": [
-   72
+   73
   ],
   "events": [
    {
-    "motion": 54,
+    "motion": 55,
     "event": "damage",
     "what": "link 3 replaced with one 60% longer"
    }
   ],
   "champion_before": {
    "family": "chain",
-   "holdout_mm": 5.019944413989501,
+   "holdout_mm": 5.130896103682655,
    "describe": {
     "family": "chain",
     "axes": [
@@ -227,7 +227,7 @@
      0.149,
      0.166,
      0.093,
-     0.076
+     0.077
     ],
     "identifiable": [
      false,
@@ -240,7 +240,7 @@
   },
   "champion_after": {
    "family": "chain",
-   "holdout_mm": 5.0657296358576716,
+   "holdout_mm": 5.60098418889271,
    "describe": {
     "family": "chain",
     "axes": [
@@ -266,13 +266,13 @@
     ],
     "links_m": [
      0.065,
-     0.15,
+     0.148,
      0.164,
-     0.152,
-     0.077
+     0.151,
+     0.076
     ],
     "identifiable": [
-     true,
+     false,
      true,
      true,
      true,
@@ -401,7 +401,7 @@
   ],
   "champion_before": {
    "family": "chain",
-   "holdout_mm": 4.742682316141314,
+   "holdout_mm": 4.223201612543207,
    "describe": {
     "family": "chain",
     "axes": [
@@ -428,9 +428,9 @@
     "links_m": [
      0.099,
      0.082,
-     0.126,
-     0.131,
-     0.092
+     0.129,
+     0.132,
+     0.091
     ],
     "identifiable": [
      false,
@@ -443,7 +443,7 @@
   },
   "champion_after": {
    "family": "chain",
-   "holdout_mm": 5.030572233509466,
+   "holdout_mm": 4.336332237339907,
    "describe": {
     "family": "chain",
     "axes": [
@@ -468,14 +468,14 @@
      "hy"
     ],
     "links_m": [
-     0.099,
+     0.1,
      0.082,
-     0.126,
-     0.212,
+     0.127,
+     0.211,
      0.091
     ],
     "identifiable": [
-     false,
+     true,
      true,
      true,
      true,
@@ -593,18 +593,18 @@
   "condition": "swarm",
   "damage": "long_link",
   "alarms": [
-   80
+   87
   ],
   "events": [
    {
-    "motion": 54,
+    "motion": 49,
     "event": "damage",
     "what": "link 2 replaced with one 60% longer"
    }
   ],
   "champion_before": {
    "family": "chain",
-   "holdout_mm": 4.161907532759053,
+   "holdout_mm": 4.701760948899099,
    "describe": {
     "family": "chain",
     "axes": [
@@ -646,7 +646,7 @@
   },
   "champion_after": {
    "family": "chain",
-   "holdout_mm": 7.108786660429955,
+   "holdout_mm": 44.521414541478244,
    "describe": {
     "family": "chain",
     "axes": [
@@ -671,11 +671,11 @@
      "hz"
     ],
     "links_m": [
-     0.118,
-     0.118,
-     0.118,
-     0.133,
-     0.133
+     0.123,
+     0.116,
+     0.113,
+     0.137,
+     0.137
     ],
     "identifiable": [
      false,
@@ -796,18 +796,18 @@
   "condition": "swarm",
   "damage": "long_link",
   "alarms": [
-   67
+   50
   ],
   "events": [
    {
-    "motion": 49,
+    "motion": 48,
     "event": "damage",
     "what": "link 2 replaced with one 60% longer"
    }
   ],
   "champion_before": {
    "family": "chain",
-   "holdout_mm": 4.41412833467658,
+   "holdout_mm": 3.539166356973969,
    "describe": {
     "family": "chain",
     "axes": [
@@ -835,7 +835,7 @@
      0.078,
      0.078,
      0.122,
-     0.122,
+     0.121,
      0.076
     ],
     "identifiable": [
@@ -849,7 +849,7 @@
   },
   "champion_after": {
    "family": "chain",
-   "holdout_mm": 3.9701770050115215,
+   "holdout_mm": 5.289155346218817,
    "describe": {
     "family": "chain",
     "axes": [
@@ -999,7 +999,7 @@
   "condition": "swarm",
   "damage": "long_link",
   "alarms": [
-   63
+   67
   ],
   "events": [
    {
@@ -1010,7 +1010,7 @@
   ],
   "champion_before": {
    "family": "chain",
-   "holdout_mm": 4.453413181336666,
+   "holdout_mm": 5.437029687960885,
    "describe": {
     "family": "chain",
     "axes": [
@@ -1032,9 +1032,9 @@
      "hy"
     ],
     "links_m": [
-     0.083,
-     0.12,
-     0.197,
+     0.084,
+     0.119,
+     0.199,
      0.152
     ],
     "identifiable": [
@@ -1047,7 +1047,7 @@
   },
   "champion_after": {
    "family": "chain",
-   "holdout_mm": 3.8511009501875293,
+   "holdout_mm": 3.7696777288115326,
    "describe": {
     "family": "chain",
     "axes": [
@@ -1126,9 +1126,9 @@
     ],
     "links_m": [
      0.084,
-     0.119,
+     0.12,
      0.198,
-     0.151
+     0.152
     ],
     "identifiable": [
      false,
@@ -1182,18 +1182,18 @@
   "condition": "swarm",
   "damage": "long_link",
   "alarms": [
-   72
+   76
   ],
   "events": [
    {
-    "motion": 54,
+    "motion": 50,
     "event": "damage",
     "what": "link 3 replaced with one 60% longer"
    }
   ],
   "champion_before": {
    "family": "chain",
-   "holdout_mm": 5.738894541848652,
+   "holdout_mm": 5.6446966613258684,
    "describe": {
     "family": "chain",
     "axes": [
@@ -1219,23 +1219,23 @@
     ],
     "links_m": [
      0.073,
-     0.109,
+     0.11,
      0.128,
      0.128,
-     0.176
+     0.177
     ],
     "identifiable": [
-     false,
      true,
-     false,
-     false,
+     true,
+     true,
+     true,
      true
     ]
    }
   },
   "champion_after": {
    "family": "chain",
-   "holdout_mm": 7.053670253808508,
+   "holdout_mm": 4.635142726116185,
    "describe": {
     "family": "chain",
     "axes": [
@@ -1260,9 +1260,9 @@
      "hy"
     ],
     "links_m": [
-     0.073,
-     0.109,
-     0.15,
+     0.074,
+     0.11,
+     0.149,
      0.149,
      0.177
     ],
@@ -1372,7 +1372,7 @@
     "identifiable": [
      false,
      true,
-     true,
+     false,
      false,
      true
     ]
@@ -1385,7 +1385,7 @@
   "condition": "swarm",
   "damage": "long_link",
   "alarms": [
-   72
+   80
   ],
   "events": [
    {
@@ -1396,7 +1396,7 @@
   ],
   "champion_before": {
    "family": "chain",
-   "holdout_mm": 5.377517206744967,
+   "holdout_mm": 6.117819644668439,
    "describe": {
     "family": "chain",
     "axes": [
@@ -1422,23 +1422,23 @@
     ],
     "links_m": [
      0.111,
-     0.183,
+     0.184,
      0.124,
      0.124,
-     0.118
+     0.117
     ],
     "identifiable": [
-     false,
      true,
-     false,
-     false,
+     true,
+     true,
+     true,
      true
     ]
    }
   },
   "champion_after": {
    "family": "chain",
-   "holdout_mm": 5.32748872664633,
+   "holdout_mm": 7.403640904869755,
    "describe": {
     "family": "chain",
     "axes": [
@@ -1463,17 +1463,17 @@
      "hy"
     ],
     "links_m": [
-     0.111,
-     0.183,
+     0.112,
+     0.182,
      0.161,
-     0.16,
-     0.118
+     0.161,
+     0.119
     ],
     "identifiable": [
-     false,
      true,
-     false,
-     false,
+     true,
+     true,
+     true,
      true
     ]
    }
@@ -1531,7 +1531,7 @@
      0.118
     ],
     "identifiable": [
-     true,
+     false,
      true,
      false,
      false,
@@ -1588,18 +1588,18 @@
   "condition": "swarm",
   "damage": "long_link",
   "alarms": [
-   68
+   63
   ],
   "events": [
    {
-    "motion": 50,
+    "motion": 49,
     "event": "damage",
     "what": "link 1 replaced with one 60% longer"
    }
   ],
   "champion_before": {
    "family": "chain",
-   "holdout_mm": 4.930504670631627,
+   "holdout_mm": 4.071648162881849,
    "describe": {
     "family": "chain",
     "axes": [
@@ -1624,19 +1624,19 @@
      0.133,
      0.133,
      0.134,
-     0.19
+     0.189
     ],
     "identifiable": [
-     true,
-     true,
-     true,
+     false,
+     false,
+     false,
      true
     ]
    }
   },
   "champion_after": {
    "family": "chain",
-   "holdout_mm": 3.1698910485081515,
+   "holdout_mm": 4.6949630190401,
    "describe": {
     "family": "chain",
     "axes": [
@@ -1658,9 +1658,9 @@
      "hy"
     ],
     "links_m": [
+     0.158,
      0.159,
-     0.159,
-     0.159,
+     0.16,
      0.19
     ],
     "identifiable": [
@@ -1771,7 +1771,7 @@
   "condition": "swarm",
   "damage": "long_link",
   "alarms": [
-   68
+   80
   ],
   "events": [
    {
@@ -1782,7 +1782,7 @@
   ],
   "champion_before": {
    "family": "chain",
-   "holdout_mm": 4.211466004458412,
+   "holdout_mm": 4.511184034419556,
    "describe": {
     "family": "chain",
     "axes": [
@@ -1810,7 +1810,7 @@
      0.092,
      0.092,
      0.088,
-     0.161,
+     0.16,
      0.179
     ],
     "identifiable": [
@@ -1824,7 +1824,7 @@
   },
   "champion_after": {
    "family": "chain",
-   "holdout_mm": 5.297673285045353,
+   "holdout_mm": 5.687896424486582,
    "describe": {
     "family": "chain",
     "axes": [
@@ -1849,15 +1849,15 @@
      "hx"
     ],
     "links_m": [
-     0.091,
+     0.092,
      0.092,
      0.09,
      0.256,
      0.179
     ],
     "identifiable": [
-     false,
-     false,
+     true,
+     true,
      true,
      true,
      true
@@ -1985,7 +1985,7 @@
   ],
   "champion_before": {
    "family": "chain",
-   "holdout_mm": 2.7064054268350874,
+   "holdout_mm": 3.26343293446387,
    "describe": {
     "family": "chain",
     "axes": [
@@ -2017,7 +2017,7 @@
   },
   "champion_after": {
    "family": "chain",
-   "holdout_mm": 2.7816840307762893,
+   "holdout_mm": 3.762733661873706,
    "describe": {
     "family": "chain",
     "axes": [
@@ -2037,8 +2037,8 @@
     ],
     "links_m": [
      0.143,
-     0.075,
-     0.089
+     0.074,
+     0.09
     ],
     "identifiable": [
      false,
@@ -2137,18 +2137,18 @@
   "condition": "swarm",
   "damage": "long_link",
   "alarms": [
-   84
+   85
   ],
   "events": [
    {
-    "motion": 54,
+    "motion": 51,
     "event": "damage",
     "what": "link 1 replaced with one 60% longer"
    }
   ],
   "champion_before": {
    "family": "chain",
-   "holdout_mm": 4.407745126846515,
+   "holdout_mm": 4.783770131784492,
    "describe": {
     "family": "chain",
     "axes": [
@@ -2171,9 +2171,9 @@
     ],
     "links_m": [
      0.072,
-     0.106,
-     0.105,
-     0.1
+     0.104,
+     0.102,
+     0.103
     ],
     "identifiable": [
      false,
@@ -2185,7 +2185,7 @@
   },
   "champion_after": {
    "family": "chain",
-   "holdout_mm": 4.933893229004122,
+   "holdout_mm": 4.806084695449674,
    "describe": {
     "family": "chain",
     "axes": [
@@ -2207,10 +2207,10 @@
      "hz"
     ],
     "links_m": [
-     0.073,
+     0.072,
+     0.123,
      0.124,
-     0.124,
-     0.118
+     0.119
     ],
     "identifiable": [
      false,
@@ -2320,7 +2320,7 @@
   "condition": "swarm",
   "damage": "long_link",
   "alarms": [
-   68
+   56
   ],
   "events": [
    {
@@ -2331,7 +2331,7 @@
   ],
   "champion_before": {
    "family": "chain",
-   "holdout_mm": 4.216860902850699,
+   "holdout_mm": 4.322241304747467,
    "describe": {
     "family": "chain",
     "axes": [
@@ -2357,13 +2357,13 @@
     ],
     "links_m": [
      0.115,
+     0.115,
      0.116,
      0.116,
-     0.116,
-     0.07
+     0.071
     ],
     "identifiable": [
-     false,
+     true,
      false,
      false,
      false,
@@ -2373,7 +2373,7 @@
   },
   "champion_after": {
    "family": "chain",
-   "holdout_mm": 3.735254505084189,
+   "holdout_mm": 4.235324682268039,
    "describe": {
     "family": "chain",
     "axes": [
@@ -2399,16 +2399,16 @@
     ],
     "links_m": [
      0.133,
-     0.134,
-     0.134,
+     0.133,
      0.135,
-     0.07
+     0.135,
+     0.069
     ],
     "identifiable": [
-     true,
-     true,
-     true,
-     true,
+     false,
+     false,
+     false,
+     false,
      true
     ]
    }
@@ -2466,10 +2466,10 @@
      0.07
     ],
     "identifiable": [
-     false,
-     false,
-     false,
-     false,
+     true,
+     true,
+     true,
+     true,
      true
     ]
    }
@@ -2534,7 +2534,7 @@
   ],
   "champion_before": {
    "family": "chain",
-   "holdout_mm": 3.8533035366977937,
+   "holdout_mm": 3.643013813843791,
    "describe": {
     "family": "chain",
     "axes": [
@@ -2555,7 +2555,7 @@
     "links_m": [
      0.131,
      0.131,
-     0.152
+     0.153
     ],
     "identifiable": [
      false,
@@ -2566,7 +2566,7 @@
   },
   "champion_after": {
    "family": "chain",
-   "holdout_mm": 3.677402546407406,
+   "holdout_mm": 4.040334996453358,
    "describe": {
     "family": "chain",
     "axes": [
@@ -2586,8 +2586,8 @@
     ],
     "links_m": [
      0.164,
-     0.164,
-     0.153
+     0.163,
+     0.154
     ],
     "identifiable": [
      false,
@@ -2686,18 +2686,18 @@
   "condition": "swarm",
   "damage": "long_link",
   "alarms": [
-   88
+   80
   ],
   "events": [
    {
-    "motion": 54,
+    "motion": 50,
     "event": "damage",
     "what": "link 3 replaced with one 60% longer"
    }
   ],
   "champion_before": {
    "family": "chain",
-   "holdout_mm": 4.624738633890451,
+   "holdout_mm": 6.005126359757504,
    "describe": {
     "family": "chain",
     "axes": [
@@ -2739,7 +2739,7 @@
   },
   "champion_after": {
    "family": "chain",
-   "holdout_mm": 7.355448956266508,
+   "holdout_mm": 6.938233263762394,
    "describe": {
     "family": "chain",
     "axes": [
@@ -2764,8 +2764,8 @@
      "hy"
     ],
     "links_m": [
-     0.062,
-     0.142,
+     0.063,
+     0.145,
      0.175,
      0.175,
      0.116
@@ -2826,7 +2826,7 @@
     ],
     "links_m": [
      0.063,
-     0.144,
+     0.143,
      0.126,
      0.126,
      0.116
@@ -2834,8 +2834,8 @@
     "identifiable": [
      false,
      true,
-     false,
-     false,
+     true,
+     true,
      true
     ]
    }
@@ -2889,18 +2889,18 @@
   "condition": "swarm",
   "damage": "long_link",
   "alarms": [
-   79
+   76
   ],
   "events": [
    {
-    "motion": 53,
+    "motion": 50,
     "event": "damage",
     "what": "link 1 replaced with one 60% longer"
    }
   ],
   "champion_before": {
    "family": "chain",
-   "holdout_mm": 4.8251166770282365,
+   "holdout_mm": 4.379244987317074,
    "describe": {
     "family": "chain",
     "axes": [
@@ -2929,15 +2929,15 @@
     ],
     "identifiable": [
      false,
-     false,
-     false,
+     true,
+     true,
      true
     ]
    }
   },
   "champion_after": {
    "family": "chain",
-   "holdout_mm": 5.90214826516346,
+   "holdout_mm": 5.619932892139805,
    "describe": {
     "family": "chain",
     "axes": [
@@ -2959,13 +2959,13 @@
      "hy"
     ],
     "links_m": [
-     0.067,
+     0.066,
      0.168,
      0.168,
      0.072
     ],
     "identifiable": [
-     false,
+     true,
      false,
      false,
      true
@@ -3059,7 +3059,7 @@
     ],
     "identifiable": [
      false,
-     false,
+     true,
      false,
      true
     ]
@@ -3072,18 +3072,18 @@
   "condition": "swarm",
   "damage": "long_link",
   "alarms": [
-   74
+   84
   ],
   "events": [
    {
-    "motion": 48,
+    "motion": 50,
     "event": "damage",
     "what": "link 2 replaced with one 60% longer"
    }
   ],
   "champion_before": {
    "family": "chain",
-   "holdout_mm": 4.2233680303236865,
+   "holdout_mm": 4.933983287806785,
    "describe": {
     "family": "chain",
     "axes": [
@@ -3110,7 +3110,7 @@
     "links_m": [
      0.089,
      0.089,
-     0.12,
+     0.121,
      0.127,
      0.149
     ],
@@ -3125,7 +3125,7 @@
   },
   "champion_after": {
    "family": "chain",
-   "holdout_mm": 5.747484482337053,
+   "holdout_mm": 9.656132490546486,
    "describe": {
     "family": "chain",
     "axes": [
@@ -3151,14 +3151,14 @@
     ],
     "links_m": [
      0.089,
-     0.088,
+     0.09,
      0.192,
-     0.127,
+     0.126,
      0.149
     ],
     "identifiable": [
      true,
-     false,
+     true,
      true,
      true,
      true
@@ -3275,18 +3275,18 @@
   "condition": "swarm",
   "damage": "long_link",
   "alarms": [
-   68
+   88
   ],
   "events": [
    {
-    "motion": 50,
+    "motion": 54,
     "event": "damage",
     "what": "link 3 replaced with one 60% longer"
    }
   ],
   "champion_before": {
    "family": "chain",
-   "holdout_mm": 5.784041955130802,
+   "holdout_mm": 5.110890037663715,
    "describe": {
     "family": "chain",
     "axes": [
@@ -3311,11 +3311,11 @@
      "hz"
     ],
     "links_m": [
-     0.065,
+     0.064,
      0.196,
-     0.144,
-     0.159,
-     0.146
+     0.146,
+     0.155,
+     0.148
     ],
     "identifiable": [
      false,
@@ -3328,7 +3328,7 @@
   },
   "champion_after": {
    "family": "chain",
-   "holdout_mm": 5.830059559662959,
+   "holdout_mm": 11.687956974649104,
    "describe": {
     "family": "chain",
     "axes": [
@@ -3353,18 +3353,18 @@
      "hz"
     ],
     "links_m": [
-     0.065,
-     0.196,
-     0.145,
+     0.064,
      0.197,
-     0.195
+     0.146,
+     0.201,
+     0.192
     ],
     "identifiable": [
+     false,
      true,
      true,
-     true,
-     true,
-     true
+     false,
+     false
     ]
    }
   },
@@ -3478,7 +3478,7 @@
   "condition": "swarm",
   "damage": "long_link",
   "alarms": [
-   89
+   85
   ],
   "events": [
    {
@@ -3489,7 +3489,7 @@
   ],
   "champion_before": {
    "family": "chain",
-   "holdout_mm": 5.181400395263563,
+   "holdout_mm": 4.479459478755258,
    "describe": {
     "family": "chain",
     "axes": [
@@ -3512,9 +3512,9 @@
     ],
     "links_m": [
      0.078,
-     0.079,
-     0.137,
-     0.136
+     0.078,
+     0.143,
+     0.134
     ],
     "identifiable": [
      false,
@@ -3524,7 +3524,43 @@
     ]
    }
   },
-  "champion_after": null,
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": 5.1695695574869855,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "z"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hz"
+    ],
+    "links_m": [
+     0.078,
+     0.126,
+     0.153,
+     0.131
+    ],
+    "identifiable": [
+     false,
+     true,
+     false,
+     false
+    ]
+   }
+  },
   "surprises_after": [
    {
     "kind": "anomaly",
@@ -3625,18 +3661,18 @@
   "condition": "swarm",
   "damage": "long_link",
   "alarms": [
-   72
+   63
   ],
   "events": [
    {
-    "motion": 50,
+    "motion": 49,
     "event": "damage",
     "what": "link 3 replaced with one 60% longer"
    }
   ],
   "champion_before": {
    "family": "chain",
-   "holdout_mm": 6.801566498981492,
+   "holdout_mm": 6.481423594192456,
    "describe": {
     "family": "chain",
     "axes": [
@@ -3661,9 +3697,9 @@
      "hz"
     ],
     "links_m": [
-     0.094,
-     0.123,
-     0.079,
+     0.093,
+     0.124,
+     0.078,
      0.143,
      0.14
     ],
@@ -3678,7 +3714,7 @@
   },
   "champion_after": {
    "family": "chain",
-   "holdout_mm": 6.878531494986851,
+   "holdout_mm": 6.378236544451118,
    "describe": {
     "family": "chain",
     "axes": [
@@ -3703,11 +3739,11 @@
      "hz"
     ],
     "links_m": [
-     0.094,
-     0.125,
-     0.082,
-     0.172,
-     0.163
+     0.093,
+     0.124,
+     0.081,
+     0.166,
+     0.165
     ],
     "identifiable": [
      false,

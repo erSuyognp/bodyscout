@@ -1,0 +1,6 @@
+saved results/task.csv 80 rows
+condition phase         success            median miss  replans
+single   before   20/20   100%      3.1 mm over 20 measured         0
+single   after     4/20    20%    149.1 mm over 20 measured         0
+swarm    before   20/20   100%      2.9 mm over 20 measured         0
+swarm    after    20/20   100%      4.7 mm over 20 measured        20
