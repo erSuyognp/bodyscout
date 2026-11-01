@@ -27,6 +27,8 @@
   --series-2: #eb6834;  /* single / hypothesis */
   --series-3: #1baf7a;  /* mlp    / model      */
   --series-7: #6250d6;  /* validation          */
+  --series-4: #0f8a8a;  /* single_probe        */
+  --series-5: #8a8f98;  /* pipeline            */
   --obs: #a9a7a0;
   --critical: #d03b3b;
   --good: #2f7d32;
@@ -46,6 +48,8 @@
     --series-2: #d95926;
     --series-3: #199e70;
     --series-7: #9085e9;
+    --series-4: #2bb3b3;
+    --series-5: #9aa0a8;
     --obs: #5d5c57;
     --critical: #e66767;
     --good: #6cbf6f;
@@ -137,6 +141,10 @@ details summary { cursor: pointer; color: var(--text-secondary); font-size: 12px
 .revealed .truth { display: table-cell; }
 .ok { color: var(--good); }
 .no { color: var(--critical); }
+.seg { font: inherit; font-size: 12px; padding: 4px 10px; border: 1px solid var(--border); background: var(--surface-1); color: var(--text-secondary); border-radius: 999px; cursor: pointer; }
+.seg.on { background: var(--text-primary); color: var(--surface-1); border-color: var(--text-primary); }
+.seedrow { gap: 8px; margin: 4px 0 8px; }
+.frozen { margin-top: 8px; }
 .err { color: var(--critical); padding: 12px; border: 1px dashed var(--critical); border-radius: 8px; }
 .note { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
 </style>
@@ -147,6 +155,7 @@ details summary { cursor: pointer; color: var(--text-secondary); font-size: 12px
     <h1>BodyScout</h1>
     <p>A swarm of agents discovers an unknown robot's body from joint commands and a noisy fingertip only, then notices when the body breaks. <a href="../judge/index.html">Judge briefing</a></p>
     <div class="meta" id="meta"></div>
+    <p class="note frozen">All results are MuJoCo simulation, frozen at tag <b>results-final</b>; every number matches <code>results/summary.md</code>. The demo run below was regenerated with the same frozen code.</p>
   </header>
 
   <section class="card" id="dag">
@@ -164,9 +173,11 @@ details summary { cursor: pointer; color: var(--text-secondary); font-size: 12px
   </section>
 
   <section class="card">
-    <h2>2 · Unknown body types: swarm vs single agent</h2>
+    <h2>2 · Unknown body types: four methods, same budget</h2>
     <p class="sub">The agents are not told what kind of robot they drive. Reach error on unseen targets (log scale, median and min to max over seeds)
-      and the joint structure each one inferred, next to the truth. Same robots, same motion budget, same scorer.</p>
+      and the joint structure each one inferred, next to the truth. Same robots, same 64 motion budget, same scorer.
+      Every method that probes one channel at a time finds every structure; only the blind single agent misses. The swarm's own advantage shows up under injected faults (results/summary.md section 5), not here.</p>
+    <div class="row seedrow"><span class="note">seeds</span><button class="seg on" data-seeds="new">new seeds 101 to 105 (independent check)</button><button class="seg" data-seeds="orig">original seeds 1 to 10</button></div>
     <div class="legend" id="bodiesLegend"></div>
     <div class="grid4" id="bodies"></div>
     <details><summary>Data table</summary><div id="bodiesTable"></div></details>
@@ -196,9 +207,9 @@ const qs = new URLSearchParams(location.search);
 const PATHS = {
   bb: qs.get("bb") || "../runs/demo_blackboard.jsonl",
   summary: qs.get("summary") || "../runs/demo_summary.json",
-  bodies: "../results/bodies.csv",
-  bodiesMeta: "../results/bodies_meta.json",
-  learning: "../results/learning.csv",
+  bodies: "../results/sweep/bodies.csv",
+  bodiesMeta: "../results/sweep/bodies_meta.json",
+  learning: "../results/sweep/learning.csv",
 };
 const NS = "http://www.w3.org/2000/svg";
 const css = name => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
@@ -333,7 +344,8 @@ function buildDag(recs, summary) {
 
   // legend
   const kl = $("kindLegend"); kl.innerHTML = "";
-  const groups = [...new Map(Object.values(KIND).map(k => [k.group, k])).values()];
+  const present = new Set(recs.map(d => d.kind));
+  const groups = [...new Map(Object.entries(KIND).filter(([k]) => present.has(k)).map(([, k]) => [k.group, k])).values()];
   for (const g of groups) {
     const c = `var(${g.color})`;
     const sw = g.shape === "ring" ? `border:1.5px dashed ${c};background:none`
@@ -540,7 +552,10 @@ function buildDag(recs, summary) {
 // ================= shared: line + min/max band chart =================
 const COND = {
   swarm: { label: "swarm", color: "--series-1" },
-  single: { label: "single agent", color: "--series-2" },
+  single_probe: { label: "single agent, probes channels", color: "--series-4" },
+  pipeline: { label: "fixed pipeline, same parts", color: "--series-5" },
+  single: { label: "single agent, blind search", color: "--series-2" },
+  single_known: { label: "single agent, structure given", short: "single agent", color: "--series-2" },
   mlp: { label: "MLP", color: "--series-3" },
 };
 function legend(target, conds) {
@@ -591,7 +606,7 @@ function drawBand(host, series, { height = 220, yMin = 0.5, yMax = 500, xLabel =
     if (directLabels && pts.length) {
       const p = pts[pts.length - 1];
       const t = el("text", { x: X(p.x) + 8, y: Y(p.med) + 4 }, svg);
-      t.style.fill = css("--text-primary"); t.textContent = COND[s.key].label;
+      t.style.fill = css("--text-primary"); t.textContent = COND[s.key].short || COND[s.key].label;
     }
   }
   // crosshair + tooltip
@@ -625,10 +640,15 @@ function dataTable(host, series) {
 }
 
 // ================= 2. unknown body types =================
-function buildBodies(rows, meta) {
-  legend($("bodiesLegend"), ["swarm", "single"]);
+const BODY_CONDS = ["swarm", "single_probe", "pipeline", "single"];
+function buildBodies(allRows, allMeta, which = "new") {
+  const keep = seed => which === "new" ? seed > 100 : seed <= 100;
+  const rows = allRows.filter(r => keep(r.seed)), meta = allMeta.filter(m => keep(m.seed));
+  const conds = BODY_CONDS.filter(c => rows.some(r => r.condition === c));
+  legend($("bodiesLegend"), conds);
   const host = $("bodies"); host.innerHTML = "";
   const tables = [];
+  const short = { swarm: "swarm", single_probe: "probing single", pipeline: "pipeline", single: "blind single" };
   for (const fam of [...new Set(rows.map(r => r.family))]) {
     const fr = rows.filter(r => r.family === fam);
     const panel = h("div", { className: "panel" });
@@ -636,21 +656,21 @@ function buildBodies(rows, meta) {
     const ok = c => fm.filter(m => m.condition === c && m.structure_correct).length;
     const n = c => fm.filter(m => m.condition === c).length;
     panel.append(h("h3", {}, esc(fam)));
-    panel.append(h("div", { className: "stat" }, `structure correct: swarm <b>${ok("swarm")}/${n("swarm")}</b> · single <b>${ok("single")}/${n("single")}</b>`));
+    panel.append(h("div", { className: "stat" }, "structure correct: " + conds.map(c => `${short[c]} <b>${ok(c)}/${n(c)}</b>`).join(" · ")));
     const chart = h("div"); panel.append(chart); host.append(panel);
-    const series = seriesFrom(fr, ["swarm", "single"]);
+    const series = seriesFrom(fr, conds);
     bandChart(chart, series, { height: 170 });
     tables.push(`<p class="note"><b>${esc(fam)}</b> median reach error, mm</p>`);
     const tmp = h("div"); dataTable(tmp, series); tables.push(tmp.innerHTML);
-    // structure found vs truth per seed
     const seeds = [...new Set(fm.map(m => m.seed))].sort((a, b) => a - b);
     const chips = (toks, truth) => toks.map((t, i) => `<span class="tok${truth && t !== truth[i] ? " bad" : ""}" title="${truth && t !== truth[i] ? `wrong: truth is ${truth[i]}` : ""}">${esc(t)}</span>`).join("");
-    let tb = `<table class="struct"><tr><th>seed</th><th>truth</th><th>swarm</th><th>single</th></tr>`;
-    for (const s of seeds) {
-      const get = c => fm.find(m => m.seed === s && m.condition === c);
-      const sw = get("swarm"), si = get("single"), truth = (sw || si).truth;
-      const cell = m => m ? chips(m.found, truth) + (m.structure_correct ? ` <span class="ok" aria-label="correct">✓</span>` : ` <span class="no" aria-label="wrong">✗</span>`) : "";
-      tb += `<tr><td>${s}</td><td>${chips(truth)}</td><td>${cell(sw)}</td><td>${cell(si)}</td></tr>`;
+    const mark = m => !m ? "" : m.structure_correct ? `<span class="ok" aria-label="correct">✓</span>` : `<span class="no" aria-label="wrong">✗</span>`;
+    let tb = `<table class="struct"><tr><th>seed</th><th>truth</th><th>swarm</th><th>probing</th><th>pipeline</th><th>blind single</th></tr>`;
+    for (const sd of seeds) {
+      const get = c => fm.find(m => m.seed === sd && m.condition === c);
+      const sw = get("swarm"), si = get("single"), truth = (sw || si || get("pipeline")).truth;
+      const cell = m => !m ? "" : m.structure_correct ? mark(m) : chips(m.found, truth) + " " + mark(m);
+      tb += `<tr><td>${sd}</td><td>${chips(truth)}</td><td>${cell(sw)}</td><td>${cell(get("single_probe"))}</td><td>${cell(get("pipeline"))}</td><td>${cell(si)}</td></tr>`;
     }
     panel.append(h("div", { className: "scroll" }, tb + "</table>"));
   }
@@ -659,7 +679,8 @@ function buildBodies(rows, meta) {
 
 // ================= 3. learning curve =================
 function buildLearning(rows) {
-  const conds = ["swarm", "single", "mlp"].filter(c => rows.some(r => r.condition === c));
+  rows = rows.map(r => r.condition === "single" ? { ...r, condition: "single_known" } : r);
+  const conds = ["swarm", "single_known", "mlp"].filter(c => rows.some(r => r.condition === c));
   legend($("learnLegend"), conds);
   const series = seriesFrom(rows, conds);
   const nArms = new Set(rows.map(r => r.arm)).size;
@@ -675,13 +696,24 @@ function buildLearning(rows) {
 function buildChampion(recs, summary) {
   const host = $("champ"); host.innerHTML = "";
   const champs = recs.filter(d => d.kind === "champion" && d.payload.describe && d.payload.describe.structure);
-  const epochs = [...new Set(champs.map(d => d.epoch || 0))].sort();
-  if (!epochs.length) { host.innerHTML = `<p class="note">No chain champion on this board.</p>`; return; }
+  if (!champs.length) { host.innerHTML = `<p class="note">No chain champion on this board.</p>`; return; }
   const tool = (summary && summary.true_tool_m) || 0;
-  for (const ep of epochs) {
-    const c = champs.filter(d => (d.epoch || 0) === ep).pop(), d = c.payload.describe;
+  const dmg = summary && summary.damage && summary.damage.events && summary.damage.events[0];
+  const dm = dmg ? dmg.motion : Infinity;
+  const alarm = recs.find(d => d.kind === "anomaly" && d.motion >= dm);
+  const am = alarm ? alarm.motion : Infinity;
+  const before = champs.filter(d => d.motion < dm).pop();
+  const stale = champs.filter(d => d.motion >= dm && d.motion < am).pop();
+  const after = champs.filter(d => d.motion >= am).pop();
+  const boxes = [];
+  if (before) boxes.push([before, "Before the damage", false, ""]);
+  if (stale) boxes.push([stale, "After the damage, before the alarm", true,
+    "Crowned on a mix of old and new motions while the monitor had not yet noticed the change. Its holdout error is high, and the planner still used it until the alarm."]);
+  if (after) boxes.push([after, "After the alarm (relearned)", true, ""]);
+  for (const [c, title, damaged, note] of boxes) {
+    const d = c.payload.describe;
     const truthTok = summary && summary.true_structure;
-    let tl = summary && (ep > 0 ? summary.true_links_after_m : summary.true_links_m);
+    let tl = summary && (damaged ? summary.true_links_after_m : summary.true_links_m);
     if (tl) tl = tl.map((v, i) => i === tl.length - 1 ? v + tool : v);
     const order = d.chain_order || d.structure.map((_, i) => i);
     let rows = "";
@@ -699,15 +731,17 @@ function buildChampion(recs, summary) {
         + `<td class="num">${idf ? `${mm(v)} mm` : `<span class="note">not identifiable</span>`}</td>`
         + `<td class="truth num">${t != null ? `${mm(t)} mm` : "n/a"}</td><td class="truth num">${errTxt}</td></tr>`;
     });
-    const dmg = ep > 0 && summary && summary.damage && summary.damage.events && summary.damage.events[0];
     host.append(h("div", { className: "box" },
-      `<h3>Epoch ${ep}${ep > 0 ? " (after the monitor noticed damage)" : " (before damage)"}</h3>`
+      `<h3>${title}</h3>`
       + `<p class="note">champion #${c.id}, ${esc(c.payload.family)} model, holdout ${fmt(c.payload.holdout_mm)} mm, ${c.payload.votes} validators agree</p>`
+      + (note ? `<p class="note">${note}</p>` : "")
       + `<table><tr><th>channel</th><th>discovered</th><th class="truth">truth</th></tr>${rows}</table>`
       + `<table style="margin-top:10px"><tr><th>link</th><th>discovered</th><th class="truth">truth</th><th class="truth">error</th></tr>${lrows}</table>`
-      + (dmg ? `<p class="note" style="display:none" data-dmg>Hidden damage at motion ${dmg.motion}: ${esc(dmg.what)}.</p>` : "")
+      + (damaged && dmg ? `<p class="note" style="display:none" data-dmg>Hidden damage at motion ${dmg.motion}: ${esc(dmg.what)}.</p>` : "")
       + `<p class="note">Links the data cannot pin down (for example the base height under a yaw joint) are reported as not identifiable rather than guessed.</p>`));
   }
+  if (alarm && !after) host.append(h("div", { className: "box" },
+    `<h3>After the alarm</h3><p class="note">The monitor declared the body changed at motion ${alarm.motion}. No new model was trusted by the end of the run (motion ${recs[recs.length - 1].motion}), so the planner refused to move rather than act on the old one.</p>`));
   const btn = $("reveal");
   btn.onclick = () => {
     const on = $("champCard").classList.toggle("revealed");
@@ -741,7 +775,11 @@ function fail(where, e) {
   } catch (e) { fail($("dag"), e); }
   try {
     const [rows, meta] = await Promise.all([getText(PATHS.bodies).then(parseCSV), getText(PATHS.bodiesMeta).then(JSON.parse)]);
-    buildBodies(rows, meta);
+    buildBodies(rows, meta, "new");
+    document.querySelectorAll(".seg[data-seeds]").forEach(b => b.onclick = () => {
+      document.querySelectorAll(".seg[data-seeds]").forEach(x => x.classList.toggle("on", x === b));
+      buildBodies(rows, meta, b.dataset.seeds);
+    });
   } catch (e) { fail($("bodies"), e); }
   try { buildLearning(parseCSV(await getText(PATHS.learning))); } catch (e) { fail($("learn"), e); }
 
