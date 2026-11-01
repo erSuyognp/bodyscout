@@ -87,6 +87,7 @@ def test_channel_agent_tells_slide_from_hinge():
 # ---- regression guards for CLAUDE.md rules ---------------------------------
 import ast
 import copy
+import functools
 import json
 import pathlib
 
@@ -107,8 +108,10 @@ def test_agents_only_touch_allowed_robot_attributes():
     assert used <= ALLOWED_ROBOT_ATTRS, f"agents touch hidden robot attributes: {used - ALLOWED_ROBOT_ATTRS}"
 
 
-def _scara_run(budget):
-    """Unknown body swarm run on a SCARA, snapshotting every champion payload the moment it is posted."""
+@functools.lru_cache(maxsize=None)
+def _scara_run(budget, knockout=None):
+    """Unknown body swarm run on a SCARA, snapshotting every champion payload the moment it is posted.
+    Cached: several tests read the same run."""
     from bodyscout.swarm import run
     from bodyscout.world import random_body
 
@@ -123,10 +126,12 @@ def _scara_run(budget):
 
     Blackboard.post = post
     try:
-        out = run(BlackBoxRobot(random_body(1, "scara"), seed=1), "swarm", budget=budget,
-                  eval_at=(budget,), n_targets=4, seed=1, use_llm=False, unknown_body=True)
+        robot = BlackBoxRobot(random_body(1, "scara"), seed=1)
+        out = run(robot, "swarm", budget=budget, eval_at=(budget,), n_targets=4, seed=1, use_llm=False,
+                  unknown_body=True, knockout=knockout and (knockout[0], list(knockout[1])))
     finally:
         Blackboard.post = orig
+    out["truth"] = robot.spec.tokens()  # scoring only, read here in the test, never by an agent
     return out, snaps
 
 
@@ -150,3 +155,37 @@ def test_artifacts_are_immutable():
     for art, before in snaps:
         now = {k: v for k, v in art.payload.items() if k != "_model"}
         assert now == before, f"champion #{art.id} was edited after posting"
+
+
+# ---- no single point of failure --------------------------------------------
+def test_crown_is_a_pure_public_rule():
+    from bodyscout.agents import crown
+    bb = _scara_run(48)[0]["blackboard"]
+    n = len(bb.artifacts)
+    first, second = crown(bb), crown(bb)
+    assert first == second and len(bb.artifacts) == n, "crown(bb) must not change the board"
+    assert first["champion"] is not None
+    replays = [v.payload["replayed"] for v in bb.of("verdict") if v.payload["candidate"] == first["champion"]]
+    assert True in replays and False not in replays, "crowned a candidate that did not pass replay"
+
+
+def test_champions_carry_both_validators_votes():
+    bb = _scara_run(48)[0]["blackboard"]
+    assert not bb.of("disagreement", epoch=-1)
+    byid = {a.id: a for a in bb.artifacts}
+    champs = bb.of("champion", epoch=-1)
+    assert champs
+    for c in champs:
+        votes = [byid[i] for i in c.parents if byid[i].kind == "vote"]
+        assert {v.author for v in votes} == {"validator-0", "validator-1"}, c
+        assert {v.payload["champion"] for v in votes} == {c.payload["candidate"]}
+
+
+def test_structure_survives_losing_every_hypothesizer_a_validator_and_an_explorer():
+    gone = ("hyp-channels", "hyp-prior", "hyp-library", "validator-0", "explorer-0")
+    out, _ = _scara_run(48, knockout=(0, gone))
+    bb = out["blackboard"]
+    assert not bb.of("hypothesis", epoch=-1)            # nobody proposed anything
+    assert out["champion"]["describe"]["structure"] == out["truth"]  # the chain modeler assembled findings
+    assert all(c.payload["votes"] == 1 for c in bb.of("champion", epoch=-1))
+    assert {a.author for a in bb.of("observation", epoch=-1)} <= {"explorer-1", "monitor"}

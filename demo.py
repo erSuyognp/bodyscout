@@ -16,8 +16,11 @@ import argparse
 
 import numpy as np
 
+from bodyscout.env import load_env
 from bodyscout.swarm import run
 from bodyscout.world import FAMILIES, BlackBoxRobot, random_arm, random_body
+
+load_env()  # API keys from .env; LLM hypothesizers switch on only for keys that are set
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--arm", type=int, default=3)
@@ -59,15 +62,18 @@ def on_tick(bb, rob, t, events):
             say(rob.motions, f"{art.author}: my channel {kind}"
                              + (f" about/along {p['axis']}" if p["type"] != "?" else ""))
         elif art.kind == "hypothesis":
-            say(rob.motions, f"hypothesizer: maybe the body is {' '.join(p['pattern'])} (from {p['source']})")
+            say(rob.motions, f"{art.author}: maybe the body is {' '.join(p['pattern'])}")
         elif art.kind == "champion":
             d = p["describe"]
             links = ", ".join(f"{v}" if ok else "not identifiable"
                               for v, ok in zip(d.get("links_m", []), d.get("identifiable", [])))
             extra = f" structure {' '.join(d['structure'])}, links [{links}] m" if "structure" in d else ""
-            say(rob.motions, f"validator crowned {p['family']} model, holdout {p['holdout_mm']:.1f} mm{extra}")
-        elif art.kind == "verdict" and not p["crowned"] and not p["replayed"]:
-            say(rob.motions, f"validator rejected {p['family']}: failed the replay gate")
+            say(rob.motions, f"crowned {p['family']} model ({p['votes']} validators agree), "
+                             f"holdout {p['holdout_mm']:.1f} mm{extra}")
+        elif art.kind == "verdict" and p["replayed"] is False:
+            say(rob.motions, f"{art.author} rejected {p['family']}: failed the replay check")
+        elif art.kind == "disagreement":
+            say(rob.motions, f"!! {art.author}: validators disagree on the champion ({p['mine']} vs {p['theirs']})")
         elif art.kind == "anomaly":
             say(rob.motions, f"monitor: surprise {p['surprise_mm']:.0f} mm > {p['threshold_mm']:.0f} mm, "
                              f"my body changed. New epoch, relearning.")

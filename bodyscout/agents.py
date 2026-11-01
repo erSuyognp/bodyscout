@@ -1,14 +1,19 @@
-"""The swarm. Each agent owns one job, reads the blackboard, and posts artifacts. No planner.
+"""The swarm. Each agent owns one job, reads the blackboard, and posts artifacts. No planner, and no
+single agent whose loss stops the swarm: every role has a second instance or a fallback.
 
-Explorer     owns the robot channels; serves `probe` and `data` needs with motions
-Channel x N  one per unlabeled channel: wiggles only its channel, decides hinge or slide and the axis
-Hypothesizer assembles channel findings into whole body structures; uses Claude when a key is set
-Modeler x3   chain / gmm / mlp; refits when new data lands, posts candidate self models
-Validator    scores candidates on held out motions, applies the replay gate, crowns a champion
-Monitor      spends a sentinel motion now and then; declares "my body changed" on surprise
+Explorer x2     share the robot through needs; serve `probe` and `data` needs with motions
+Channel x N     one per unlabeled channel: wiggles only its channel, decides hinge or slide and the axis
+Hypothesizers   independent; each posts hypotheses tagged by source: findings (assembles channel
+                findings), prior, library, and one LLM agent per API key (Claude, Gemini)
+Modeler x3      chain / gmm / mlp; refit when new data lands. The chain modeler reads hypotheses, and
+                assembles channel findings itself when no findings hypothesizer has
+Validator x2    replay check candidates and vote for crown(bb), a public pure rule; a champion is
+                posted only when the live validators agree
+Monitor         spends a sentinel motion now and then; declares "my body changed" on surprise
 """
 from __future__ import annotations
 
+import hashlib
 import itertools
 import json
 import os
@@ -17,7 +22,7 @@ import re
 import numpy as np
 
 from .blackboard import Blackboard
-from .models import FAMILIES, ChainModel
+from .models import FAMILIES, ChainModel, _tok
 
 
 class Agent:
@@ -45,10 +50,9 @@ def current_score(bb: Blackboard, champ) -> dict:
 
 # ---------------------------------------------------------------------------
 class Explorer(Agent):
-    name = "explorer"
-
-    def __init__(self, robot, batch=4, holdout_every=4, mode="disagreement", seed=0):
+    def __init__(self, robot, batch=4, holdout_every=4, mode="disagreement", seed=0, name="explorer"):
         self.robot, self.batch, self.holdout_every, self.mode = robot, batch, holdout_every, mode
+        self.name = name
         self.rng = np.random.default_rng(seed)
         self.count = 0
 
@@ -111,7 +115,7 @@ class ChannelAgent(Agent):
     """Owns one unlabeled channel. Asks for a sweep of only that channel, then reads the shape of
     the fingertip path: a straight line means the joint slides, an arc means it rotates. The line
     direction (slide) or the arc's plane normal (hinge) gives the axis. Knows nothing about other
-    channels; the hypothesizer assembles everyone's findings into a whole body."""
+    channels; hypothesizers and the chain modeler assemble everyone's findings into a whole body."""
 
     def __init__(self, channel, n):
         self.ch, self.n = channel, n
@@ -153,113 +157,188 @@ class ChannelAgent(Agent):
 
 
 # ---------------------------------------------------------------------------
-class Hypothesizer(Agent):
-    """Proposes which axis each unlabeled channel turns about. Ranked by the skill library
-    (bodies seen before), then by Claude reading the raw data, then a plain prior."""
+# Hypothesizers: independent proposers. Each posts hypotheses tagged with its source, none waits on
+# another, and the chain modeler can stand in for the findings one (see Modeler._structures).
 
-    name = "hypothesizer"
+SOURCE_ORDER = ("channels", "library", "claude", "gemini", "prior")  # how modelers rank sources
+LLM_KEYS = {"claude": ("ANTHROPIC_API_KEY",), "gemini": ("GEMINI_API_KEY", "GOOGLE_API_KEY")}
 
-    def __init__(self, n, library=None, use_llm=None, top=4, wait_for_channels=False):
+
+def llm_providers() -> list:
+    """LLM hypothesizers this machine can run: one per provider whose API key is set."""
+    return [p for p, keys in LLM_KEYS.items() if any(os.environ.get(k) for k in keys)]
+
+
+def structures_from_findings(findings: dict, n: int) -> list:
+    """Turn per channel findings {channel: payload} into ranked whole body structures, fewest
+    guesses first. Shared by the findings hypothesizer and the chain modeler's fallback."""
+    opts = []
+    for ch in range(n):
+        f = findings.get(ch)
+        if f is None or f["type"] == "?":
+            opts.append([(t + a, 1) for t in "hs" for a in "zyx"])
+        elif f["conf"] >= 0.85:
+            opts.append([(f["type"] + f["axis"], 0)])
+        else:
+            opts.append([(f["type"] + a, 0 if a == f["axis"] else 1) for a in "zyx"])
+    combos = []
+    for combo in itertools.product(*opts):
+        combos.append((sum(c[1] for c in combo), [c[0] for c in combo]))
+        if len(combos) > 500:
+            break
+    combos.sort(key=lambda c: c[0])
+    return [c[1] for c in combos]
+
+
+def prior_structures(n: int) -> list:
+    pats = [["hz"] + ["h" + c for c in p] for p in itertools.product("yxz", repeat=n - 1)]
+    return sorted(pats, key=lambda p: -sum(c == "hy" for c in p))
+
+
+class HypothesizerBase(Agent):
+    source = "?"
+
+    def __init__(self, n, top=4):
         self.n, self.top = n, top
-        self.library = library if library is not None else []
-        self.use_llm = bool(os.environ.get("ANTHROPIC_API_KEY")) if use_llm is None else use_llm
-        self.done_epoch = -1
-        self.wait = wait_for_channels
-        self.sources_epoch, self.source_ids = -1, {}
+        self.name = f"hyp-{self.source}"
+        self.done = set()               # (epoch, input key) already answered
+        self.source_ids = {}            # epoch -> id of this agent's `source` artifact
 
-    def _from_findings(self, findings):
-        """Turn per channel findings into ranked whole body structures (fewest guesses first)."""
-        opts = []
-        for ch in range(self.n):
-            f = findings.get(ch)
-            if f is None or f["type"] == "?":
-                opts.append([(t + a, 1) for t in "hs" for a in "zyx"])
-            elif f["conf"] >= 0.85:
-                opts.append([(f["type"] + f["axis"], 0)])
-            else:
-                opts.append([(f["type"] + a, 0 if a == f["axis"] else 1) for a in "zyx"])
-        combos = []
-        for combo in itertools.product(*opts):
-            combos.append((sum(c[1] for c in combo), [c[0] for c in combo]))
-            if len(combos) > 500:
+    def _source_id(self, bb, describes):
+        """This epoch's `source` artifact, so hypotheses that come from no data still cite their origin."""
+        if bb.epoch not in self.source_ids:
+            self.source_ids[bb.epoch] = bb.post("source", self.name, {"source": self.source,
+                                                                      "describes": describes}).id
+        return self.source_ids[bb.epoch]
+
+    def _post(self, bb, patterns, parents):
+        seen, n_posted = set(), 0
+        for p in patterns:
+            p = [_tok(c) for c in p]
+            if len(p) != self.n or tuple(p) in seen:
+                continue
+            seen.add(tuple(p))
+            bb.post("hypothesis", self.name, {"pattern": p, "source": self.source, "rank": n_posted},
+                    parents)
+            n_posted += 1
+            if n_posted == self.top:
                 break
-        combos.sort(key=lambda c: c[0])
-        return [c[1] for c in combos]
+        return n_posted > 0
 
-    def _prior(self):
-        pats = [["z"] + list(p) for p in itertools.product("yxz", repeat=self.n - 1)]
-        return sorted(pats, key=lambda p: -sum(c == "y" for c in p))
 
-    def _llm(self, bb):
-        """Returns (patterns, ids of the observations shown to the model)."""
-        Q, X, ids = _data(bb, "train")
-        if len(Q) < 6:
-            return [], []
-        try:
-            import anthropic
-            rows = "\n".join(f"q={np.round(q, 2).tolist()} -> tip_mm={np.round(x * 1000).astype(int).tolist()}"
-                             for q, x in zip(Q[:24], X[:24]))
-            prompt = (
-                f"A jointed robot of unknown type has {self.n} unlabeled channels and we observe its "
+class FindingsHypothesizer(HypothesizerBase):
+    """Assembles the channel agents' findings into whole body structures."""
+
+    source = "channels"
+
+    def step(self, bb, t):
+        arts = {a.payload["channel"]: a for a in bb.of("finding")}
+        if not arts:
+            return False
+        if len(arts) < self.n and not bb.has_need("hypotheses"):
+            return False  # waits for channel agents, never for another hypothesizer
+        key = (bb.epoch, tuple(sorted(a.id for a in arts.values())))
+        if key in self.done:
+            return False
+        self.done.add(key)
+        pats = structures_from_findings({ch: a.payload for ch, a in arts.items()}, self.n)
+        return self._post(bb, pats, [a.id for a in arts.values()])
+
+
+class PriorHypothesizer(HypothesizerBase):
+    """The default guess for a body nobody has described: base yaw, then mostly pitch joints."""
+
+    source = "prior"
+
+    def step(self, bb, t):
+        if bb.epoch in self.done:
+            return False
+        self.done.add(bb.epoch)
+        sid = self._source_id(bb, "default ranking: base yaw, then most pitch (y) joints first")
+        return self._post(bb, prior_structures(self.n), [sid])
+
+
+class LibraryHypothesizer(HypothesizerBase):
+    """Structures of bodies seen before (transfer). Silent when the library is empty."""
+
+    source = "library"
+
+    def __init__(self, n, library=None, top=4):
+        super().__init__(n, top)
+        self.library = list(library or [])
+
+    def step(self, bb, t):
+        if not self.library or bb.epoch in self.done:
+            return False
+        self.done.add(bb.epoch)
+        sid = self._source_id(bb, f"skill library of bodies seen before: {self.library}")
+        return self._post(bb, self.library, [sid])
+
+
+class LLMHypothesizer(HypothesizerBase):
+    """Asks one LLM provider to read raw motions and propose structures. Calls once per epoch when
+    there is data, and again (at most 3 calls per epoch) when a `hypotheses` need is open and a
+    dozen new motions have arrived. Never raises: a failed call just proposes nothing."""
+
+    MIN_DATA, NEW_DATA, MAX_CALLS = 12, 12, 3
+
+    def __init__(self, n, provider, top=4):
+        self.source = provider
+        super().__init__(n, top)
+        self.calls = {}                 # epoch -> list of training set sizes at each call
+        self.last_why = ""
+
+    def _prompt(self, Q, X):
+        rows = "\n".join(f"q={np.round(q, 2).tolist()} -> tip_mm={np.round(x * 1000).astype(int).tolist()}"
+                         for q, x in zip(Q, X))
+        return (f"A jointed robot of unknown type has {self.n} unlabeled channels and we observe its "
                 f"fingertip in mm (z up, base at origin). Each channel either rotates (h) or slides (s) "
                 f"about or along x, y or z in the base pose frame. Propose the {self.top} most likely "
                 f"structures, one token per channel such as hz or sx. Reason about which channels move "
                 f"the tip in arcs versus straight lines.\n{rows}\n"
                 'Answer ONLY with JSON like {"patterns": [["hz","hy","sz"]], "why": "one sentence"}')
+
+    def _ask(self, prompt):
+        if self.source == "claude":
+            import anthropic
             msg = anthropic.Anthropic().messages.create(
                 model=os.environ.get("BODYSCOUT_MODEL", "claude-sonnet-5-5"), max_tokens=600,
                 messages=[{"role": "user", "content": prompt}])
-            text = msg.content[0].text
-            js = json.loads(re.search(r"\{.*\}", text, re.S).group(0))
-            pats = [p for p in js["patterns"] if len(p) == self.n]
-            self.last_why = js.get("why", "")
-            return pats, ids[:24]
-        except Exception as e:  # never let the LLM take the swarm down
-            self.last_why = f"llm unavailable: {type(e).__name__}"
-            return [], []
-
-    def _source_id(self, bb, src):
-        """Id of this epoch's `source` artifact for a prior or the library, posted on first use,
-        so hypotheses that come from no data still cite where they came from."""
-        if self.sources_epoch != bb.epoch:
-            self.sources_epoch, self.source_ids = bb.epoch, {}
-        if src not in self.source_ids:
-            what = ("default ranking: base yaw, then most pitch (y) joints first" if src == "prior"
-                    else f"skill library of bodies seen before: {self.library}")
-            self.source_ids[src] = bb.post("source", self.name, {"source": src, "describes": what}).id
-        return self.source_ids[src]
+            return msg.content[0].text
+        if self.source == "gemini":
+            import urllib.request
+            key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+            model = os.environ.get("BODYSCOUT_GEMINI_MODEL", "gemini-2.5-flash")
+            req = urllib.request.Request(
+                f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+                data=json.dumps({"contents": [{"parts": [{"text": prompt}]}]}).encode(),
+                headers={"Content-Type": "application/json", "x-goog-api-key": key})
+            with urllib.request.urlopen(req, timeout=60) as r:
+                return json.load(r)["candidates"][0]["content"]["parts"][0]["text"]
+        raise ValueError(self.source)
 
     def step(self, bb, t):
-        if self.done_epoch == bb.epoch and not bb.has_need("hypotheses"):
+        Q, X, ids = _data(bb, "train")
+        calls = self.calls.setdefault(bb.epoch, [])
+        if len(Q) < self.MIN_DATA or len(calls) >= self.MAX_CALLS:
             return False
-        finding_arts = {a.payload["channel"]: a for a in bb.of("finding")}
-        if self.wait and len(finding_arts) < self.n and self.done_epoch != bb.epoch:
-            return False  # let the channel agents report first
-        bb.claim("hypotheses")
-        ranked, seen = [], set()
-        findings = {ch: a.payload for ch, a in finding_arts.items()}
-        finding_ids = [a.id for a in finding_arts.values()]
-        sources = [(p, "channels", finding_ids) for p in self._from_findings(findings)] if findings else []
-        sources += [(p, "library", None) for p in self.library]
-        if self.use_llm and self.done_epoch == bb.epoch:  # second pass in an epoch: ask Claude
-            pats, shown = self._llm(bb)
-            sources += [(p, "claude", shown) for p in pats]
-        sources += [(p, "prior", None) for p in self._prior()]
-        for p, src, parents in sources:
-            p = [c if len(c) == 2 else "h" + c for c in p]
-            if tuple(p) not in seen and len(p) == self.n:
-                seen.add(tuple(p))
-                ranked.append((p, src, parents))
-        for p, src, parents in ranked[: self.top]:
-            bb.post("hypothesis", self.name, {"pattern": p, "source": src},
-                    parents if parents else [self._source_id(bb, src)])
-        self.done_epoch = bb.epoch
-        return True
+        if calls and not (bb.has_need("hypotheses") and len(Q) >= calls[-1] + self.NEW_DATA):
+            return False
+        calls.append(len(Q))
+        try:
+            text = self._ask(self._prompt(Q[:24], X[:24]))
+            js = json.loads(re.search(r"\{.*\}", text, re.S).group(0))
+            self.last_why = js.get("why", "")
+            return self._post(bb, js["patterns"], ids[:24])
+        except Exception as e:  # never let an LLM take the swarm down
+            self.last_why = f"{self.source} unavailable: {type(e).__name__}"
+            return False
 
 
 # ---------------------------------------------------------------------------
 class Modeler(Agent):
     MIN_DATA = {"chain": 6, "gmm": 28, "mlp": 16}
+    N_STRUCTURES = 4
 
     def __init__(self, family, n, seed=0, warm=None, any_types=False):
         self.family, self.n, self.seed, self.any_types = family, n, seed, any_types
@@ -268,16 +347,41 @@ class Modeler(Agent):
         self.last_epoch = -1
         self.warm = warm  # parameters carried over from a previous body (transfer)
 
+    def _structures(self, bb):
+        """Up to N_STRUCTURES structures to try and the artifacts they came from. Takes each
+        source's latest batch of hypotheses in SOURCE_ORDER. When no channel hypotheses exist but
+        channel findings do, assembles them itself, so structure finding survives the loss of any
+        or every hypothesizer."""
+        batches = {}
+        for h in bb.of("hypothesis"):
+            if h.payload["rank"] == 0:
+                batches[h.payload["source"]] = []
+            batches.setdefault(h.payload["source"], []).append(h)
+        cands = {src: [(h.payload["pattern"], [h.id]) for h in hs] for src, hs in batches.items()}
+        if "channels" not in cands:
+            arts = {a.payload["channel"]: a for a in bb.of("finding")}
+            if arts:
+                pats = structures_from_findings({ch: a.payload for ch, a in arts.items()}, self.n)
+                cands["channels"] = [(p, [a.id for a in arts.values()]) for p in pats[: self.N_STRUCTURES]]
+        rank = {s: i for i, s in enumerate(SOURCE_ORDER)}
+        patterns, parents, seen = [], [], set()
+        for src in sorted(cands, key=lambda s: rank.get(s, len(rank))):
+            for pat, pids in cands[src]:
+                if tuple(pat) not in seen and len(patterns) < self.N_STRUCTURES:
+                    seen.add(tuple(pat))
+                    patterns.append(pat)
+                    parents += [i for i in pids if i not in parents]
+        return patterns, parents
+
     def step(self, bb, t):
         Q, X, ids = _data(bb, "train")
         if bb.epoch != self.last_epoch:
             self.last_n, self.last_epoch = -1, bb.epoch
         if len(Q) < self.MIN_DATA[self.family] or len(Q) == self.last_n:
             return False
-        kw = {}
-        hyps = bb.of("hypothesis")
+        kw, used = {}, []
         if self.family == "chain":
-            kw["patterns"] = [h.payload["pattern"] for h in hyps[-4:]]
+            kw["patterns"], used = self._structures(bb)
             prev = [a for a in bb.of("champion", epoch=-1) if a.payload["family"] == "chain"]
             kw["warm"] = prev[-1].payload["_model"].warm_state if prev else self.warm
             model = ChainModel(self.n, restarts=3, seed=self.seed + len(Q), any_types=self.any_types)
@@ -291,80 +395,142 @@ class Modeler(Agent):
         train = model.rmse(Q, X)
         bb.post("model", self.name, {"family": self.family, "_model": model, "_fit_kw": kw,
                                      "n_train": len(Q), "train_rmse_mm": train * 1000,
-                                     "describe": model.describe()}, ids[-8:] + [h.id for h in hyps[-4:]])
+                                     "describe": model.describe()}, ids[-8:] + used)
         return True
 
 
 # ---------------------------------------------------------------------------
+def crown(bb: Blackboard) -> dict:
+    """The public crowning rule, a pure function of the board that any agent can evaluate: the
+    champion is the lowest error on the current holdout set among candidates that passed the replay
+    check (some validator passed it, none failed it). Ties go to the older candidate. `basis` names
+    every input used, so two agents that computed the same basis must name the same champion."""
+    Qh, Xh, hids = _data(bb, "holdout")
+    replays = {}
+    for v in bb.of("verdict"):
+        replays.setdefault(v.payload["candidate"], set()).add(v.payload["replayed"])
+    passed = [m for m in bb.of("model") if True in replays.get(m.id, ()) and False not in replays[m.id]]
+    basis = hashlib.sha1(repr(([m.id for m in passed], hids)).encode()).hexdigest()[:12]
+    out = {"champion": None, "holdout_mm": None, "n_holdout": len(hids), "basis": basis}
+    if len(Qh) >= 3 and passed:
+        out["holdout_mm"], out["champion"] = min((m.payload["_model"].rmse(Qh, Xh) * 1000, m.id)
+                                                 for m in passed)
+    return out
+
+
 class Validator(Agent):
-    """Holdout scoring plus a replay gate: a candidate is crowned only if refitting it from scratch
-    on the same data reproduces its holdout score, and it beats the current champion."""
+    """Replay checks candidates that could win (refitting from scratch on the same data must
+    reproduce the holdout score), then votes for crown(bb) every tick. A champion is posted only
+    when every live validator's latest vote names the same champion. Validators announce themselves
+    once with a `source` artifact; one whose latest vote is older than PATIENCE ticks is treated as
+    gone. Same basis, different champion is logged as a `disagreement` and nothing is crowned."""
 
-    name = "validator"
+    PATIENCE = 2
 
-    def __init__(self, n, goal_mm=4.0, seed=0):
-        self.n, self.goal_mm, self.seed = n, goal_mm, seed
+    def __init__(self, n, goal_mm=4.0, seed=0, index=0):
+        self.n, self.goal_mm, self.index = n, goal_mm, index
+        self.name = f"validator-{index}"
+        self.replay_seed = seed + 7777 + index  # independent replays per validator
         self.seen = set()
+        self.logged = set()
+        self.source_id = None
 
     def _replay(self, art, Q, X, Qh, Xh):
         fam = art.payload["family"]
-        m = (ChainModel(self.n, restarts=3, seed=self.seed + 7777) if fam == "chain"
-             else FAMILIES[fam](self.n, seed=self.seed + 7777))
+        m = (ChainModel(self.n, restarts=3, seed=self.replay_seed) if fam == "chain"
+             else FAMILIES[fam](self.n, seed=self.replay_seed))
         m.fit(Q, X, **art.payload["_fit_kw"])
         return m.rmse(Qh, Xh) * 1000
 
+    def _judge(self, bb, Qh, Xh, hids):
+        Q, X, _ = _data(bb, "train")
+        best = crown(bb)
+        for art in [a for a in bb.of("model") if a.id not in self.seen]:
+            self.seen.add(art.id)
+            score = art.payload["_model"].rmse(Qh, Xh) * 1000
+            ok = None  # not checked: could not beat the current best anyway
+            if best["champion"] is None or score < best["holdout_mm"]:
+                k = art.payload["n_train"]  # its training set is the first k train observations
+                rep = self._replay(art, Q[:k], X[:k], Qh, Xh)
+                ok = bool(rep <= max(1.5 * score, score + 2.0))
+            bb.post("verdict", self.name, {"candidate": art.id, "family": art.payload["family"],
+                                           "holdout_mm": score, "n_holdout": len(hids),
+                                           "replayed": ok}, [art.id] + hids)
+            if ok:
+                best = crown(bb)
+
+    def _vote(self, bb, t):
+        """Vote every tick (None until there is a candidate): the vote is also the heartbeat peers
+        use to tell this validator is alive."""
+        res = crown(bb)
+        mine = bb.post("vote", self.name, {**res, "tick": t},
+                       [res["champion"]] if res["champion"] is not None else [self.source_id])
+        if res["champion"] is None:
+            return
+        latest = {}
+        for v in bb.of("vote", epoch=-1):
+            latest[v.author] = v
+        peers = [a.author for a in bb.of("source", epoch=-1)
+                 if a.payload["source"] == "validator" and a.author != self.name]
+        backing = [mine]
+        for peer in peers:
+            other = latest.get(peer)
+            if other is None or other.payload["tick"] < t - self.PATIENCE:
+                continue  # silent for PATIENCE ticks: gone
+            same_basis = other.epoch == bb.epoch and other.payload["basis"] == res["basis"]
+            if other.epoch != bb.epoch or other.payload["champion"] != res["champion"]:
+                if same_basis and (res["basis"], other.id) not in self.logged:
+                    self.logged.add((res["basis"], other.id))
+                    bb.post("disagreement", self.name, {"basis": res["basis"], "mine": res["champion"],
+                                                        "theirs": other.payload["champion"]},
+                            [mine.id, other.id])
+                return  # same inputs, different answer: logged; otherwise it saw older inputs: wait
+            backing.append(other)
+        current = bb.latest("champion")
+        if current is not None and current.payload["candidate"] == res["champion"]:
+            return
+        cand = next(a for a in bb.of("model") if a.id == res["champion"])
+        bb.post("champion", self.name, {"candidate": cand.id, "family": cand.payload["family"],
+                                        "_model": cand.payload["_model"], "holdout_mm": res["holdout_mm"],
+                                        "n_holdout": res["n_holdout"], "describe": cand.payload["describe"],
+                                        "votes": len(backing)}, [cand.id] + [v.id for v in backing])
+
     def step(self, bb, t):
+        if self.source_id is None:  # peers count this validator from now on when deciding agreement
+            self.source_id = bb.post("source", self.name, {"source": "validator",
+                                                           "describes": f"{self.name} on duty"}).id
         Qh, Xh, hids = _data(bb, "holdout")
-        champ = bb.latest("champion")
+        if len(Qh) >= 3:
+            self._judge(bb, Qh, Xh, hids)
+        self._vote(bb, t)
         if not bb.of("observation"):
             bb.need("data", self.name, 1.0, why="no data yet")
             return True
-        new = [a for a in bb.of("model") if a.id not in self.seen]
         if len(Qh) < 3:
             bb.need("data", self.name, 1.0, why="need holdout motions")
             return False
-        if not new:
-            # holdout set grew since the champion was judged: re-score it honestly
-            if champ is not None and current_score(bb, champ)["n_holdout"] < len(Qh):
-                score = champ.payload["_model"].rmse(Qh, Xh) * 1000
-                bb.post("score", self.name, {"champion": champ.id, "holdout_mm": score,
-                                             "n_holdout": len(Qh)}, [champ.id] + hids)
-            champ_mm = current_score(bb, champ)["holdout_mm"] if champ else None
-            if champ is None or champ_mm > self.goal_mm:
-                bb.need("data", self.name, champ_mm if champ else 50.0)
-            return False
-        Q, X, _ = _data(bb, "train")
-        for art in new:
-            self.seen.add(art.id)
-            if art.payload["n_train"] != len(Q):
-                continue  # stale candidate, fit on older data
-            score = art.payload["_model"].rmse(Qh, Xh) * 1000
-            ok_replay = True
-            beats = champ is None or score < 0.95 * current_score(bb, champ)["holdout_mm"]
-            if beats:
-                rep = self._replay(art, Q, X, Qh, Xh)
-                ok_replay = rep <= max(1.5 * score, score + 2.0)
-            bb.post("verdict", self.name, {"candidate": art.id, "family": art.payload["family"],
-                                           "holdout_mm": score, "replayed": ok_replay,
-                                           "crowned": bool(beats and ok_replay)}, [art.id] + hids)
-            if beats and ok_replay:
-                champ = bb.post("champion", self.name, {"family": art.payload["family"],
-                                                        "_model": art.payload["_model"],
-                                                        "holdout_mm": score, "n_holdout": len(Qh),
-                                                        "describe": art.payload["describe"]}, [art.id])
+        champ = bb.latest("champion")
+        # holdout set grew since the champion was judged: re-score it honestly
+        if champ is not None and current_score(bb, champ)["n_holdout"] < len(Qh):
+            score = champ.payload["_model"].rmse(Qh, Xh) * 1000
+            bb.post("score", self.name, {"champion": champ.id, "holdout_mm": score,
+                                         "n_holdout": len(Qh)}, [champ.id] + hids)
         champ_mm = current_score(bb, champ)["holdout_mm"] if champ else None
         if champ is None:
             bb.need("data", self.name, 50.0)
         elif champ_mm > self.goal_mm:
             bb.need("data", self.name, champ_mm)
-            if champ_mm > 4 * self.goal_mm and len(Q) >= 12:
+            if champ_mm > 4 * self.goal_mm and len(_data(bb, "train")[0]) >= 12:
                 bb.need("hypotheses", self.name, 1.0, why="chain fits are poor, rethink structure")
         return True
 
 
 # ---------------------------------------------------------------------------
 class Monitor(Agent):
-    """Spends one sentinel motion every `every` ticks once a champion exists."""
+    """Spends one sentinel motion every `every` ticks once a champion exists. Compares the tip with
+    the best body model of this epoch (the champion crowned with the lowest holdout error), not the
+    latest champion: after damage the crowning rule honestly picks the least bad model on mixed
+    data, and judging surprise against that would raise the bar until damage is never noticed."""
 
     name = "monitor"
 
@@ -381,14 +547,15 @@ class Monitor(Agent):
         return sum(1 for a in bb.of("observation", epoch=-1) if not a.payload.get("carried"))
 
     def step(self, bb, t):
-        champ = bb.latest("champion")
-        if champ is None or t % self.every:
+        champs = bb.of("champion")
+        if not champs or t % self.every:
             return False
+        champ = min(champs, key=lambda c: (c.payload["holdout_mm"], c.id))  # body as best known
         q = self.rng.uniform(*self.robot.limits, self.robot.n_channels)
         x = self.robot.move(q)
         pred = champ.payload["_model"].predict(q[None])[0]
         surprise = float(np.linalg.norm(pred - x)) * 1000
-        thresh = max(self.k * current_score(bb, champ)["holdout_mm"], self.floor)
+        thresh = max(self.k * champ.payload["holdout_mm"], self.floor)
         obs = bb.post("observation", self.name, {"q": q, "x": x, "split": "train",
                                                   "surprise_mm": surprise}, [champ.id])
         self.strikes = self.strikes + 1 if surprise > thresh else 0

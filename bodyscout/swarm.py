@@ -11,7 +11,8 @@ import time
 
 import numpy as np
 
-from .agents import ChannelAgent, Explorer, Hypothesizer, Modeler, Monitor, Validator
+from .agents import (ChannelAgent, Explorer, FindingsHypothesizer, LibraryHypothesizer, LLMHypothesizer,
+                     Modeler, Monitor, PriorHypothesizer, Validator, llm_providers)
 from .blackboard import Blackboard
 from .models import ChainModel, MLPModel
 from .planning import reach_errors
@@ -42,14 +43,18 @@ class SingleAgent:
 
 
 def make_swarm(robot, seed=0, library=None, warm=None, use_llm=None, families=("chain", "gmm", "mlp"),
-               monitor=True, explore="disagreement", channels=False):
-    """channels=True: the body type is unknown, so one agent per channel works out hinge or slide."""
+               monitor=True, explore="disagreement", channels=False, n_explorers=2, n_validators=2):
+    """channels=True: the body type is unknown, so one agent per channel works out hinge or slide.
+    use_llm: None = one LLM hypothesizer per provider with an API key, False = none, True = those
+    providers, or Claude if no key is set (its calls then fail quietly)."""
     n = robot.n_channels
-    agents = [Hypothesizer(n, library=library, use_llm=use_llm, wait_for_channels=channels),
-              Explorer(robot, mode=explore, seed=seed),
-              *[Modeler(f, n, seed=seed, warm=warm if f == "chain" else None, any_types=channels)
-                for f in families],
-              Validator(n, seed=seed)]
+    providers = [] if use_llm is False else (llm_providers() or (["claude"] if use_llm else []))
+    agents = ([FindingsHypothesizer(n)] if channels else []) + [
+        PriorHypothesizer(n), LibraryHypothesizer(n, library),
+        *[LLMHypothesizer(n, p) for p in providers],
+        *[Explorer(robot, mode=explore, seed=seed + 101 * i, name=f"explorer-{i}") for i in range(n_explorers)],
+        *[Modeler(f, n, seed=seed, warm=warm if f == "chain" else None, any_types=channels) for f in families],
+        *[Validator(n, seed=seed, index=i) for i in range(n_validators)]]
     if channels:
         agents += [ChannelAgent(i, n) for i in range(n)]
     if monitor:
@@ -59,8 +64,10 @@ def make_swarm(robot, seed=0, library=None, warm=None, use_llm=None, families=("
 
 def run(robot, condition="swarm", budget=64, eval_at=(8, 12, 16, 24, 32, 48, 64), n_targets=12,
         seed=0, damage=None, library=None, warm=None, use_llm=None, max_ticks=400, verbose=False,
-        on_tick=None, unknown_body=False):
-    """damage = (motion_count, kind). Returns dict with curve [(motions, median_reach_mm)], blackboard."""
+        on_tick=None, unknown_body=False, knockout=None):
+    """damage = (motion_count, kind). knockout = (motion_count, [agent names]) removes those swarm
+    agents once that many motions are spent. Returns dict with curve [(motions, median_reach_mm)],
+    blackboard."""
     rng = np.random.default_rng(seed)
     targets = reachable_targets(robot, n_targets, seed)
     bb = Blackboard()
@@ -83,6 +90,10 @@ def run(robot, condition="swarm", budget=64, eval_at=(8, 12, 16, 24, 32, 48, 64)
             targets = reachable_targets(robot, n_targets, seed + 1)
             events.append({"motion": robot.motions, "event": "damage", "what": desc})
             damaged = True
+        if knockout and agents and robot.motions >= knockout[0] and not any(e["event"] == "knockout" for e in events):
+            gone = [a.name for a in agents if a.name in knockout[1]]
+            agents = [a for a in agents if a.name not in knockout[1]]
+            events.append({"motion": robot.motions, "event": "knockout", "what": gone})
         before = robot.motions
         if single is not None:
             single.step(t)

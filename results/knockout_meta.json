@@ -1,0 +1,3106 @@
+[
+ {
+  "family": "arm",
+  "seed": 1,
+  "condition": "full collective",
+  "removed": [],
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": []
+   }
+  ],
+  "disagreements": 0,
+  "champions": 3
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "condition": "full collective",
+  "removed": [],
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": []
+   }
+  ],
+  "disagreements": 0,
+  "champions": 4
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "condition": "full collective",
+  "removed": [],
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": []
+   }
+  ],
+  "disagreements": 0,
+  "champions": 5
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "condition": "full collective",
+  "removed": [],
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": []
+   }
+  ],
+  "disagreements": 0,
+  "champions": 14
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "condition": "full collective",
+  "removed": [],
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": []
+   }
+  ],
+  "disagreements": 0,
+  "champions": 4
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "condition": "full collective",
+  "removed": [],
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": []
+   }
+  ],
+  "disagreements": 0,
+  "champions": 1
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "condition": "full collective",
+  "removed": [],
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": []
+   }
+  ],
+  "disagreements": 0,
+  "champions": 3
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "condition": "full collective",
+  "removed": [],
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": []
+   }
+  ],
+  "disagreements": 0,
+  "champions": 4
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "condition": "full collective",
+  "removed": [],
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": []
+   }
+  ],
+  "disagreements": 0,
+  "champions": 6
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "condition": "full collective",
+  "removed": [],
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": []
+   }
+  ],
+  "disagreements": 0,
+  "champions": 9
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "condition": "full collective",
+  "removed": [],
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": []
+   }
+  ],
+  "disagreements": 0,
+  "champions": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "condition": "full collective",
+  "removed": [],
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": []
+   }
+  ],
+  "disagreements": 0,
+  "champions": 2
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "condition": "no findings hypothesizer",
+  "removed": [
+   "hyp-channels"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-channels"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 3
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "condition": "no findings hypothesizer",
+  "removed": [
+   "hyp-channels"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-channels"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 4
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "condition": "no findings hypothesizer",
+  "removed": [
+   "hyp-channels"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-channels"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "condition": "no findings hypothesizer",
+  "removed": [
+   "hyp-channels"
+  ],
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-channels"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 5
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "condition": "no findings hypothesizer",
+  "removed": [
+   "hyp-channels"
+  ],
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-channels"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 11
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "condition": "no findings hypothesizer",
+  "removed": [
+   "hyp-channels"
+  ],
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-channels"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 2
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "condition": "no findings hypothesizer",
+  "removed": [
+   "hyp-channels"
+  ],
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-channels"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 7
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "condition": "no findings hypothesizer",
+  "removed": [
+   "hyp-channels"
+  ],
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-channels"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 6
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "condition": "no findings hypothesizer",
+  "removed": [
+   "hyp-channels"
+  ],
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-channels"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 11
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "condition": "no findings hypothesizer",
+  "removed": [
+   "hyp-channels"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-channels"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 6
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "condition": "no findings hypothesizer",
+  "removed": [
+   "hyp-channels"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-channels"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "condition": "no findings hypothesizer",
+  "removed": [
+   "hyp-channels"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-channels"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 5
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "condition": "no prior hypothesizer",
+  "removed": [
+   "hyp-prior"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-prior"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 3
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "condition": "no prior hypothesizer",
+  "removed": [
+   "hyp-prior"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-prior"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 4
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "condition": "no prior hypothesizer",
+  "removed": [
+   "hyp-prior"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-prior"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "condition": "no prior hypothesizer",
+  "removed": [
+   "hyp-prior"
+  ],
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-prior"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 5
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "condition": "no prior hypothesizer",
+  "removed": [
+   "hyp-prior"
+  ],
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-prior"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 11
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "condition": "no prior hypothesizer",
+  "removed": [
+   "hyp-prior"
+  ],
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-prior"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 2
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "condition": "no prior hypothesizer",
+  "removed": [
+   "hyp-prior"
+  ],
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-prior"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 7
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "condition": "no prior hypothesizer",
+  "removed": [
+   "hyp-prior"
+  ],
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-prior"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 6
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "condition": "no prior hypothesizer",
+  "removed": [
+   "hyp-prior"
+  ],
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-prior"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 11
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "condition": "no prior hypothesizer",
+  "removed": [
+   "hyp-prior"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-prior"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 6
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "condition": "no prior hypothesizer",
+  "removed": [
+   "hyp-prior"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-prior"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "condition": "no prior hypothesizer",
+  "removed": [
+   "hyp-prior"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-prior"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 5
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "condition": "no library hypothesizer",
+  "removed": [
+   "hyp-library"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-library"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 3
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "condition": "no library hypothesizer",
+  "removed": [
+   "hyp-library"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-library"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 4
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "condition": "no library hypothesizer",
+  "removed": [
+   "hyp-library"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-library"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "condition": "no library hypothesizer",
+  "removed": [
+   "hyp-library"
+  ],
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-library"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 5
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "condition": "no library hypothesizer",
+  "removed": [
+   "hyp-library"
+  ],
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-library"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 11
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "condition": "no library hypothesizer",
+  "removed": [
+   "hyp-library"
+  ],
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-library"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 2
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "condition": "no library hypothesizer",
+  "removed": [
+   "hyp-library"
+  ],
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-library"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 7
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "condition": "no library hypothesizer",
+  "removed": [
+   "hyp-library"
+  ],
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-library"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 6
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "condition": "no library hypothesizer",
+  "removed": [
+   "hyp-library"
+  ],
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-library"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 11
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "condition": "no library hypothesizer",
+  "removed": [
+   "hyp-library"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-library"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 6
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "condition": "no library hypothesizer",
+  "removed": [
+   "hyp-library"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-library"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "condition": "no library hypothesizer",
+  "removed": [
+   "hyp-library"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-library"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 5
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "condition": "one validator lost",
+  "removed": [
+   "validator-0"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "validator-0"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 5
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "condition": "one validator lost",
+  "removed": [
+   "validator-0"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "validator-0"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 5
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "condition": "one validator lost",
+  "removed": [
+   "validator-0"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "validator-0"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 2
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "condition": "one validator lost",
+  "removed": [
+   "validator-0"
+  ],
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "validator-0"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 8
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "condition": "one validator lost",
+  "removed": [
+   "validator-0"
+  ],
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "validator-0"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 5
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "condition": "one validator lost",
+  "removed": [
+   "validator-0"
+  ],
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "validator-0"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 5
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "condition": "one validator lost",
+  "removed": [
+   "validator-0"
+  ],
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "validator-0"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 3
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "condition": "one validator lost",
+  "removed": [
+   "validator-0"
+  ],
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "validator-0"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 5
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "condition": "one validator lost",
+  "removed": [
+   "validator-0"
+  ],
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "validator-0"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 9
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "condition": "one validator lost",
+  "removed": [
+   "validator-0"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "validator-0"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 5
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "condition": "one validator lost",
+  "removed": [
+   "validator-0"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "validator-0"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "condition": "one validator lost",
+  "removed": [
+   "validator-0"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "validator-0"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 13
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "condition": "one explorer lost",
+  "removed": [
+   "explorer-0"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "explorer-0"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 7
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "condition": "one explorer lost",
+  "removed": [
+   "explorer-0"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "explorer-0"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 5
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "condition": "one explorer lost",
+  "removed": [
+   "explorer-0"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "explorer-0"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 10
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "condition": "one explorer lost",
+  "removed": [
+   "explorer-0"
+  ],
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "explorer-0"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 12
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "condition": "one explorer lost",
+  "removed": [
+   "explorer-0"
+  ],
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "explorer-0"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 7
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "condition": "one explorer lost",
+  "removed": [
+   "explorer-0"
+  ],
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "explorer-0"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 2
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "condition": "one explorer lost",
+  "removed": [
+   "explorer-0"
+  ],
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "explorer-0"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 1
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "condition": "one explorer lost",
+  "removed": [
+   "explorer-0"
+  ],
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "explorer-0"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 10
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "condition": "one explorer lost",
+  "removed": [
+   "explorer-0"
+  ],
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "explorer-0"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 11
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "condition": "one explorer lost",
+  "removed": [
+   "explorer-0"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "explorer-0"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 5
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "condition": "one explorer lost",
+  "removed": [
+   "explorer-0"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "explorer-0"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "condition": "one explorer lost",
+  "removed": [
+   "explorer-0"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "explorer-0"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 5
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "condition": "no monitor",
+  "removed": [
+   "monitor"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "monitor"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 5
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "condition": "no monitor",
+  "removed": [
+   "monitor"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "monitor"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 3
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "condition": "no monitor",
+  "removed": [
+   "monitor"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "monitor"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 4
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "condition": "no monitor",
+  "removed": [
+   "monitor"
+  ],
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "monitor"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 4
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "condition": "no monitor",
+  "removed": [
+   "monitor"
+  ],
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "monitor"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 3
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "condition": "no monitor",
+  "removed": [
+   "monitor"
+  ],
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "monitor"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 1
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "condition": "no monitor",
+  "removed": [
+   "monitor"
+  ],
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "monitor"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 3
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "condition": "no monitor",
+  "removed": [
+   "monitor"
+  ],
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "monitor"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 4
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "condition": "no monitor",
+  "removed": [
+   "monitor"
+  ],
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "monitor"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 1
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "condition": "no monitor",
+  "removed": [
+   "monitor"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "monitor"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 4
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "condition": "no monitor",
+  "removed": [
+   "monitor"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "monitor"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 1
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "condition": "no monitor",
+  "removed": [
+   "monitor"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "monitor"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 2
+ },
+ {
+  "family": "arm",
+  "seed": 1,
+  "condition": "every hypothesizer lost",
+  "removed": [
+   "hyp-channels",
+   "hyp-prior",
+   "hyp-library"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hx",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-channels",
+     "hyp-prior",
+     "hyp-library"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 4
+ },
+ {
+  "family": "arm",
+  "seed": 2,
+  "condition": "every hypothesizer lost",
+  "removed": [
+   "hyp-channels",
+   "hyp-prior",
+   "hyp-library"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-channels",
+     "hyp-prior",
+     "hyp-library"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 4
+ },
+ {
+  "family": "arm",
+  "seed": 3,
+  "condition": "every hypothesizer lost",
+  "removed": [
+   "hyp-channels",
+   "hyp-prior",
+   "hyp-library"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "hy",
+   "hy",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-channels",
+     "hyp-prior",
+     "hyp-library"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 4
+ },
+ {
+  "family": "gantry",
+  "seed": 1,
+  "condition": "every hypothesizer lost",
+  "removed": [
+   "hyp-channels",
+   "hyp-prior",
+   "hyp-library"
+  ],
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-channels",
+     "hyp-prior",
+     "hyp-library"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 8
+ },
+ {
+  "family": "gantry",
+  "seed": 2,
+  "condition": "every hypothesizer lost",
+  "removed": [
+   "hyp-channels",
+   "hyp-prior",
+   "hyp-library"
+  ],
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-channels",
+     "hyp-prior",
+     "hyp-library"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 7
+ },
+ {
+  "family": "gantry",
+  "seed": 3,
+  "condition": "every hypothesizer lost",
+  "removed": [
+   "hyp-channels",
+   "hyp-prior",
+   "hyp-library"
+  ],
+  "truth": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "sx",
+   "sy",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-channels",
+     "hyp-prior",
+     "hyp-library"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 5
+ },
+ {
+  "family": "scara",
+  "seed": 1,
+  "condition": "every hypothesizer lost",
+  "removed": [
+   "hyp-channels",
+   "hyp-prior",
+   "hyp-library"
+  ],
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-channels",
+     "hyp-prior",
+     "hyp-library"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 4
+ },
+ {
+  "family": "scara",
+  "seed": 2,
+  "condition": "every hypothesizer lost",
+  "removed": [
+   "hyp-channels",
+   "hyp-prior",
+   "hyp-library"
+  ],
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-channels",
+     "hyp-prior",
+     "hyp-library"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 5
+ },
+ {
+  "family": "scara",
+  "seed": 3,
+  "condition": "every hypothesizer lost",
+  "removed": [
+   "hyp-channels",
+   "hyp-prior",
+   "hyp-library"
+  ],
+  "truth": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "found": [
+   "hz",
+   "hz",
+   "sz",
+   "hz"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-channels",
+     "hyp-prior",
+     "hyp-library"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 5
+ },
+ {
+  "family": "telescope",
+  "seed": 1,
+  "condition": "every hypothesizer lost",
+  "removed": [
+   "hyp-channels",
+   "hyp-prior",
+   "hyp-library"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-channels",
+     "hyp-prior",
+     "hyp-library"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 2,
+  "condition": "every hypothesizer lost",
+  "removed": [
+   "hyp-channels",
+   "hyp-prior",
+   "hyp-library"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-channels",
+     "hyp-prior",
+     "hyp-library"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 2
+ },
+ {
+  "family": "telescope",
+  "seed": 3,
+  "condition": "every hypothesizer lost",
+  "removed": [
+   "hyp-channels",
+   "hyp-prior",
+   "hyp-library"
+  ],
+  "truth": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "found": [
+   "hz",
+   "hy",
+   "sz",
+   "hy"
+  ],
+  "structure_correct": true,
+  "knockout": [
+   {
+    "motion": 24,
+    "event": "knockout",
+    "what": [
+     "hyp-channels",
+     "hyp-prior",
+     "hyp-library"
+    ]
+   }
+  ],
+  "disagreements": 0,
+  "champions": 4
+ }
+]

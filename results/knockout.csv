@@ -1,0 +1,481 @@
+family,seed,condition,motions,reach_mm
+arm,1,full collective,16,nan
+arm,1,full collective,24,nan
+arm,1,full collective,32,4.844693600073038
+arm,1,full collective,48,1.2985824697231532
+arm,1,full collective,64,1.2985824697231532
+arm,2,full collective,16,nan
+arm,2,full collective,24,nan
+arm,2,full collective,32,370.09275322090383
+arm,2,full collective,48,3.8897139235522156
+arm,2,full collective,64,2.565799634596377
+arm,3,full collective,16,nan
+arm,3,full collective,24,nan
+arm,3,full collective,32,3.4067334919289105
+arm,3,full collective,48,2.6514699937291435
+arm,3,full collective,64,2.4641956800160365
+gantry,1,full collective,16,nan
+gantry,1,full collective,24,nan
+gantry,1,full collective,32,2.5896363417727466
+gantry,1,full collective,48,0.9007900790413772
+gantry,1,full collective,64,0.8725504976791209
+gantry,2,full collective,16,nan
+gantry,2,full collective,24,nan
+gantry,2,full collective,32,nan
+gantry,2,full collective,48,1.3057753076986043
+gantry,2,full collective,64,1.073339568120534
+gantry,3,full collective,16,nan
+gantry,3,full collective,24,nan
+gantry,3,full collective,32,nan
+gantry,3,full collective,48,1.4950103236166483
+gantry,3,full collective,64,1.4950103236166483
+scara,1,full collective,16,nan
+scara,1,full collective,24,nan
+scara,1,full collective,32,1.870104549955585
+scara,1,full collective,48,1.98285396363915
+scara,1,full collective,64,1.98285396363915
+scara,2,full collective,16,nan
+scara,2,full collective,24,nan
+scara,2,full collective,32,nan
+scara,2,full collective,48,1.6094234774682958
+scara,2,full collective,64,1.698377115654978
+scara,3,full collective,16,nan
+scara,3,full collective,24,nan
+scara,3,full collective,32,nan
+scara,3,full collective,48,1.378989871403808
+scara,3,full collective,64,1.0482673516373633
+telescope,1,full collective,16,nan
+telescope,1,full collective,24,nan
+telescope,1,full collective,32,1.896851723507911
+telescope,1,full collective,48,1.190446245748042
+telescope,1,full collective,64,0.8619193564475401
+telescope,2,full collective,16,nan
+telescope,2,full collective,24,nan
+telescope,2,full collective,32,nan
+telescope,2,full collective,48,1.6855124993229076
+telescope,2,full collective,64,1.6855124993229076
+telescope,3,full collective,16,nan
+telescope,3,full collective,24,nan
+telescope,3,full collective,32,nan
+telescope,3,full collective,48,2.0005363183082867
+telescope,3,full collective,64,2.0005363183082867
+arm,1,no findings hypothesizer,16,nan
+arm,1,no findings hypothesizer,24,nan
+arm,1,no findings hypothesizer,32,nan
+arm,1,no findings hypothesizer,48,1.5388156287331787
+arm,1,no findings hypothesizer,64,1.5388156287331787
+arm,2,no findings hypothesizer,16,nan
+arm,2,no findings hypothesizer,24,nan
+arm,2,no findings hypothesizer,32,5.503436764945396
+arm,2,no findings hypothesizer,48,3.5774249446381083
+arm,2,no findings hypothesizer,64,3.281842298016792
+arm,3,no findings hypothesizer,16,nan
+arm,3,no findings hypothesizer,24,nan
+arm,3,no findings hypothesizer,32,3.1087718019889565
+arm,3,no findings hypothesizer,48,2.828533204196282
+arm,3,no findings hypothesizer,64,2.828533204196282
+gantry,1,no findings hypothesizer,16,nan
+gantry,1,no findings hypothesizer,24,nan
+gantry,1,no findings hypothesizer,32,nan
+gantry,1,no findings hypothesizer,48,0.9776800576369298
+gantry,1,no findings hypothesizer,64,0.9776800576369298
+gantry,2,no findings hypothesizer,16,nan
+gantry,2,no findings hypothesizer,24,nan
+gantry,2,no findings hypothesizer,32,2.5618933880210593
+gantry,2,no findings hypothesizer,48,1.4453434381243944
+gantry,2,no findings hypothesizer,64,0.8076582983074023
+gantry,3,no findings hypothesizer,16,nan
+gantry,3,no findings hypothesizer,24,nan
+gantry,3,no findings hypothesizer,32,1.16139195790482
+gantry,3,no findings hypothesizer,48,1.16139195790482
+gantry,3,no findings hypothesizer,64,1.16139195790482
+scara,1,no findings hypothesizer,16,nan
+scara,1,no findings hypothesizer,24,nan
+scara,1,no findings hypothesizer,32,nan
+scara,1,no findings hypothesizer,48,1.2948395645054283
+scara,1,no findings hypothesizer,64,1.2948395645054283
+scara,2,no findings hypothesizer,16,nan
+scara,2,no findings hypothesizer,24,nan
+scara,2,no findings hypothesizer,32,3.5253061576444344
+scara,2,no findings hypothesizer,48,1.2797338512150203
+scara,2,no findings hypothesizer,64,1.479069160040427
+scara,3,no findings hypothesizer,16,nan
+scara,3,no findings hypothesizer,24,nan
+scara,3,no findings hypothesizer,32,1.303397170584649
+scara,3,no findings hypothesizer,48,1.06398697632738
+scara,3,no findings hypothesizer,64,1.170505776334718
+telescope,1,no findings hypothesizer,16,nan
+telescope,1,no findings hypothesizer,24,nan
+telescope,1,no findings hypothesizer,32,1.896851723507911
+telescope,1,no findings hypothesizer,48,0.7295249292075703
+telescope,1,no findings hypothesizer,64,0.8986331351618064
+telescope,2,no findings hypothesizer,16,nan
+telescope,2,no findings hypothesizer,24,nan
+telescope,2,no findings hypothesizer,32,2.297862461471749
+telescope,2,no findings hypothesizer,48,1.7975248373123658
+telescope,2,no findings hypothesizer,64,1.7975248373123658
+telescope,3,no findings hypothesizer,16,nan
+telescope,3,no findings hypothesizer,24,nan
+telescope,3,no findings hypothesizer,32,1.8414627067039449
+telescope,3,no findings hypothesizer,48,1.5096772683312234
+telescope,3,no findings hypothesizer,64,1.0360187404160957
+arm,1,no prior hypothesizer,16,nan
+arm,1,no prior hypothesizer,24,nan
+arm,1,no prior hypothesizer,32,nan
+arm,1,no prior hypothesizer,48,1.5388156287331787
+arm,1,no prior hypothesizer,64,1.5388156287331787
+arm,2,no prior hypothesizer,16,nan
+arm,2,no prior hypothesizer,24,nan
+arm,2,no prior hypothesizer,32,5.503436764945396
+arm,2,no prior hypothesizer,48,3.5774249446381083
+arm,2,no prior hypothesizer,64,3.281842298016792
+arm,3,no prior hypothesizer,16,nan
+arm,3,no prior hypothesizer,24,nan
+arm,3,no prior hypothesizer,32,3.1087718019889565
+arm,3,no prior hypothesizer,48,2.828533204196282
+arm,3,no prior hypothesizer,64,2.828533204196282
+gantry,1,no prior hypothesizer,16,nan
+gantry,1,no prior hypothesizer,24,nan
+gantry,1,no prior hypothesizer,32,nan
+gantry,1,no prior hypothesizer,48,0.9776800576369298
+gantry,1,no prior hypothesizer,64,0.9776800576369298
+gantry,2,no prior hypothesizer,16,nan
+gantry,2,no prior hypothesizer,24,nan
+gantry,2,no prior hypothesizer,32,2.5618933880210593
+gantry,2,no prior hypothesizer,48,1.4453434381243944
+gantry,2,no prior hypothesizer,64,0.8076582983074023
+gantry,3,no prior hypothesizer,16,nan
+gantry,3,no prior hypothesizer,24,nan
+gantry,3,no prior hypothesizer,32,1.16139195790482
+gantry,3,no prior hypothesizer,48,1.16139195790482
+gantry,3,no prior hypothesizer,64,1.16139195790482
+scara,1,no prior hypothesizer,16,nan
+scara,1,no prior hypothesizer,24,nan
+scara,1,no prior hypothesizer,32,nan
+scara,1,no prior hypothesizer,48,1.2948395645054283
+scara,1,no prior hypothesizer,64,1.2948395645054283
+scara,2,no prior hypothesizer,16,nan
+scara,2,no prior hypothesizer,24,nan
+scara,2,no prior hypothesizer,32,3.5253061576444344
+scara,2,no prior hypothesizer,48,1.2797338512150203
+scara,2,no prior hypothesizer,64,1.479069160040427
+scara,3,no prior hypothesizer,16,nan
+scara,3,no prior hypothesizer,24,nan
+scara,3,no prior hypothesizer,32,1.303397170584649
+scara,3,no prior hypothesizer,48,1.06398697632738
+scara,3,no prior hypothesizer,64,1.170505776334718
+telescope,1,no prior hypothesizer,16,nan
+telescope,1,no prior hypothesizer,24,nan
+telescope,1,no prior hypothesizer,32,1.896851723507911
+telescope,1,no prior hypothesizer,48,0.7295249292075703
+telescope,1,no prior hypothesizer,64,0.8986331351618064
+telescope,2,no prior hypothesizer,16,nan
+telescope,2,no prior hypothesizer,24,nan
+telescope,2,no prior hypothesizer,32,2.297862461471749
+telescope,2,no prior hypothesizer,48,1.7975248373123658
+telescope,2,no prior hypothesizer,64,1.7975248373123658
+telescope,3,no prior hypothesizer,16,nan
+telescope,3,no prior hypothesizer,24,nan
+telescope,3,no prior hypothesizer,32,1.8414627067039449
+telescope,3,no prior hypothesizer,48,1.5096772683312234
+telescope,3,no prior hypothesizer,64,1.0360187404160957
+arm,1,no library hypothesizer,16,nan
+arm,1,no library hypothesizer,24,nan
+arm,1,no library hypothesizer,32,nan
+arm,1,no library hypothesizer,48,1.5388156287331787
+arm,1,no library hypothesizer,64,1.5388156287331787
+arm,2,no library hypothesizer,16,nan
+arm,2,no library hypothesizer,24,nan
+arm,2,no library hypothesizer,32,5.503436764945396
+arm,2,no library hypothesizer,48,3.5774249446381083
+arm,2,no library hypothesizer,64,3.281842298016792
+arm,3,no library hypothesizer,16,nan
+arm,3,no library hypothesizer,24,nan
+arm,3,no library hypothesizer,32,3.1087718019889565
+arm,3,no library hypothesizer,48,2.828533204196282
+arm,3,no library hypothesizer,64,2.828533204196282
+gantry,1,no library hypothesizer,16,nan
+gantry,1,no library hypothesizer,24,nan
+gantry,1,no library hypothesizer,32,nan
+gantry,1,no library hypothesizer,48,0.9776800576369298
+gantry,1,no library hypothesizer,64,0.9776800576369298
+gantry,2,no library hypothesizer,16,nan
+gantry,2,no library hypothesizer,24,nan
+gantry,2,no library hypothesizer,32,2.5618933880210593
+gantry,2,no library hypothesizer,48,1.4453434381243944
+gantry,2,no library hypothesizer,64,0.8076582983074023
+gantry,3,no library hypothesizer,16,nan
+gantry,3,no library hypothesizer,24,nan
+gantry,3,no library hypothesizer,32,1.16139195790482
+gantry,3,no library hypothesizer,48,1.16139195790482
+gantry,3,no library hypothesizer,64,1.16139195790482
+scara,1,no library hypothesizer,16,nan
+scara,1,no library hypothesizer,24,nan
+scara,1,no library hypothesizer,32,nan
+scara,1,no library hypothesizer,48,1.2948395645054283
+scara,1,no library hypothesizer,64,1.2948395645054283
+scara,2,no library hypothesizer,16,nan
+scara,2,no library hypothesizer,24,nan
+scara,2,no library hypothesizer,32,3.5253061576444344
+scara,2,no library hypothesizer,48,1.2797338512150203
+scara,2,no library hypothesizer,64,1.479069160040427
+scara,3,no library hypothesizer,16,nan
+scara,3,no library hypothesizer,24,nan
+scara,3,no library hypothesizer,32,1.303397170584649
+scara,3,no library hypothesizer,48,1.06398697632738
+scara,3,no library hypothesizer,64,1.170505776334718
+telescope,1,no library hypothesizer,16,nan
+telescope,1,no library hypothesizer,24,nan
+telescope,1,no library hypothesizer,32,1.896851723507911
+telescope,1,no library hypothesizer,48,0.7295249292075703
+telescope,1,no library hypothesizer,64,0.8986331351618064
+telescope,2,no library hypothesizer,16,nan
+telescope,2,no library hypothesizer,24,nan
+telescope,2,no library hypothesizer,32,2.297862461471749
+telescope,2,no library hypothesizer,48,1.7975248373123658
+telescope,2,no library hypothesizer,64,1.7975248373123658
+telescope,3,no library hypothesizer,16,nan
+telescope,3,no library hypothesizer,24,nan
+telescope,3,no library hypothesizer,32,1.8414627067039449
+telescope,3,no library hypothesizer,48,1.5096772683312234
+telescope,3,no library hypothesizer,64,1.0360187404160957
+arm,1,one validator lost,16,nan
+arm,1,one validator lost,24,nan
+arm,1,one validator lost,32,nan
+arm,1,one validator lost,48,1.807907570303111
+arm,1,one validator lost,64,1.0236936999507686
+arm,2,one validator lost,16,nan
+arm,2,one validator lost,24,nan
+arm,2,one validator lost,32,nan
+arm,2,one validator lost,48,3.8339488419496135
+arm,2,one validator lost,64,2.397515634654124
+arm,3,one validator lost,16,nan
+arm,3,one validator lost,24,nan
+arm,3,one validator lost,32,nan
+arm,3,one validator lost,48,3.3319981789795814
+arm,3,one validator lost,64,3.3319981789795814
+gantry,1,one validator lost,16,nan
+gantry,1,one validator lost,24,nan
+gantry,1,one validator lost,32,nan
+gantry,1,one validator lost,48,1.0476038636916691
+gantry,1,one validator lost,64,1.3133514908933381
+gantry,2,one validator lost,16,nan
+gantry,2,one validator lost,24,nan
+gantry,2,one validator lost,32,nan
+gantry,2,one validator lost,48,0.8838151918766921
+gantry,2,one validator lost,64,1.0925185362660634
+gantry,3,one validator lost,16,nan
+gantry,3,one validator lost,24,nan
+gantry,3,one validator lost,32,nan
+gantry,3,one validator lost,48,0.9370072452060138
+gantry,3,one validator lost,64,0.9370072452060138
+scara,1,one validator lost,16,nan
+scara,1,one validator lost,24,nan
+scara,1,one validator lost,32,nan
+scara,1,one validator lost,48,1.9698218098403997
+scara,1,one validator lost,64,1.4918485294888593
+scara,2,one validator lost,16,nan
+scara,2,one validator lost,24,nan
+scara,2,one validator lost,32,nan
+scara,2,one validator lost,48,1.4924422061093012
+scara,2,one validator lost,64,1.453912332819128
+scara,3,one validator lost,16,nan
+scara,3,one validator lost,24,nan
+scara,3,one validator lost,32,nan
+scara,3,one validator lost,48,1.0502929965909977
+scara,3,one validator lost,64,1.3188787771340835
+telescope,1,one validator lost,16,nan
+telescope,1,one validator lost,24,nan
+telescope,1,one validator lost,32,nan
+telescope,1,one validator lost,48,1.6198527733027177
+telescope,1,one validator lost,64,1.1186523425737835
+telescope,2,one validator lost,16,nan
+telescope,2,one validator lost,24,nan
+telescope,2,one validator lost,32,nan
+telescope,2,one validator lost,48,1.6855124993229076
+telescope,2,one validator lost,64,1.6855124993229076
+telescope,3,one validator lost,16,nan
+telescope,3,one validator lost,24,nan
+telescope,3,one validator lost,32,nan
+telescope,3,one validator lost,48,3.0812664393797395
+telescope,3,one validator lost,64,1.4269642627445223
+arm,1,one explorer lost,16,nan
+arm,1,one explorer lost,24,nan
+arm,1,one explorer lost,32,2.8839828528433045
+arm,1,one explorer lost,48,1.878708095579052
+arm,1,one explorer lost,64,1.8171768236155375
+arm,2,one explorer lost,16,nan
+arm,2,one explorer lost,24,nan
+arm,2,one explorer lost,32,5.503436764945396
+arm,2,one explorer lost,48,3.2638653162610636
+arm,2,one explorer lost,64,2.62036584195205
+arm,3,one explorer lost,16,nan
+arm,3,one explorer lost,24,nan
+arm,3,one explorer lost,32,3.4067334919289105
+arm,3,one explorer lost,48,2.6661428768136926
+arm,3,one explorer lost,64,2.5849436757656585
+gantry,1,one explorer lost,16,nan
+gantry,1,one explorer lost,24,nan
+gantry,1,one explorer lost,32,1.8818631169472395
+gantry,1,one explorer lost,48,0.8706264467562483
+gantry,1,one explorer lost,64,0.8933792590788032
+gantry,2,one explorer lost,16,nan
+gantry,2,one explorer lost,24,nan
+gantry,2,one explorer lost,32,1.6180685878610908
+gantry,2,one explorer lost,48,0.9352879056028619
+gantry,2,one explorer lost,64,0.962836464516615
+gantry,3,one explorer lost,16,nan
+gantry,3,one explorer lost,24,nan
+gantry,3,one explorer lost,32,1.16139195790482
+gantry,3,one explorer lost,48,1.16139195790482
+gantry,3,one explorer lost,64,1.16139195790482
+scara,1,one explorer lost,16,nan
+scara,1,one explorer lost,24,nan
+scara,1,one explorer lost,32,1.8194520744133882
+scara,1,one explorer lost,48,1.8194520744133882
+scara,1,one explorer lost,64,1.8194520744133882
+scara,2,one explorer lost,16,nan
+scara,2,one explorer lost,24,nan
+scara,2,one explorer lost,32,1.8673895799214555
+scara,2,one explorer lost,48,1.2961292917804152
+scara,2,one explorer lost,64,1.06791318793809
+scara,3,one explorer lost,16,nan
+scara,3,one explorer lost,24,nan
+scara,3,one explorer lost,32,1.303397170584649
+scara,3,one explorer lost,48,0.7125327889842777
+scara,3,one explorer lost,64,0.5015243933395797
+telescope,1,one explorer lost,16,nan
+telescope,1,one explorer lost,24,nan
+telescope,1,one explorer lost,32,1.896851723507911
+telescope,1,one explorer lost,48,1.5398286470197764
+telescope,1,one explorer lost,64,1.4564332669686624
+telescope,2,one explorer lost,16,nan
+telescope,2,one explorer lost,24,nan
+telescope,2,one explorer lost,32,1.9405768943032988
+telescope,2,one explorer lost,48,1.9405768943032988
+telescope,2,one explorer lost,64,1.9405768943032988
+telescope,3,one explorer lost,16,nan
+telescope,3,one explorer lost,24,nan
+telescope,3,one explorer lost,32,2.9157167849940424
+telescope,3,one explorer lost,48,1.4277398538392028
+telescope,3,one explorer lost,64,1.4277398538392028
+arm,1,no monitor,16,nan
+arm,1,no monitor,24,nan
+arm,1,no monitor,32,4.844693600073038
+arm,1,no monitor,48,1.9519341352369035
+arm,1,no monitor,64,1.9519341352369035
+arm,2,no monitor,16,nan
+arm,2,no monitor,24,nan
+arm,2,no monitor,32,370.09275322090383
+arm,2,no monitor,48,3.359891200023178
+arm,2,no monitor,64,2.945649114925974
+arm,3,no monitor,16,nan
+arm,3,no monitor,24,nan
+arm,3,no monitor,32,nan
+arm,3,no monitor,48,2.88547328015828
+arm,3,no monitor,64,2.4075680473530787
+gantry,1,no monitor,16,nan
+gantry,1,no monitor,24,nan
+gantry,1,no monitor,32,2.5896363417727466
+gantry,1,no monitor,48,1.3696460108163038
+gantry,1,no monitor,64,1.0872122974142027
+gantry,2,no monitor,16,nan
+gantry,2,no monitor,24,nan
+gantry,2,no monitor,32,nan
+gantry,2,no monitor,48,0.8650066483778326
+gantry,2,no monitor,64,0.8650066483778326
+gantry,3,no monitor,16,nan
+gantry,3,no monitor,24,nan
+gantry,3,no monitor,32,nan
+gantry,3,no monitor,48,1.4950103236166483
+gantry,3,no monitor,64,1.4950103236166483
+scara,1,no monitor,16,nan
+scara,1,no monitor,24,nan
+scara,1,no monitor,32,1.870104549955585
+scara,1,no monitor,48,1.785129741117853
+scara,1,no monitor,64,1.785129741117853
+scara,2,no monitor,16,nan
+scara,2,no monitor,24,nan
+scara,2,no monitor,32,nan
+scara,2,no monitor,48,1.4173484620108534
+scara,2,no monitor,64,1.4924422061093012
+scara,3,no monitor,16,nan
+scara,3,no monitor,24,nan
+scara,3,no monitor,32,nan
+scara,3,no monitor,48,1.4623457635659265
+scara,3,no monitor,64,1.4623457635659265
+telescope,1,no monitor,16,nan
+telescope,1,no monitor,24,nan
+telescope,1,no monitor,32,1.896851723507911
+telescope,1,no monitor,48,1.7779431612390977
+telescope,1,no monitor,64,1.1281382516984748
+telescope,2,no monitor,16,nan
+telescope,2,no monitor,24,nan
+telescope,2,no monitor,32,nan
+telescope,2,no monitor,48,1.9649985311181146
+telescope,2,no monitor,64,1.9649985311181146
+telescope,3,no monitor,16,nan
+telescope,3,no monitor,24,nan
+telescope,3,no monitor,32,nan
+telescope,3,no monitor,48,2.6657572649140384
+telescope,3,no monitor,64,1.6970711445461646
+arm,1,every hypothesizer lost,16,nan
+arm,1,every hypothesizer lost,24,nan
+arm,1,every hypothesizer lost,32,2.1231809513587074
+arm,1,every hypothesizer lost,48,1.2546546824765727
+arm,1,every hypothesizer lost,64,1.2074247800505422
+arm,2,every hypothesizer lost,16,nan
+arm,2,every hypothesizer lost,24,nan
+arm,2,every hypothesizer lost,32,4.710201622599329
+arm,2,every hypothesizer lost,48,3.3409951535279605
+arm,2,every hypothesizer lost,64,2.618149347468262
+arm,3,every hypothesizer lost,16,nan
+arm,3,every hypothesizer lost,24,nan
+arm,3,every hypothesizer lost,32,3.4067334919289105
+arm,3,every hypothesizer lost,48,2.9275310834325343
+arm,3,every hypothesizer lost,64,3.1506283717995522
+gantry,1,every hypothesizer lost,16,nan
+gantry,1,every hypothesizer lost,24,nan
+gantry,1,every hypothesizer lost,32,2.2844651798495748
+gantry,1,every hypothesizer lost,48,1.0494448816666786
+gantry,1,every hypothesizer lost,64,0.7711101729600155
+gantry,2,every hypothesizer lost,16,nan
+gantry,2,every hypothesizer lost,24,nan
+gantry,2,every hypothesizer lost,32,1.4935024033581719
+gantry,2,every hypothesizer lost,48,1.219076839252778
+gantry,2,every hypothesizer lost,64,0.9552294846731924
+gantry,3,every hypothesizer lost,16,nan
+gantry,3,every hypothesizer lost,24,nan
+gantry,3,every hypothesizer lost,32,1.545690740196242
+gantry,3,every hypothesizer lost,48,1.1168031958299247
+gantry,3,every hypothesizer lost,64,0.9633933895679542
+scara,1,every hypothesizer lost,16,nan
+scara,1,every hypothesizer lost,24,nan
+scara,1,every hypothesizer lost,32,2.4542911345461604
+scara,1,every hypothesizer lost,48,1.6818389036519912
+scara,1,every hypothesizer lost,64,1.6818389036519912
+scara,2,every hypothesizer lost,16,nan
+scara,2,every hypothesizer lost,24,nan
+scara,2,every hypothesizer lost,32,2.3959917899762835
+scara,2,every hypothesizer lost,48,1.6653354120948727
+scara,2,every hypothesizer lost,64,1.2591853117234855
+scara,3,every hypothesizer lost,16,nan
+scara,3,every hypothesizer lost,24,nan
+scara,3,every hypothesizer lost,32,1.303397170584649
+scara,3,every hypothesizer lost,48,1.3366171259095463
+scara,3,every hypothesizer lost,64,1.245959357460479
+telescope,1,every hypothesizer lost,16,nan
+telescope,1,every hypothesizer lost,24,nan
+telescope,1,every hypothesizer lost,32,1.2438181275041784
+telescope,1,every hypothesizer lost,48,1.6400219461800194
+telescope,1,every hypothesizer lost,64,1.6400219461800194
+telescope,2,every hypothesizer lost,16,nan
+telescope,2,every hypothesizer lost,24,nan
+telescope,2,every hypothesizer lost,32,2.0843394866533203
+telescope,2,every hypothesizer lost,48,2.0843394866533203
+telescope,2,every hypothesizer lost,64,2.0843394866533203
+telescope,3,every hypothesizer lost,16,nan
+telescope,3,every hypothesizer lost,24,nan
+telescope,3,every hypothesizer lost,32,2.7882594318047382
+telescope,3,every hypothesizer lost,48,2.0928564228378463
+telescope,3,every hypothesizer lost,64,1.7893615252302502

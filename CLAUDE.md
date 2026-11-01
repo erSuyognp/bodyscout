@@ -19,12 +19,16 @@ If you add a feature that needs ground truth, it belongs in experiments/ or the 
 - `bodyscout/world.py`      hidden world: procedural arms, gantries, SCARA, telescopes (hinge + slide joints), noise, damage
 - `bodyscout/models.py`     competing self models: ChainModel (physics prior), GMMModel (Kitchin 2025), MLPModel
 - `bodyscout/blackboard.py` ScienceClaw style artifacts (with parents) + needs with pressure
-- `bodyscout/agents.py`     Explorer, ChannelAgent x N (hinge or slide per channel), Hypothesizer (Claude),
-                            Modeler x3, Validator (holdout + replay gate), Monitor
+- `bodyscout/agents.py`     Explorer x2, ChannelAgent x N (hinge or slide per channel), independent
+                            hypothesizers (findings, prior, library, one LLM per key: Claude, Gemini),
+                            Modeler x3 (chain also assembles findings itself), Validator x2 voting on the
+                            public rule `crown(bb)`, Monitor. No role has a single instance without a fallback.
+- `bodyscout/env.py`        loads API keys from .env (gitignored); no keys = no LLM hypothesizers
 - Structure tokens: "hz" = hinge about z, "sx" = slide along x. `run(..., unknown_body=True)` turns on channel agents.
 - `bodyscout/planning.py`   IK on the champion, extrapolation guard, true reach scorer
 - `bodyscout/swarm.py`      run(robot, condition) for swarm / single / mlp, learning curve output
-- `experiments/`            learning_curve.py, damage.py, extrapolation.py, make_plots.py
+- `experiments/`            learning_curve.py, damage.py, extrapolation.py, bodies.py, knockout.py, make_plots.py
+                            (scripts that use a Pool keep their work under `if __name__ == "__main__":`, Windows needs it)
 - `demo.py`                 narrated live run + optional video
 
 ## Conventions
@@ -34,3 +38,4 @@ If you add a feature that needs ground truth, it belongs in experiments/ or the 
 - Report honest numbers. If a baseline wins somewhere, keep it in the slides and explain why.
 - Run `python -m pytest -q` (tests/) and `python demo.py` before saying something works.
 - Runs are deterministic: same seeds give identical output; check with two demo runs and diff before claiming a change is neutral.
+  (LLM hypothesizers break this: their answers vary. They are off unless a key is set.)
