@@ -18,7 +18,7 @@ import numpy as np
 
 from ..agents import Agent, current_score
 from ..blackboard import Blackboard
-from .fit import fit_dynamics, path_rmse_mm
+from .fit import diagnose_change, fit_dynamics, path_rmse_mm
 
 COST_DIV = 50  # a trajectory of T samples costs T / 50 motions (the robot's published price)
 
@@ -149,19 +149,7 @@ class DynamicsMonitor(Agent):
 
     def _diagnose(self, dm, strikes):
         """Which single change explains the jump? Refit only the payload, then only each kp."""
-        trajs = [(a.payload["targets"], a.payload["path"]) for a in strikes]
-        fits = {"payload": fit_dynamics(dm.kin, trajs, init=dm.params, free="payload")}
-        for k in range(dm.n):
-            fits[f"kp{k}"] = fit_dynamics(dm.kin, trajs, init=dm.params, free=("kp", k))
-        errs = {c: m.path_rmse_mm(trajs) for c, m in fits.items()}
-        best = min(errs, key=errs.get)
-        out = {"cause": "payload" if best == "payload" else "weak_motor",
-               "refit_mm": {c: round(e, 2) for c, e in errs.items()}, "best_refit_mm": errs[best],
-               "payload_added_kg": fits["payload"].params["payload"] - dm.params["payload"]}
-        if best != "payload":
-            k = int(best[2:])
-            out.update(channel=k, kp_ratio=fits[best].params["kp"][k] / dm.params["kp"][k])
-        return out
+        return diagnose_change(dm, [(a.payload["targets"], a.payload["path"]) for a in strikes])
 
     def step(self, bb, t):
         de = dyn_epoch(bb)

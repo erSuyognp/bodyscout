@@ -233,3 +233,22 @@ def fit_dynamics(kin, trajs, dt: float = 0.01, init: dict | None = None, free="a
     dm.fit_info = {"free": [f"{n}{'' if i is None else i}" for n, i in knobs], "nfev": int(sol.nfev),
                    "train_path_mm": dm.path_rmse_mm(trajs)}
     return dm
+
+
+def diagnose_change(dm: DynModel, trajs) -> dict:
+    """Which single change explains new paths best? Refit only the payload, then only each joint's kp,
+    each from dm's parameters, and keep the refit with the smallest path error on `trajs`.
+    Returns cause ("payload" | "weak_motor"), refit_mm per candidate, best_refit_mm, payload_added_kg,
+    and for a weak motor its channel and kp_ratio (new kp / old kp)."""
+    fits = {"payload": fit_dynamics(dm.kin, trajs, init=dm.params, free="payload")}
+    for k in range(dm.n):
+        fits[f"kp{k}"] = fit_dynamics(dm.kin, trajs, init=dm.params, free=("kp", k))
+    errs = {c: m.path_rmse_mm(trajs) for c, m in fits.items()}
+    best = min(errs, key=errs.get)
+    out = {"cause": "payload" if best == "payload" else "weak_motor",
+           "refit_mm": {c: round(e, 2) for c, e in errs.items()}, "best_refit_mm": errs[best],
+           "payload_added_kg": fits["payload"].params["payload"] - dm.params["payload"]}
+    if best != "payload":
+        k = int(best[2:])
+        out.update(channel=k, kp_ratio=fits[best].params["kp"][k] / dm.params["kp"][k])
+    return out

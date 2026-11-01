@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bodyscout"
+version = "0.1.0"
+description = "A decentralized agent swarm that discovers any jointed robot's body (and dynamics) from motions alone"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["mujoco>=3.2", "numpy", "scipy", "scikit-learn"]
+
+[project.optional-dependencies]
+llm = ["anthropic"]
+plots = ["matplotlib"]
+mjx = ["jax", "mujoco-mjx"]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+include = ["bodyscout*"]
