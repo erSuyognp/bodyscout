@@ -51,10 +51,14 @@ KIND_TO_TYPE = {
     "champion": "candidate_ranking",
     "score": "analysis_result",
     "anomaly": "analysis_result",
+    "plan": "analysis_result",
+    "replan": "analysis_result",
+    "result": "analysis_result",
 }
 # Our need kinds -> the artifact_type a NeedItem asks for (must be in their ArtifactTypeLiteral)
 NEED_TO_TYPE = {"data": "tabular_data", "probe": "tabular_data",
-                "hypotheses": "synthesis", "relearn": "ml_prediction"}
+                "hypotheses": "synthesis", "relearn": "ml_prediction",
+                "task": "analysis_result", "replan": "analysis_result"}
 NEED_CARRIER_TYPE = "raw_output"  # ScienceClaw's fallback type; the payload is our Need
 
 

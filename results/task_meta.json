@@ -1,0 +1,3826 @@
+[
+ {
+  "arm": 1,
+  "condition": "swarm",
+  "damage": "long_link",
+  "alarms": [
+   69
+  ],
+  "events": [
+   {
+    "motion": 51,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": 4.939288003026209,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "x",
+     "z"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hx",
+     "hz"
+    ],
+    "links_m": [
+     0.069,
+     0.193,
+     0.12,
+     0.118
+    ],
+    "identifiable": [
+     false,
+     true,
+     false,
+     false
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": 5.548633100632005,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "x",
+     "z"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hx",
+     "hz"
+    ],
+    "links_m": [
+     0.069,
+     0.311,
+     0.125,
+     0.116
+    ],
+    "identifiable": [
+     false,
+     true,
+     false,
+     false
+    ]
+   }
+  },
+  "surprises_after": [
+   {
+    "kind": "anomaly",
+    "author": "monitor"
+   }
+  ]
+ },
+ {
+  "arm": 1,
+  "condition": "single",
+  "damage": "long_link",
+  "alarms": [],
+  "events": [
+   {
+    "motion": 48,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "x",
+     "z"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hx",
+     "hz"
+    ],
+    "links_m": [
+     0.069,
+     0.193,
+     0.13,
+     0.113
+    ],
+    "identifiable": [
+     false,
+     true,
+     false,
+     false
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "x",
+     "z"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hx",
+     "hz"
+    ],
+    "links_m": [
+     0.069,
+     0.261,
+     0.143,
+     0.108
+    ],
+    "identifiable": [
+     false,
+     true,
+     false,
+     false
+    ]
+   }
+  },
+  "surprises_after": []
+ },
+ {
+  "arm": 2,
+  "condition": "swarm",
+  "damage": "long_link",
+  "alarms": [
+   72
+  ],
+  "events": [
+   {
+    "motion": 54,
+    "event": "damage",
+    "what": "link 3 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": 5.019944413989501,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "y",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hy",
+     "hy"
+    ],
+    "links_m": [
+     0.066,
+     0.149,
+     0.166,
+     0.093,
+     0.076
+    ],
+    "identifiable": [
+     false,
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": 5.0657296358576716,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "y",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hy",
+     "hy"
+    ],
+    "links_m": [
+     0.065,
+     0.15,
+     0.164,
+     0.152,
+     0.077
+    ],
+    "identifiable": [
+     true,
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "surprises_after": [
+   {
+    "kind": "anomaly",
+    "author": "monitor"
+   }
+  ]
+ },
+ {
+  "arm": 2,
+  "condition": "single",
+  "damage": "long_link",
+  "alarms": [],
+  "events": [
+   {
+    "motion": 48,
+    "event": "damage",
+    "what": "link 3 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "y",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hy",
+     "hy"
+    ],
+    "links_m": [
+     0.065,
+     0.148,
+     0.166,
+     0.094,
+     0.077
+    ],
+    "identifiable": [
+     false,
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "y",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hy",
+     "hy"
+    ],
+    "links_m": [
+     0.067,
+     0.148,
+     0.164,
+     0.126,
+     0.079
+    ],
+    "identifiable": [
+     false,
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "surprises_after": []
+ },
+ {
+  "arm": 3,
+  "condition": "swarm",
+  "damage": "long_link",
+  "alarms": [
+   71
+  ],
+  "events": [
+   {
+    "motion": 49,
+    "event": "damage",
+    "what": "link 3 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": 4.742682316141314,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "y",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hy",
+     "hy"
+    ],
+    "links_m": [
+     0.099,
+     0.082,
+     0.126,
+     0.131,
+     0.092
+    ],
+    "identifiable": [
+     false,
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": 5.030572233509466,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "y",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hy",
+     "hy"
+    ],
+    "links_m": [
+     0.099,
+     0.082,
+     0.126,
+     0.212,
+     0.091
+    ],
+    "identifiable": [
+     false,
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "surprises_after": [
+   {
+    "kind": "anomaly",
+    "author": "monitor"
+   }
+  ]
+ },
+ {
+  "arm": 3,
+  "condition": "single",
+  "damage": "long_link",
+  "alarms": [],
+  "events": [
+   {
+    "motion": 48,
+    "event": "damage",
+    "what": "link 3 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "y",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hy",
+     "hy"
+    ],
+    "links_m": [
+     0.1,
+     0.083,
+     0.126,
+     0.132,
+     0.091
+    ],
+    "identifiable": [
+     false,
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "y",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hy",
+     "hy"
+    ],
+    "links_m": [
+     0.097,
+     0.083,
+     0.124,
+     0.179,
+     0.092
+    ],
+    "identifiable": [
+     false,
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "surprises_after": []
+ },
+ {
+  "arm": 4,
+  "condition": "swarm",
+  "damage": "long_link",
+  "alarms": [
+   80
+  ],
+  "events": [
+   {
+    "motion": 54,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": 4.161907532759053,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "z",
+     "y",
+     "z"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hz",
+     "hy",
+     "hz"
+    ],
+    "links_m": [
+     0.1,
+     0.101,
+     0.1,
+     0.136,
+     0.133
+    ],
+    "identifiable": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": 7.108786660429955,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "z",
+     "y",
+     "z"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hz",
+     "hy",
+     "hz"
+    ],
+    "links_m": [
+     0.118,
+     0.118,
+     0.118,
+     0.133,
+     0.133
+    ],
+    "identifiable": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   }
+  },
+  "surprises_after": [
+   {
+    "kind": "anomaly",
+    "author": "monitor"
+   }
+  ]
+ },
+ {
+  "arm": 4,
+  "condition": "single",
+  "damage": "long_link",
+  "alarms": [],
+  "events": [
+   {
+    "motion": 48,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "z",
+     "y",
+     "z"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hz",
+     "hy",
+     "hz"
+    ],
+    "links_m": [
+     0.1,
+     0.101,
+     0.101,
+     0.137,
+     0.132
+    ],
+    "identifiable": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "z",
+     "y",
+     "z"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hz",
+     "hy",
+     "hz"
+    ],
+    "links_m": [
+     0.111,
+     0.112,
+     0.111,
+     0.137,
+     0.132
+    ],
+    "identifiable": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   }
+  },
+  "surprises_after": []
+ },
+ {
+  "arm": 5,
+  "condition": "swarm",
+  "damage": "long_link",
+  "alarms": [
+   67
+  ],
+  "events": [
+   {
+    "motion": 49,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": 4.41412833467658,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "y",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hy",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.078,
+     0.078,
+     0.122,
+     0.122,
+     0.076
+    ],
+    "identifiable": [
+     false,
+     false,
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": 3.9701770050115215,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "y",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hy",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.078,
+     0.078,
+     0.158,
+     0.157,
+     0.076
+    ],
+    "identifiable": [
+     false,
+     false,
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "surprises_after": [
+   {
+    "kind": "anomaly",
+    "author": "monitor"
+   }
+  ]
+ },
+ {
+  "arm": 5,
+  "condition": "single",
+  "damage": "long_link",
+  "alarms": [],
+  "events": [
+   {
+    "motion": 48,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "y",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hy",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.078,
+     0.078,
+     0.122,
+     0.122,
+     0.076
+    ],
+    "identifiable": [
+     false,
+     false,
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "y",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hy",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.078,
+     0.077,
+     0.144,
+     0.142,
+     0.079
+    ],
+    "identifiable": [
+     false,
+     false,
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "surprises_after": []
+ },
+ {
+  "arm": 6,
+  "condition": "swarm",
+  "damage": "long_link",
+  "alarms": [
+   63
+  ],
+  "events": [
+   {
+    "motion": 49,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": 4.453413181336666,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hy"
+    ],
+    "links_m": [
+     0.083,
+     0.12,
+     0.197,
+     0.152
+    ],
+    "identifiable": [
+     false,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": 3.8511009501875293,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hy"
+    ],
+    "links_m": [
+     0.084,
+     0.191,
+     0.198,
+     0.152
+    ],
+    "identifiable": [
+     false,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "surprises_after": [
+   {
+    "kind": "anomaly",
+    "author": "monitor"
+   }
+  ]
+ },
+ {
+  "arm": 6,
+  "condition": "single",
+  "damage": "long_link",
+  "alarms": [],
+  "events": [
+   {
+    "motion": 48,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hy"
+    ],
+    "links_m": [
+     0.084,
+     0.119,
+     0.198,
+     0.151
+    ],
+    "identifiable": [
+     false,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hy"
+    ],
+    "links_m": [
+     0.084,
+     0.159,
+     0.204,
+     0.145
+    ],
+    "identifiable": [
+     false,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "surprises_after": []
+ },
+ {
+  "arm": 7,
+  "condition": "swarm",
+  "damage": "long_link",
+  "alarms": [
+   72
+  ],
+  "events": [
+   {
+    "motion": 54,
+    "event": "damage",
+    "what": "link 3 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": 5.738894541848652,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "x",
+     "x",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hx",
+     "hx",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.073,
+     0.109,
+     0.128,
+     0.128,
+     0.176
+    ],
+    "identifiable": [
+     false,
+     true,
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": 7.053670253808508,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "x",
+     "x",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hx",
+     "hx",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.073,
+     0.109,
+     0.15,
+     0.149,
+     0.177
+    ],
+    "identifiable": [
+     false,
+     true,
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "surprises_after": [
+   {
+    "kind": "anomaly",
+    "author": "monitor"
+   }
+  ]
+ },
+ {
+  "arm": 7,
+  "condition": "single",
+  "damage": "long_link",
+  "alarms": [],
+  "events": [
+   {
+    "motion": 48,
+    "event": "damage",
+    "what": "link 3 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "x",
+     "x",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hx",
+     "hx",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.073,
+     0.109,
+     0.128,
+     0.128,
+     0.178
+    ],
+    "identifiable": [
+     false,
+     true,
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "x",
+     "x",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hx",
+     "hx",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.076,
+     0.107,
+     0.14,
+     0.14,
+     0.179
+    ],
+    "identifiable": [
+     false,
+     true,
+     true,
+     false,
+     true
+    ]
+   }
+  },
+  "surprises_after": []
+ },
+ {
+  "arm": 8,
+  "condition": "swarm",
+  "damage": "long_link",
+  "alarms": [
+   72
+  ],
+  "events": [
+   {
+    "motion": 50,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": 5.377517206744967,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.111,
+     0.183,
+     0.124,
+     0.124,
+     0.118
+    ],
+    "identifiable": [
+     false,
+     true,
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": 5.32748872664633,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.111,
+     0.183,
+     0.161,
+     0.16,
+     0.118
+    ],
+    "identifiable": [
+     false,
+     true,
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "surprises_after": [
+   {
+    "kind": "anomaly",
+    "author": "monitor"
+   }
+  ]
+ },
+ {
+  "arm": 8,
+  "condition": "single",
+  "damage": "long_link",
+  "alarms": [],
+  "events": [
+   {
+    "motion": 48,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.111,
+     0.184,
+     0.124,
+     0.124,
+     0.118
+    ],
+    "identifiable": [
+     true,
+     true,
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.112,
+     0.186,
+     0.144,
+     0.144,
+     0.121
+    ],
+    "identifiable": [
+     false,
+     true,
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "surprises_after": []
+ },
+ {
+  "arm": 9,
+  "condition": "swarm",
+  "damage": "long_link",
+  "alarms": [
+   68
+  ],
+  "events": [
+   {
+    "motion": 50,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": 4.930504670631627,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.133,
+     0.133,
+     0.134,
+     0.19
+    ],
+    "identifiable": [
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": 3.1698910485081515,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.159,
+     0.159,
+     0.159,
+     0.19
+    ],
+    "identifiable": [
+     false,
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "surprises_after": [
+   {
+    "kind": "anomaly",
+    "author": "monitor"
+   }
+  ]
+ },
+ {
+  "arm": 9,
+  "condition": "single",
+  "damage": "long_link",
+  "alarms": [],
+  "events": [
+   {
+    "motion": 48,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.133,
+     0.133,
+     0.134,
+     0.189
+    ],
+    "identifiable": [
+     false,
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.152,
+     0.151,
+     0.144,
+     0.192
+    ],
+    "identifiable": [
+     false,
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "surprises_after": []
+ },
+ {
+  "arm": 10,
+  "condition": "swarm",
+  "damage": "long_link",
+  "alarms": [
+   68
+  ],
+  "events": [
+   {
+    "motion": 50,
+    "event": "damage",
+    "what": "link 3 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": 4.211466004458412,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "y",
+     "y",
+     "x"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hy",
+     "hy",
+     "hx"
+    ],
+    "links_m": [
+     0.092,
+     0.092,
+     0.088,
+     0.161,
+     0.179
+    ],
+    "identifiable": [
+     false,
+     false,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": 5.297673285045353,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "y",
+     "y",
+     "x"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hy",
+     "hy",
+     "hx"
+    ],
+    "links_m": [
+     0.091,
+     0.092,
+     0.09,
+     0.256,
+     0.179
+    ],
+    "identifiable": [
+     false,
+     false,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "surprises_after": [
+   {
+    "kind": "anomaly",
+    "author": "monitor"
+   }
+  ]
+ },
+ {
+  "arm": 10,
+  "condition": "single",
+  "damage": "long_link",
+  "alarms": [],
+  "events": [
+   {
+    "motion": 48,
+    "event": "damage",
+    "what": "link 3 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "y",
+     "y",
+     "x"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hy",
+     "hy",
+     "hx"
+    ],
+    "links_m": [
+     0.092,
+     0.092,
+     0.088,
+     0.161,
+     0.179
+    ],
+    "identifiable": [
+     false,
+     false,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "y",
+     "y",
+     "x"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hy",
+     "hy",
+     "hx"
+    ],
+    "links_m": [
+     0.091,
+     0.091,
+     0.086,
+     0.216,
+     0.179
+    ],
+    "identifiable": [
+     false,
+     false,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "surprises_after": []
+ },
+ {
+  "arm": 11,
+  "condition": "swarm",
+  "damage": "long_link",
+  "alarms": [
+   50
+  ],
+  "events": [
+   {
+    "motion": 48,
+    "event": "damage",
+    "what": "link 0 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": 2.7064054268350874,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "x"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hx"
+    ],
+    "links_m": [
+     0.099,
+     0.074,
+     0.089
+    ],
+    "identifiable": [
+     false,
+     true,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": 2.7816840307762893,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "x"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hx"
+    ],
+    "links_m": [
+     0.143,
+     0.075,
+     0.089
+    ],
+    "identifiable": [
+     false,
+     true,
+     true
+    ]
+   }
+  },
+  "surprises_after": [
+   {
+    "kind": "anomaly",
+    "author": "monitor"
+   }
+  ]
+ },
+ {
+  "arm": 11,
+  "condition": "single",
+  "damage": "long_link",
+  "alarms": [],
+  "events": [
+   {
+    "motion": 48,
+    "event": "damage",
+    "what": "link 0 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "x"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hx"
+    ],
+    "links_m": [
+     0.099,
+     0.074,
+     0.089
+    ],
+    "identifiable": [
+     false,
+     true,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "x"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hx"
+    ],
+    "links_m": [
+     0.124,
+     0.078,
+     0.091
+    ],
+    "identifiable": [
+     false,
+     true,
+     true
+    ]
+   }
+  },
+  "surprises_after": []
+ },
+ {
+  "arm": 12,
+  "condition": "swarm",
+  "damage": "long_link",
+  "alarms": [
+   84
+  ],
+  "events": [
+   {
+    "motion": 54,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": 4.407745126846515,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "z",
+     "z"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hz",
+     "hz"
+    ],
+    "links_m": [
+     0.072,
+     0.106,
+     0.105,
+     0.1
+    ],
+    "identifiable": [
+     false,
+     false,
+     false,
+     false
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": 4.933893229004122,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "z",
+     "z"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hz",
+     "hz"
+    ],
+    "links_m": [
+     0.073,
+     0.124,
+     0.124,
+     0.118
+    ],
+    "identifiable": [
+     false,
+     false,
+     false,
+     false
+    ]
+   }
+  },
+  "surprises_after": [
+   {
+    "kind": "anomaly",
+    "author": "monitor"
+   }
+  ]
+ },
+ {
+  "arm": 12,
+  "condition": "single",
+  "damage": "long_link",
+  "alarms": [],
+  "events": [
+   {
+    "motion": 48,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "z",
+     "z"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hz",
+     "hz"
+    ],
+    "links_m": [
+     0.073,
+     0.106,
+     0.103,
+     0.102
+    ],
+    "identifiable": [
+     false,
+     false,
+     false,
+     false
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "z",
+     "z"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hz",
+     "hz"
+    ],
+    "links_m": [
+     0.084,
+     0.209,
+     0.121,
+     0.077
+    ],
+    "identifiable": [
+     false,
+     false,
+     false,
+     false
+    ]
+   }
+  },
+  "surprises_after": []
+ },
+ {
+  "arm": 13,
+  "condition": "swarm",
+  "damage": "long_link",
+  "alarms": [
+   68
+  ],
+  "events": [
+   {
+    "motion": 54,
+    "event": "damage",
+    "what": "link 3 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": 4.216860902850699,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "z",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hz",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.115,
+     0.116,
+     0.116,
+     0.116,
+     0.07
+    ],
+    "identifiable": [
+     false,
+     false,
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": 3.735254505084189,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "z",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hz",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.133,
+     0.134,
+     0.134,
+     0.135,
+     0.07
+    ],
+    "identifiable": [
+     true,
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "surprises_after": [
+   {
+    "kind": "anomaly",
+    "author": "monitor"
+   }
+  ]
+ },
+ {
+  "arm": 13,
+  "condition": "single",
+  "damage": "long_link",
+  "alarms": [],
+  "events": [
+   {
+    "motion": 48,
+    "event": "damage",
+    "what": "link 3 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "z",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hz",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.115,
+     0.116,
+     0.116,
+     0.116,
+     0.07
+    ],
+    "identifiable": [
+     false,
+     false,
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "z",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hz",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.132,
+     0.127,
+     0.126,
+     0.122,
+     0.072
+    ],
+    "identifiable": [
+     false,
+     false,
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "surprises_after": []
+ },
+ {
+  "arm": 14,
+  "condition": "swarm",
+  "damage": "long_link",
+  "alarms": [
+   50
+  ],
+  "events": [
+   {
+    "motion": 48,
+    "event": "damage",
+    "what": "link 0 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": 3.8533035366977937,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "x"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hx"
+    ],
+    "links_m": [
+     0.131,
+     0.131,
+     0.152
+    ],
+    "identifiable": [
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": 3.677402546407406,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "x"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hx"
+    ],
+    "links_m": [
+     0.164,
+     0.164,
+     0.153
+    ],
+    "identifiable": [
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "surprises_after": [
+   {
+    "kind": "anomaly",
+    "author": "monitor"
+   }
+  ]
+ },
+ {
+  "arm": 14,
+  "condition": "single",
+  "damage": "long_link",
+  "alarms": [],
+  "events": [
+   {
+    "motion": 48,
+    "event": "damage",
+    "what": "link 0 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "x"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hx"
+    ],
+    "links_m": [
+     0.131,
+     0.131,
+     0.153
+    ],
+    "identifiable": [
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "x"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hx"
+    ],
+    "links_m": [
+     0.151,
+     0.148,
+     0.157
+    ],
+    "identifiable": [
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "surprises_after": []
+ },
+ {
+  "arm": 15,
+  "condition": "swarm",
+  "damage": "long_link",
+  "alarms": [
+   88
+  ],
+  "events": [
+   {
+    "motion": 54,
+    "event": "damage",
+    "what": "link 3 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": 4.624738633890451,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "x",
+     "x",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hx",
+     "hx",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.063,
+     0.144,
+     0.126,
+     0.126,
+     0.115
+    ],
+    "identifiable": [
+     false,
+     true,
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": 7.355448956266508,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "x",
+     "x",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hx",
+     "hx",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.062,
+     0.142,
+     0.175,
+     0.175,
+     0.116
+    ],
+    "identifiable": [
+     false,
+     true,
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "surprises_after": [
+   {
+    "kind": "anomaly",
+    "author": "monitor"
+   }
+  ]
+ },
+ {
+  "arm": 15,
+  "condition": "single",
+  "damage": "long_link",
+  "alarms": [],
+  "events": [
+   {
+    "motion": 48,
+    "event": "damage",
+    "what": "link 3 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "x",
+     "x",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hx",
+     "hx",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.063,
+     0.144,
+     0.126,
+     0.126,
+     0.116
+    ],
+    "identifiable": [
+     false,
+     true,
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "x",
+     "x",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hx",
+     "hx",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.06,
+     0.144,
+     0.154,
+     0.154,
+     0.117
+    ],
+    "identifiable": [
+     false,
+     true,
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "surprises_after": []
+ },
+ {
+  "arm": 16,
+  "condition": "swarm",
+  "damage": "long_link",
+  "alarms": [
+   79
+  ],
+  "events": [
+   {
+    "motion": 53,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": 4.8251166770282365,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.066,
+     0.133,
+     0.133,
+     0.073
+    ],
+    "identifiable": [
+     false,
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": 5.90214826516346,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.067,
+     0.168,
+     0.168,
+     0.072
+    ],
+    "identifiable": [
+     false,
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "surprises_after": [
+   {
+    "kind": "anomaly",
+    "author": "monitor"
+   }
+  ]
+ },
+ {
+  "arm": 16,
+  "condition": "single",
+  "damage": "long_link",
+  "alarms": [],
+  "events": [
+   {
+    "motion": 48,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.066,
+     0.133,
+     0.133,
+     0.073
+    ],
+    "identifiable": [
+     false,
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "z",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hz",
+     "hy"
+    ],
+    "links_m": [
+     0.067,
+     0.156,
+     0.152,
+     0.072
+    ],
+    "identifiable": [
+     false,
+     false,
+     false,
+     true
+    ]
+   }
+  },
+  "surprises_after": []
+ },
+ {
+  "arm": 17,
+  "condition": "swarm",
+  "damage": "long_link",
+  "alarms": [
+   74
+  ],
+  "events": [
+   {
+    "motion": 48,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": 4.2233680303236865,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "y",
+     "y",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hy",
+     "hy",
+     "hy"
+    ],
+    "links_m": [
+     0.089,
+     0.089,
+     0.12,
+     0.127,
+     0.149
+    ],
+    "identifiable": [
+     false,
+     false,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": 5.747484482337053,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "y",
+     "y",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hy",
+     "hy",
+     "hy"
+    ],
+    "links_m": [
+     0.089,
+     0.088,
+     0.192,
+     0.127,
+     0.149
+    ],
+    "identifiable": [
+     true,
+     false,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "surprises_after": [
+   {
+    "kind": "anomaly",
+    "author": "monitor"
+   }
+  ]
+ },
+ {
+  "arm": 17,
+  "condition": "single",
+  "damage": "long_link",
+  "alarms": [],
+  "events": [
+   {
+    "motion": 48,
+    "event": "damage",
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "y",
+     "y",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hy",
+     "hy",
+     "hy"
+    ],
+    "links_m": [
+     0.088,
+     0.089,
+     0.121,
+     0.126,
+     0.149
+    ],
+    "identifiable": [
+     false,
+     false,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "z",
+     "y",
+     "y",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hz",
+     "hy",
+     "hy",
+     "hy"
+    ],
+    "links_m": [
+     0.088,
+     0.088,
+     0.163,
+     0.125,
+     0.151
+    ],
+    "identifiable": [
+     false,
+     false,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "surprises_after": []
+ },
+ {
+  "arm": 18,
+  "condition": "swarm",
+  "damage": "long_link",
+  "alarms": [
+   68
+  ],
+  "events": [
+   {
+    "motion": 50,
+    "event": "damage",
+    "what": "link 3 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": 5.784041955130802,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "x",
+     "z"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hx",
+     "hz"
+    ],
+    "links_m": [
+     0.065,
+     0.196,
+     0.144,
+     0.159,
+     0.146
+    ],
+    "identifiable": [
+     false,
+     true,
+     true,
+     false,
+     false
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": 5.830059559662959,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "x",
+     "z"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hx",
+     "hz"
+    ],
+    "links_m": [
+     0.065,
+     0.196,
+     0.145,
+     0.197,
+     0.195
+    ],
+    "identifiable": [
+     true,
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "surprises_after": [
+   {
+    "kind": "anomaly",
+    "author": "monitor"
+   }
+  ]
+ },
+ {
+  "arm": 18,
+  "condition": "single",
+  "damage": "long_link",
+  "alarms": [],
+  "events": [
+   {
+    "motion": 48,
+    "event": "damage",
+    "what": "link 3 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "x",
+     "z"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hx",
+     "hz"
+    ],
+    "links_m": [
+     0.065,
+     0.196,
+     0.144,
+     0.156,
+     0.147
+    ],
+    "identifiable": [
+     false,
+     true,
+     true,
+     false,
+     false
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "x",
+     "z"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hx",
+     "hz"
+    ],
+    "links_m": [
+     0.067,
+     0.195,
+     0.146,
+     0.269,
+     0.128
+    ],
+    "identifiable": [
+     false,
+     true,
+     true,
+     false,
+     false
+    ]
+   }
+  },
+  "surprises_after": []
+ },
+ {
+  "arm": 19,
+  "condition": "swarm",
+  "damage": "long_link",
+  "alarms": [
+   89
+  ],
+  "events": [
+   {
+    "motion": 51,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": 5.181400395263563,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "z"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hz"
+    ],
+    "links_m": [
+     0.078,
+     0.079,
+     0.137,
+     0.136
+    ],
+    "identifiable": [
+     false,
+     true,
+     false,
+     false
+    ]
+   }
+  },
+  "champion_after": null,
+  "surprises_after": [
+   {
+    "kind": "anomaly",
+    "author": "monitor"
+   }
+  ]
+ },
+ {
+  "arm": 19,
+  "condition": "single",
+  "damage": "long_link",
+  "alarms": [],
+  "events": [
+   {
+    "motion": 48,
+    "event": "damage",
+    "what": "link 1 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "z"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hz"
+    ],
+    "links_m": [
+     0.078,
+     0.078,
+     0.14,
+     0.136
+    ],
+    "identifiable": [
+     false,
+     true,
+     false,
+     false
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "z"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hz"
+    ],
+    "links_m": [
+     0.077,
+     0.107,
+     0.156,
+     0.128
+    ],
+    "identifiable": [
+     false,
+     true,
+     false,
+     false
+    ]
+   }
+  },
+  "surprises_after": []
+ },
+ {
+  "arm": 20,
+  "condition": "swarm",
+  "damage": "long_link",
+  "alarms": [
+   72
+  ],
+  "events": [
+   {
+    "motion": 50,
+    "event": "damage",
+    "what": "link 3 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": 6.801566498981492,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "y",
+     "z"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hy",
+     "hz"
+    ],
+    "links_m": [
+     0.094,
+     0.123,
+     0.079,
+     0.143,
+     0.14
+    ],
+    "identifiable": [
+     false,
+     true,
+     true,
+     false,
+     false
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": 6.878531494986851,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "y",
+     "z"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hy",
+     "hz"
+    ],
+    "links_m": [
+     0.094,
+     0.125,
+     0.082,
+     0.172,
+     0.163
+    ],
+    "identifiable": [
+     false,
+     true,
+     true,
+     false,
+     false
+    ]
+   }
+  },
+  "surprises_after": [
+   {
+    "kind": "anomaly",
+    "author": "monitor"
+   }
+  ]
+ },
+ {
+  "arm": 20,
+  "condition": "single",
+  "damage": "long_link",
+  "alarms": [],
+  "events": [
+   {
+    "motion": 48,
+    "event": "damage",
+    "what": "link 3 replaced with one 60% longer"
+   }
+  ],
+  "champion_before": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "y",
+     "z"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hy",
+     "hz"
+    ],
+    "links_m": [
+     0.093,
+     0.123,
+     0.08,
+     0.144,
+     0.14
+    ],
+    "identifiable": [
+     false,
+     true,
+     true,
+     false,
+     false
+    ]
+   }
+  },
+  "champion_after": {
+   "family": "chain",
+   "holdout_mm": null,
+   "describe": {
+    "family": "chain",
+    "axes": [
+     "z",
+     "y",
+     "y",
+     "y",
+     "y"
+    ],
+    "types": [
+     "h",
+     "h",
+     "h",
+     "h",
+     "h"
+    ],
+    "structure": [
+     "hz",
+     "hy",
+     "hy",
+     "hy",
+     "hy"
+    ],
+    "links_m": [
+     0.095,
+     0.128,
+     0.087,
+     0.26,
+     0.103
+    ],
+    "identifiable": [
+     false,
+     true,
+     false,
+     false,
+     false
+    ]
+   }
+  },
+  "surprises_after": []
+ }
+]

@@ -1,8 +1,10 @@
 """The hidden world: procedurally generated jointed robots (arms, gantries, SCARA, telescoping) in MuJoCo.
 
 Agents NEVER import anything from this file except `BlackBoxRobot.move`,
-`BlackBoxRobot.n_channels` and `BlackBoxRobot.limits`. Everything else
-(the spec, the XML, damage, evaluation) is ground truth used only for scoring.
+`BlackBoxRobot.n_channels`, `BlackBoxRobot.limits`, and, when a task opens or
+closes the gripper, `BlackBoxRobot.grasp` and `BlackBoxRobot.ungrasp`.
+Everything else (the spec, the XML, cube poses, damage, evaluation) is ground
+truth used only for scoring.
 """
 from __future__ import annotations
 
@@ -151,6 +153,67 @@ def build_mjcf(spec: ArmSpec) -> str:
 DAMAGES = ("long_link", "tool", "reversed_motor", "locked_joint", "bent_axis", "payload")
 
 
+@dataclass
+class Cube:
+    """One kinematic cube. Not a MuJoCo body, so an arm's MJCF is unchanged."""
+
+    name: str
+    pos: np.ndarray
+    half: float = 0.015  # 15 mm half-size, 30 mm cube
+
+    def __post_init__(self):
+        self.pos = np.array(self.pos, float).copy()
+        self.held = False
+
+
+class CubeScene:
+    """Cubes sitting in the workspace. Optional: a robot with no scene ignores them.
+
+    The cubes are not in the arm MJCF and they do not move until a gripper
+    command attaches one. Agents never read `cubes`; a grasp returns only a
+    contact bit.
+    """
+
+    GRASP_RADIUS = 0.03  # metres, fingertip to cube centre
+
+    def __init__(self, cubes):
+        self.cubes = list(cubes)
+        self.held: int | None = None
+        self.grasped = False  # true once any cube has been held, including after release
+        self._offset = None
+
+    def follow(self, tip: np.ndarray) -> None:
+        if self.held is None:
+            return
+        self.cubes[self.held].pos = np.asarray(tip, float) + self._offset
+
+    def close(self, tip: np.ndarray) -> bool:
+        """Attach the nearest free cube within GRASP_RADIUS. Hidden from agents."""
+        tip = np.asarray(tip, float)
+        if self.held is not None:
+            return True
+        best, bestd = None, self.GRASP_RADIUS
+        for i, cube in enumerate(self.cubes):
+            d = float(np.linalg.norm(cube.pos - tip))
+            if d <= bestd:
+                best, bestd = i, d
+        if best is None:
+            return False
+        self.held = best
+        self.cubes[best].held = True
+        self.grasped = True
+        self._offset = self.cubes[best].pos - tip
+        return True
+
+    def open(self) -> None:
+        """Release the held cube where it is."""
+        if self.held is None:
+            return
+        self.cubes[self.held].held = False
+        self.held = None
+        self._offset = None
+
+
 def apply_damage(spec: ArmSpec, kind: str, rng: np.random.Generator) -> tuple[ArmSpec, str]:
     """Return a damaged copy of the spec plus a human description (hidden from agents)."""
     s = copy.deepcopy(spec)
@@ -186,14 +249,20 @@ class BlackBoxRobot:
     """
 
     def __init__(self, spec: ArmSpec, obs_noise: float = 0.002, backlash: float = 0.01,
-                 settle_steps: int = 250, seed: int = 0):
+                 settle_steps: int = 250, seed: int = 0, scene: CubeScene | None = None):
         self.obs_noise = obs_noise
         self.backlash = backlash
         self.settle_steps = settle_steps
         self.rng = np.random.default_rng(seed + 991)
         self.motions = 0
         self.log: list[tuple[np.ndarray, np.ndarray]] = []
+        self._scene = scene
+        self._tip_xyz = None  # last simulated fingertip, before camera noise
         self._set_spec(spec)
+
+    def attach_scene(self, scene: CubeScene | None) -> None:
+        """Scoring harness only. Does not rebuild the arm."""
+        self._scene = scene
 
     # ---- hidden ----------------------------------------------------------
     def _set_spec(self, spec: ArmSpec) -> None:
@@ -256,11 +325,42 @@ class BlackBoxRobot:
         """Command all channels, wait for the servos to settle, observe the marker."""
         q = np.clip(np.asarray(q, float), *self.limits)
         tip = self._simulate(self._actual_angles(q, noisy=True))
+        self._tip_xyz = tip
+        scene = getattr(self, "_scene", None)  # MenagerieRobot does not call this __init__
+        if scene is not None:
+            scene.follow(tip)  # no effect unless a cube is already held
         self._prev = q
         self.motions += 1
         obs = tip + self.rng.normal(0.0, self.obs_noise, 3)
         self.log.append((q.copy(), obs.copy()))
         return obs
+
+    def _physical_tip(self) -> np.ndarray:
+        """Fingertip the gripper closes on. Internal; not an agent observation."""
+        tip = getattr(self, "_tip_xyz", None)
+        if tip is not None:
+            return tip
+        return self._simulate(self._actual_angles(self._prev, noisy=False))
+
+    def grasp(self) -> dict:
+        """Close the gripper. Returns a contact bit, never a cube pose.
+
+        Costs one motion and does not enter the identification log.
+        """
+        holding = False
+        scene = getattr(self, "_scene", None)
+        if scene is not None:
+            holding = bool(scene.close(self._physical_tip()))
+        self.motions += 1
+        return {"closed": True, "holding": holding}
+
+    def ungrasp(self) -> dict:
+        """Open the gripper. A held cube stays where it is."""
+        scene = getattr(self, "_scene", None)
+        if scene is not None:
+            scene.open()
+        self.motions += 1
+        return {"closed": False, "holding": False}
 
 
 def reachable_targets(robot: BlackBoxRobot, n: int, seed: int) -> np.ndarray:

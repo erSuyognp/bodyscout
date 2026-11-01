@@ -147,6 +147,7 @@ def run(robot, condition="swarm", budget=64, eval_at=(8, 12, 16, 24, 32, 48, 64)
         if condition in ("single", "mlp", "single_probe") else None
     curve, events, pending = [], [], sorted(eval_at)
     damaged = False
+    champion_before = None
     t0 = time.time()
     agent_s = 0.0  # time spent in agent steps only, so scoring checkpoints do not count
 
@@ -156,8 +157,20 @@ def run(robot, condition="swarm", budget=64, eval_at=(8, 12, 16, 24, 32, 48, 64)
         c = bb.latest("champion")
         return c.payload["_model"] if c else None
 
+    def freeze_champion():
+        """The self model as it stands before damage. A new dict, so later refits keep their own."""
+        if single is not None:
+            m = single.model
+            if m is None:
+                return None
+            return {"family": single.family, "_model": m, "describe": m.describe(),
+                    "holdout_mm": None, "n_holdout": 0, "candidate": None, "votes": 0}
+        c = bb.latest("champion")
+        return None if c is None else dict(c.payload)
+
     for t in range(max_ticks):
         if damage and not damaged and robot.motions >= damage[0]:
+            champion_before = freeze_champion()
             desc = robot.damage(damage[1], seed)
             targets = reachable_targets(robot, n_targets, seed + 1)
             events.append({"motion": robot.motions, "event": "damage", "what": desc})
@@ -188,7 +201,8 @@ def run(robot, condition="swarm", budget=64, eval_at=(8, 12, 16, 24, 32, 48, 64)
         if robot.motions == before and single is None and not any(n.open for n in bb.needs):
             # converged and quiet: let the monitor keep watching for free ticks
             continue
-    out = {"curve": curve, "events": events, "blackboard": bb, "motions": robot.motions, "agent_s": agent_s}
+    out = {"curve": curve, "events": events, "blackboard": bb, "motions": robot.motions,
+           "agent_s": agent_s, "champion_before": champion_before}
     if single is None:
         alarms = [a.payload["motion"] for a in bb.of("anomaly", epoch=-1)]
         out["alarms"] = alarms

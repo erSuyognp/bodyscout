@@ -15,7 +15,7 @@ from typing import Any
 @dataclass
 class Artifact:
     id: int
-    kind: str          # observation | finding | source | hypothesis | model | verdict | champion | score | anomaly
+    kind: str          # observation | finding | source | hypothesis | model | verdict | champion | score | anomaly | plan | replan | result
     author: str
     epoch: int         # body epoch: increments when the monitor declares the body changed
     payload: dict
