@@ -19,9 +19,11 @@ venv/
 htmlcov/
 .ipynb_checkpoints/
 
-# Generated outputs
+# Generated outputs. The two demo files are the run the public dashboard draws.
 results/*.mp4
-runs/
+runs/*
+!runs/demo_blackboard.jsonl
+!runs/demo_summary.json
 
 # Editors / OS
 .vscode/

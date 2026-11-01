@@ -1,0 +1,91 @@
+{
+ "investigation_id": "bodyscout_scara3_long_link_633bde60",
+ "robot": "scara3",
+ "family": "scara",
+ "n_channels": 4,
+ "true_structure": [
+  "hz",
+  "hz",
+  "sz",
+  "hz"
+ ],
+ "true_links_m": [
+  0.135,
+  0.115,
+  0.08,
+  0.06
+ ],
+ "true_links_after_m": [
+  0.135,
+  0.115,
+  0.128,
+  0.06
+ ],
+ "true_tool_m": 0.0,
+ "budget": 104,
+ "damage": {
+  "kind": "long_link",
+  "at": 48,
+  "events": [
+   {
+    "motion": 48,
+    "what": "link 2 replaced with one 60% longer"
+   }
+  ]
+ },
+ "curve_mm": [
+  [
+   8,
+   null
+  ],
+  [
+   16,
+   null
+  ],
+  [
+   24,
+   null
+  ],
+  [
+   32,
+   null
+  ],
+  [
+   40,
+   1.46
+  ],
+  [
+   48,
+   1.38
+  ],
+  [
+   56,
+   null
+  ],
+  [
+   64,
+   null
+  ],
+  [
+   72,
+   2.78
+  ],
+  [
+   80,
+   1.8
+  ],
+  [
+   88,
+   1.8
+  ],
+  [
+   96,
+   1.61
+  ],
+  [
+   104,
+   1.61
+  ]
+ ],
+ "llm": []
+}
