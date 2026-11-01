@@ -88,3 +88,13 @@ def test_dynamics_agents_detect_and_name_cause(kind, expect):
         weak = [i for i, (a, b) in enumerate(zip(kp0, robot.spec.kp)) if a != b]
         assert p["channel"] == weak[0] and p["kp_ratio"] == pytest.approx(0.5, abs=0.15)
     assert all(q in ids for q in anomalies[0].parents)
+
+
+def test_make_swarm_dynamics_hook():
+    from bodyscout.swarm import make_swarm
+    from bodyscout.world import BlackBoxRobot
+    plain = [a.name for a in make_swarm(BlackBoxRobot(random_body(1, "arm")), use_llm=False)]
+    robot = DynamicRobot(random_body(1, "arm"), dyn_seed=1)
+    dyn = [a.name for a in make_swarm(robot, use_llm=False, dynamics=True)]
+    assert dyn[: len(plain)] == plain  # the default swarm is untouched; dynamics agents are appended
+    assert dyn[len(plain):] == ["exciter", "modeler-dynamics", "monitor-dynamics"]
