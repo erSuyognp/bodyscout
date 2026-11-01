@@ -15,7 +15,8 @@ Both swarms run the Exciter + DynamicsModeler, so pre-damage budgets and models 
     python experiments/dynamics.py --plot       # only redraw figure and summary from the json files
 
 LLM hypothesizers (Claude, Gemini) join the swarm for every provider with a key in .env, which makes runs
-non deterministic. Add --no-llm for bit-for-bit reproducible runs.
+non deterministic; those runs save to *_llm.json. Add --no-llm for bit-for-bit reproducible runs, saved to
+dynamics.json / dynamics_oos.json. The summary reports both, side by side.
 """
 import argparse
 import json
@@ -36,6 +37,7 @@ from bodyscout.blackboard import Blackboard  # noqa: E402
 from bodyscout.dynamics.agents_dyn import DynamicsModeler, DynamicsMonitor, Exciter  # noqa: E402
 from bodyscout.dynamics.fit import path_rmse_mm  # noqa: E402
 from bodyscout.dynamics.world_dyn import DynamicRobot  # noqa: E402
+from bodyscout.agents import llm_providers  # noqa: E402
 from bodyscout.env import load_env  # noqa: E402
 from bodyscout.swarm import make_swarm  # noqa: E402
 from bodyscout.world import random_body  # noqa: E402
@@ -343,7 +345,57 @@ def compare(res_in, res_oos):
     return L
 
 
-def make_summary(res_in, res_oos=None):
+def compare_llm(sets):
+    """sets: [(label, off, on)]. Side by side table and a plain list of where LLMs made it worse."""
+    cols = [lab for lab, off, on in sets if off and on]
+    L = ["### LLM off vs LLM on", "", "| metric | " + " | ".join(f"{c}: off | {c}: on" for c in cols) + " |",
+         "| --- |" + " --- | --- |" * len(cols)]
+    worse, stats = [], [(lab, detection_stats([r for r in off["rows"] if r["kind"] != "none"]),
+                         detection_stats([r for r in on["rows"] if r["kind"] != "none"])) for lab, off, on in sets if off and on]
+    metrics = []
+    for kind in KINDS:
+        for cond in CONDS:
+            name = f"{kind}, {'shape Monitor' if cond == 'shape' else 'DynamicsMonitor'}"
+            metrics.append((f"{name}: detected", kind, cond, "det", True))
+            metrics.append((f"{name}: median motions to detect", kind, cond, "mtd", False))
+            metrics.append((f"{name}: false alarms before damage", kind, cond, "fa", False))
+            if cond == "dynamics":
+                metrics.append((f"{name}: cause named right", kind, cond, "cause", True))
+                if kind == "payload_dyn":
+                    metrics.append((f"{name}: added payload within 0.1 kg", kind, cond, "pay", True))
+    for label, kind, cond, key, higher in metrics:
+        cells = []
+        for lab, a, b in stats:
+            x, y = a[kind, cond], b[kind, cond]
+            if key == "mtd":
+                cx, cy, vx, vy = fmt(x["mtd"]), fmt(y["mtd"]), x["mtd"], y["mtd"]
+            elif key == "fa":
+                cx, cy, vx, vy = f"{x['fa']}/{x['n']} runs", f"{y['fa']}/{y['n']} runs", x["fa"] / max(x["n"], 1), y["fa"] / max(y["n"], 1)
+            else:
+                cx, cy, vx, vy = rate(x[key], x["n"]), rate(y[key], y["n"]), x[key] / max(x["n"], 1), y[key] / max(y["n"], 1)
+            cells += [cx, cy]
+            if vx is not None and vy is not None and ((vy < vx) if higher else (vy > vx)):
+                worse.append(f"{lab}, {label}: {cx} with LLMs off, {cy} with LLMs on")
+        L.append(f"| {label} | " + " | ".join(cells) + " |")
+    for lab, off, on in sets:
+        if off and on:
+            for cond, name in (("shape", "shape Monitor"), ("dynamics", "DynamicsMonitor")):
+                fo = sum(r["false_alarms"] for r in off["rows"] if r["kind"] == "none" and r["condition"] == cond)
+                fn = sum(r["false_alarms"] for r in on["rows"] if r["kind"] == "none" and r["condition"] == cond)
+                n = sum(1 for r in on["rows"] if r["kind"] == "none" and r["condition"] == cond)
+                if n:
+                    cells = [""] * (2 * len(cols))
+                    i = cols.index(lab)
+                    cells[2 * i], cells[2 * i + 1] = f"{fo}/{n} runs", f"{fn}/{n} runs"
+                    L.append(f"| {name}: alarms on undamaged bodies | " + " | ".join(cells) + " |")
+                    if fn > fo:
+                        worse.append(f"{lab}, {name}: {fo} false alarms on undamaged bodies with LLMs off, {fn} with LLMs on")
+    L += ["", "### Where LLMs made it worse", ""]
+    L += [f"- {w}" for w in worse] if worse else ["- Nowhere: every rate with LLMs on is equal to or better than with LLMs off."]
+    return L
+
+
+def make_summary(res_in, res_oos=None, llm_in=None, llm_oos=None):
     a = res_in["args"]
     L = ["# Dynamics change detection", "",
          f"Damage at motion {a['at']}: payload_dyn (+0.35 kg at the tip) or weak_motor (one joint, kp x 0.5). "
@@ -357,6 +409,16 @@ def make_summary(res_in, res_oos=None):
               "their committed values; nothing was tuned for or after these runs."]
         L += section(res_oos, OOS_BODIES)
         L += [""] + compare(res_in, res_oos)
+    if llm_in is not None or llm_oos is not None:
+        L += ["", "## With LLM hypothesizers", "",
+              "Same bodies, seeds, budgets and monitor settings as above; the only difference is that one LLM "
+              "hypothesizer per provider with an API key joins every swarm. LLM answers vary, so these runs "
+              "are not deterministic: rerunning gives somewhat different numbers.", ""]
+        if llm_in is not None:
+            L += ["### In sample, LLM on", ""] + section(llm_in, BODIES, level="###") + [""]
+        if llm_oos is not None:
+            L += ["### Out of sample, LLM on", ""] + section(llm_oos, OOS_BODIES, level="###") + [""]
+        L += compare_llm([("in sample", res_in, llm_in), ("out of sample", res_oos, llm_oos)])
     L += ["", "Notes: the swarm gets one absolute reference, the servo datasheet (rotor inertia and velocity gain). "
           "Without it a payload in kilograms is unobservable from positions: scaling every mass, kp and damping "
           "together leaves every path unchanged. The added payload is estimated by refitting only the payload "
@@ -382,8 +444,11 @@ if __name__ == "__main__":
     ap.add_argument("--plot", action="store_true", help="only redraw from the json files")
     ap.add_argument("--no-llm", action="store_true", help="no LLM hypothesizers: deterministic runs")
     a = ap.parse_args()
-    out_json = f"{R}/dynamics.json" if a.set == "in" else f"{R}/dynamics_oos.json"
     use_llm = False if a.no_llm else None  # None: one LLM hypothesizer per provider with a key
+    if not a.no_llm:
+        load_env()
+    suffix = "_llm" if use_llm is None and llm_providers() else ""  # the file says what really ran
+    out_json = f"{R}/dynamics{suffix}.json" if a.set == "in" else f"{R}/dynamics_oos{suffix}.json"
     if not a.plot:
         if a.set == "in":
             jobs = [(f, s, k, c, a.at, a.after, a.max_ticks, use_llm) for f, s in BODIES for k in KINDS for c in CONDS]
@@ -397,7 +462,8 @@ if __name__ == "__main__":
         json.dump(to_json(res), open(out_json, "w"), indent=1)
         print(f"saved {out_json}")
     res_in = json.load(open(f"{R}/dynamics.json"))
-    res_oos = json.load(open(f"{R}/dynamics_oos.json")) if os.path.exists(f"{R}/dynamics_oos.json") else None
-    if a.set == "in":
-        make_figure(res_in)
-    make_summary(res_in, res_oos)
+    load = lambda name: json.load(open(f"{R}/{name}")) if os.path.exists(f"{R}/{name}") else None  # noqa: E731
+    res_oos, llm_in, llm_oos = load("dynamics_oos.json"), load("dynamics_llm.json"), load("dynamics_oos_llm.json")
+    if a.set == "in" and not suffix:
+        make_figure(res_in)  # the figure stays on the deterministic run
+    make_summary(res_in, res_oos, llm_in, llm_oos)
