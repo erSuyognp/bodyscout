@@ -173,6 +173,12 @@ def cell(v, digits=1):
             + (f", {gone} no model" if gone else ""))
 
 
+def med_inf(v):
+    """Median with runs that have no model counted as infinitely far off."""
+    v = np.asarray(v, float)
+    return float(np.median(np.where(np.isfinite(v), v, np.inf))) if len(v) else np.nan
+
+
 def rate(k, n):
     return f"{k}/{n} ({100 * k / n:.0f}%)" if n else "n/a"
 
@@ -538,14 +544,17 @@ if os.path.exists(f"{R}/faults.csv"):
                     continue
                 ax.bar(x, m, width=w - 0.03, color=COL[c], label=NAME[c] if i == 0 else None, edgecolor="white", lw=1)
                 ax.errorbar(x, m, yerr=[[m - lo], [hi - m]], color=INK, lw=0.8, capsize=1.5)
+                gone = int(np.sum(~np.isfinite(np.asarray(by[f][c], float))))
+                if gone:  # the bar is the median of the runs that have a model; say how many do not
+                    ax.text(x, hi * 1.15, f"{gone}/{len(by[f][c])}\nno\nmodel", ha="center", fontsize=5.5, color=QUIET)
         ax.axhline(MISS_MM, color=QUIET, ls=":", lw=1)
         ax.text(len(faults) - 0.45, MISS_MM * 1.1, f"{MISS_MM:.0f} mm", fontsize=7.5, color=QUIET, ha="right")
         ax.set_xticks(range(len(faults)), [f.replace("_", "\n") for f in faults], fontsize=8.5, color=INK)
         ax.set_yscale("log")
         ax.set_ylim(0.5, 400)
-        ok = {c: [f for f in faults if f != "none" and boot_ci(by[f][c])[0] <= MISS_MM] for c in conds}
+        ok = {c: [f for f in faults if f != "none" and med_inf(by[f][c]) <= MISS_MM] for c in conds}
         n_f = len([f for f in faults if f != "none"])
-        ax.set_title(label + f"\nmedian under {MISS_MM:.0f} mm on " + ", ".join(f"{SHORT[c]} {len(ok[c])}/{n_f}" for c in conds)
+        ax.set_title(label + f"\nmedian under {MISS_MM:.0f} mm (no model = miss) on " + ", ".join(f"{SHORT[c]} {len(ok[c])}/{n_f}" for c in conds)
                      + " faults", loc="left", fontsize=9, color=INK)
         claims.append((label, ok, n_f))
     axes[0].set_ylabel("median reach error at 64 motions, mm (log)\nbar = median, whisker = 95% CI", color=QUIET, fontsize=9)
@@ -553,9 +562,15 @@ if os.path.exists(f"{R}/faults.csv"):
     fig.legend(h, l, frameon=False, fontsize=8.5, loc="lower center", ncol=len(h))
     label, ok, n_f = claims[-1]
     missed = [f for f in FAULT_ORDER[1:] if f not in ok["swarm"]]
-    fig.suptitle(f"One bad part: the swarm stays under {MISS_MM:.0f} mm on {len(ok['swarm'])} of {n_f} faults on the "
-                 f"independent seeds" + (f" (not {', '.join(missed)})" if missed else "") + "; "
-                 + ", ".join(f"{SHORT[c]} on {len(ok[c])}" for c in ok if c != "swarm"),
+    by_last = panels[-1][1]
+    beaten = {f: [SHORT[c] for c in panels[-1][2] if c != "swarm" and med_inf(by_last[f][c]) < med_inf(by_last[f]["swarm"])]
+              for f in FAULT_ORDER[1:] if f in by_last}
+    beaten = {f: cs for f, cs in beaten.items() if cs}
+    fig.suptitle(f"One bad part: on the independent seeds the swarm stays under {MISS_MM:.0f} mm on {len(ok['swarm'])} of "
+                 f"{n_f} faults" + (f" (not {', '.join(missed)})" if missed else "") + "; "
+                 + ", ".join(f"{SHORT[c]} on {len(ok[c])}" for c in ok if c != "swarm")
+                 + ("\nA baseline ends closer under " + "; ".join(f"{f} ({', '.join(cs)})" for f, cs in beaten.items())
+                    if beaten else ""),
                  x=0.01, ha="left", fontsize=10.5, color=INK)
     fig.tight_layout(rect=(0, 0.07, 1, 0.92))
     save(fig, "fig_faults.png")
