@@ -129,8 +129,11 @@ class SingleProbeAgent(SingleAgent):
 
 
 def make_swarm(robot, seed=0, library=None, warm=None, use_llm=None, families=("chain", "gmm", "mlp"),
-               monitor=True, explore="disagreement", channels=False, n_explorers=2, n_validators=2):
+               monitor=True, explore="disagreement", channels=False, n_explorers=2, n_validators=2,
+               dynamics=False):
     """channels=True: the body type is unknown, so one agent per channel works out hinge or slide.
+    dynamics=True: also learn and watch the body's dynamics (robot needs move_trajectory and dt,
+    e.g. bodyscout.dynamics.world_dyn.DynamicRobot); the Exciter serves the modeler's excitation need.
     use_llm: None = one LLM hypothesizer per provider with an API key, False = none, True = those
     providers, or Claude if no key is set (its calls then fail quietly)."""
     n = robot.n_channels
@@ -145,6 +148,9 @@ def make_swarm(robot, seed=0, library=None, warm=None, use_llm=None, families=("
         agents += [ChannelAgent(i, n) for i in range(n)]
     if monitor:
         agents.append(Monitor(robot, seed=seed))
+    if dynamics:
+        from .dynamics.agents_dyn import DynamicsModeler, DynamicsMonitor, Exciter
+        agents += [Exciter(robot, seed), DynamicsModeler(n, seed=seed), DynamicsMonitor(robot, seed=seed)]
     return agents
 
 
