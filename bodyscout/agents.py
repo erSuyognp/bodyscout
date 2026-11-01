@@ -894,11 +894,16 @@ class Validator(Agent):
         self.source_id = None
 
     def _replay(self, art, Q, X, Qh, Xh):
+        """Holdout error of a refit from scratch, or None when the refit itself fails (a numerical
+        failure must fail the check, never take the validator, and with it the run, down)."""
         fam = art.payload["family"]
         m = (ChainModel(self.n, restarts=3, seed=self.replay_seed) if fam == "chain"
              else FAMILIES[fam](self.n, seed=self.replay_seed))
-        m.fit(Q, X, **art.payload["_fit_kw"])
-        return m.rmse(Qh, Xh) * 1000
+        try:
+            m.fit(Q, X, **art.payload["_fit_kw"])
+            return m.rmse(Qh, Xh) * 1000
+        except Exception:
+            return None
 
     def _judge(self, bb, Qh, Xh, hids):
         Q, X, _ = _data(bb, "train")
@@ -910,7 +915,7 @@ class Validator(Agent):
             if best["champion"] is None or score < best["holdout_mm"]:
                 k = art.payload["n_train"]  # its training set is the first k train observations
                 rep = self._replay(art, Q[:k], X[:k], Qh, Xh)
-                ok = bool(rep <= max(1.5 * score, score + 2.0))
+                ok = rep is not None and bool(rep <= max(1.5 * score, score + 2.0))
             bb.post("verdict", self.name, {"candidate": art.id, "family": art.payload["family"],
                                            "holdout_mm": score, "n_holdout": len(hids),
                                            "replayed": ok}, [art.id] + hids)

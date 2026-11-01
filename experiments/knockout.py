@@ -33,6 +33,9 @@ CONDITIONS = {
     "one explorer lost": ["explorer-0"],
     "no monitor": ["monitor"],
     "every hypothesizer lost": HYPS,  # extra: the chain modeler must assemble findings itself
+    "one chain modeler lost": ["modeler-chain"],
+    "bent pose channel agents lost": [f"channel-bent-{i}" for i in range(8)],
+    "review agent lost": ["review"],
 }
 
 

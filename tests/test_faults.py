@@ -143,3 +143,27 @@ def test_swarm_survives_one_flipped_channel_agent_and_one_crashed_chain_modeler(
     crash = _run("swarm", "modeler_crash", 64)
     late = [m for m in crash["blackboard"].of("model", epoch=-1) if m.author == "modeler-chain-1"]
     assert any(m.payload["n_train"] > 24 for m in late), "the second chain modeler kept fitting"
+
+
+def test_a_crashing_replay_fails_the_check_instead_of_ending_the_run(monkeypatch):
+    """Found in the full sweep: scipy's SVD failed inside a validator's replay refit and killed the run."""
+    import bodyscout.agents as agents
+    from bodyscout.swarm import run
+
+    class Crashing(agents.ChainModel):
+        def __init__(self, n, seed=0, **kw):
+            super().__init__(n, seed=seed, **kw)
+            self.replay = seed >= 7777  # validator replays only: modelers seed with seed + data size
+
+        def fit(self, Q, X, **kw):
+            if self.replay:
+                raise np.linalg.LinAlgError("SVD did not converge")
+            return super().fit(Q, X, **kw)
+
+    monkeypatch.setattr(agents, "ChainModel", Crashing)
+    robot = BlackBoxRobot(random_body(1, "scara"), seed=1)
+    out = run(robot, "swarm", budget=48, eval_at=(48,), n_targets=4, seed=1, use_llm=False, unknown_body=True)
+    bb = out["blackboard"]
+    chain = [v for v in bb.of("verdict", epoch=-1) if v.payload["family"] == "chain" and v.payload["replayed"] is not None]
+    assert chain and all(v.payload["replayed"] is False for v in chain)
+    assert all(c.payload["family"] != "chain" for c in bb.of("champion", epoch=-1)), "a chain model that failed replay was crowned"
