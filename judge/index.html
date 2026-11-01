@@ -1,0 +1,1313 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BodyScout — for the judges</title>
+<meta name="description" content="A swarm of agents learns any jointed robot's body from unlabeled channels and a noisy fingertip, then notices when the body breaks.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%2314181c' width='32' height='32' rx='6'/%3E%3Ccircle cx='22' cy='12' r='4' fill='%23f0c56a'/%3E%3Cpath d='M6 24 C10 14 14 10 22 12' fill='none' stroke='%23f4f1ea' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,520;9..144,640&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1e1b;
+    --muted: #4a463f;
+    --faint: #6b6560;
+    --paper: #f4f1ea;
+    --paper-2: #fffdf8;
+    --line: #ddd6c8;
+    --dark: #14181c;
+    --dark-2: #1e2422;
+    --pine: #1e4d3a;
+    --pine-soft: #e6f0ea;
+    --amber: #8a5a10;
+    --amber-bright: #f0c56a;
+    --swarm: #1d4e89;
+    --single: #b8432a;
+    --probe: #0f7a5a;
+    --pipe: #8a6a12;
+    --bad-bg: #f8ebe6;
+    --ok-bg: #e5f2ea;
+    --shadow: 0 12px 32px rgba(20, 24, 28, .06);
+    --serif: "Fraunces", "Iowan Old Style", Palatino, "Palatino Linotype", Georgia, serif;
+    --sans: "Outfit", "Segoe UI", system-ui, sans-serif;
+    --mono: "Cascadia Mono", "Cascadia Code", Consolas, ui-monospace, monospace;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--dark);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.45;
+    font-weight: 400;
+  }
+  button, input { font: inherit; color: inherit; }
+  button { cursor: pointer; }
+  :focus-visible { outline: 2px solid var(--amber-bright); outline-offset: 3px; }
+  a { color: inherit; }
+
+  .top {
+    position: fixed; z-index: 30; top: 0; left: 0; right: 0; height: 52px;
+    display: flex; align-items: center; gap: 16px;
+    padding: 0 18px 0 22px;
+    background: rgba(20, 24, 28, .92);
+    color: #f4f1ea;
+    backdrop-filter: blur(10px);
+  }
+  .brand { font-family: var(--serif); font-weight: 640; letter-spacing: -0.02em; }
+  .brand span { color: var(--amber-bright); }
+  .top .where { color: #c9c2b4; font-size: 13px; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .top button, .top a.btn {
+    background: transparent; color: #f4f1ea; border: 1px solid rgba(244,241,234,.28);
+    border-radius: 999px; padding: 5px 12px; text-decoration: none; font-size: 13px;
+  }
+  .top button:hover, .top a.btn:hover { border-color: var(--amber-bright); color: var(--amber-bright); }
+  .count { font-variant-numeric: tabular-nums; font-size: 13px; color: #c9c2b4; }
+
+  .rail {
+    position: fixed; z-index: 25; right: 14px; top: 50%; transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 5px;
+  }
+  .rail button {
+    width: 8px; height: 8px; border-radius: 99px; border: 0; padding: 0;
+    background: rgba(244,241,234,.35);
+  }
+  .rail button.on { background: var(--amber-bright); transform: scale(1.35); }
+  .rail button.paper-dot { background: rgba(26,30,27,.28); }
+  .scene.paper ~ .rail button.paper-dot,
+  body.paper-now .rail button { background: rgba(26,30,27,.28); }
+  body.paper-now .rail button.on { background: var(--pine); }
+
+  .toc {
+    position: fixed; z-index: 40; top: 0; right: 0; bottom: 0; width: min(420px, 100%);
+    background: var(--paper); color: var(--ink);
+    transform: translateX(104%); transition: transform .35s ease;
+    box-shadow: -20px 0 60px rgba(0,0,0,.2);
+    overflow: auto; padding: 64px 28px 40px;
+  }
+  .toc.open { transform: none; }
+  .toc h2 { font-family: var(--serif); font-size: 28px; margin: 0 0 8px; font-weight: 640; }
+  .toc p { margin: 0 0 16px; color: var(--muted); font-size: 14px; }
+  .toc a { display: block; text-decoration: none; padding: 7px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+  .toc a small { display: block; color: var(--faint); font-size: 12px; }
+  .toc a:hover { color: var(--pine); }
+  .scrim { position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 35; opacity: 0; pointer-events: none; transition: opacity .3s; }
+  .scrim.open { opacity: 1; pointer-events: auto; }
+
+  .scene {
+    height: 100dvh; scroll-snap-align: start; scroll-snap-stop: always;
+    display: flex; flex-direction: column;
+    padding: 68px 64px 22px;
+    position: relative;
+  }
+  .scene.dark { background: var(--dark); color: #f4f1ea; }
+  .scene.paper { background: var(--paper); color: var(--ink); }
+  .scene.paper.alt { background: #efeae0; }
+  .frame {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-bottom: 8px;
+  }
+  .kicker {
+    margin: 0;
+    font-size: 12px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--amber-bright);
+    font-weight: 580;
+  }
+  .scene.paper .kicker { color: var(--amber); }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 640;
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    margin: 0;
+  }
+  .lede { margin: 0; max-width: 62ch; font-size: 18px; color: #d9d2c6; }
+  .scene.paper .lede { color: var(--muted); }
+  .say { display: none; margin: 8px auto 0; width: min(1180px, 100%); color: #b7b0a4; font-size: 13.5px; }
+  body.notes .say { display: block; }
+  .scene.paper .say { color: var(--faint); }
+  .src { font-size: 12px; color: var(--faint); margin: 0; }
+  .scene.dark .src { color: #9c958a; }
+
+  .split { display: grid; grid-template-columns: 1.05fr .95fr; gap: 28px; min-height: 0; flex: 1; align-items: center; }
+  .split.even { grid-template-columns: 1fr 1fr; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .grid-6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .stack { display: flex; flex-direction: column; gap: 12px; min-height: 0; }
+
+  .card {
+    background: var(--paper-2);
+    border-radius: 16px;
+    padding: 16px 16px 14px;
+    box-shadow: var(--shadow);
+  }
+  .scene.dark .card { background: var(--dark-2); box-shadow: none; color: #f4f1ea; }
+  .card h3 { margin: 0 0 6px; font-size: 16px; font-weight: 580; letter-spacing: -0.01em; }
+  .card p { margin: 0; color: var(--muted); font-size: 14.5px; }
+  .scene.dark .card p { color: #c9c2b4; }
+  .card .tok { font-family: var(--mono); font-size: 12.5px; color: var(--pine); margin-top: 8px; }
+  .scene.dark .card .tok { color: var(--amber-bright); }
+
+  .statline { display: flex; gap: 22px; flex-wrap: wrap; align-items: flex-end; }
+  .stat b {
+    display: block;
+    font-family: var(--serif);
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 640;
+    letter-spacing: -0.04em;
+    line-height: .95;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat span { display: block; margin-top: 4px; font-size: 13px; color: var(--muted); max-width: 22ch; }
+  .scene.dark .stat span { color: #c9c2b4; }
+  .stat em { font-style: normal; color: var(--faint); font-size: 13px; font-family: var(--sans); letter-spacing: 0; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
+  th { text-align: left; font-weight: 580; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--faint); padding: 6px 8px; }
+  td { padding: 7px 8px; border-top: 1px solid var(--line); vertical-align: baseline; }
+  td.ok { color: var(--pine); font-weight: 580; }
+  td.bad { color: var(--single); font-weight: 580; }
+  td.mid { color: var(--amber); font-weight: 580; }
+  .scene.dark td { border-color: rgba(244,241,234,.12); }
+  .note { font-size: 13.5px; color: var(--muted); margin: 0; }
+
+  .fig {
+    margin: 0; background: white; border-radius: 14px; padding: 8px;
+    box-shadow: var(--shadow); min-height: 0;
+  }
+  .fig img { width: 100%; height: auto; max-height: min(46vh, 420px); object-fit: contain; display: block; }
+  .fig.short img { max-height: min(28vh, 230px); }
+  .fig figcaption { font-size: 13px; color: var(--muted); padding: 6px 6px 2px; }
+
+  .term { display: grid; grid-template-columns: 140px 1fr; gap: 8px 18px; align-items: baseline; }
+  .term b { font-family: var(--serif); font-size: 20px; font-weight: 640; }
+
+  pre.cmd {
+    margin: 0; background: var(--dark); color: #f4f1ea;
+    border-radius: 14px; padding: 14px 78px 14px 16px;
+    font-family: var(--mono); font-size: 13px; line-height: 1.55;
+    overflow: auto; position: relative; white-space: pre-wrap;
+  }
+  pre.cmd .cmt { color: #9c958a; }
+  .copy {
+    position: absolute; top: 10px; right: 10px;
+    background: transparent; color: var(--amber-bright);
+    border: 1px solid rgba(240,197,106,.4); border-radius: 999px;
+    font-size: 12px; padding: 3px 10px;
+  }
+
+  /* cover trace */
+  .hero-art { width: min(560px, 100%); height: auto; }
+  .trace { fill: none; stroke: rgba(244,241,234,.45); stroke-width: 2.5; stroke-linecap: round; }
+  .bead { fill: var(--amber-bright); }
+
+  .box-layout { display: grid; grid-template-columns: 280px 1fr; gap: 22px; min-height: 0; align-items: stretch; }
+  .sliders { display: flex; flex-direction: column; gap: 12px; }
+  .sliders label { display: grid; grid-template-columns: 72px 1fr 52px; gap: 8px; align-items: center; font-size: 13px; }
+  .sliders input { width: 100%; accent-color: var(--amber-bright); }
+  .readout {
+    font-family: var(--mono); font-size: 13px; color: var(--amber-bright);
+    background: rgba(0,0,0,.25); border-radius: 10px; padding: 10px 12px; margin: 0;
+    white-space: pre-line;
+  }
+  .rowbtns { display: flex; flex-wrap: wrap; gap: 8px; }
+  .rowbtns button, .ghost {
+    background: transparent; color: #f4f1ea; border: 1px solid rgba(244,241,234,.3);
+    border-radius: 999px; padding: 6px 12px; font-size: 13px;
+  }
+  .rowbtns button[aria-pressed="true"] { background: var(--amber-bright); color: var(--dark); border-color: var(--amber-bright); }
+  #stage { width: 100%; height: min(46vh, 380px); background:
+    radial-gradient(ellipse at 50% 80%, rgba(240,197,106,.08), transparent 55%),
+    #101416; border-radius: 16px; }
+
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .anim-card { background: white; border-radius: 16px; padding: 12px 12px 8px; box-shadow: var(--shadow); }
+  .anim-card h3 { margin: 8px 6px 0; font-size: 16px; }
+  .anim-card p { margin: 2px 6px 8px; color: var(--muted); font-size: 14px; }
+  .mover.arc { fill: var(--swarm); }
+  .mover.line { fill: var(--single); }
+  .pathline { fill: none; stroke: #d9d3c5; stroke-width: 2; }
+
+  .agree { display: grid; grid-template-columns: 1fr 1fr 180px; gap: 14px; align-items: stretch; }
+  .probe-card { border-radius: 16px; padding: 16px; background: white; box-shadow: var(--shadow); }
+  .probe-card .who { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); }
+  .probe-card strong { display: block; font-family: var(--serif); font-size: 28px; margin: 8px 0; }
+  .stamp {
+    display: grid; place-items: center; border-radius: 16px;
+    background: var(--pine); color: white; font-family: var(--serif); font-size: 26px;
+  }
+  .stamp.dispute { background: var(--single); }
+  .scene.on .stamp { animation: pop .45s cubic-bezier(.2,1.3,.4,1) both; }
+  @keyframes pop { from { transform: scale(.86); } to { transform: none; } }
+
+  .board {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+  }
+  .post {
+    background: white; border-radius: 12px; padding: 10px 12px; box-shadow: var(--shadow); font-size: 13.5px;
+  }
+  .post b { display: block; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); font-weight: 580; margin-bottom: 4px; }
+  .scene.on .post { animation: rise .55s ease both; }
+  .scene.on .post:nth-child(2) { animation-delay: .08s; }
+  .scene.on .post:nth-child(3) { animation-delay: .16s; }
+  .scene.on .post:nth-child(4) { animation-delay: .24s; }
+  .scene.on .post:nth-child(5) { animation-delay: .32s; }
+  .scene.on .post:nth-child(6) { animation-delay: .4s; }
+  .scene.on .post:nth-child(7) { animation-delay: .48s; }
+  .scene.on .post:nth-child(8) { animation-delay: .56s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+  .timeline { position: relative; height: 74px; margin-top: 6px; }
+  .timeline .bar { position: absolute; left: 0; right: 0; top: 28px; height: 4px; background: #ddd6c8; border-radius: 4px; }
+  .timeline .hit {
+    position: absolute; top: 18px; width: 4px; height: 24px; background: var(--single); border-radius: 2px;
+  }
+  .timeline span { position: absolute; top: 46px; font-size: 12px; color: var(--muted); transform: translateX(-50%); }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    border-radius: 999px; padding: 6px 10px; background: white; font-size: 13px;
+    box-shadow: var(--shadow);
+  }
+  .chip b { font-variant-numeric: tabular-nums; }
+
+  .score4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .score4 .s {
+    border-radius: 16px; padding: 14px 14px 12px; background: white; box-shadow: var(--shadow);
+  }
+  .score4 .s b { font-family: var(--serif); font-size: 42px; letter-spacing: -0.04em; display: block; line-height: 1; }
+  .score4 .s span { font-size: 13px; color: var(--muted); }
+  .score4 .win { background: var(--ok-bg); }
+  .score4 .lose { background: var(--bad-bg); }
+
+  .steps { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+  .steps a {
+    text-decoration: none; background: var(--dark-2); color: #f4f1ea;
+    border-radius: 14px; padding: 14px 12px; min-height: 140px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .steps a em { font-style: normal; font-family: var(--serif); font-size: 28px; color: var(--amber-bright); }
+  .steps a:hover { outline: 1px solid var(--amber-bright); }
+
+  .scrollbox { overflow: auto; min-height: 0; padding-right: 4px; }
+  .tiny { font-size: 13px; color: var(--muted); }
+
+  @media (max-width: 980px) {
+    .scene { padding: 64px 20px 18px; }
+    .split, .split.even, .box-layout, .pair, .agree, .grid-3, .grid-4, .grid-6, .score4, .steps, .term {
+      grid-template-columns: 1fr;
+    }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .rail { display: none; }
+    .term { grid-template-columns: 1fr; }
+  }
+  @media (max-height: 760px) {
+    h1 { font-size: 32px; }
+    .lede { font-size: 16px; }
+    .fig img { max-height: 40vh; }
+    .card p { font-size: 13.5px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .scene.on .bead, .scene.on .mover, .scene.on .stamp, .scene.on .post { animation: none; }
+  }
+  @media print {
+    .top, .rail, .toc, .scrim, .copy { display: none !important; }
+    html { scroll-snap-type: none; }
+    .scene { height: auto; min-height: 100vh; break-after: page; page-break-after: always; }
+    .frame { overflow: visible; }
+  }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand">Body<span>Scout</span></div>
+  <div class="where" id="where">The problem</div>
+  <span class="count" id="count">1 / 31</span>
+  <button type="button" id="notesbtn" aria-pressed="false">Notes</button>
+  <button type="button" id="present">Present</button>
+  <button type="button" id="tocbtn" aria-expanded="false">Contents</button>
+  <a class="btn" href="../dashboard/index.html">Run dashboard</a>
+</header>
+<nav class="rail" id="rail" aria-label="Slides"></nav>
+<div class="scrim" id="scrim"></div>
+<aside class="toc" id="toc" aria-label="Contents">
+  <h2>Contents</h2>
+  <p>Arrow keys move. F is full screen. N shows speaker notes. C opens this list. Every number is from the frozen sweep. Independent seeds are quoted first.</p>
+  <div id="toclist"></div>
+</aside>
+
+<!-- 1 -->
+<section class="scene dark" id="cover" data-part="The problem" data-title="No model, and the hand still has to land">
+  <div class="frame">
+    <p class="kicker">ScienceClaw Hack · MIT Media Lab</p>
+    <div class="split">
+      <div>
+        <h1>No model of the body. The hand still has to land.</h1>
+        <p class="lede">To put a robot's fingertip on a point, a controller needs a description of the body: which command turns, which slides, how long each piece is, and the order they are wired. That description is a file a person usually writes. We do not have it. We are not told what kind of machine it is. And the body can change while we are using it.</p>
+        <p class="lede" style="margin-top:14px">BodyScout has to write that description from motion alone, reach with it, and notice when it stops being true.</p>
+      </div>
+      <svg class="hero-art" viewBox="0 0 540 320" role="img" aria-label="A fingertip tracing an unlabeled path">
+        <path id="cover-path" class="trace" d="M40 250 C 90 60, 180 40, 250 150 S 400 280, 500 120"/>
+        <circle class="bead" id="cover-bead" r="8" cx="40" cy="250"/>
+      </svg>
+    </div>
+  </div>
+  <p class="say">Open with the job, not the method. The fingertip has to reach a point. The file that would make that possible is missing, and it can go stale.</p>
+</section>
+
+<!-- 2 -->
+<section class="scene paper" id="job" data-part="The problem" data-title="Why the file matters">
+  <div class="frame">
+    <p class="kicker">The problem</p>
+    <h1>Aiming the hand is impossible without a body someone has described.</h1>
+    <div class="grid-3">
+      <article class="card">
+        <h3>The task</h3>
+        <p>Choose a point in the room. The fingertip has to arrive there, and later pick something up and set it down. A planner can do that only by turning the body description into joint commands.</p>
+      </article>
+      <article class="card">
+        <h3>Where that description usually comes from</h3>
+        <p>A person writes a model file, a URDF or an MJCF. It says which joint rotates, which joint slides, about which axis, how long each link is, and which wire drives which joint.</p>
+      </article>
+      <article class="card">
+        <h3>What is actually missing</h3>
+        <p>There is no file. The machine might be an arm, a gantry, a SCARA, or a telescoping boom. The wires can arrive in any order. A link can stretch, a motor can reverse, a joint can lock, or the tool can be swapped while the run is going.</p>
+      </article>
+    </div>
+    <article class="card" style="background:#f8ebe6">
+      <h3>What happens if you plan anyway</h3>
+      <p>The hand goes to the wrong place. On four real arms, an agent that never recovers the body misses by 270 to 592 mm. After one link is made longer, a plan that keeps the old body sets a cube down on 4 tries out of 20, about 149 mm off. The rest of this briefing is how a swarm writes the missing file from fingertip readings, uses it, and throws it out when the body changes.</p>
+    </article>
+  </div>
+  <p class="say">Stay on this scene until the room can say the problem back: reach a point, with no body file, and the body may not stay the one you just learned.</p>
+</section>
+
+<!-- 3 -->
+<section class="scene dark" id="map" data-part="The problem" data-title="Seven stops">
+  <div class="frame">
+    <p class="kicker">How to read this</p>
+    <h1>Seven stops. One claim each.</h1>
+    <p class="lede">This is the long version, for a judge who wants the problem, the hypothesis, the comparison, and the way to run it. A three-minute talk uses the cover, why the file matters, the black box, the board, the 4/4, and the close.</p>
+    <div class="steps">
+      <a href="#job"><em>01</em>The problem. No body file, so the hand cannot be aimed.</a>
+      <a href="#bets"><em>02</em>Six bets, stated before the score.</a>
+      <a href="#board"><em>03</em>How the swarm works. Nobody is in charge.</a>
+      <a href="#protocol"><em>04</em>The test. Same robots, same budget.</a>
+      <a href="#found"><em>05</em>What happened on a clean body.</a>
+      <a href="#faults"><em>06</em>Which method is better, and where it is not.</a>
+      <a href="#reuse"><em>07</em>How another team uses it.</a>
+    </div>
+  </div>
+  <p class="say">If the clock is short, skip to the black box, then the board, then the fault score.</p>
+</section>
+
+<!-- 3 -->
+<section class="scene paper" id="words" data-part="The problem" data-title="The words">
+  <div class="frame">
+    <p class="kicker">The problem</p>
+    <h1>Six words the rest of the deck uses.</h1>
+    <div class="stack scrollbox" style="gap:14px;margin-top:8px">
+      <div class="term"><b>Channel</b><span>One number you can send. You are not told whether it turns a joint or slides one.</span></div>
+      <div class="term"><b>Tip</b><span>Where the fingertip is, in millimetres. The reading carries about 2 mm of noise.</span></div>
+      <div class="term"><b>Structure</b><span>For every channel: hinge or slide, which axis, and where that joint sits in the chain. <span class="tok">hz</span> is a hinge about z. <span class="tok">sx</span> is a slide along x.</span></div>
+      <div class="term"><b>Reach error</b><span>How many millimetres the fingertip misses a target the true body can reach. We report the median across robots, with a bootstrap 95% interval.</span></div>
+      <div class="term"><b>Champion</b><span>The model with the lowest error on motions held out from the fit, after a replay check. Two validators crown it by a public rule.</span></div>
+      <div class="term"><b>Budget</b><span>64 motions, the same allowance for the swarm, the pipeline, and both single agents. A motion is one command and one fingertip reading.</span></div>
+    </div>
+  </div>
+  <p class="say">Units in the code are metres and radians. Every number a person reads here is in millimetres.</p>
+</section>
+
+<!-- 4 -->
+<section class="scene dark" id="box" data-part="The problem" data-title="The black box">
+  <div class="frame">
+    <p class="kicker">What you are given instead</p>
+    <h1>This is the whole interface.</h1>
+    <p class="lede">No joint names and no lengths. Send a number on each channel, and read back where the fingertip went. The picture on the right is one hidden body. The agents never get the links, even when you press Show the body.</p>
+    <div class="box-layout">
+      <div class="stack">
+        <div class="sliders" id="sliders"></div>
+        <p class="readout" id="readout">tip waiting</p>
+        <div class="rowbtns">
+          <button type="button" id="sweep">Sweep channel A</button>
+          <button type="button" id="clear">Clear trail</button>
+          <button type="button" id="reveal" aria-pressed="false">Show the body</button>
+        </div>
+        <p class="tiny" style="color:#c9c2b4">Drag a channel. Sweep A draws the path of that channel alone. The noise drawn here is 2 mm, multiplied by 10 so a person can see it. Agents see the unmagnified version, and they never see the links.</p>
+      </div>
+      <svg id="stage" viewBox="0 0 640 420" role="img" aria-label="Fingertip stage"></svg>
+    </div>
+  </div>
+  <p class="say">Sweep channel A and let the arc appear before you reveal the links. That arc is the whole clue.</p>
+</section>
+
+<!-- 5 -->
+<section class="scene paper" id="families" data-part="The problem" data-title="Four bodies, one window">
+  <div class="frame">
+    <p class="kicker">The problem</p>
+    <h1>Four machines. One window.</h1>
+    <p class="lede">The swarm is not told which family it has. These are the generator's patterns. Wires can arrive in any order, and the agents have to recover the order too.</p>
+    <div class="grid-4">
+      <article class="card">
+        <svg viewBox="0 0 160 100" width="100%" height="78" aria-hidden="true">
+          <line x1="18" y1="78" x2="58" y2="48" stroke="#1e4d3a" stroke-width="4" stroke-linecap="round"/>
+          <line x1="58" y1="48" x2="108" y2="62" stroke="#1e4d3a" stroke-width="4" stroke-linecap="round"/>
+          <line x1="108" y1="62" x2="140" y2="30" stroke="#1e4d3a" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="18" cy="78" r="5" fill="#1a1e1b"/><circle cx="58" cy="48" r="5" fill="#1a1e1b"/>
+          <circle cx="108" cy="62" r="5" fill="#1a1e1b"/><circle cx="140" cy="30" r="6" fill="#f0c56a" stroke="#1a1e1b"/>
+        </svg>
+        <h3>Arm</h3>
+        <p>Hinges only. Three to five of them: a yaw at the base, then mostly pitch. Link lengths are random.</p>
+        <p class="tok">h · h · h · …</p>
+      </article>
+      <article class="card">
+        <svg viewBox="0 0 160 100" width="100%" height="78" aria-hidden="true">
+          <rect x="16" y="18" width="128" height="10" rx="2" fill="#ddd6c8"/>
+          <rect x="16" y="70" width="128" height="10" rx="2" fill="#ddd6c8"/>
+          <rect x="30" y="18" width="10" height="62" fill="#1e4d3a"/>
+          <rect x="70" y="28" width="46" height="8" fill="#1e4d3a"/>
+          <circle cx="116" cy="32" r="6" fill="#f0c56a" stroke="#1a1e1b"/>
+        </svg>
+        <h3>Gantry</h3>
+        <p>Three slides, like a printer or a liquid handler, then a rotating tool.</p>
+        <p class="tok">sx · sy · sz · hz</p>
+      </article>
+      <article class="card">
+        <svg viewBox="0 0 160 100" width="100%" height="78" aria-hidden="true">
+          <line x1="30" y1="70" x2="78" y2="40" stroke="#1e4d3a" stroke-width="4"/>
+          <line x1="78" y1="40" x2="120" y2="58" stroke="#1e4d3a" stroke-width="4"/>
+          <line x1="120" y1="58" x2="120" y2="86" stroke="#b8432a" stroke-width="4"/>
+          <circle cx="30" cy="70" r="5" fill="#1a1e1b"/><circle cx="78" cy="40" r="5" fill="#1a1e1b"/>
+          <circle cx="120" cy="58" r="5" fill="#1a1e1b"/><circle cx="120" cy="86" r="6" fill="#f0c56a" stroke="#1a1e1b"/>
+        </svg>
+        <h3>SCARA</h3>
+        <p>Two horizontal hinges, a vertical slide, and a wrist. The red segment is the slide.</p>
+        <p class="tok">hz · hz · sz · hz</p>
+      </article>
+      <article class="card">
+        <svg viewBox="0 0 160 100" width="100%" height="78" aria-hidden="true">
+          <rect x="24" y="40" width="70" height="16" rx="3" fill="#1e4d3a"/>
+          <rect x="70" y="44" width="40" height="8" fill="#b8432a"/>
+          <line x1="110" y1="48" x2="140" y2="28" stroke="#1e4d3a" stroke-width="4"/>
+          <circle cx="24" cy="48" r="5" fill="#1a1e1b"/><circle cx="140" cy="28" r="6" fill="#f0c56a" stroke="#1a1e1b"/>
+        </svg>
+        <h3>Telescope</h3>
+        <p>Yaw, pitch, a boom that extends, and a wrist pitch. Cranes and telescoping arms.</p>
+        <p class="tok">hz · hy · sz · hy</p>
+      </article>
+    </div>
+  </div>
+  <p class="say">The pictures are the generator's pattern. The swarm does not receive them.</p>
+</section>
+
+<!-- 6 -->
+<section class="scene dark" id="rule" data-part="The problem" data-title="The rule">
+  <div class="frame">
+    <p class="kicker">The problem</p>
+    <h1>Agents may use three things.</h1>
+    <div class="split even">
+      <div class="stack">
+        <article class="card"><h3>move(command)</h3><p>Send one number per channel. Read back a fingertip, with noise.</p></article>
+        <article class="card"><h3>n_channels</h3><p>How many numbers the command has. Not what they do.</p></article>
+        <article class="card"><h3>limits</h3><p>The smallest and largest legal command. The same window for every channel.</p></article>
+      </div>
+      <div class="stack">
+        <article class="card"><h3>Hidden from every agent</h3><p>The spec, the MuJoCo model, the true fingertip without noise, the skeleton, and any URDF or MJCF. Those exist so the scorer and the drawings can tell the truth.</p></article>
+        <p class="lede">A feature that needs the answer lives in the experiments or the scorer. It does not live in an agent. The same wall holds for the single-agent and pipeline baselines.</p>
+      </div>
+    </div>
+  </div>
+  <p class="say">This is the constraint the whole design is built around. If a judge asks "did it peek?", the answer is on this slide.</p>
+</section>
+
+<!-- 7 -->
+<section class="scene paper" id="bets" data-part="Hypotheses" data-title="Six bets">
+  <div class="frame">
+    <p class="kicker">Hypotheses</p>
+    <h1>Six bets, stated before the score.</h1>
+    <p class="lede">Each one is something the build was meant to test. The verdicts are at the end, after the evidence, so a loss stays a loss.</p>
+    <div class="grid-6 scrollbox">
+      <article class="card"><h3>H1 · The path</h3><p>Sweep one channel. A straight fingertip path is a slide. An arc is a hinge. The line direction, or the arc's plane, is the axis.</p></article>
+      <article class="card"><h3>H2 · Agreement</h3><p>A channel is settled only when two sweeps, from two poses, agree. If they disagree, every type stays on the board.</p></article>
+      <article class="card"><h3>H3 · The collective</h3><p>The same parts, free to disagree, beat one agent and a fixed pipeline when a part lies or dies. Same robots. Same 64 motions.</p></article>
+      <article class="card"><h3>H4 · Change</h3><p>Repeated surprise on a few sentinel motions is enough to notice that the body changed. No one describes the damage.</p></article>
+      <article class="card"><h3>H5 · Refusal</h3><p>The planner should decline a target the model has not earned, including any target beyond the body's reach.</p></article>
+      <article class="card"><h3>H6 · A known body</h3><p>When the structure is already known and there is nothing to discover, the swarm should not cost accuracy.</p></article>
+    </div>
+  </div>
+  <p class="say">H3 is the one the rubric names: collective capability, same budget. H6 is the one we expected might fail, and it did.</p>
+</section>
+
+<!-- 8 -->
+<section class="scene paper alt" id="board" data-part="Method" data-title="The board">
+  <div class="frame">
+    <p class="kicker">Method</p>
+    <h1>They share a board. Nobody calls anybody.</h1>
+    <p class="lede">Agents post immutable notes. Every note names its parents. Needs sit open, with pressure, until someone serves them. No agent is the boss. The pipeline baseline is these same parts in a fixed order, run by one orchestrator.</p>
+    <div class="board">
+      <div class="post"><b>Explorer ×2</b>Owns the channels. Picks a motion where the competing models disagree.</div>
+      <div class="post"><b>Channel agent ×2 per channel</b>Sweeps only its channel, once from home and once from a bent pose.</div>
+      <div class="post"><b>Review</b>A third pose, used when a channel is doubtful and the champion is still off the goal.</div>
+      <div class="post"><b>Hypothesizers</b>Turn findings into a whole structure. Also a prior, a library, and one language model per key.</div>
+      <div class="post"><b>Modeler ×4</b>Two chain fits with different seeds, a Gaussian mixture, and a neural net.</div>
+      <div class="post"><b>Validator ×2</b>Replay the fit from scratch. Crown the lowest holdout error. The rule is public.</div>
+      <div class="post"><b>Monitor</b>Sentinel motions. On repeated surprise, says the body changed and opens a new epoch.</div>
+      <div class="post"><b>Planner</b>Inverse kinematics on the champion. Between alarm and the next crown, it refuses to move.</div>
+    </div>
+  </div>
+  <p class="say">The review agent and the monitor are the two roles with a single copy. Knocking the review agent out still left the structure right.</p>
+</section>
+
+<!-- 9 -->
+<section class="scene paper" id="arc" data-part="Method" data-title="Arc or line">
+  <div class="frame">
+    <p class="kicker">Method · H1</p>
+    <h1>A line is a slide. An arc is a hinge.</h1>
+    <div class="pair">
+      <div class="anim-card">
+        <svg viewBox="0 0 360 180" width="100%" height="180">
+          <path id="arc-path" class="pathline" d="M40 150 A 120 120 0 0 1 300 70"/>
+          <circle id="arc-bead" class="mover arc" r="8" cx="40" cy="150"/>
+        </svg>
+        <h3>Hinge about z · hz</h3>
+        <p>The fingertip rides a circle. The axis is the normal of that plane. Confidence is how far this is from being a straight line.</p>
+      </div>
+      <div class="anim-card">
+        <svg viewBox="0 0 360 180" width="100%" height="180">
+          <path id="line-path" class="pathline" d="M40 120 L 320 70"/>
+          <circle id="line-bead" class="mover line" r="8" cx="40" cy="120"/>
+        </svg>
+        <h3>Slide along x · sx</h3>
+        <p>The fingertip rides a straight line. The axis is the direction of the line. A slide of one command unit is a fixed number of metres, learned with the length.</p>
+      </div>
+    </div>
+  </div>
+  <p class="say">Two agents do this per channel. They do not see each other's raw path. They post a finding.</p>
+</section>
+
+<!-- 10 -->
+<section class="scene paper alt" id="agree" data-part="Method" data-title="Settled or disputed">
+  <div class="frame">
+    <p class="kicker">Method · H2</p>
+    <h1>Settled only when both agree.</h1>
+    <div class="stack">
+      <div class="agree">
+        <div class="probe-card"><div class="who">From the home pose</div><strong>hz · 0.86</strong><p class="tiny">Channel 2 looks like a hinge about z.</p></div>
+        <div class="probe-card"><div class="who">From a bent pose</div><strong>hz · 0.81</strong><p class="tiny">The second pose says the same thing.</p></div>
+        <div class="stamp">Settled</div>
+      </div>
+      <div class="agree">
+        <div class="probe-card"><div class="who">From the home pose</div><strong>hz · 0.62</strong><p class="tiny">A hinge, not by much.</p></div>
+        <div class="probe-card"><div class="who">From a bent pose</div><strong>sx · 0.58</strong><p class="tiny">A slide. They do not match.</p></div>
+        <div class="stamp dispute">Disputed</div>
+      </div>
+      <p class="note">A disputed channel does not get deleted. Every type is proposed, so a wrong agreement is not the only story on the board. If the champion stays inaccurate, a review agent sweeps that channel from a third pose.</p>
+    </div>
+  </div>
+  <p class="say">The second copy is the point of the swarm. One confident wrong report is what the fault test throws at it.</p>
+</section>
+
+<!-- 11 -->
+<section class="scene paper" id="crown" data-part="Method" data-title="The crown">
+  <div class="frame">
+    <p class="kicker">Method</p>
+    <h1>The crown is a held-out error.</h1>
+    <div class="grid-3">
+      <article class="card"><h3>1 · Propose</h3><p>Hypothesizers assemble findings into a chain, including the order of the channels. A prior, a library, and a language model can propose too, when a key is set.</p></article>
+      <article class="card"><h3>2 · Fit</h3><p>A chain model turns that structure into link lengths and axes. Two chain modelers run with different seeds. A mixture model and a neural net fit the same data without a chain.</p></article>
+      <article class="card"><h3>3 · Replay, then crown</h3><p>A validator refits a candidate from scratch. The refit has to reproduce the score. The public rule picks the lowest error on held-out motions. A near tie goes to the older candidate.</p></article>
+    </div>
+    <p class="note">Any agent can compute the rule. The two validators are there so one crashed vote is not the end of the run. A failed replay used to kill the whole job. It now fails that candidate only. One such crash happened, was fixed, and that job was rerun.</p>
+  </div>
+  <p class="say">Confidence is not the crown. A loud wrong hypothesis loses to a quiet model that predicts the holdout.</p>
+</section>
+
+<!-- 12 -->
+<section class="scene paper alt" id="methods" data-part="Method" data-title="Four ways to spend 64 motions">
+  <div class="frame">
+    <p class="kicker">The comparison</p>
+    <h1>Four ways to spend the same 64 motions.</h1>
+    <div class="grid-4">
+      <article class="card" style="background:#e7f0fa"><h3 style="color:var(--swarm)">Swarm</h3><p>Independent agents. Every role has a second copy, except the review agent and the monitor. They can disagree, and the crown picks.</p></article>
+      <article class="card"><h3 style="color:var(--probe)">Single probe</h3><p>One agent. It sweeps channels the same way, then fits one chain. No second opinion, no language-model slot.</p></article>
+      <article class="card"><h3 style="color:var(--pipe)">Pipeline</h3><p>The same parts as the swarm, one orchestrator, fixed order. The language-model stage has the last word.</p></article>
+      <article class="card" style="background:#f8ebe6"><h3 style="color:var(--single)">Single</h3><p>One agent, one chain model, no channel sweeps. It searches structures without isolating a joint.</p></article>
+    </div>
+    <p class="note">Same robots. Same motion budget. Same scorer. A neural net is the extra baseline on the known-arm curve. It never becomes competitive there, so it is not in the fault table.</p>
+  </div>
+  <p class="say">Say "same robots, same 64 motions, same scorer" out loud. That sentence is the collective-capability score.</p>
+</section>
+
+<!-- 13 -->
+<section class="scene dark" id="protocol" data-part="The test" data-title="Seeds the fixes never saw">
+  <div class="frame">
+    <p class="kicker">The test</p>
+    <h1>The fixes were judged on seeds they were not designed on.</h1>
+    <div class="split even">
+      <div class="stack">
+        <article class="card"><h3>What changed after the preview</h3><p>On seeds 1 and 2, one wrong channel finding or one crashed chain modeler sank the swarm. Version 2 added a second probe from another pose, a review agent, and a second chain modeler.</p></article>
+        <article class="card"><h3>What the slides quote</h3><p>Seeds 101 to 105 were added after those fixes. They are the independent check. Original seeds are shown beside them, not instead of them.</p></article>
+      </div>
+      <div class="stack">
+        <div class="statline">
+          <div class="stat"><b>1,938</b><span>jobs finished, none left in the queue</span></div>
+        </div>
+        <p class="lede">240 bodies, 480 damage runs, 800 fault runs, 320 noise runs, 48 real-arm runs, 30 learning-curve runs, 20 extrapolation runs. Language-model hypothesizers were off, so the same seed repeats.</p>
+      </div>
+    </div>
+  </div>
+  <p class="say">If someone asks whether we tuned on the test, this is the answer. Designed on seeds 1 and 2. Scored on 101 to 105.</p>
+</section>
+
+<!-- 14 -->
+<section class="scene paper" id="found" data-part="Results" data-title="The structure">
+  <div class="frame">
+    <p class="kicker">Results · H1, clean bodies</p>
+    <h1>The full structure, on 20 robots out of 20.</h1>
+    <div class="statline">
+      <div class="stat"><b>20/20</b><span>swarm, single probe, and pipeline. Independent seeds.</span></div>
+      <div class="stat"><b>5/20</b><span>the single agent, searching with no sweeps</span></div>
+      <div class="stat"><b>1.5</b><span>mm, swarm median miss. Interval 1.4 to 1.9. n = 20.</span></div>
+    </div>
+    <div class="grid-3">
+      <article class="card"><h3>Probe 1.3 mm</h3><p>Interval 1.0 to 1.7. A hair closer than the swarm. The intervals overlap. On the original gantries the probe is genuinely closer: 0.9 mm against 1.8, and those intervals do not overlap.</p></article>
+      <article class="card"><h3>Pipeline 1.7 mm</h3><p>Interval 1.0 to 2.0. Same structures, same story. Probing works. The collective is not what finds a clean body.</p></article>
+      <article class="card"><h3>Original seeds</h3><p>Swarm, probe, and pipeline 40/40. Single agent 6/40. Swarm reach 1.6 mm, interval 1.3 to 2.0, n = 40.</p></article>
+    </div>
+    <p class="src">Independent seeds 101–105 and original seeds 1–10. results/summary.md §1. The swarm spends 36 of its 64 motions on sweeps, interval 32 to 40, n = 60.</p>
+  </div>
+  <p class="say">Give the 20/20, then give it away: the probe and the pipeline also get 20/20. The swarm earns its keep on the next fault slide.</p>
+</section>
+
+<!-- 15 -->
+<section class="scene paper alt" id="chart" data-part="Results" data-title="Where the miss sits">
+  <div class="frame">
+    <p class="kicker">Results</p>
+    <h1>Three methods sit on the fingertip. One does not.</h1>
+    <figure class="fig">
+      <img src="../results/fig_bodies.png" alt="Reach error by body family for swarm, single agent, single probe, and pipeline">
+      <figcaption>All seeds pooled. The horizontal axis is millimetres, on a log scale. The big dot is the median. The red cloud is the single agent with no sweeps. Swarm, probe, and pipeline sit on top of each other near 1 to 2 mm.</figcaption>
+    </figure>
+  </div>
+  <p class="say">Point at the red cloud, then at the pile on the left. That pile is the probe result. The swarm is not special yet.</p>
+</section>
+
+<!-- 16 -->
+<section class="scene paper" id="arms" data-part="Results" data-title="Real arms">
+  <div class="frame">
+    <p class="kicker">Results · MuJoCo Menagerie</p>
+    <h1>Real arms. Channels in order, and shuffled.</h1>
+    <p class="lede">Franka Panda, UR5e, Kinova Gen3, ViperX 300s. Every joint the fingertip can reveal was right, in all 8 settings. n = 3 seeds each, so the interval is wide. The gap to the single agent is not.</p>
+    <div class="scrollbox">
+      <table>
+        <thead><tr><th>Arm</th><th>Channels</th><th>Swarm</th><th>Single</th><th>Observable joints</th></tr></thead>
+        <tbody>
+          <tr><td>Panda</td><td>as built</td><td class="ok">2.1 mm</td><td class="bad">340 mm</td><td>18/18</td></tr>
+          <tr><td>Panda</td><td>shuffled</td><td class="ok">2.6 mm</td><td class="bad">506 mm</td><td>18/18</td></tr>
+          <tr><td>UR5e</td><td>as built</td><td class="ok">1.9 mm</td><td class="bad">285 mm</td><td>15/15</td></tr>
+          <tr><td>UR5e</td><td>shuffled</td><td class="ok">2.0 mm</td><td class="bad">348 mm</td><td>15/15</td></tr>
+          <tr><td>Gen3</td><td>as built</td><td class="ok">2.1 mm</td><td class="bad">392 mm</td><td>16/16</td></tr>
+          <tr><td>Gen3</td><td>shuffled</td><td class="ok">2.0 mm</td><td class="bad">592 mm</td><td>16/16</td></tr>
+          <tr><td>ViperX</td><td>as built</td><td class="ok">2.4 mm</td><td class="bad">297 mm</td><td>15/15</td></tr>
+          <tr><td>ViperX</td><td>shuffled</td><td class="ok">2.0 mm</td><td class="bad">270 mm</td><td>15/15</td></tr>
+        </tbody>
+      </table>
+      <p class="src">§2. Some joints never move the fingertip enough to name. Those are left out of the observable count. All-joint fractions are lower, for example Panda shuffled 19/21.</p>
+    </div>
+  </div>
+  <p class="say">Shuffled is the harder column, and it looks the same. Three seeds is a small n. Say so.</p>
+</section>
+
+<!-- 17 -->
+<section class="scene paper" id="faults" data-part="Which is better" data-title="Four faults">
+  <div class="frame">
+    <p class="kicker">Which is better · H3 · independent seeds</p>
+    <h1>Under 10 mm on all four faults: the swarm, and only the swarm.</h1>
+    <div class="score4">
+      <div class="s win"><b>4/4</b><span>Swarm</span></div>
+      <div class="s"><b>3/4</b><span>Single probe. The missed fault is a wrong joint type.</span></div>
+      <div class="s"><b>1/4</b><span>Pipeline. The one pass is the lying sensor.</span></div>
+      <div class="s lose"><b>0/4</b><span>Single. It is near 45 mm with or without the fault.</span></div>
+    </div>
+    <div class="scrollbox">
+      <table>
+        <thead><tr><th>What we broke</th><th>Swarm</th><th>Probe</th><th>Pipeline</th><th>Single</th></tr></thead>
+        <tbody>
+          <tr><td>Nothing</td><td class="ok">1.5 mm · 20/20</td><td class="ok">1.3 mm · 20/20</td><td class="ok">1.7 mm · 20/20</td><td class="bad">45 mm · 5/20</td></tr>
+          <tr><td>One channel agent reports the wrong type</td><td class="ok">1.5 mm · 20/20</td><td class="bad">44 mm · 1/20</td><td class="bad">41 mm · 3/20</td><td class="mid">45 mm · no slot</td></tr>
+          <tr><td>A confident wrong hypothesis</td><td class="ok">1.6 mm · 20/20</td><td class="mid">1.3 mm · no slot</td><td class="bad">27 mm · 0/20</td><td class="mid">45 mm · no slot</td></tr>
+          <tr><td>One chain modeler dies at motion 24</td><td class="ok">1.7 mm · 20/20</td><td class="ok">3.2 mm · 20/20</td><td class="bad">no model in 18/20</td><td class="bad">54 mm</td></tr>
+          <tr><td>20 mm of noise on every sweep of one channel</td><td class="mid">5.1 mm · 13/20</td><td class="ok">3.7 mm · 12/20</td><td class="ok">3.7 mm · 14/20</td><td class="mid">45 mm · no slot</td></tr>
+        </tbody>
+      </table>
+      <p class="src">§5, seeds 101–105, n = 20 robots per cell. A run with no model counts as a miss. "No slot" means that fault cannot reach that method, so the run is the clean one. On the lying sensor the swarm also ended with no model in 1 of 20 runs.</p>
+    </div>
+  </div>
+  <p class="say">Read the bottom row out loud. It is the fault the swarm loses. The 4/4 is still true, and it is not the whole story.</p>
+</section>
+
+<!-- 18 -->
+<section class="scene paper alt" id="replicas" data-part="Which is better" data-title="What the second copy is for">
+  <div class="frame">
+    <p class="kicker">Which is better</p>
+    <h1>The second copy is for the day a part lies.</h1>
+    <div class="grid-4">
+      <article class="card"><h3>Wrong type</h3><p>The other pose still posts the right joint. The crown follows the holdout. Probe and pipeline have no second finding to prefer. 1.5 mm against 44 and 41.</p></article>
+      <article class="card"><h3>Wrong hypothesis</h3><p>The pipeline lets its language-model stage decide. It adopts the lie: 0 structures out of 20. The swarm's validators ignore it.</p></article>
+      <article class="card"><h3>Dead modeler</h3><p>The other chain modeler is still fitting. The pipeline has one, and it is gone: no model in 18 of 20 runs.</p></article>
+      <article class="card" style="background:#f8ebe6"><h3>A sensor that always lies</h3><p>Both probes see the same 20 mm bias, so they agree on the wrong thing. Sweeping less, the probe and the pipeline end closer. 3.7 mm against 5.1.</p></article>
+    </div>
+    <figure class="fig short">
+      <img src="../results/fig_faults.png" alt="Median reach error under four injected faults, original seeds and independent seeds">
+      <figcaption>Left is the preview seeds. Right is the independent seeds, the ones to quote. The dashed line is 10 mm. Whiskers are the bootstrap interval of the median.</figcaption>
+    </figure>
+  </div>
+  <p class="say">Three wins come from having a second opinion. The loss comes from two agents believing the same bad sensor.</p>
+</section>
+
+<!-- 19 -->
+<section class="scene paper" id="damage" data-part="Which is better" data-title="Secret damage">
+  <div class="frame">
+    <p class="kicker">Results · H4</p>
+    <h1>Break it at motion 64. The alarm is the monitor.</h1>
+    <div class="timeline" aria-hidden="true">
+      <div class="bar"></div>
+      <div class="hit" style="left:46%"></div>
+      <span style="left:8%">motion 0</span>
+      <span style="left:46%">damage</span>
+      <span style="left:68%">alarm, +26 to 32</span>
+      <span style="left:90%">motion 128</span>
+    </div>
+    <div class="chips">
+      <div class="chip">Locked joint <b>20/20</b></div>
+      <div class="chip">Longer link <b>20/20</b></div>
+      <div class="chip">Reversed motor <b>20/20</b></div>
+      <div class="chip">Tool change <b>20/20</b></div>
+      <div class="chip">Bent axis <b>16/20</b></div>
+      <div class="chip">Payload <b>1/20</b></div>
+    </div>
+    <div class="grid-3">
+      <article class="card"><h3>97 / 120</h3><p>Swarm alarms at or after the damage. The pipeline's monitor gets 95 / 120. This result belongs to the monitor, not to the collective.</p></article>
+      <article class="card"><h3>59 / 120</h3><p>Swarm runs with a trusted model 64 motions after the break. The pipeline has one in 112 / 120. Both single agents have one in 120 / 120. Relearning is the open problem.</p></article>
+      <article class="card"><h3>Payload</h3><p>The fingertip still lands near 2 mm, so there is little surprise to notice. The pipeline notices 0 of 20. The old model still reaches.</p></article>
+    </div>
+    <p class="src">§3. Four families, five robots each, six kinds of damage. Medians after damage skip runs that ended with no model. For a bent axis that is 10 of 20 swarm runs.</p>
+  </div>
+  <p class="say">Separate the alarm from the recovery. We notice about as well as the pipeline. We rebuild a trusted model more slowly.</p>
+</section>
+
+<!-- 20 -->
+<section class="scene paper alt" id="cube" data-part="Which is better" data-title="The cube">
+  <div class="frame">
+    <p class="kicker">Results · a task, not a score</p>
+    <h1>The cube still gets placed.</h1>
+    <p class="lede">Pick and place. A link is lengthened at motion 48. Twenty arms. Place error is measured only when the cube is actually placed.</p>
+    <div class="score4">
+      <div class="s win"><b>20/20</b><span>Swarm, before. Place error 2.9 mm, interval 2.3 to 3.7.</span></div>
+      <div class="s win"><b>20/20</b><span>Swarm, after. 4.7 mm, interval 2.4 to 6.5. It asked to replan in all 20.</span></div>
+      <div class="s"><b>20/20</b><span>Single agent, before. 3.1 mm, interval 2.0 to 4.7.</span></div>
+      <div class="s lose"><b>4/20</b><span>Single agent, after. 149 mm, interval 55 to 376. It never asked to replan.</span></div>
+    </div>
+    <p class="note">While the alarm is open and no new champion is crowned, the planner refuses to move. That pause is why the swarm asks for a new plan and the single agent keeps using the old body.</p>
+    <p class="src">§4. Damage kind: long link. n = 20.</p>
+  </div>
+  <p class="say">This is the impact slide. The single agent could reach before the break. After it, the cube misses by a hand's width or more.</p>
+</section>
+
+<!-- 21 -->
+<section class="scene paper" id="noise" data-part="Results" data-title="Camera noise">
+  <div class="frame">
+    <p class="kicker">Results</p>
+    <h1>At 10 mm of camera noise, the swarm is the one still near the target.</h1>
+    <div class="split even">
+      <div>
+        <div class="statline">
+          <div class="stat"><b>9.1</b><span>mm, swarm. Interval 6.4 to 21.2. Structure 13/20.</span></div>
+          <div class="stat"><b>0</b><span>false alarms, at 1, 2, 5, and 10 mm. Swarm and pipeline, 0/20 each.</span></div>
+        </div>
+        <p class="note" style="margin-top:12px">The others at 10 mm: single 50 mm, probe 43 mm, pipeline 31 mm. Their structures are right on 4/20, 3/20, and 4/20. At 1, 2, and 5 mm the probe is as close or closer, and everyone who probes still names the structure. The gap opens when the noise gets large.</p>
+        <p class="src">§6. n = 20 at each noise level. This is noise on every reading. It is not the one-channel lying sensor on the fault slide.</p>
+      </div>
+      <figure class="fig">
+        <img src="../results/fig_noise.png" alt="Reach error against camera noise for four methods">
+      </figure>
+    </div>
+  </div>
+  <p class="say">Name the two noise tests apart. One bad channel fools the swarm. Noise on every frame is where the extra sweeps pay.</p>
+</section>
+
+<!-- 22 -->
+<section class="scene paper alt" id="refuse" data-part="Results" data-title="Knowing when it is guessing">
+  <div class="frame">
+    <p class="kicker">Results · H5</p>
+    <h1>It declines a point it has not earned.</h1>
+    <div class="score4">
+      <div class="s win"><b>200/200</b><span>out-of-reach targets refused</span></div>
+      <div class="s win"><b>0/200</b><span>reachable targets refused</span></div>
+      <div class="s lose"><b>466 mm</b><span>where a planner with no guard ends up, interval 452 to 517</span></div>
+      <div class="s"><b>2 mm</b><span>the same unguarded planner, on targets the body can reach</span></div>
+    </div>
+    <figure class="fig short">
+      <img src="../results/fig_extrapolation.png" alt="Refusal of reachable and out-of-reach targets">
+      <figcaption>Out of reach means 1.3 times past the largest reach of that body. §8. n = 200, fifty per family.</figcaption>
+    </figure>
+  </div>
+  <p class="say">The guard is allowed to be boring. Zero false refusals is the number that makes the 200 out of 200 believable.</p>
+</section>
+
+<!-- 23 -->
+<section class="scene paper" id="knockout" data-part="Results" data-title="Knockout">
+  <div class="frame">
+    <p class="kicker">Results · redundancy</p>
+    <h1>Remove one role at motion 24. The structure still comes back.</h1>
+    <p class="lede">Ten knockouts, twenty unknown bodies each. Structure right 20/20 on every row, including the loss of the review agent and the loss of the monitor. Reach stays between 1.4 and 1.7 mm.</p>
+    <div class="chips">
+      <div class="chip">no findings hypothesizer</div>
+      <div class="chip">no prior</div>
+      <div class="chip">no library</div>
+      <div class="chip">one validator</div>
+      <div class="chip">one explorer</div>
+      <div class="chip">no monitor</div>
+      <div class="chip">every hypothesizer</div>
+      <div class="chip">one chain modeler</div>
+      <div class="chip">no bent-pose probes</div>
+      <div class="chip">no review agent</div>
+    </div>
+    <p class="note">Two caveats. The library was empty, so removing it changes nothing. Language-model hypothesizers were off, so their knockout was not run. And this is a clean body. The fault slide is where a missing replica actually matters.</p>
+    <p class="src">§7 and results/knockout.md.</p>
+  </div>
+  <p class="say">Knockout shows the discovery is not a single point of failure. It does not show that every agent is necessary. The fault test does that.</p>
+</section>
+
+<!-- 24 -->
+<section class="scene paper alt" id="losses" data-part="Which is better" data-title="Where a baseline wins">
+  <div class="frame">
+    <p class="kicker">Honest limits</p>
+    <h1>Six places a simpler method wins.</h1>
+    <div class="grid-3 scrollbox">
+      <article class="card"><h3>1 · A sensor that always lies</h3><p>Swarm 5.1 mm and 13/20 structures. Probe and pipeline 3.7 mm. Independent seeds. Agreeing twice on a biased sweep is worse than sweeping once.</p></article>
+      <article class="card"><h3>2 · Relearning after damage</h3><p>A trusted model at motion 128 in 59 of 120 swarm runs. The pipeline has one in 112 of 120. The alarm is fine. The rebuild is slow.</p></article>
+      <article class="card"><h3>3 · Payload</h3><p>Noticed in 1 of 20. The reach error never really leaves 2 mm, so the monitor has almost nothing to see.</p></article>
+      <article class="card"><h3>4 · Nothing to discover</h3><p>On arms whose structure is already known, the single agent wins at every checkpoint. At 64 motions, 1.5 mm against the swarm's 2.4. n = 10. H6 fails.</p></article>
+      <article class="card"><h3>5 · Clean bodies</h3><p>Probe 1.3 mm and pipeline 1.7 mm tie the swarm's 1.5 mm. Intervals overlap. On original-seed gantries the probe is ahead outright.</p></article>
+      <article class="card"><h3>6 · Cost</h3><p>91.5 seconds of agent CPU per robot, interval 73 to 105. Pipeline 5.8 seconds. Probe 9.4. n = 60. The extra minute is the price of the second opinion.</p></article>
+    </div>
+    <p class="src">§3, §5, §9, §10. The full comparison, including ties whose intervals overlap, is 102 rows in results/summary.md under "Failures we found".</p>
+  </div>
+  <p class="say">Do not rush this slide. A judge who finds one of these in the appendix and did not hear it from you will discount the 4/4.</p>
+</section>
+
+<!-- 25 -->
+<section class="scene paper" id="verdicts" data-part="Hypotheses" data-title="The bets, scored">
+  <div class="frame">
+    <p class="kicker">Hypotheses, after the evidence</p>
+    <h1>What we would claim, and what we would not.</h1>
+    <div class="scrollbox">
+      <table>
+        <thead><tr><th>Bet</th><th></th><th>What the runs say</th></tr></thead>
+        <tbody>
+          <tr><td>H1 Path</td><td class="ok">Holds</td><td>20/20 structures. The probe and the pipeline hold it too, so the sweep is the cause.</td></tr>
+          <tr><td>H2 Agreement</td><td class="ok">Holds</td><td>A wrong finding leaves the swarm at 1.5 mm and 20/20. The probe falls to 1/20.</td></tr>
+          <tr><td>H3 Collective</td><td class="mid">Holds on three faults</td><td>Wrong finding, bad hypothesis, dead modeler. Fails when one sensor lies on every sweep. Ties when nothing is wrong.</td></tr>
+          <tr><td>H4 Change</td><td class="mid">Holds for five kinds</td><td>97/120 alarms. Payload is 1/20. The pipeline's monitor matches the alarm rate and rebuilds faster.</td></tr>
+          <tr><td>H5 Refusal</td><td class="ok">Holds</td><td>200/200 far targets refused, 0/200 reachable ones refused.</td></tr>
+          <tr><td>H6 Known body</td><td class="bad">Fails</td><td>The single agent is closer at every checkpoint. Discovery has a cost when there is nothing to discover.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p class="say">This is the slide to leave up during questions.</p>
+</section>
+
+<!-- 26 -->
+<section class="scene paper alt" id="ancestry" data-part="Method" data-title="Where a champion comes from">
+  <div class="frame">
+    <p class="kicker">Decentralized agency</p>
+    <h1>Every clean champion has seven kinds of agent in its family tree.</h1>
+    <div class="statline">
+      <div class="stat"><b>7</b><span>agent types in the ancestry, range 6 to 8, n = 40 clean runs</span></div>
+      <div class="stat"><b>39/40</b><span>champions fit while two or more sources had proposed structures that disagreed</span></div>
+    </div>
+    <div class="grid-3">
+      <article class="card"><h3>The parents are the proof</h3><p>Each note on the board names the notes it came from. The crowned model traces back to raw motions. The dashboard draws that chain, one lane per agent.</p></article>
+      <article class="card"><h3>Disagreement is normal</h3><p>On a clean body the winning structure still came from the channel findings, after other sources had proposed something else. The crown settled it.</p></article>
+      <article class="card"><h3>A pipeline trace is different</h3><p>Those champions have parents too. The parents are stages of one program, run in order. They are not independent agents.</p></article>
+    </div>
+    <p class="src">§11, faults | none | swarm. A vision agent was later added on the same board: two cameras instead of a marker, 3.0 to 4.3 mm median triangulation error by family (§13). Dynamics numbers are from before version 2 and were not rerun.</p>
+  </div>
+  <p class="say">Open the dashboard if a judge wants to see a real trace. The ancestry count is the one-line version.</p>
+</section>
+
+<!-- 27 -->
+<section class="scene dark" id="reuse" data-part="Use it" data-title="For another team">
+  <div class="frame">
+    <p class="kicker">For other teams</p>
+    <h1>Three ways in. None of them require our robots.</h1>
+    <div class="grid-3">
+      <article class="card"><h3>1 · Call the skill</h3><p>robot_motion is the black-box window. Send commands. Get the fingertip in millimetres, and nothing else. Another team's agent can probe a body without learning our swarm.</p></article>
+      <article class="card"><h3>2 · Point learn at your class</h3><p>A class with move, n_channels, and limits is enough to run the swarm. Add true_tip and a motion counter only if you want a score. The agents still cannot see true_tip.</p></article>
+      <article class="card"><h3>3 · Take the files</h3><p>The crowned chain is written as URDF, MJCF, body.json, and a report in millimetres. A length the motions could not pin is marked non-identifiable. Masses are placeholders, 0.1 kg.</p></article>
+    </div>
+    <p class="lede">Loading the MJCF and driving each joint with its scale reproduces the chain model's prediction to within 1 mm.</p>
+  </div>
+  <p class="say">This is the reuse bonus. The skill, the command, and the files already exist. The next slide is the exact command.</p>
+</section>
+
+<!-- 28 -->
+<section class="scene paper" id="run" data-part="Use it" data-title="How to run it">
+  <div class="frame">
+    <p class="kicker">How to use it</p>
+    <h1>From a fresh checkout.</h1>
+    <div class="split even">
+      <div class="stack scrollbox">
+        <pre class="cmd" id="cmd1" data-command="python -m pytest -q&#10;python demo.py&#10;python demo.py --family scara"><button class="copy" type="button" data-copy="cmd1">Copy</button><span class="cmt"># tests, then a narrated run</span>
+python -m pytest -q
+python demo.py
+python demo.py --family scara</pre>
+        <pre class="cmd" id="cmd2" data-command="python -m bodyscout learn --robot examples/arm.py:Arm --budget 64 --out export&#10;python -m bodyscout learn --robot path.py:Class --budget 64 --unknown --out export"><button class="copy" type="button" data-copy="cmd2">Copy</button><span class="cmt"># learn a body and write the files</span>
+python -m bodyscout learn
+    --robot examples/arm.py:Arm --budget 64 --out export
+python -m bodyscout learn
+    --robot path.py:Class --budget 64 --unknown --out export</pre>
+        <pre class="cmd" id="cmd3" data-command="python scienceclaw_skill/robot_motion/scripts/robot_motion.py --family scara --seed 7 --n 5 --format json&#10;python -m http.server 8000"><button class="copy" type="button" data-copy="cmd3">Copy</button><span class="cmt"># the black-box skill, and this briefing</span>
+python scienceclaw_skill/robot_motion/scripts/robot_motion.py
+    --family scara --seed 7 --n 5 --format json
+python -m http.server 8000</pre>
+      </div>
+      <div class="stack">
+        <article class="card"><h3>--unknown</h3><p>Turns the channel agents on. Use it whenever the body might include a slide. Without it, the swarm assumes hinges.</p></article>
+        <article class="card"><h3>--llm</h3><p>Asks the hypothesizers to call a model, if a key is set in .env. Off by default. Every number in this briefing was measured with it off.</p></article>
+        <article class="card"><h3>Then open</h3><p>This briefing at <b>/judge/</b>. The provenance dashboard at <b>/dashboard/</b>. Copy joins a command that is shown on two lines.</p></article>
+      </div>
+    </div>
+  </div>
+  <p class="say">One command per line. They work in PowerShell and in a Unix shell. --robot takes path.py:Class, and the last colon is the class name, so a Windows drive letter is safe.</p>
+</section>
+
+<!-- 29 -->
+<section class="scene paper alt" id="files" data-part="Use it" data-title="What comes out">
+  <div class="frame">
+    <p class="kicker">How to use it</p>
+    <h1>What export/ contains.</h1>
+    <div class="grid-4">
+      <article class="card"><h3>robot.urdf</h3><p>One link and one joint per channel. Revolute or prismatic. A prismatic joint stores metres per command unit.</p></article>
+      <article class="card"><h3>robot.xml</h3><p>The same tree as MJCF. Each joint's scale is a custom number, joint_metres_per_command.</p></article>
+      <article class="card"><h3>body.json</h3><p>Chain order, which channel drives which joint, axes, origins, the scale, and which lengths are identifiable.</p></article>
+      <article class="card"><h3>report.html</h3><p>The same facts in millimetres, for a person. A length the training motions could not pin is marked in all four files.</p></article>
+    </div>
+    <div class="grid-3">
+      <article class="card"><h3>Your class must have</h3><p>move, n_channels, limits. For a scored learning curve, also a motions counter and true_tip. Agents read the first three only.</p></article>
+      <article class="card"><h3>Commands</h3><p>One value per channel, inside the limits. The skill's examples use the window −2 to 2. The fingertip comes back in millimetres.</p></article>
+      <article class="card"><h3>The board</h3><p>runs/*.jsonl is the provenance. Pass it to the dashboard with ?bb=../runs/your.jsonl if you want a judge to scrub the trace.</p></article>
+    </div>
+  </div>
+  <p class="say">Hand a judge the report, not the JSON. The report is already in millimetres.</p>
+</section>
+
+<!-- 30 -->
+<section class="scene paper" id="limits" data-part="Use it" data-title="What this does not show">
+  <div class="frame">
+    <p class="kicker">Before you quote it</p>
+    <h1>What this briefing does not show.</h1>
+    <div class="grid-3">
+      <article class="card"><h3>No physical servo</h3><p>The bodies are MuJoCo, procedural or from Menagerie. A real arm, with backlash and cable stretch, is future work. The two weak spots to fix first are the slow rebuild after damage and a sensor that lies every time.</p></article>
+      <article class="card"><h3>No language model in the score</h3><p>Keys turn the hypothesizers on. Their answers vary, so the sweep left them off. A bad-hypothesis fault simulates a confident wrong source in that slot.</p></article>
+      <article class="card"><h3>Small n, in two places</h3><p>Menagerie is 3 seeds per arm and wiring. The known-arm curve is 10 arms. The body, fault, damage, and noise tables are 20 robots per cell.</p></article>
+      <article class="card"><h3>Damage medians are conditional</h3><p>The recovered-error number uses runs that still have a model. The share that do is 59/120 for the swarm. Read both.</p></article>
+      <article class="card"><h3>Dynamics are the previous swarm</h3><p>Those runs predate the second probe, the review agent, and the second chain modeler. They were not rerun. They are not in the 4/4.</p></article>
+      <article class="card"><h3>One numerical crash</h3><p>A validator replay hit a scipy SVD failure and killed a job. A failed replay now fails that candidate. The job was rerun. Finished jobs were left as they were.</p></article>
+    </div>
+  </div>
+  <p class="say">The claim we will stand on is the independent-seed table, with the six losses beside it.</p>
+</section>
+
+<!-- 31 -->
+<section class="scene dark" id="close" data-part="Close" data-title="Close">
+  <div class="frame" style="justify-content:center">
+    <p class="kicker">BodyScout</p>
+    <h1>A robot with no model file. A swarm that writes one, and writes it again when the body changes.</h1>
+    <div class="grid-3" style="margin-top:12px">
+      <article class="card"><h3>Briefing</h3><p>You are looking at it. Arrow keys, or the contents list.</p></article>
+      <article class="card"><h3>Dashboard</h3><p><a href="../dashboard/index.html">The provenance of a real run</a>, one lane per agent.</p></article>
+      <article class="card"><h3>Numbers</h3><p>results/summary.md is the source. results/slide_numbers.md is the short list.</p></article>
+    </div>
+  </div>
+  <p class="say">Stop talking. Leave the verdict slide or this one up.</p>
+</section>
+
+<script>
+(function () {
+  const scenes = [...document.querySelectorAll(".scene")];
+  const where = document.getElementById("where");
+  const count = document.getElementById("count");
+  const rail = document.getElementById("rail");
+  const toc = document.getElementById("toc");
+  const toclist = document.getElementById("toclist");
+  const scrim = document.getElementById("scrim");
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let current = 0;
+
+  scenes.forEach((scene, i) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.title = scene.dataset.title || "";
+    b.addEventListener("click", () => go(i));
+    rail.appendChild(b);
+    const a = document.createElement("a");
+    a.href = "#" + scene.id;
+    a.innerHTML = "<small>" + (scene.dataset.part || "") + "</small>" + (scene.dataset.title || scene.id);
+    a.addEventListener("click", (e) => { e.preventDefault(); closeToc(); go(i); });
+    toclist.appendChild(a);
+  });
+
+  function go(i) {
+    current = Math.max(0, Math.min(scenes.length - 1, i));
+    scenes[current].scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+  }
+  function mark(i) {
+    current = i;
+    const s = scenes[i];
+    where.textContent = (s.dataset.part ? s.dataset.part + " · " : "") + (s.dataset.title || "");
+    count.textContent = (i + 1) + " / " + scenes.length;
+    document.body.classList.toggle("paper-now", s.classList.contains("paper"));
+    [...rail.children].forEach((dot, k) => {
+      dot.classList.toggle("on", k === i);
+      dot.classList.toggle("paper-dot", s.classList.contains("paper"));
+    });
+    scenes.forEach((sc, k) => sc.classList.toggle("on", k === i));
+    if (location.hash !== "#" + s.id) history.replaceState(null, "", "#" + s.id);
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting && e.intersectionRatio > 0.6) mark(scenes.indexOf(e.target));
+    });
+  }, { threshold: [0.6] });
+  scenes.forEach((s) => io.observe(s));
+
+  function closeToc() {
+    toc.classList.remove("open");
+    scrim.classList.remove("open");
+    document.getElementById("tocbtn").setAttribute("aria-expanded", "false");
+  }
+  function openToc() {
+    toc.classList.add("open");
+    scrim.classList.add("open");
+    document.getElementById("tocbtn").setAttribute("aria-expanded", "true");
+  }
+  document.getElementById("tocbtn").addEventListener("click", () => toc.classList.contains("open") ? closeToc() : openToc());
+  scrim.addEventListener("click", closeToc);
+  document.getElementById("notesbtn").addEventListener("click", (e) => {
+    const on = document.body.classList.toggle("notes");
+    e.currentTarget.setAttribute("aria-pressed", on ? "true" : "false");
+  });
+  document.getElementById("present").addEventListener("click", async () => {
+    if (!document.fullscreenElement) {
+      try { await document.documentElement.requestFullscreen(); } catch (e) {}
+    }
+    go(current === 0 ? 1 : current);
+  });
+
+  addEventListener("keydown", (e) => {
+    const t = e.target;
+    if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
+    if (e.key === "n" || e.key === "N") {
+      const on = document.body.classList.toggle("notes");
+      document.getElementById("notesbtn").setAttribute("aria-pressed", on ? "true" : "false");
+      return;
+    }
+    if (e.key === "c" || e.key === "C") { toc.classList.contains("open") ? closeToc() : openToc(); return; }
+    if (e.key === "Escape") { closeToc(); return; }
+    if (e.key === "f" || e.key === "F") {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(() => {});
+      else document.exitFullscreen();
+      return;
+    }
+    const next = ["ArrowDown", "ArrowRight", "PageDown", " "];
+    const prev = ["ArrowUp", "ArrowLeft", "PageUp"];
+    if (next.includes(e.key)) { e.preventDefault(); closeToc(); go(current + 1); }
+    else if (prev.includes(e.key)) { e.preventDefault(); closeToc(); go(current - 1); }
+    else if (e.key === "Home") { e.preventDefault(); go(0); }
+    else if (e.key === "End") { e.preventDefault(); go(scenes.length - 1); }
+  });
+
+  document.querySelectorAll(".copy").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const pre = document.getElementById(btn.dataset.copy);
+      const text = pre.dataset.command || pre.innerText.replace(/^Copy\s*/, "").trim();
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.textContent = "Copied";
+        setTimeout(() => { btn.textContent = "Copy"; }, 1200);
+      } catch (e) { btn.textContent = "Select it"; }
+    });
+  });
+
+  /* Black box: a 3-hinge arm the visitor is not shown, unless they ask. */
+  const L = [0.30, 0.24, 0.18];
+  let q = [0.5, -0.7, 0.45];
+  let showBody = false;
+  let trail = [];
+  const stage = document.getElementById("stage");
+  const sliders = document.getElementById("sliders");
+  const names = ["A", "B", "C"];
+  names.forEach((name, i) => {
+    const lab = document.createElement("label");
+    lab.innerHTML = "<span>Channel " + name + "</span><input type='range' min='-2' max='2' step='0.01' value='" + q[i] + "' aria-label='Channel " + name + "'><b>" + q[i].toFixed(2) + "</b>";
+    const input = lab.querySelector("input");
+    input.addEventListener("input", () => {
+      q[i] = parseFloat(input.value);
+      lab.querySelector("b").textContent = q[i].toFixed(2);
+      remember();
+      draw();
+    });
+    sliders.appendChild(lab);
+  });
+
+  function fk(qq) {
+    let a = Math.PI / 2;
+    let x = 0, y = 0;
+    const pts = [[0, 0]];
+    for (let i = 0; i < 3; i++) {
+      a += qq[i];
+      x += Math.cos(a) * L[i];
+      y += Math.sin(a) * L[i];
+      pts.push([x, y]);
+    }
+    return pts;
+  }
+  function project(p) {
+    const s = 460;
+    return [90 + p[0] * s, 360 - p[1] * s];
+  }
+  function jitter(p) {
+    const j = 0.02 * Math.sin(p[0] * 40 + p[1] * 17);
+    return [p[0] + j, p[1] + j * 0.6];
+  }
+  function remember() {
+    const pts = fk(q);
+    const tip = jitter(pts[pts.length - 1]);
+    const last = trail[trail.length - 1];
+    const xy = project(tip);
+    if (!last || Math.hypot(xy[0] - last[0], xy[1] - last[1]) > 1.2) trail.push(xy);
+    if (trail.length > 240) trail.shift();
+  }
+  function draw() {
+    const pts = fk(q);
+    const tip = jitter(pts[pts.length - 1]);
+    const mm = [tip[0] * 1000, tip[1] * 1000];
+    document.getElementById("readout").textContent =
+      "q    " + q.map((v) => v.toFixed(2)).join("   ") + "\ntip  " + mm[0].toFixed(0) + " ,  0 ,  " + mm[1].toFixed(0) + " mm";
+    const ns = "http://www.w3.org/2000/svg";
+    stage.replaceChildren();
+    const grid = document.createElementNS(ns, "g");
+    for (let i = 0; i < 8; i++) {
+      const y = 40 + i * 42;
+      const h = document.createElementNS(ns, "line");
+      h.setAttribute("x1", "40"); h.setAttribute("x2", "620");
+      h.setAttribute("y1", y); h.setAttribute("y2", y);
+      h.setAttribute("stroke", "rgba(244,241,234,.06)");
+      grid.appendChild(h);
+    }
+    stage.appendChild(grid);
+    if (trail.length > 1) {
+      const pl = document.createElementNS(ns, "polyline");
+      pl.setAttribute("points", trail.map((p) => p.join(",")).join(" "));
+      pl.setAttribute("fill", "none");
+      pl.setAttribute("stroke", "rgba(240,197,106,.85)");
+      pl.setAttribute("stroke-width", "2");
+      stage.appendChild(pl);
+    }
+    if (showBody) {
+      for (let i = 0; i < pts.length - 1; i++) {
+        const a = project(pts[i]), b = project(pts[i + 1]);
+        const ln = document.createElementNS(ns, "line");
+        ln.setAttribute("x1", a[0]); ln.setAttribute("y1", a[1]);
+        ln.setAttribute("x2", b[0]); ln.setAttribute("y2", b[1]);
+        ln.setAttribute("stroke", "#9fd0b8"); ln.setAttribute("stroke-width", "8");
+        ln.setAttribute("stroke-linecap", "round");
+        stage.appendChild(ln);
+        const c = document.createElementNS(ns, "circle");
+        c.setAttribute("cx", a[0]); c.setAttribute("cy", a[1]); c.setAttribute("r", "6");
+        c.setAttribute("fill", "#f4f1ea");
+        stage.appendChild(c);
+      }
+    }
+    const tp = project(tip);
+    const dot = document.createElementNS(ns, "circle");
+    dot.setAttribute("cx", tp[0]); dot.setAttribute("cy", tp[1]); dot.setAttribute("r", "8");
+    dot.setAttribute("fill", "#f0c56a");
+    stage.appendChild(dot);
+  }
+  document.getElementById("clear").addEventListener("click", () => { trail = []; draw(); });
+  document.getElementById("reveal").addEventListener("click", (e) => {
+    showBody = !showBody;
+    e.currentTarget.setAttribute("aria-pressed", showBody ? "true" : "false");
+    e.currentTarget.textContent = showBody ? "Hide the body" : "Show the body";
+    draw();
+  });
+  let sweeping = false;
+  document.getElementById("sweep").addEventListener("click", () => {
+    if (sweeping) return;
+    sweeping = true;
+    const input = sliders.querySelector("input");
+    const start = q[0];
+    const t0 = performance.now();
+    const step = (now) => {
+      const u = Math.min(1, (now - t0) / 2600);
+      const wave = Math.sin(u * Math.PI);
+      q[0] = start + wave * 1.3;
+      input.value = q[0];
+      input.parentElement.querySelector("b").textContent = q[0].toFixed(2);
+      remember();
+      draw();
+      if (u < 1) requestAnimationFrame(step);
+      else sweeping = false;
+    };
+    requestAnimationFrame(step);
+  });
+  remember();
+  draw();
+
+  function ride(pathId, beadId, period) {
+    const path = document.getElementById(pathId);
+    const bead = document.getElementById(beadId);
+    if (!path || !bead || reduced) return;
+    const len = path.getTotalLength();
+    const loop = (t) => {
+      const u = (Math.sin(t / period) + 1) / 2;
+      const p = path.getPointAtLength(Math.max(0, Math.min(len, len * u)));
+      bead.setAttribute("cx", p.x);
+      bead.setAttribute("cy", p.y);
+      requestAnimationFrame(loop);
+    };
+    requestAnimationFrame(loop);
+  }
+  ride("cover-path", "cover-bead", 1400);
+  ride("arc-path", "arc-bead", 900);
+  ride("line-path", "line-bead", 900);
+
+  const hash = location.hash.slice(1);
+  const start = scenes.findIndex((s) => s.id === hash);
+  mark(start >= 0 ? start : 0);
+  if (start > 0) scenes[start].scrollIntoView({ block: "start" });
+})();
+</script>
+</body>
+</html>
