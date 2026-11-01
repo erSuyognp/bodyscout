@@ -10,7 +10,8 @@ Judges score: problem 20%, impact 25%, decentralized agency 20%, collective capa
 (swarm vs single agent, same budget), execution/validation 10%, +10 for tools other teams reuse.
 
 ## The one rule that must never break
-Agents (everything in `bodyscout/agents.py`, `models.py`, `planning.solve_ik/plan`) may only use
+Agents (everything in `bodyscout/agents.py`, `models.py`, `planning.solve_ik/plan`, and the baseline agent
+classes in `swarm.py`: SingleAgent, SingleProbeAgent, PipelineAgent) may only use
 `BlackBoxRobot.move`, `.n_channels`, `.limits`. They must NEVER read `robot.spec`, `robot._model`,
 `true_tip`, `skeleton`, or any MJCF. Those exist only for scoring (`planning.reach_errors`) and drawing.
 If you add a feature that needs ground truth, it belongs in experiments/ or the scorer, not an agent.
@@ -29,10 +30,14 @@ If you add a feature that needs ground truth, it belongs in experiments/ or the 
 - `bodyscout/env.py`        loads API keys from .env (gitignored); no keys = no LLM hypothesizers
 - Structure tokens: "hz" = hinge about z, "sx" = slide along x. `run(..., unknown_body=True)` turns on channel agents.
 - `bodyscout/planning.py`   IK on the champion, extrapolation guard, true reach scorer
-- `bodyscout/swarm.py`      run(robot, condition) for swarm / single / mlp, learning curve output
+- `bodyscout/swarm.py`      run(robot, condition) for swarm / pipeline / single_probe / single / mlp, learning curve
+                            output; pipeline = the same parts run in a fixed order by one orchestrator
+- `bodyscout/faults.py`     fault injection (`run(..., faults=...)`): wrong_finding, bad_llm, modeler_crash,
+                            noisy_channel. Hidden world side: it may read robot.spec to be wrong on purpose
 - `bodyscout/export.py`     crowned ChainModel to robot.urdf, robot.xml (MJCF), body.json, report.html
 - `bodyscout/cli.py`        `python -m bodyscout learn --robot path.py:Class --budget N` runs the swarm, then exports
-- `experiments/`            learning_curve.py, damage.py, extrapolation.py, bodies.py, knockout.py, make_plots.py
+- `experiments/`            learning_curve.py, damage.py, extrapolation.py, bodies.py, knockout.py, make_plots.py,
+                            sweep.py (faults + noise jobs too), provenance_stats.py (reads saved blackboards)
                             (scripts that use a Pool keep their work under `if __name__ == "__main__":`, Windows needs it)
 - `demo.py`                 narrated live run + optional video
 

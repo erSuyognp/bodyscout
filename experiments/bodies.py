@@ -45,7 +45,8 @@ def job(args):
     meta = {"family": fam, "seed": seed, "condition": cond, "truth": truth, "found": found,
             "types_correct": found is not None and [t[0] for t in found] == [t[0] for t in truth],
             "structure_correct": found == truth, "links_m": d.get("links_m"),
-            "identifiable": d.get("identifiable"), "agent_s": out["agent_s"]}
+            "identifiable": d.get("identifiable"), "agent_s": out["agent_s"], "agent_cpu_s": out["agent_cpu_s"],
+            "motions_used": out["motions"]}
     if llm:
         meta.update(claude_answer(out["blackboard"], truth))
     return rows, meta

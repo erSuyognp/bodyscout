@@ -53,7 +53,7 @@ def job(args):
             "champion": (out["champion"] or {}).get("family"), "observable": seen,
             "joints_right": int(sum(ok)), "observable_right": int(sum(o for o, v in zip(ok, seen) if v)),
             "n": len(truth), "n_observable": int(sum(seen)), "structure_correct": found == truth,
-            "final_reach_mm": out["curve"][-1][1]}
+            "final_reach_mm": out["curve"][-1][1], "agent_cpu_s": out["agent_cpu_s"], "motions_used": out["motions"]}
     return rows, meta
 
 

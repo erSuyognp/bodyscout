@@ -12,12 +12,19 @@ is retried on the next start.
   python experiments/sweep.py --only bodies damage --procs 32
 
 Jobs (LLM hypothesizers off everywhere, so the sweep needs no API key and stays deterministic):
-  bodies         swarm vs single vs single_probe, unknown body, 4 families x 10 seeds
-  damage         swarm vs single vs single_probe, unknown body, 6 damage kinds x 4 families x 5 robots
+  bodies         swarm vs pipeline vs single vs single_probe, unknown body, 4 families x 10 seeds
+  damage         swarm vs pipeline vs single vs single_probe, unknown body, 6 damage kinds x 4 families x 5 robots
+  faults         swarm, pipeline, single_probe, single; unknown body, 4 families x 5 seeds x every fault in
+                 bodyscout/faults.py (and none, the baseline on the same robots)
+  noise          the same four conditions and robots at 1, 2, 5 and 10 mm camera noise
   learning       swarm, single, mlp on 10 arms, structure known
   extrapolation  swarm, unknown body, 4 families x 5 robots; refusal rate + naive miss
   menagerie      swarm vs single on the real arms, channels ordered and shuffled
                  (needs third_party/mujoco_menagerie, see bodyscout/menagerie.py; or --no-menagerie)
+
+Every run-based job records motions_used and agent_cpu_s (process CPU seconds in agent steps, scoring
+excluded). Swarm and pipeline runs of damage, faults and noise also save their blackboard to
+results/blackboards/<key>.jsonl.gz for experiments/provenance_stats.py (--no-blackboards to skip).
 """
 import os
 
@@ -41,6 +48,7 @@ import bodies  # noqa: E402
 import menagerie_arms  # noqa: E402
 from common import job as arm_job  # noqa: E402
 
+from bodyscout.faults import FAULTS  # noqa: E402
 from bodyscout.menagerie import ARMS, ROOT as MENAGERIE_ROOT  # noqa: E402
 from bodyscout.planning import plan, solve_ik  # noqa: E402
 from bodyscout.swarm import run  # noqa: E402
@@ -51,19 +59,33 @@ DAMAGE = dict(robots=5, at=64, budget=128)  # damage after the channel agents ha
 LEARNING = dict(arms=10, budget=64, checkpoints=(8, 12, 16, 24, 32, 48, 64, 96, 128))
 EXTRAP = dict(robots=5, budget=64, n_targets=10)
 MENAGERIE = dict(seeds=3, budget=160)
+FAULT_RUNS = dict(seeds=5, budget=64)
+NOISE = dict(seeds=5, budget=64, levels_mm=(1, 2, 5, 10))
+UNKNOWN_BODY_CONDITIONS = ("swarm", "pipeline", "single_probe", "single")
+# an environment variable, not a flag read here: spawned workers re-import this file
+BLACKBOARDS = None if os.environ.get("BODYSCOUT_NO_BLACKBOARDS") else "results/blackboards"
 # rough relative cost, only used to start the longest jobs first so no core idles at the end
-COST = {"menagerie": 6, "damage": 4, "learning": 2, "bodies": 2, "extrapolation": 2}
+COST = {"menagerie": 6, "damage": 4, "learning": 2, "bodies": 2, "extrapolation": 2, "faults": 2, "noise": 2}
 
 
 def build_jobs(only, menagerie):
     jobs = []
     if "bodies" in only:
         jobs += [("bodies", {"family": f, "seed": s, "condition": c})
-                 for f in FAMILIES for s in range(1, BODIES["seeds"] + 1) for c in ("swarm", "single", "single_probe")]
+                 for f in FAMILIES for s in range(1, BODIES["seeds"] + 1)
+                 for c in ("swarm", "single", "single_probe", "pipeline")]
     if "damage" in only:
         jobs += [("damage", {"family": f, "seed": s, "damage": k, "condition": c})
                  for f in FAMILIES for s in range(1, DAMAGE["robots"] + 1) for k in DAMAGES
-                 for c in ("swarm", "single", "single_probe")]
+                 for c in ("swarm", "single", "single_probe", "pipeline")]
+    if "faults" in only:
+        jobs += [("faults", {"family": f, "seed": s, "fault": k, "condition": c})
+                 for f in FAMILIES for s in range(1, FAULT_RUNS["seeds"] + 1) for k in FAULTS
+                 for c in UNKNOWN_BODY_CONDITIONS]
+    if "noise" in only:
+        jobs += [("noise", {"family": f, "seed": s, "noise_mm": mm, "condition": c})
+                 for f in FAMILIES for s in range(1, NOISE["seeds"] + 1) for mm in NOISE["levels_mm"]
+                 for c in UNKNOWN_BODY_CONDITIONS]
     if "learning" in only:
         jobs += [("learning", {"arm": s, "condition": c})
                  for s in range(1, LEARNING["arms"] + 1) for c in ("swarm", "single", "mlp")]
@@ -87,6 +109,22 @@ def do_bodies(p):
     return bodies.job((p["family"], p["seed"], p["condition"], BODIES["budget"], False))
 
 
+def save_blackboard(p, out, exp):
+    """Swarm and pipeline boards, for provenance_stats.py. Named by job key, so a rerun overwrites."""
+    if BLACKBOARDS and p["condition"] in ("swarm", "pipeline"):
+        os.makedirs(BLACKBOARDS, exist_ok=True)
+        name = key_of(exp, p).replace("|", "__").replace("=", "-")
+        out["blackboard"].to_jsonl(os.path.join(BLACKBOARDS, name + ".jsonl.gz"))
+
+
+def run_meta(out):
+    """What every run-based job records about its cost and its board."""
+    bb = out["blackboard"]
+    return {"motions_used": out["motions"], "agent_s": out["agent_s"], "agent_cpu_s": out["agent_cpu_s"],
+            "fault_hits": out["fault_hits"], "champions": len(bb.of("champion", epoch=-1)),
+            "disagreements": len(bb.of("disagreement", epoch=-1))}
+
+
 def do_damage(p):
     fam, seed, kind = p["family"], p["seed"], p["damage"]
     robot = BlackBoxRobot(random_body(seed, fam), seed=seed)
@@ -97,8 +135,33 @@ def do_damage(p):
     rows = [{"motions": m, "reach_mm": e} for m, e in out["curve"]]
     found = ((out["champion"] or {}).get("describe") or {}).get("structure")
     meta = {"truth": truth, "found": found, "alarms": out["alarms"], "events": out["events"],
-            "damaged_at": DAMAGE["at"]}
+            "damaged_at": DAMAGE["at"], **run_meta(out)}
+    save_blackboard(p, out, "damage")
     return rows, meta
+
+
+def unknown_body_run(p, exp, budget, obs_noise=0.002, faults=None):
+    """One unknown body run for the faults and noise jobs; the truth is read here, for scoring only."""
+    fam, seed = p["family"], p["seed"]
+    robot = BlackBoxRobot(random_body(seed, fam), obs_noise=obs_noise, seed=seed)
+    truth = robot.spec.tokens()
+    out = run(robot, p["condition"], budget=budget, eval_at=tuple(range(8, budget + 1, 4)), n_targets=8,
+              seed=seed, use_llm=False, unknown_body=True, faults=faults)
+    found = ((out["champion"] or {}).get("describe") or {}).get("structure")
+    rows = [{"motions": m, "reach_mm": e} for m, e in out["curve"]]
+    meta = {"truth": truth, "found": found, "structure_correct": found == truth,
+            "types_correct": found is not None and [t[0] for t in found] == [t[0] for t in truth],
+            "alarms": out["alarms"], "fault_channel": seed % robot.n_channels, **run_meta(out)}
+    save_blackboard(p, out, exp)
+    return rows, meta
+
+
+def do_faults(p):
+    return unknown_body_run(p, "faults", FAULT_RUNS["budget"], faults=p["fault"])
+
+
+def do_noise(p):
+    return unknown_body_run(p, "noise", NOISE["budget"], obs_noise=p["noise_mm"] / 1000)
 
 
 def do_learning(p):
@@ -129,7 +192,7 @@ def do_extrapolation(p):
             q_naive, _ = solve_ik(model, t, robot.n_channels, robot.limits, seed=i)
             rows.append({"target": kind, "refused": info["refused"] is not None,
                          "naive_miss_mm": float(np.linalg.norm(robot.true_tip(q_naive) - t)) * 1000})
-    return rows, {"reach_max_m": reach_max}
+    return rows, {"reach_max_m": reach_max, "motions_used": res["motions"], "agent_cpu_s": res["agent_cpu_s"]}
 
 
 def do_menagerie(p):
@@ -137,7 +200,7 @@ def do_menagerie(p):
 
 
 DO = {"bodies": do_bodies, "damage": do_damage, "learning": do_learning,
-      "extrapolation": do_extrapolation, "menagerie": do_menagerie}
+      "extrapolation": do_extrapolation, "menagerie": do_menagerie, "faults": do_faults, "noise": do_noise}
 
 
 def work(job):
@@ -197,7 +260,11 @@ if __name__ == "__main__":  # Windows and forkserver spawn workers by re-importi
     ap.add_argument("--out", default="results/sweep.jsonl")
     ap.add_argument("--no-menagerie", action="store_true", help="skip the real arms")
     ap.add_argument("--dry-run", action="store_true", help="list the jobs and exit")
+    ap.add_argument("--no-blackboards", action="store_true", help="do not save swarm and pipeline boards")
     a = ap.parse_args()
+    if a.no_blackboards:  # workers inherit the environment when the pool spawns them
+        os.environ["BODYSCOUT_NO_BLACKBOARDS"] = "1"
+        BLACKBOARDS = None
 
     menagerie = "menagerie" in a.only and not a.no_menagerie
     if menagerie and not os.path.isdir(MENAGERIE_ROOT):

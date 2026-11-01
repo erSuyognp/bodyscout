@@ -5,6 +5,7 @@ No agent calls another agent. Agents read the board, claim needs, and post artif
 """
 from __future__ import annotations
 
+import gzip
 import itertools
 import json
 import time
@@ -96,6 +97,7 @@ class Blackboard:
 
     # export ----------------------------------------------------------------
     def to_jsonl(self, path: str) -> None:
+        """One JSON line per need and artifact; gzipped when the path ends in .gz."""
         def clean(v: Any):
             if hasattr(v, "tolist"):
                 return v.tolist()
@@ -105,7 +107,7 @@ class Blackboard:
                 return [clean(x) for x in v]
             return v if isinstance(v, (int, float, str, bool, type(None))) else str(v)
 
-        with open(path, "w") as f:
+        with (gzip.open(path, "wt") if path.endswith(".gz") else open(path, "w")) as f:
             for n in self.needs:  # observations cite the need they served, so needs are DAG nodes too
                 f.write(json.dumps({"id": n.id, "kind": "need", "need": n.kind, "author": n.author,
                                     "pressure": n.pressure, "parents": list(n.parents),

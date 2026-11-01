@@ -30,3 +30,6 @@ runs/
 Thumbs.db
 third_party/
 *.pdf
+
+# Sweep blackboards (large; provenance_stats.py reads them)
+results/blackboards/
