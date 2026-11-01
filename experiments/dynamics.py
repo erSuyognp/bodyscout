@@ -13,6 +13,9 @@ Both swarms run the Exciter + DynamicsModeler, so pre-damage budgets and models 
     python experiments/dynamics.py              # in sample runs -> dynamics.json, figure, summary
     python experiments/dynamics.py --set oos    # out of sample runs -> dynamics_oos.json, summary
     python experiments/dynamics.py --plot       # only redraw figure and summary from the json files
+
+LLM hypothesizers (Claude, Gemini) join the swarm for every provider with a key in .env, which makes runs
+non deterministic. Add --no-llm for bit-for-bit reproducible runs.
 """
 import argparse
 import json
@@ -33,6 +36,7 @@ from bodyscout.blackboard import Blackboard  # noqa: E402
 from bodyscout.dynamics.agents_dyn import DynamicsModeler, DynamicsMonitor, Exciter  # noqa: E402
 from bodyscout.dynamics.fit import path_rmse_mm  # noqa: E402
 from bodyscout.dynamics.world_dyn import DynamicRobot  # noqa: E402
+from bodyscout.env import load_env  # noqa: E402
 from bodyscout.swarm import make_swarm  # noqa: E402
 from bodyscout.world import random_body  # noqa: E402
 
@@ -79,11 +83,14 @@ def score_models(robot, bb):
 
 
 def job(args):
-    fam, seed, kind, cond, at, after, max_ticks = args
+    fam, seed, kind, cond, at, after, max_ticks, use_llm = args
     t0 = time.time()
+    if use_llm is not False:
+        load_env()  # API keys from .env; one LLM hypothesizer per provider with a key
     robot = DynamicRobot(random_body(seed, fam), dyn_seed=seed, seed=seed)
     n = robot.n_channels
-    agents = make_swarm(robot, seed, use_llm=False, monitor=False, channels=True)
+    agents = make_swarm(robot, seed, use_llm=use_llm, monitor=False, channels=True)
+    llm_names = [a.name for a in agents if type(a).__name__ == "LLMHypothesizer"]
     agents += [Exciter(robot, seed), DynamicsModeler(n, seed=seed)]
     agents.append(Monitor(robot, seed=seed) if cond == "shape" else DynamicsMonitor(robot, seed=seed))
     bb, rng = Blackboard(), np.random.default_rng(seed)
@@ -114,7 +121,9 @@ def job(args):
            "false_alarms": len(alarms) if kind == "none" else sum(not a["after_damage"] for a in alarms),
            "detected": first is not None and kind != "none",
            "motions_to_detect": (first["motion"] - damaged_at) if first else None,
-           "weak_channel": true_info.get("weak_channel"), "seconds": round(time.time() - t0, 1)}
+           "weak_channel": true_info.get("weak_channel"), "seconds": round(time.time() - t0, 1),
+           "llm_agents": llm_names,
+           "llm_hypotheses": sum(1 for h in bb.of("hypothesis", epoch=-1) if h.author in llm_names)}
     if first is not None and cond == "dynamics" and kind != "none":
         row["cause"] = first.get("cause")
         row["channel"] = first.get("channel")
@@ -230,11 +239,20 @@ def detection_stats(rows):
     return out
 
 
+def llm_note(res):
+    names = sorted({n for r in res["rows"] for n in r.get("llm_agents", [])})
+    if not names:
+        return "LLM hypothesizers: off (deterministic runs)."
+    n_h = sum(r.get("llm_hypotheses", 0) for r in res["rows"])
+    return (f"LLM hypothesizers: on ({', '.join(names)}); {n_h} LLM hypotheses posted across "
+            f"{len(res['rows'])} runs. Runs are not deterministic.")
+
+
 def section(res, bodies, level="##"):
     """The three summary_dynamics tables for one set of runs."""
     rows, scores = [r for r in res["rows"] if r["kind"] != "none"], res["scores"]
     st = detection_stats(rows)
-    L = [f"Bodies: {', '.join(f'{f}{s}' for f, s in bodies)}.", "",
+    L = [f"Bodies: {', '.join(f'{f}{s}' for f, s in bodies)}. {llm_note(res)}", "",
          f"{level}# Detection", "",
          "| damage | monitor | detected | median motions to detect | false alarms before damage | cause named right | added payload within 0.1 kg |",
          "| --- | --- | --- | --- | --- | --- | --- |"]
@@ -362,14 +380,16 @@ if __name__ == "__main__":
     ap.add_argument("--procs", type=int, default=os.cpu_count())
     ap.add_argument("--set", choices=("in", "oos"), default="in", help="in sample or out of sample bodies")
     ap.add_argument("--plot", action="store_true", help="only redraw from the json files")
+    ap.add_argument("--no-llm", action="store_true", help="no LLM hypothesizers: deterministic runs")
     a = ap.parse_args()
     out_json = f"{R}/dynamics.json" if a.set == "in" else f"{R}/dynamics_oos.json"
+    use_llm = False if a.no_llm else None  # None: one LLM hypothesizer per provider with a key
     if not a.plot:
         if a.set == "in":
-            jobs = [(f, s, k, c, a.at, a.after, a.max_ticks) for f, s in BODIES for k in KINDS for c in CONDS]
+            jobs = [(f, s, k, c, a.at, a.after, a.max_ticks, use_llm) for f, s in BODIES for k in KINDS for c in CONDS]
         else:
-            jobs = ([(f, s, k, c, a.at, a.after, a.max_ticks) for f, s in OOS_BODIES for k in KINDS for c in CONDS]
-                    + [(f, s, "none", c, a.at, a.after, a.max_ticks) for f, s in OOS_CLEAN for c in CONDS])
+            jobs = ([(f, s, k, c, a.at, a.after, a.max_ticks, use_llm) for f, s in OOS_BODIES for k in KINDS for c in CONDS]
+                    + [(f, s, "none", c, a.at, a.after, a.max_ticks, use_llm) for f, s in OOS_CLEAN for c in CONDS])
         with Pool(a.procs) as p:
             out = p.map(job, jobs)
         res = {"args": vars(a), "rows": [r for r, _ in out], "scores": [s for _, s in out]}

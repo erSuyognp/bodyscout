@@ -4,7 +4,7 @@ Damage at motion 48: payload_dyn (+0.35 kg at the tip) or weak_motor (one joint,
 
 ## In sample
 
-Bodies: arm1, arm2, arm3, scara1, scara2.
+Bodies: arm1, arm2, arm3, scara1, scara2. LLM hypothesizers: off (deterministic runs).
 
 ### Detection
 
@@ -53,7 +53,7 @@ Bodies: arm1, arm2, arm3, scara1, scara2.
 ## Out of sample
 
 New bodies with seeds no experiment or test had used. DynamicsMonitor and fit settings frozen at their committed values; nothing was tuned for or after these runs.
-Bodies: arm101, arm102, arm103, arm104, arm105, scara101, scara102, scara103, telescope101, telescope102.
+Bodies: arm101, arm102, arm103, arm104, arm105, scara101, scara102, scara103, telescope101, telescope102. LLM hypothesizers: off (deterministic runs).
 
 ### Detection
 
