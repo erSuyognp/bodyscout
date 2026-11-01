@@ -528,7 +528,7 @@ if os.path.exists(f"{R}/faults.csv"):
                 "every sweep of one channel. Faults hit one agent instance; the swarm's replicas and second chain "
                 "modeler are not faulted. 'No slot' means the condition has no place for that fault (a single agent "
                 "has no findings and no hypothesis source), so it ran unchanged.", ""]
-    fig, axes = plt.subplots(1, len(panels), figsize=(6.2 * len(panels), 4.4), dpi=160, sharey=True)
+    fig, axes = plt.subplots(1, len(panels), figsize=(6.2 * len(panels), 5.0), dpi=160, sharey=True)
     axes = np.atleast_1d(axes)
     claims = []
     for ax, (label, by, conds) in zip(axes, panels):
@@ -554,8 +554,8 @@ if os.path.exists(f"{R}/faults.csv"):
         ax.set_ylim(0.5, 400)
         ok = {c: [f for f in faults if f != "none" and med_inf(by[f][c]) <= MISS_MM] for c in conds}
         n_f = len([f for f in faults if f != "none"])
-        ax.set_title(label + f"\nmedian under {MISS_MM:.0f} mm (no model = miss) on " + ", ".join(f"{SHORT[c]} {len(ok[c])}/{n_f}" for c in conds)
-                     + " faults", loc="left", fontsize=9, color=INK)
+        ax.set_title(label + f"\nfaults with median under {MISS_MM:.0f} mm (no model counts as a miss):\n"
+                     + ", ".join(f"{SHORT[c]} {len(ok[c])}/{n_f}" for c in conds), loc="left", fontsize=9, color=INK)
         claims.append((label, ok, n_f))
     axes[0].set_ylabel("median reach error at 64 motions, mm (log)\nbar = median, whisker = 95% CI", color=QUIET, fontsize=9)
     h, l = axes[0].get_legend_handles_labels()
@@ -572,7 +572,7 @@ if os.path.exists(f"{R}/faults.csv"):
                  + ("\nA baseline ends closer under " + "; ".join(f"{f} ({', '.join(cs)})" for f, cs in beaten.items())
                     if beaten else ""),
                  x=0.01, ha="left", fontsize=10.5, color=INK)
-    fig.tight_layout(rect=(0, 0.07, 1, 0.92))
+    fig.tight_layout(rect=(0, 0.06, 1, 0.9))
     save(fig, "fig_faults.png")
 
 if os.path.exists(f"{R}/noise.csv"):
@@ -660,7 +660,7 @@ if os.path.exists(f"{R}/extrapolation.json"):
     naive = boot_ci([o["naive_miss_mm"] for o in ex if o["target"] == "out_of_reach"])[0]
     wrap_title(ax, f"It refuses {100 * ko[0] / ko[1]:.0f}% of out of reach targets and {100 * kr[0] / kr[1]:.0f}% of "
                    f"reachable ones;\na planner without the guard misses out of reach targets by {naive:.0f} mm (median)", 10)
-    ax.legend(frameon=False, fontsize=8.5, loc="upper right", bbox_to_anchor=(1, 1.02))
+    ax.legend(frameon=False, fontsize=8.5, loc="upper center", bbox_to_anchor=(0.5, -0.1), ncol=2)
     fig.tight_layout()
     save(fig, "fig_extrapolation.png")
 
@@ -694,8 +694,8 @@ if os.path.exists(f"{R}/learning.csv"):
     ax.set_xlabel("motions spent (robot budget)", color=QUIET, fontsize=9.5)
     ax.set_ylabel("reach error on unseen targets, mm (log)", color=QUIET, fontsize=9.5)
     last = max(tab)
-    wrap_title(ax, f"Known arms, nothing to discover: after {last} motions " + ", ".join(
-        f"{SHORT[c]} {tab[last][c]:.1f} mm" for c in conds) + f".\n{len(arms)} arms, same budget; band = interquartile range", 10)
+    wrap_title(ax, f"Known arms, nothing to discover: after {last} motions\n" + ", ".join(
+        f"{SHORT[c]} {tab[last][c]:.1f} mm" for c in conds) + f" (median).\n{len(arms)} arms, same budget; band = interquartile range", 10)
     ax.legend(frameon=False, fontsize=8.5, loc="upper right")
     fig.tight_layout()
     save(fig, "fig_learning.png")
