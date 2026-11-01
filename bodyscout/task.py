@@ -40,6 +40,10 @@ class TaskPlanner(Agent):
     old waypoint list is dropped. A new plan is posted only once a champion
     newer than that surprise is on the board: for an anomaly, one from a later
     body epoch.
+
+    With a task and no champion, it posts a `trusted-model` need. Grasp and
+    ungrasp are `command` artifacts; the contact bit is an observation whose
+    parent is that command.
     """
 
     name = "task-planner"
@@ -74,8 +78,11 @@ class TaskPlanner(Agent):
         if self.done:
             return False
         task = self._ensure_task(bb)
+        if task is None:
+            return False
         champ = bb.latest("champion")
-        if task is None or champ is None or "_model" not in champ.payload:
+        if champ is None or "_model" not in champ.payload:
+            self._ask_model(bb)
             return False
         if self._plan is None:
             self._build(bb, champ, task, surprises)
@@ -96,17 +103,30 @@ class TaskPlanner(Agent):
         return max(4.0 * base, self.HIGH_MM)
 
     def _high(self, bb):
+        """Monitor alarms, and a holdout that got much worse for the crowned model.
+
+        A verdict on some other candidate is often large on purpose. Treating it as
+        a body change would throw away the model the validators just crowned.
+        """
         thresh = self._threshold(bb)
         out = []
         for art in bb.of("anomaly", epoch=-1):
             p = art.payload
             if float(p.get("surprise_mm", 0)) > float(p.get("threshold_mm", self.HIGH_MM)):
                 out.append(art)
-        for kind in ("score", "verdict"):
-            for art in bb.of(kind, epoch=-1):
-                mm = art.payload.get("holdout_mm")
-                if mm is not None and float(mm) > thresh:
-                    out.append(art)
+        champ = bb.latest("champion") or bb.latest("champion", epoch=-1)
+        crowned = None if champ is None else champ.payload.get("candidate")
+        for art in bb.of("score", epoch=-1):
+            mm = art.payload.get("holdout_mm")
+            if mm is not None and float(mm) > thresh:
+                out.append(art)
+        for art in bb.of("verdict", epoch=-1):
+            mm = art.payload.get("holdout_mm")
+            if mm is None or float(mm) <= thresh or art.payload.get("replayed") is False:
+                continue
+            if crowned is not None and art.payload.get("candidate") != crowned:
+                continue
+            out.append(art)
         return out
 
     def _unanswered(self, bb):
@@ -123,6 +143,16 @@ class TaskPlanner(Agent):
             return champ.epoch > art.epoch
         return champ.epoch >= art.epoch
 
+    def _ask_model(self, bb):
+        """One open request. A new epoch closes it, and the next wait posts another."""
+        if any(n.open and n.kind == "trusted-model" for n in bb.needs):
+            return
+        cited = set(self._plan.parents) if self._plan is not None else set()
+        if any(n.kind == "trusted-model" and n.id in cited for n in bb.needs):
+            return
+        parents = [self._task.id] if self._task is not None else []
+        bb.need("trusted-model", self.name, 80.0, parents=parents, why="need trusted model")
+
     def _request(self, bb, art):
         mm = art.payload.get("surprise_mm", art.payload.get("holdout_mm"))
         parents = [art.id] + ([self._plan.id] if self._plan is not None else [])
@@ -130,7 +160,8 @@ class TaskPlanner(Agent):
             "because": art.kind, "source": art.author,
             "surprise_mm": None if mm is None else round(float(mm), 2),
         }, parents)
-        bb.need("replan", self.name, 100.0, why=f"high surprise from {art.author}", surprise=art.id)
+        bb.need("replan", self.name, 100.0, parents=[art.id],
+                why=f"high surprise from {art.author}", surprise=art.id)
 
     def _ensure_task(self, bb):
         if self._task is None:
@@ -160,9 +191,11 @@ class TaskPlanner(Agent):
                 "refused": info["refused"],
             })
         need = bb.claim("replan")
+        model_need = bb.claim("trusted-model")
         parents = [champ.id, task.id] + [s.id for s in surprises]
-        if need is not None and need.id not in parents:
-            parents.append(need.id)
+        for extra in (need, model_need):
+            if extra is not None and extra.id not in parents:
+                parents.append(extra.id)
         for art in bb.of("replan", epoch=-1):
             if art.id not in parents:
                 parents.append(art.id)
@@ -188,11 +221,13 @@ class TaskPlanner(Agent):
                 "trial": trial, "surprise_mm": round(surprise_mm, 2),
             }, [self._plan.id])
         else:
+            cmd = bb.post("command", self.name, {"command": step["kind"], "trial": trial},
+                          [self._plan.id])
             sens = self.robot.grasp() if step["kind"] == "grasp" else self.robot.ungrasp()
             bb.post("observation", self.name, {
                 "split": "task", "trial": trial, "gripper": step["kind"],
                 "holding": bool(sens["holding"]), "closed": bool(sens["closed"]),
-            }, [self._plan.id])
+            }, [cmd.id])
         self._i += 1
 
     def _finish(self, bb):

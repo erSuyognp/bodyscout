@@ -10,6 +10,7 @@
     ../runs/demo_summary.json       ground truth for the reveal (scorer side, never seen by agents)
     ../results/bodies.csv, ../results/bodies_meta.json, ../results/learning.csv
   Override the run with ?bb=path/to/board.jsonl&summary=path/to/summary.json
+  A pick-and-place trial: ?bb=../runs/task_blackboard.jsonl&summary=../runs/task_summary.json
   Serve over http (fetch does not work from file://):  python -m http.server 8000  then open /dashboard/
 -->
 <style>
@@ -150,8 +151,9 @@ details summary { cursor: pointer; color: var(--text-secondary); font-size: 12px
 
   <section class="card" id="dag">
     <h2>1 · Provenance DAG, one lane per agent</h2>
-    <p class="sub">Every artifact on the blackboard, in the order it was posted. Dashed arrows run from a need to the artifacts that answered it.
+    <p class="sub" id="dagSub">Every artifact on the blackboard, in the order it was posted. Dashed arrows run from a need to the artifacts that answered it.
       The red line is the moment the body was secretly damaged; the swarm is not told. Hover a node to trace its ancestry.</p>
+    <p class="sub" id="taskStatus" style="display:none"></p>
     <div class="row">
       <button class="primary" id="play">Pause</button>
       <input type="range" id="scrub" min="0" max="0" value="0" aria-label="timeline position">
@@ -264,10 +266,14 @@ const KIND = {
   disagreement: { group: "validation", color: "--series-7", r: 4 },
   champion: { group: "champion", color: "--text-primary", r: 5.5, shape: "diamond" },
   anomaly: { group: "anomaly", color: "--critical", r: 6, shape: "diamond" },
+  plan: { group: "task plan", color: "--series-2", r: 5, shape: "square" },
+  replan: { group: "replan", color: "--critical", r: 5, shape: "square" },
+  command: { group: "grasp / ungrasp", color: "--series-7", r: 4.5, shape: "square" },
+  result: { group: "task result", color: "--good", r: 6, shape: "diamond" },
   need: { group: "need", color: "--text-muted", r: 4, shape: "ring" },
 };
 function laneRank(a) {
-  const order = [/^explorer/, /^channel/, /^hyp-/, /^modeler/, /^validator/, /^monitor/];
+  const order = [/^explorer/, /^channel/, /^hyp-/, /^modeler/, /^validator/, /^monitor/, /^task/];
   const i = order.findIndex(r => r.test(a));
   const num = Number((a.match(/(\d+)$/) || [0, 0])[1]);
   return [i < 0 ? order.length : i, a.replace(/\d+$/, ""), num];
@@ -280,7 +286,20 @@ function summarize(d) {
   const p = d.payload || {};
   switch (d.kind) {
     case "need": return `wants <b>${esc(d.need)}</b>, pressure ${fmt(d.pressure)}${p.why ? `<br>${esc(p.why)}` : ""}`;
-    case "observation": return `q = [${(p.q || []).map(v => v.toFixed(2)).join(", ")}]<br>tip = [${(p.x || []).map(mm).join(", ")}] mm · ${esc(p.split || "")}${p.carried ? " · carried over" : ""}`;
+    case "observation": {
+      if (p.gripper) return `<b>${esc(p.gripper)}</b> · ${p.holding ? "holding a cube" : "empty"}`;
+      const q = p.q || [], x = p.x || [];
+      const surprise = p.surprise_mm != null ? ` · surprise ${fmt(p.surprise_mm)} mm` : "";
+      return `q = [${q.map(v => Number(v).toFixed(2)).join(", ")}]<br>tip = [${x.map(mm).join(", ")}] mm · ${esc(p.split || "")}${p.carried ? " · carried over" : ""}${surprise}`;
+    }
+    case "plan": {
+      const steps = (p.steps || []).map(s => s.kind).join(" → ");
+      const refused = (p.steps || []).find(s => s.refused);
+      return `trial ${p.trial}: ${esc(steps)}${refused ? `<br>refused: ${esc(refused.refused)}` : ""}`;
+    }
+    case "replan": return `because <b>${esc(p.because)}</b> from ${esc(p.source || "")}${p.surprise_mm != null ? ` · surprise ${fmt(p.surprise_mm)} mm` : ""}`;
+    case "command": return `<b>${esc(p.command)}</b>`;
+    case "result": return `executed ${p.executed} of ${p.steps}${p.refused ? `<br>refused: ${esc(p.refused)}` : ""}`;
     case "finding": return p.type === "?" ? "channel hidden from here" : `channel ${p.channel} ${p.type === "h" ? "rotates about" : "slides along"} <b>${esc(p.axis)}</b> · conf ${(p.conf * 100).toFixed(0)}%`;
     case "hypothesis": return `<b>${esc((p.pattern || []).join(" "))}</b> · from ${esc(p.source)}, rank ${p.rank}${p.why ? `<br>${esc(p.why)}` : ""}`;
     case "order": return `chain order [${(p.order || []).join(", ")}] · rmse ${fmt(p.rmse_mm)} mm`;
@@ -318,10 +337,26 @@ function buildDag(recs, summary) {
   for (const g of groups) {
     const c = `var(${g.color})`;
     const sw = g.shape === "ring" ? `border:1.5px dashed ${c};background:none`
+      : g.shape === "square" ? `background:${c};border-radius:2px`
       : g.shape === "diamond" ? `background:${c};border-radius:1px;transform:rotate(45deg)` : `background:${c}`;
     kl.append(h("span", {}, `<i class="sw" style="${sw}"></i>${g.group}`));
   }
   kl.append(h("span", {}, `<i class="sw line" style="background:var(--critical)"></i>hidden damage`));
+  if (recs.some(d => d.kind === "replan"))
+    kl.append(h("span", {}, `<i class="sw line" style="background:var(--critical)"></i>replan, then the new plan`));
+  const taskOutcome = summary && summary.task;
+  if (taskOutcome)
+    kl.append(h("span", {}, `<i class="sw" style="background:none;border:2px solid var(${taskOutcome.success ? "--good" : "--critical"})"></i>${taskOutcome.success ? "cube placed" : "cube missed"}`));
+  const dagSub = $("dagSub"), taskStatus = $("taskStatus");
+  if (taskOutcome && dagSub) {
+    dagSub.textContent = "Swarm and task planner on one blackboard. Dashed arrows are needs, labelled with their pressure. The diamond is a crowned champion, the red line is the hidden injury, and the square replan is followed by the plan that recovers.";
+  }
+  if (taskOutcome && taskStatus) {
+    const err = taskOutcome.place_err_mm == null ? "" : ` (${fmt(taskOutcome.place_err_mm)} mm from the place)`;
+    const again = taskOutcome.replan_requested ? " The planner posted a re-plan after the alarm, then ran the plan from the next champion." : "";
+    taskStatus.style.display = "";
+    taskStatus.innerHTML = `Pick-and-place <b class="${taskOutcome.success ? "ok" : "no"}">${taskOutcome.success ? "placed" : "missed"}</b> the cube${err}.${again}`;
+  }
 
   const svg = $("dagSvg");
   svg.innerHTML = "";
@@ -357,32 +392,79 @@ function buildDag(recs, summary) {
   }
   el("text", { x: x0 - 6, y: 14, "text-anchor": "end" }, svg).textContent = "motion";
 
-  // damage line
+  // damage line. after_id pins it to the artifact posted just before the injury.
   const ev = summary && summary.damage && summary.damage.events && summary.damage.events[0];
   if (ev) {
-    const d = recs.find(r => r.motion >= ev.motion);
+    const d = (ev.after_id != null && recs.find(r => r.id === ev.after_id)) || recs.find(r => r.motion >= ev.motion);
     if (d) {
-      const xd = X(d.seq) - 1;
+      const xd = X(d.seq) + (ev.after_id != null ? 8 : -1);
       el("line", { x1: xd, x2: xd, y1: 18, y2: H - bot, stroke: css("--critical"), "stroke-width": 2 }, svg);
       const t = el("text", { x: xd - 4, y: 28, "text-anchor": "end" }, svg);
       t.style.fill = css("--critical"); t.textContent = `motion ${ev.motion}: ${ev.what}`;
     }
   }
 
-  const gEdges = el("g", {}, svg), gNeeds = el("g", {}, svg), gNodes = el("g", {}, svg);
+  const gEdges = el("g", {}, svg), gNeeds = el("g", {}, svg), gStory = el("g", {}, svg), gNodes = el("g", {}, svg);
   const curve = (a, b) => {
     const ax = X(a.seq), ay = Y(a.author), bx = X(b.seq), by = Y(b.author);
     const mx = (ax + bx) / 2;
     return `M${ax},${ay} C${mx},${ay} ${mx},${by} ${bx},${by}`;
   };
-  // need arrows (always shown once the target is revealed)
+  // need arrows: a need to whatever answered it, and a need back to what provoked it
   const needEdges = [];
+  const labelFor = (src, dst) => {
+    const kn = src.kind === "need" ? src.need : dst.kind === "need" ? dst.need : null;
+    const pressure = src.kind === "need" ? src.pressure : dst.kind === "need" ? dst.pressure : null;
+    if (!kn || /^(data$|probe)/.test(String(kn))) return null;
+    return `${kn} · ${fmt(pressure)}`;
+  };
   for (const d of recs) for (const p of d.parents || []) {
     const src = byId.get(p);
-    if (src && src.kind === "need") {
-      const path = el("path", { d: curve(src, d), fill: "none", stroke: css("--text-muted"), "stroke-width": 1,
-        "stroke-dasharray": "3 3", "marker-end": "url(#arrow)", opacity: 0.55 }, gNeeds);
-      needEdges.push({ path, seq: d.seq });
+    if (!src || (src.kind !== "need" && d.kind !== "need")) continue;
+    const path = el("path", { d: curve(src, d), fill: "none", stroke: css("--text-muted"), "stroke-width": 1,
+      "stroke-dasharray": "3 3", "marker-end": "url(#arrow)", opacity: 0.55 }, gNeeds);
+    let label = null;
+    const text = labelFor(src, d);
+    if (text) {
+      const ax = X(src.seq), bx = X(d.seq), ay = Y(src.author), by = Y(d.author);
+      label = el("text", { x: (ax + bx) / 2, y: (ay + by) / 2 - 2, "text-anchor": "middle", "font-size": "10" }, gNeeds);
+      label.textContent = text;
+    }
+    needEdges.push({ path, label, seq: d.seq });
+  }
+  // replan → the later plan that cites it, and the first champion of each epoch
+  const marks = [];
+  const showMark = (seq, node) => { marks.push({ seq, node }); node.style.display = "none"; };
+  for (const rp of recs.filter(d => d.kind === "replan")) {
+    const nxt = recs.find(p => p.kind === "plan" && p.seq > rp.seq && (p.parents || []).includes(rp.id));
+    if (!nxt) continue;
+    const path = el("path", { d: curve(rp, nxt), fill: "none", stroke: css("--critical"), "stroke-width": 1.5, opacity: 0.85 }, gStory);
+    const label = el("text", { x: (X(rp.seq) + X(nxt.seq)) / 2, y: (Y(rp.author) + Y(nxt.author)) / 2 - 3,
+      "text-anchor": "middle", "font-size": "10" }, gStory);
+    label.style.fill = css("--critical"); label.textContent = "recovery";
+    const g = el("g", {}, gStory); g.append(path, label); showMark(nxt.seq, g);
+  }
+  const crowned = new Set();
+  for (const d of recs) {
+    if (d.kind !== "champion" || crowned.has(d.epoch || 0)) continue;
+    crowned.add(d.epoch || 0);
+    const x = X(d.seq), y = Y(d.author);
+    const ring = el("circle", { cx: x, cy: y, r: 9, fill: "none", stroke: css("--text-primary"), "stroke-width": 1.25 }, gStory);
+    const label = el("text", { x: x + 12, y: y - 6, "font-size": "10" }, gStory);
+    label.style.fill = css("--text-primary"); label.textContent = "crowned";
+    const g = el("g", {}, gStory); g.append(ring, label); showMark(d.seq, g);
+  }
+  if (taskOutcome) {
+    let d = taskOutcome.result_id != null ? recs.find(r => r.id === taskOutcome.result_id) : null;
+    if (!d) d = [...recs].reverse().find(r => r.author === "task-planner" && r.kind === "result");
+    if (d) {
+      const x = X(d.seq), y = Y(d.author);
+      const ok = !!taskOutcome.success;
+      const color = css(ok ? "--good" : "--critical");
+      const ring = el("circle", { cx: x, cy: y, r: 11, fill: "none", stroke: color, "stroke-width": 2 }, gStory);
+      const label = el("text", { x: Math.min(x + 14, x1 - 4), y: y + 4, "font-size": "11" }, gStory);
+      label.style.fill = color; label.textContent = ok ? "placed" : "missed";
+      const g = el("g", {}, gStory); g.append(ring, label); showMark(d.seq, g);
     }
   }
   // nodes
@@ -392,6 +474,8 @@ function buildDag(recs, summary) {
     let n;
     if (k.shape === "diamond") n = el("rect", { x: x - k.r, y: y - k.r, width: 2 * k.r, height: 2 * k.r, rx: 1, fill: c,
       stroke: css("--surface-1"), "stroke-width": 1.5, transform: `rotate(45 ${x} ${y})` }, gNodes);
+    else if (k.shape === "square") n = el("rect", { x: x - k.r, y: y - k.r, width: 2 * k.r, height: 2 * k.r, rx: 1, fill: c,
+      stroke: css("--surface-1"), "stroke-width": 1 }, gNodes);
     else if (k.shape === "ring") n = el("circle", { cx: x, cy: y, r: k.r, fill: css("--surface-1"), stroke: c, "stroke-width": 1.5, "stroke-dasharray": "2 1.5" }, gNodes);
     else n = el("circle", { cx: x, cy: y, r: k.r, fill: c, stroke: css("--surface-1"), "stroke-width": 1 }, gNodes);
     n.style.cursor = "pointer";
@@ -423,7 +507,12 @@ function buildDag(recs, summary) {
   scrub.max = recs.length - 1;
   function render() {
     nodes.forEach((n, i) => n.style.opacity = i <= head ? 1 : 0);
-    needEdges.forEach(e => e.path.style.display = e.seq <= head ? "" : "none");
+    needEdges.forEach(e => {
+      const on = e.seq <= head;
+      e.path.style.display = on ? "" : "none";
+      if (e.label) e.label.style.display = on ? "" : "none";
+    });
+    marks.forEach(m => m.node.style.display = m.seq <= head ? "" : "none");
     scrub.value = head;
     const d = recs[head];
     $("pos").textContent = `artifact ${head + 1} / ${recs.length} · motion ${d.motion}`;
@@ -640,6 +729,7 @@ function fail(where, e) {
       `robot <b>${esc(summary.family || "")}</b>`, `<b>${summary.n_channels}</b> unlabeled channels`,
       `budget <b>${summary.budget}</b> motions`,
       dmg ? `damage <b>${esc(summary.damage.kind)}</b> at motion <b>${dmg.motion}</b>` : "",
+      summary.task ? `pick-and-place <b class="${summary.task.success ? "ok" : "no"}">${summary.task.success ? "placed" : "missed"}</b>` : "",
       summary.llm && summary.llm.length ? `LLM hypothesizers: <b>${summary.llm.map(k => k.split("_")[0].toLowerCase()).join(", ")}</b>` : "LLM hypothesizers off",
     ].filter(Boolean).map(s => `<span>${s}</span>`).join("");
   }

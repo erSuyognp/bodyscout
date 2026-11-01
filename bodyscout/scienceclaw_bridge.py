@@ -53,12 +53,14 @@ KIND_TO_TYPE = {
     "anomaly": "analysis_result",
     "plan": "analysis_result",
     "replan": "analysis_result",
+    "command": "analysis_result",
     "result": "analysis_result",
 }
 # Our need kinds -> the artifact_type a NeedItem asks for (must be in their ArtifactTypeLiteral)
 NEED_TO_TYPE = {"data": "tabular_data", "probe": "tabular_data",
                 "hypotheses": "synthesis", "relearn": "ml_prediction",
-                "task": "analysis_result", "replan": "analysis_result"}
+                "task": "analysis_result", "replan": "analysis_result",
+                "trusted-model": "ml_prediction"}
 NEED_CARRIER_TYPE = "raw_output"  # ScienceClaw's fallback type; the payload is our Need
 
 
@@ -133,7 +135,8 @@ def _records(bb: Blackboard, investigation_id: str) -> list[dict]:
                                   "pressure": float(n.pressure), "open": bool(n.open)},
                    **_clean(n.payload)}
         out.append(_record(sid(n.id), NEED_CARRIER_TYPE, n.author, "bodyscout_need", payload,
-                           investigation_id, _iso(t0), [], [map_need(n)],
+                           investigation_id, _iso(t0), [sid(p) for p in (n.parents or [])],
+                           [map_need(n)],
                            f"{n.author} opened need {n.kind} at pressure {n.pressure:g}"))
     for a in bb.artifacts:
         payload = {"_bodyscout": {"id": a.id, "kind": a.kind, "author": a.author, "epoch": a.epoch},
@@ -226,7 +229,8 @@ def import_blackboard(investigation_id: str, root: Path | str | None = None) -> 
         meta = r["payload"]["_bodyscout"]
         payload = {k: v for k, v in r["payload"].items() if not k.startswith("_")}
         if meta["kind"] == "need":
-            needs.append(Need(meta["id"], meta["need"], meta["author"], meta["pressure"], payload, meta["open"]))
+            needs.append(Need(meta["id"], meta["need"], meta["author"], meta["pressure"], payload,
+                              meta["open"], [local[p] for p in r.get("parent_artifact_ids") or [] if p in local]))
         else:
             t = datetime.fromisoformat(r["timestamp"]).timestamp()
             arts.append(Artifact(meta["id"], meta["kind"], meta["author"], meta["epoch"], payload,

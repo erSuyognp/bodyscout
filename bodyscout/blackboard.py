@@ -15,7 +15,7 @@ from typing import Any
 @dataclass
 class Artifact:
     id: int
-    kind: str          # observation | finding | source | hypothesis | model | verdict | champion | score | anomaly | plan | replan | result
+    kind: str          # observation | finding | source | hypothesis | model | verdict | champion | score | anomaly | plan | replan | command | result
     author: str
     epoch: int         # body epoch: increments when the monitor declares the body changed
     payload: dict
@@ -26,11 +26,12 @@ class Artifact:
 @dataclass
 class Need:
     id: int
-    kind: str          # data | hypotheses | relearn
+    kind: str          # data | hypotheses | relearn | task | replan | trusted-model
     author: str
     pressure: float    # urgency; explorers serve the highest pressure need first
     payload: dict = field(default_factory=dict)
     open: bool = True
+    parents: list = field(default_factory=list)  # artifacts or needs this request came from
 
 
 class Blackboard:
@@ -56,12 +57,15 @@ class Blackboard:
         return xs[-1] if xs else None
 
     # needs -----------------------------------------------------------------
-    def need(self, kind: str, author: str, pressure: float, **payload) -> Need:
+    def need(self, kind: str, author: str, pressure: float, parents=None, **payload) -> Need:
         for n in self.needs:  # merge duplicate open needs, keep the higher pressure
             if n.open and n.kind == kind:
                 n.pressure = max(n.pressure, pressure)
+                for p in parents or []:
+                    if p not in n.parents:
+                        n.parents.append(p)
                 return n
-        n = Need(next(self._ids), kind, author, pressure, payload)
+        n = Need(next(self._ids), kind, author, pressure, payload, True, list(parents or []))
         self.needs.append(n)
         return n
 
@@ -104,7 +108,8 @@ class Blackboard:
         with open(path, "w") as f:
             for n in self.needs:  # observations cite the need they served, so needs are DAG nodes too
                 f.write(json.dumps({"id": n.id, "kind": "need", "need": n.kind, "author": n.author,
-                                    "pressure": n.pressure, "payload": clean(n.payload)}) + "\n")
+                                    "pressure": n.pressure, "parents": list(n.parents),
+                                    "payload": clean(n.payload)}) + "\n")
             for a in self.artifacts:
                 f.write(json.dumps({"id": a.id, "kind": a.kind, "author": a.author, "epoch": a.epoch,
                                     "parents": a.parents, "payload": clean(a.payload)}) + "\n")

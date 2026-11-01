@@ -103,6 +103,16 @@ python -m http.server 8000                # from the repo root, then open http:/
 
 Another run: `/dashboard/?bb=../runs/other.jsonl&summary=../runs/other_summary.json`.
 
+A pick-and-place trial puts the swarm and the task planner on one blackboard. The arm is damaged after the first reach. The log shows the plan, the monitor alarm, the re-plan, the next champion, grasp and ungrasp, and whether the cube was placed.
+
+```bash
+python experiments/task.py --demo --damage long_link
+python -m http.server 8000
+```
+
+Open `http://localhost:8000/dashboard/?bb=../runs/task_blackboard.jsonl&summary=../runs/task_summary.json`.
+Needs are dashed arrows labelled with pressure. The crowned champion, the red damage line, the re-plan and the recovery plan, and a placed or missed marker are on the timeline.
+
 ### Cloud Run
 
 The `Dockerfile` serves the page and its data (nothing else; `.env` never enters the image) with

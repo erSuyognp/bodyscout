@@ -109,6 +109,11 @@ def test_planner_posts_joint_targets_grasp_and_ungrasp_with_parents(tmp_path):
     plan = bb.latest("plan")
     assert [s["kind"] for s in plan.payload["steps"]] == ["move", "grasp", "move", "ungrasp"]
     assert plan.parents
+    cmds = [a for a in bb.artifacts if a.kind == "command"]
+    assert [c.payload["command"] for c in cmds] == ["grasp", "ungrasp"]
+    assert all(c.parents == [plan.id] for c in cmds)
+    grips = [a for a in bb.artifacts if a.kind == "observation" and a.payload.get("gripper")]
+    assert [a.parents for a in grips] == [[c.id] for c in cmds]
     bb.to_jsonl(str(tmp_path / "bb.jsonl"))
     ids = {json.loads(line)["id"] for line in (tmp_path / "bb.jsonl").read_text().splitlines()}
     for art in bb.artifacts:
@@ -118,6 +123,27 @@ def test_planner_posts_joint_targets_grasp_and_ungrasp_with_parents(tmp_path):
         assert set(art.parents) <= ids
     scored = score_placement(scene, places[0], 0, [picks[0].copy()])
     assert scored["success"], scored
+
+
+def test_planner_asks_for_a_trusted_model_until_a_champion_is_crowned():
+    robot = BlackBoxRobot(random_arm(1), seed=1)
+    bb = Blackboard()
+    src = bb.post("source", "scorer", {"source": "task"})
+    task = bb.need("task", "scorer", 10.0, parents=[src.id], trial=0, cube=0,
+                   pick=[0.1, 0.0, 0.2], place=[0.0, 0.1, 0.2])
+    agent = TaskPlanner(_commands(robot), seed=0)
+    agent.step(bb, 0)
+    need = next(n for n in bb.needs if n.kind == "trusted-model")
+    assert need.author == "task-planner" and need.pressure == 80.0
+    assert need.parents == [task.id]
+    assert need.payload["why"] == "need trusted model"
+    assert robot.motions == 0 and bb.latest("plan") is None
+    model = _Still()
+    champ = _champion(bb, model, parents=[src.id])
+    agent.step(bb, 1)
+    plan = bb.latest("plan")
+    assert plan is not None and need.id in plan.parents and champ.id in plan.parents
+    assert need.open is False
 
 
 def test_monitor_surprise_requests_replan_until_a_new_epoch_champion():
@@ -147,6 +173,23 @@ def test_monitor_surprise_requests_replan_until_a_new_epoch_champion():
     assert alarm.id in plan.parents and fresh.id in plan.parents
     assert any(n.kind == "replan" and n.id in plan.parents for n in bb.needs)
     assert agent.replanned is True
+
+
+def test_a_rejected_verdict_does_not_request_replan():
+    robot = BlackBoxRobot(random_arm(3), seed=4)
+    bb = Blackboard()
+    src = bb.post("source", "test", {"source": "task"})
+    model = _Still()
+    champ = _champion(bb, model, holdout_mm=2.0, parents=[src.id])
+    bb.need("task", "test", 10.0, trial=1, cube=0, pick=[0.25, 0.0, 0.2], place=[-0.1, 0.15, 0.25])
+    agent = TaskPlanner(_commands(robot), seed=1)
+    agent.step(bb, 0)
+    bb.post("verdict", "validator-0", {"candidate": champ.id + 99, "family": "mlp",
+                                       "holdout_mm": 400.0, "n_holdout": 6, "replayed": False},
+            [champ.id])
+    agent.step(bb, 1)
+    assert not bb.has_need("replan")
+    assert agent.replanned is False
 
 
 def test_validator_surprise_requests_replan_until_a_later_champion():
