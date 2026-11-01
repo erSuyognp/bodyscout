@@ -696,7 +696,7 @@ if os.path.exists(f"{R}/learning.csv"):
     last = max(tab)
     wrap_title(ax, f"Known arms, nothing to discover: after {last} motions\n" + ", ".join(
         f"{SHORT[c]} {tab[last][c]:.1f} mm" for c in conds) + f" (median).\n{len(arms)} arms, same budget; band = interquartile range", 10)
-    ax.legend(frameon=False, fontsize=8.5, loc="upper right")
+    ax.legend(frameon=False, fontsize=8.5, loc="center right", bbox_to_anchor=(1, 0.62))
     fig.tight_layout()
     save(fig, "fig_learning.png")
 
