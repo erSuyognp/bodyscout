@@ -105,17 +105,28 @@ def style(ax):
     ax.set_axisbelow(True)
 
 
+def retry(write, tries=10):
+    """Windows: a file just written can be briefly locked by a scanner or a viewer."""
+    for attempt in range(tries):
+        try:
+            return write()
+        except OSError:
+            if attempt == tries - 1:
+                raise
+            time.sleep(1.0)
+
+
 def save(fig, name):
     for out in OUTS:
-        for attempt in range(5):  # Windows: a file just written can be briefly locked by a scanner
-            try:
-                fig.savefig(f"{out}/{name}", facecolor="white")
-                break
-            except OSError:
-                if attempt == 4:
-                    raise
-                time.sleep(1.0)
+        retry(lambda: fig.savefig(f"{out}/{name}", facecolor="white"))
     plt.close(fig)
+
+
+def write_text(path, text):
+    def go():
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(text)
+    retry(go)
 
 
 def load(path):
@@ -732,5 +743,5 @@ if why:
 summary.append("")
 
 for out in OUTS:
-    open(f"{out}/summary.md", "w", encoding="utf-8").write("\n".join(summary))
+    write_text(f"{out}/summary.md", "\n".join(summary))
 print("\n".join(summary))
